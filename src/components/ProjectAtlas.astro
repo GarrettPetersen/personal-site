@@ -19,9 +19,8 @@ const { projects } = Astro.props;
 
     {projects.map((project) => (
       <a
-        class="atlas__point"
+        class={`atlas__point atlas__point--${project.id}`}
         href={`#${project.id}`}
-        style={`--x: ${project.atlas.x}%; --y: ${project.atlas.y}%;`}
         aria-label={`Jump to ${project.name}`}
       >
         <span class="atlas__pulse" aria-hidden="true"></span>

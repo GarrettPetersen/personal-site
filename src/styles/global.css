@@ -361,6 +361,13 @@ svg {
   transition: transform 180ms ease, background 180ms ease;
 }
 
+.atlas__point--marque-and-reprisal { --x: 82%; --y: 25%; }
+.atlas__point--ask-thane { --x: 19%; --y: 19%; }
+.atlas__point--connecdoku { --x: 65%; --y: 43%; }
+.atlas__point--dynastic-histories { --x: 74%; --y: 73%; }
+.atlas__point--housing-growth { --x: 20%; --y: 76%; }
+.atlas__point--hilton-zhao { --x: 43%; --y: 89%; }
+
 .atlas__point:hover,
 .atlas__point:focus-visible {
   z-index: 6;
