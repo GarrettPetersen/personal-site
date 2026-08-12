@@ -1,0 +1,49 @@
+---
+import ProjectGlyph from "./ProjectGlyph.astro";
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const sameDestination = project.projectUrl === project.sourceUrl;
+---
+
+<article class="project" id={project.id}>
+  <div class="project__index" aria-hidden="true">{project.index}</div>
+
+  <div class="project__visual">
+    <ProjectGlyph id={project.id} />
+    <div class="project__coordinates" aria-hidden="true">
+      X {project.atlas.x.toString().padStart(2, "0")} / Y {project.atlas.y.toString().padStart(2, "0")}
+    </div>
+  </div>
+
+  <div class="project__content">
+    <div class="project__meta">
+      <span>{project.category}</span>
+      <span>{project.status}</span>
+    </div>
+    <h3>{project.name}</h3>
+    <p class="project__thesis">{project.thesis}</p>
+    <p class="project__description">{project.description}</p>
+
+    <ul class="project__stack" aria-label="Technologies and disciplines">
+      {project.technologies.map((technology) => <li>{technology}</li>)}
+    </ul>
+
+    <div class="project__links">
+      <a class="text-link text-link--primary" href={project.projectUrl} target="_blank" rel="noreferrer">
+        {project.projectLabel}
+        <span aria-hidden="true">↗</span>
+      </a>
+      {!sameDestination && (
+        <a class="text-link" href={project.sourceUrl} target="_blank" rel="noreferrer">
+          Source
+          <span aria-hidden="true">↗</span>
+        </a>
+      )}
+    </div>
+  </div>
+</article>

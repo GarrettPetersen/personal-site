@@ -1,0 +1,39 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<div class="atlas" aria-label="A map of Garrett’s selected projects from products to research and systems to stories">
+  <div class="atlas__plot">
+    <span class="atlas__axis atlas__axis--top">Products</span>
+    <span class="atlas__axis atlas__axis--bottom">Research</span>
+    <span class="atlas__axis atlas__axis--left">Systems</span>
+    <span class="atlas__axis atlas__axis--right">Stories</span>
+
+    <div class="atlas__crosshair" aria-hidden="true"></div>
+
+    {projects.map((project) => (
+      <a
+        class="atlas__point"
+        href={`#${project.id}`}
+        style={`--x: ${project.atlas.x}%; --y: ${project.atlas.y}%;`}
+        aria-label={`Jump to ${project.name}`}
+      >
+        <span class="atlas__pulse" aria-hidden="true"></span>
+        <span class="atlas__label">
+          <span>{project.index}</span>
+          {project.name}
+        </span>
+      </a>
+    ))}
+  </div>
+  <p class="atlas__caption">
+    <span>Current working set</span>
+    Follow a point to the project
+  </p>
+</div>

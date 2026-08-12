@@ -1,0 +1,129 @@
+---
+import "@fontsource-variable/geologica";
+import ProjectAtlas from "../components/ProjectAtlas.astro";
+import ProjectRow from "../components/ProjectRow.astro";
+import { projects } from "../data/projects";
+import "../styles/global.css";
+
+const title = "Garrett Petersen — Economist & Builder";
+const description =
+  "Economist by training, builder by practice. Games, research tools, economic models, and AI-native products by Garrett Petersen.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f3f7f5" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://garrettpetersen.com/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="canonical" href="https://garrettpetersen.com/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to work</a>
+
+    <header class="site-header">
+      <a class="identity" href="#top" aria-label="Garrett Petersen, home">
+        <span class="identity__mark" aria-hidden="true">
+          <span>G</span><span>P</span>
+        </span>
+        <span class="identity__name">Garrett Petersen</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="header-link" href="https://github.com/GarrettPetersen" target="_blank" rel="noreferrer">
+        GitHub <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero__copy">
+          <p class="eyebrow">Economist by training · Builder by practice</p>
+          <h1 id="hero-title">
+            I build models<br />
+            you can <em>play with.</em>
+          </h1>
+          <p class="hero__intro">
+            Games, research tools, and AI-native products that turn complicated systems into something you can see, test, and use.
+          </p>
+          <a class="hero__jump" href="#work">
+            Explore the work
+            <span class="hero__jump-line" aria-hidden="true"></span>
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <ProjectAtlas projects={projects} />
+      </section>
+
+      <section class="work" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <p class="eyebrow">Selected work</p>
+          <h2 id="work-title">Things I’m building and investigating now.</h2>
+          <p>
+            The projects move between software, economics, games, and research. The common thread is making complex systems explorable.
+          </p>
+        </div>
+
+        <div class="project-list">
+          {projects.map((project) => <ProjectRow project={project} />)}
+        </div>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="about-title">
+        <div class="about__label">
+          <p class="eyebrow">About</p>
+          <div class="about__seal" aria-hidden="true">
+            <span>GP</span>
+            <svg viewBox="0 0 100 100">
+              <path id="seal-path" d="M50,50 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0" fill="none" />
+              <text>
+                <textPath href="#seal-path" startOffset="1%">ECONOMICS · SOFTWARE · GAMES · RESEARCH · </textPath>
+              </text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="about__copy">
+          <h2 id="about-title">I follow interesting systems until they become something other people can use.</h2>
+          <div class="about__columns">
+            <p>
+              I’m Garrett Petersen, a Ph.D. economist and independent software builder. My work tends to start with a question—about incentives, language, coordination, history, or play—and end as a working tool.
+            </p>
+            <p>
+              That has led me from economic simulations and mathematical verification to word games, historical archives, team software, and a globe-spanning sailing roguelike.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">Have an interesting system?</h2>
+        <a href="mailto:garrett.m.petersen@gmail.com">
+          Let’s make it legible.
+          <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© {new Date().getFullYear()} Garrett Petersen</p>
+      <p>Economics · software · games · research</p>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </body>
+</html>
