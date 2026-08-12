@@ -72,7 +72,7 @@ export const projects: Project[] = [
     description:
       "A reading environment for the official dynastic histories of China, pairing source text with literal and idiomatic English translations, annotations, and full-corpus search.",
     technologies: ["Static generation", "Search", "Translation", "Publishing"],
-    projectUrl: "https://records-of-the-grand-historian.pages.dev/",
+    projectUrl: "https://24histories.com/",
     projectLabel: "Explore the archive",
     sourceUrl: "https://github.com/GarrettPetersen/records-of-the-grand-historian",
     atlas: { x: 74, y: 73 },
@@ -87,8 +87,8 @@ export const projects: Project[] = [
     description:
       "An interactive overlapping-generations model for testing how constrained housing supply can affect prices, ownership, inequality, and intergenerational wealth transfers.",
     technologies: ["React", "TypeScript", "Simulation", "Data visualization"],
-    projectUrl: "https://github.com/GarrettPetersen/inelastic-housing-growth",
-    projectLabel: "View the model",
+    projectUrl: "https://inelastic-housing-growth.pages.dev/",
+    projectLabel: "Open the model",
     sourceUrl: "https://github.com/GarrettPetersen/inelastic-housing-growth",
     atlas: { x: 20, y: 76 },
   },
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     description:
       "A hand-checkable counterexample to the Hilton–Zhao vertex-splitting conjecture, accompanied by a complete paper and two independent exhaustive verification paths.",
     technologies: ["Graph theory", "Python", "SAT search", "Reproducible research"],
-    projectUrl: "https://github.com/GarrettPetersen/math/blob/master/output/pdf/hilton-zhao-counterexample.pdf",
+    projectUrl: "https://github.com/GarrettPetersen/math/blob/main/output/pdf/hilton-zhao-counterexample.pdf",
     projectLabel: "Read the paper",
     sourceUrl: "https://github.com/GarrettPetersen/math",
     atlas: { x: 43, y: 89 },
