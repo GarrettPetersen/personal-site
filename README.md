@@ -16,6 +16,10 @@ npm run check
 npm run build
 ```
 
+## Résumé
+
+The public `/resume.pdf` asset is the compact résumé generated from `resume_short.md` in the [`GarrettPetersen/resume`](https://github.com/GarrettPetersen/resume) repository. Regenerate it there, then replace `public/resume.pdf` when the canonical résumé changes.
+
 ## Cloudflare Pages
 
 Connect the `GarrettPetersen/personal-site` GitHub repository to Cloudflare Pages with:

@@ -158,8 +158,21 @@ svg {
   transform-origin: left;
 }
 
-.header-link {
+.header-actions {
+  display: flex;
+  gap: clamp(0.8rem, 1.8vw, 1.5rem);
+  align-items: center;
   justify-self: end;
+}
+
+.header-link--resume {
+  padding: 0.62rem 0.72rem;
+  color: var(--white);
+  background: var(--blue);
+}
+
+.header-link--resume:hover {
+  background: var(--ink);
 }
 
 .hero,
