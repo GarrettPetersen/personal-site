@@ -19,7 +19,11 @@ const { projects } = Astro.props;
 
     {projects.map((project) => (
       <a
-        class={`atlas__point atlas__point--${project.id}`}
+        class:list={[
+          "atlas__point",
+          `atlas__point--${project.id}`,
+          { "atlas__point--focus": project.isPrimaryFocus },
+        ]}
         href={`#${project.id}`}
         aria-label={`Jump to ${project.name}`}
       >
@@ -32,7 +36,7 @@ const { projects } = Astro.props;
     ))}
   </div>
   <p class="atlas__caption">
-    <span>Current working set</span>
+    <span><i aria-hidden="true"></i> Primary focus</span>
     Follow a point to the project
   </p>
 </div>

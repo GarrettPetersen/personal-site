@@ -381,6 +381,11 @@ svg {
 .atlas__point--housing-growth { --x: 20%; --y: 76%; }
 .atlas__point--hilton-zhao { --x: 43%; --y: 89%; }
 
+.atlas__point--focus {
+  background: var(--orange);
+  box-shadow: 0 0 0 1px #b93b25;
+}
+
 .atlas__point:hover,
 .atlas__point:focus-visible {
   z-index: 6;
@@ -449,7 +454,16 @@ svg {
 }
 
 .atlas__caption span {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
   color: var(--white);
+}
+
+.atlas__caption i {
+  width: 0.52rem;
+  height: 0.52rem;
+  background: var(--orange);
 }
 
 .work {
@@ -624,6 +638,10 @@ svg {
   margin-right: 0.8rem;
   color: var(--orange);
   content: "●";
+}
+
+.project__focus {
+  color: var(--blue);
 }
 
 .project h3 {

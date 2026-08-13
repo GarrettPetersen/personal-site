@@ -10,7 +10,7 @@ const { project } = Astro.props;
 const sameDestination = project.projectUrl === project.sourceUrl;
 ---
 
-<article class="project" id={project.id}>
+<article class:list={["project", { "project--primary": project.isPrimaryFocus }]} id={project.id}>
   <div class="project__index" aria-hidden="true">{project.index}</div>
 
   <div class="project__visual">
@@ -22,6 +22,7 @@ const sameDestination = project.projectUrl === project.sourceUrl;
 
   <div class="project__content">
     <div class="project__meta">
+      {project.isPrimaryFocus && <span class="project__focus">Primary focus</span>}
       <span>{project.category}</span>
       <span>{project.status}</span>
     </div>

@@ -4,6 +4,7 @@ export type Project = {
   name: string;
   category: string;
   status: string;
+  isPrimaryFocus?: true;
   thesis: string;
   description: string;
   technologies: string[];
@@ -23,6 +24,7 @@ export const projects: Project[] = [
     name: "Marque & Reprisal",
     category: "Game",
     status: "Playable demo",
+    isPrimaryFocus: true,
     thesis: "The age of sail, wrapped around the whole world.",
     description:
       "A globe-spanning pixel-art sailing roguelike set in 1522. Explore, trade, fish, fight, colonize, and survive on a spherical world built from a geodesic tile system.",
@@ -33,8 +35,24 @@ export const projects: Project[] = [
     atlas: { x: 82, y: 25 },
   },
   {
-    id: "ask-thane",
+    id: "dynastic-histories",
     index: "02",
+    name: "Twenty-Four Histories",
+    category: "Digital humanities",
+    status: "Living archive",
+    isPrimaryFocus: true,
+    thesis: "Two thousand years of Chinese history, made searchable.",
+    description:
+      "A reading environment for the official dynastic histories of China, pairing source text with literal and idiomatic English translations, annotations, and full-corpus search.",
+    technologies: ["Static generation", "Search", "Translation", "Publishing"],
+    projectUrl: "https://24histories.com/",
+    projectLabel: "Explore the archive",
+    sourceUrl: "https://github.com/GarrettPetersen/records-of-the-grand-historian",
+    atlas: { x: 74, y: 73 },
+  },
+  {
+    id: "ask-thane",
+    index: "03",
     name: "Ask Thane",
     category: "Product",
     status: "Live",
@@ -49,7 +67,7 @@ export const projects: Project[] = [
   },
   {
     id: "connecdoku",
-    index: "03",
+    index: "04",
     name: "Connecdoku",
     category: "Word game",
     status: "New puzzle daily",
@@ -61,21 +79,6 @@ export const projects: Project[] = [
     projectLabel: "Play today’s puzzle",
     sourceUrl: "https://github.com/GarrettPetersen/connecdoku",
     atlas: { x: 65, y: 43 },
-  },
-  {
-    id: "dynastic-histories",
-    index: "04",
-    name: "Twenty-Four Histories",
-    category: "Digital humanities",
-    status: "Living archive",
-    thesis: "Two thousand years of Chinese history, made searchable.",
-    description:
-      "A reading environment for the official dynastic histories of China, pairing source text with literal and idiomatic English translations, annotations, and full-corpus search.",
-    technologies: ["Static generation", "Search", "Translation", "Publishing"],
-    projectUrl: "https://24histories.com/",
-    projectLabel: "Explore the archive",
-    sourceUrl: "https://github.com/GarrettPetersen/records-of-the-grand-historian",
-    atlas: { x: 74, y: 73 },
   },
   {
     id: "housing-growth",
