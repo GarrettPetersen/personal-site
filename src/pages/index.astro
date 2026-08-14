@@ -8,6 +8,9 @@ import "../styles/global.css";
 const title = "Garrett Petersen — Economist and Data Scientist";
 const description =
   "Data leader and scientist with a PhD in Economics, focused on blockchain/DeFi and prediction market data systems.";
+const primaryProjects = projects.filter((project) => project.tier === "primary");
+const mediumProjects = projects.filter((project) => project.tier === "medium");
+const compactProjects = projects.filter((project) => project.tier === "compact");
 ---
 
 <!doctype html>
@@ -83,9 +86,23 @@ const description =
           </p>
         </div>
 
-        <div class="project-list">
-          {projects.map((project) => <ProjectRow project={project} />)}
+        <div class="project-list project-list--primary">
+          {primaryProjects.map((project) => <ProjectRow project={project} />)}
         </div>
+
+        <section class="work-tier" aria-labelledby="current-projects-title">
+          <h3 class="work-tier__title" id="current-projects-title">Games and products</h3>
+          <div class="project-grid">
+            {mediumProjects.map((project) => <ProjectRow project={project} />)}
+          </div>
+        </section>
+
+        <section class="work-tier" aria-labelledby="other-work-title">
+          <h3 class="work-tier__title" id="other-work-title">Other work</h3>
+          <div class="project-lines">
+            {compactProjects.map((project) => <ProjectRow project={project} />)}
+          </div>
+        </section>
       </section>
 
       <section class="about" id="about" aria-labelledby="about-title">
@@ -117,11 +134,14 @@ const description =
 
       <section class="contact" id="contact" aria-labelledby="contact-title">
         <p class="eyebrow">Contact</p>
-        <h2 id="contact-title">You can contact me at</h2>
-        <a href="mailto:garrett.m.petersen@gmail.com">
-          garrett.m.petersen@gmail.com
+        <h2 id="contact-title">Contact me</h2>
+        <button class="contact__email" type="button" data-email="Z2FycmV0dC5tLnBldGVyc2VuQGdtYWlsLmNvbQ==">
+          Email me
           <span aria-hidden="true">↗</span>
-        </a>
+        </button>
+        <noscript>
+          <a class="text-link text-link--primary" href="/resume.pdf">Contact details in résumé <span aria-hidden="true">↗</span></a>
+        </noscript>
       </section>
     </main>
 
@@ -130,5 +150,21 @@ const description =
       <p>Economist and Data Scientist</p>
       <a href="#top">Back to top ↑</a>
     </footer>
+
+    <script>
+      const emailButton = document.querySelector(".contact__email");
+      if (!(emailButton instanceof HTMLButtonElement)) {
+        throw new Error("Email button is missing");
+      }
+
+      const encodedEmail = emailButton.dataset.email;
+      if (!encodedEmail) {
+        throw new Error("Email address is missing");
+      }
+
+      emailButton.addEventListener("click", () => {
+        window.location.href = `mailto:${window.atob(encodedEmail)}`;
+      });
+    </script>
   </body>
 </html>

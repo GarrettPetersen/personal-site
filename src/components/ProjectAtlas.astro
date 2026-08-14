@@ -21,9 +21,9 @@ const { projects } = Astro.props;
       <a
         class:list={[
           "atlas__point",
-          `atlas__point--${project.id}`,
-          { "atlas__point--focus": project.isPrimaryFocus },
+          { "atlas__point--focus": project.tier === "primary" },
         ]}
+        style={`--x: ${project.atlas.x}%; --y: ${project.atlas.y}%`}
         href={`#${project.id}`}
         aria-label={`Jump to ${project.name}`}
       >
