@@ -1,6 +1,6 @@
 ---
 import "@fontsource-variable/geologica";
-import ProjectAtlas from "../components/ProjectAtlas.astro";
+import ProjectIndex from "../components/ProjectIndex.astro";
 import ProjectRow from "../components/ProjectRow.astro";
 import { projects } from "../data/projects";
 import "../styles/global.css";
@@ -11,6 +11,7 @@ const description =
 const primaryProjects = projects.filter((project) => project.tier === "primary");
 const mediumProjects = projects.filter((project) => project.tier === "medium");
 const compactProjects = projects.filter((project) => project.tier === "compact");
+const secondaryProjects = [...mediumProjects, ...compactProjects];
 ---
 
 <!doctype html>
@@ -74,18 +75,10 @@ const compactProjects = projects.filter((project) => project.tier === "compact")
           </a>
         </div>
 
-        <ProjectAtlas projects={projects} />
+        <ProjectIndex featured={primaryProjects} secondary={secondaryProjects} />
       </section>
 
-      <section class="work" id="work" aria-labelledby="work-title">
-        <div class="section-heading">
-          <p class="eyebrow">Current focus</p>
-          <h2 id="work-title">Marque & Reprisal and 24histories.</h2>
-          <p>
-            These are the projects I care about most right now.
-          </p>
-        </div>
-
+      <section class="work" id="work" aria-label="Selected work">
         <div class="project-list project-list--primary">
           {primaryProjects.map((project) => <ProjectRow project={project} />)}
         </div>

@@ -269,225 +269,111 @@ svg {
   transform: scaleX(1.35);
 }
 
-.atlas {
-  position: relative;
-  padding: clamp(1.5rem, 3vw, 2.75rem);
-  border: 1px solid var(--rule);
-  color: var(--white);
-  border-color: var(--ink);
-  border-radius: 0;
-  background: var(--ink);
-  box-shadow: none;
+.project-index {
+  align-self: center;
+  min-width: 0;
+  border-top: 1px solid var(--ink);
 }
 
-.atlas::before {
-  position: absolute;
-  top: -0.55rem;
-  right: 4rem;
-  width: 0.7rem;
-  height: 0.7rem;
-  border-radius: 0;
-  background: var(--orange);
-  box-shadow: 0 0 0 0.45rem var(--white);
-  content: "";
+.project-index ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.atlas__plot {
-  position: relative;
-  aspect-ratio: 1;
-  border: 1px solid #3c3c3c;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, transparent 28%, #3c3c3c 28.25%, transparent 28.6%),
-    radial-gradient(circle, transparent 48%, #3c3c3c 48.25%, transparent 48.6%);
-}
-
-.atlas__plot::before,
-.atlas__plot::after {
-  position: absolute;
-  z-index: 0;
-  background: #3c3c3c;
-  content: "";
-}
-
-.atlas__plot::before {
-  top: 6%;
-  bottom: 6%;
-  left: 50%;
-  width: 1px;
-}
-
-.atlas__plot::after {
-  top: 50%;
-  right: 6%;
-  left: 6%;
-  height: 1px;
-}
-
-.atlas__crosshair {
-  position: absolute;
-  top: calc(50% - 0.25rem);
-  left: calc(50% - 0.25rem);
-  z-index: 1;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: var(--white);
-}
-
-.atlas__axis {
-  position: absolute;
-  z-index: 2;
-  padding: 0.2rem 0.4rem;
-  color: #b8b8b8;
-  background: var(--ink);
-  font-size: 0.55rem;
-  font-variation-settings: "wght" 650;
-  letter-spacing: 0.12em;
+.project-index__label {
+  margin: 0;
+  padding-block: 0.85rem;
+  color: var(--blue-dark);
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.66rem;
+  font-variation-settings: "wght" 660;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.atlas__axis--top,
-.atlas__axis--bottom {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.atlas__axis--top { top: -0.75rem; }
-.atlas__axis--bottom { bottom: -0.75rem; }
-.atlas__axis--left { top: 50%; left: -1.5rem; transform: rotate(-90deg) translateY(-50%); }
-.atlas__axis--right { top: 50%; right: -1.5rem; transform: rotate(90deg) translateY(-50%); }
-
-.atlas__point {
-  position: absolute;
-  top: var(--y);
-  left: var(--x);
-  z-index: 3;
-  width: 0.72rem;
-  height: 0.72rem;
-  border: 2px solid var(--white);
-  border-radius: 0;
-  background: var(--blue);
-  box-shadow: 0 0 0 1px var(--blue-dark);
-  text-decoration: none;
-  transform: translate(-50%, -50%);
-  transition: transform 180ms ease, background 180ms ease;
-}
-
-.atlas__point--focus {
-  background: var(--orange);
-  box-shadow: 0 0 0 1px #b93b25;
-}
-
-.atlas__point:hover,
-.atlas__point:focus-visible {
-  z-index: 6;
-  background: var(--orange);
-  transform: translate(-50%, -50%) scale(1.35);
-}
-
-.atlas__point:focus-visible {
-  outline-offset: 5px;
-}
-
-.atlas__pulse {
-  position: absolute;
-  inset: -0.4rem;
-  border: 1px solid currentColor;
-  border-radius: 0;
-  opacity: 0;
-}
-
-.atlas__point:hover .atlas__pulse,
-.atlas__point:focus-visible .atlas__pulse {
-  animation: pulse 900ms ease-out infinite;
-}
-
-.atlas__label {
-  position: absolute;
-  bottom: 1rem;
-  left: 0;
-  width: max-content;
-  max-width: 10rem;
-  padding: 0.38rem 0.52rem;
-  color: var(--ink);
-  border: 1px solid var(--rule);
-  border-radius: 0;
-  background: var(--white);
-  font-size: 0.6rem;
-  font-variation-settings: "wght" 590;
-  line-height: 1.2;
-  opacity: 0.86;
-  transform: translateX(-12%);
-  transition: opacity 180ms ease, transform 180ms ease;
-}
-
-.atlas__label span {
-  margin-right: 0.35rem;
-  color: var(--blue);
-  font-size: 0.52rem;
-}
-
-.atlas__point:hover .atlas__label,
-.atlas__point:focus-visible .atlas__label {
-  opacity: 1;
-  transform: translateX(-12%) translateY(-0.2rem) scale(0.74);
-  transform-origin: left bottom;
-}
-
-.atlas__caption {
-  display: flex;
-  justify-content: space-between;
-  margin: 1.9rem 0 0;
-  color: #b8b8b8;
-  font-size: 0.58rem;
-  font-variation-settings: "wght" 560;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.atlas__caption span {
-  display: inline-flex;
-  gap: 0.45rem;
-  align-items: center;
-  color: var(--white);
-}
-
-.atlas__caption i {
-  width: 0.52rem;
-  height: 0.52rem;
-  background: var(--orange);
-}
-
-.work {
-  padding-top: clamp(6rem, 10vw, 11rem);
-  padding-bottom: clamp(5rem, 8vw, 9rem);
+.project-index__featured li + li {
   border-top: 1px solid var(--rule);
 }
 
-.section-heading {
+.project-index__featured a {
   display: grid;
-  grid-template-columns: 0.7fr 1.7fr 1fr;
-  gap: clamp(2rem, 5vw, 6rem);
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  gap: 1rem;
   align-items: start;
-  padding-bottom: clamp(5rem, 8vw, 8rem);
+  padding-block: clamp(1.35rem, 2.5vw, 2.25rem);
+  color: var(--ink);
+  font-size: clamp(2.25rem, 3.8vw, 4.5rem);
+  font-variation-settings: "wght" 570;
+  letter-spacing: -0.055em;
+  line-height: 0.92;
+  text-decoration: none;
+  transition: color 180ms ease;
 }
 
-.section-heading h2 {
-  max-width: 13ch;
-  margin-bottom: 0;
-  font-size: clamp(2.5rem, 4.8vw, 5rem);
-  font-variation-settings: "wght" 540;
-  letter-spacing: -0.05em;
-  line-height: 0.98;
+.project-index__number {
+  padding-top: 0.55em;
+  color: var(--blue);
+  font-size: 0.62rem;
+  font-variation-settings: "wght" 680;
+  letter-spacing: 0.14em;
+  line-height: 1;
 }
 
-.section-heading > p:last-child {
-  max-width: 30rem;
-  color: var(--ink-soft);
-  font-size: 1.14rem;
-  font-variation-settings: "wght" 360;
-  line-height: 1.55;
+.project-index__arrow {
+  padding-top: 0.08em;
+  color: var(--orange);
+  font-size: 0.34em;
+  font-variation-settings: "wght" 600;
+  transition: transform 180ms ease;
+}
+
+.project-index__featured a:hover {
+  color: var(--blue);
+}
+
+.project-index__featured a:hover .project-index__arrow {
+  transform: translateY(0.25rem);
+}
+
+.project-index__secondary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2rem;
+  padding-top: 1rem !important;
+  border-top: 1px solid var(--ink);
+}
+
+.project-index__secondary li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.project-index__secondary a {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.75rem;
+  min-height: 3.5rem;
+  padding-block: 0.9rem;
+  font-size: 0.78rem;
+  font-variation-settings: "wght" 590;
+  line-height: 1.22;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.project-index__secondary a:hover {
+  color: var(--blue);
+}
+
+.project-index__secondary .project-index__number {
+  padding-top: 0.16em;
+  font-size: 0.56rem;
+}
+
+.work {
+  padding-top: clamp(2.25rem, 4vw, 4rem);
+  padding-bottom: clamp(5rem, 8vw, 9rem);
+  border-top: 1px solid var(--rule);
 }
 
 .project-list--primary {
@@ -973,11 +859,6 @@ svg {
   justify-self: center;
 }
 
-@keyframes pulse {
-  from { opacity: 0.65; transform: scale(0.65); }
-  to { opacity: 0; transform: scale(1.8); }
-}
-
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
@@ -992,17 +873,9 @@ svg {
     max-width: 52rem;
   }
 
-  .atlas {
-    width: min(100%, 42rem);
+  .project-index {
+    width: min(100%, 48rem);
     justify-self: end;
-  }
-
-  .section-heading {
-    grid-template-columns: 0.7fr 2fr;
-  }
-
-  .section-heading > p:last-child {
-    grid-column: 2;
   }
 
   .project--primary {
@@ -1050,41 +923,37 @@ svg {
   .hero {
     gap: 4rem;
     padding-top: 4.5rem;
-    padding-bottom: 6rem;
+    padding-bottom: 3.75rem;
   }
 
   .hero h1 {
     font-size: clamp(3.6rem, 17vw, 5.4rem);
   }
 
-  .atlas {
+  .project-index {
     width: 100%;
-    border-radius: 0;
-    box-shadow: none;
   }
 
-  .atlas__label {
-    max-width: 6.4rem;
-    font-size: 0.5rem;
+  .project-index__featured a {
+    grid-template-columns: 1.5rem minmax(0, 1fr) auto;
+    gap: 0.7rem;
+    font-size: clamp(2.15rem, 11.5vw, 3.2rem);
   }
 
-  .atlas__caption {
-    display: grid;
-    gap: 0.25rem;
+  .project-index__secondary {
+    gap: 0 1rem;
   }
 
-  .section-heading {
-    grid-template-columns: 1fr;
-  }
-
-  .section-heading > p:last-child {
-    grid-column: auto;
+  .project-index__secondary a {
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    gap: 0.45rem;
+    font-size: 0.7rem;
   }
 
   .project--primary {
     grid-template-columns: 1fr;
     min-height: auto;
-    padding-block: 4.5rem;
+    padding-block: 3.5rem;
   }
 
   .project__index {

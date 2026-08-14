@@ -17,10 +17,6 @@ export type Project = {
     src: string;
     alt: string;
   };
-  atlas: {
-    x: number;
-    y: number;
-  };
 };
 
 export const projects: Project[] = [
@@ -42,7 +38,6 @@ export const projects: Project[] = [
       src: "/projects/marque-and-reprisal.png",
       alt: "Marque & Reprisal on a pixel-art sunset at sea",
     },
-    atlas: { x: 84, y: 31 },
   },
   {
     id: "dynastic-histories",
@@ -62,7 +57,6 @@ export const projects: Project[] = [
       src: "/projects/24histories.png",
       alt: "The Twenty-Four Histories title in Chinese and English",
     },
-    atlas: { x: 76, y: 78 },
   },
   {
     id: "connecdoku",
@@ -82,7 +76,6 @@ export const projects: Project[] = [
       src: "/projects/connecdoku.png",
       alt: "A daily Connecdoku word grid",
     },
-    atlas: { x: 66, y: 39 },
   },
   {
     id: "ask-thane",
@@ -102,7 +95,6 @@ export const projects: Project[] = [
       src: "/projects/ask-thane.png",
       alt: "Ask Thane task follow-up product card",
     },
-    atlas: { x: 18, y: 20 },
   },
   {
     id: "mystery-farm",
@@ -122,7 +114,6 @@ export const projects: Project[] = [
       src: "/projects/mystery-farm.png",
       alt: "A pixel-art fox detective from mystery.farm",
     },
-    atlas: { x: 88, y: 55 },
   },
   {
     id: "nodeword",
@@ -142,7 +133,6 @@ export const projects: Project[] = [
       src: "/projects/nodeword.png",
       alt: "A Nodeword graph puzzle",
     },
-    atlas: { x: 48, y: 18 },
   },
   {
     id: "housing-growth",
@@ -162,7 +152,6 @@ export const projects: Project[] = [
       src: "/projects/housing-model.png",
       alt: "Housing model results for three generations",
     },
-    atlas: { x: 18, y: 76 },
   },
   {
     id: "hilton-zhao",
@@ -182,6 +171,5 @@ export const projects: Project[] = [
       src: "/projects/hilton-zhao.png",
       alt: "Graph transformations proving the Hilton–Zhao counterexample",
     },
-    atlas: { x: 43, y: 89 },
   },
 ];

@@ -1,0 +1,37 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  featured: Project[];
+  secondary: Project[];
+}
+
+const { featured, secondary } = Astro.props;
+---
+
+<nav class="project-index" aria-label="Selected projects">
+  <p class="project-index__label">Selected work</p>
+
+  <ul class="project-index__featured">
+    {featured.map((project) => (
+      <li>
+        <a href={`#${project.id}`}>
+          <span class="project-index__number" aria-hidden="true">{project.index}</span>
+          <span>{project.name}</span>
+          <span class="project-index__arrow" aria-hidden="true">↓</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <ul class="project-index__secondary">
+    {secondary.map((project) => (
+      <li>
+        <a href={`#${project.id}`}>
+          <span class="project-index__number" aria-hidden="true">{project.index}</span>
+          <span>{project.name}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
