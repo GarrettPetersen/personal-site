@@ -12,6 +12,11 @@ const primaryProjects = projects.filter((project) => project.tier === "primary")
 const mediumProjects = projects.filter((project) => project.tier === "medium");
 const compactProjects = projects.filter((project) => project.tier === "compact");
 const secondaryProjects = [...mediumProjects, ...compactProjects];
+const socialLinks = [
+  { label: "X", url: "https://x.com/GarrettPetersen" },
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/garrett-petersen-b875034b" },
+  { label: "YouTube", url: "https://www.youtube.com/@GarrettPetersen" },
+];
 ---
 
 <!doctype html>
@@ -135,6 +140,18 @@ const secondaryProjects = [...mediumProjects, ...compactProjects];
         <noscript>
           <a class="text-link text-link--primary" href="/resume.pdf">Contact details in résumé <span aria-hidden="true">↗</span></a>
         </noscript>
+        <nav class="contact__socials" aria-label="Social profiles">
+          <ul>
+            {socialLinks.map((social) => (
+              <li>
+                <a href={social.url} target="_blank" rel="noreferrer">
+                  {social.label}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </section>
     </main>
 
