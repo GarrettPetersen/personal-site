@@ -59,8 +59,27 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "connecdoku",
+    id: "human-penned",
     index: "03",
+    name: "Human Penned",
+    category: "Writing platform",
+    status: "Live",
+    tier: "primary",
+    thesis: "Writing assistance without writing replacement.",
+    description:
+      "Human Penned is a platform for writers who want AI help without turning their writing into AI slop. It uses AI as an editor and fact checker while keeping the final wording and voice distinctly yours.",
+    technologies: ["React", "Cloudflare Workers", "D1", "Durable Objects"],
+    projectUrl: "https://humanpenned.com/",
+    projectLabel: "Open Human Penned",
+    sourceUrl: "https://humanpenned.com/",
+    image: {
+      src: "/projects/human-penned.png",
+      alt: "Human Penned: writing assistance without writing replacement",
+    },
+  },
+  {
+    id: "connecdoku",
+    index: "04",
     name: "Connecdoku",
     category: "Word game",
     status: "New puzzle daily",
@@ -79,7 +98,7 @@ export const projects: Project[] = [
   },
   {
     id: "ask-thane",
-    index: "04",
+    index: "05",
     name: "Ask Thane",
     category: "Product",
     status: "Live",
@@ -98,7 +117,7 @@ export const projects: Project[] = [
   },
   {
     id: "mystery-farm",
-    index: "05",
+    index: "06",
     name: "mystery.farm",
     category: "Puzzle game",
     status: "New mystery daily",
@@ -117,7 +136,7 @@ export const projects: Project[] = [
   },
   {
     id: "nodeword",
-    index: "06",
+    index: "07",
     name: "Nodeword",
     category: "Word game",
     status: "Five daily puzzles",
@@ -136,7 +155,7 @@ export const projects: Project[] = [
   },
   {
     id: "housing-growth",
-    index: "07",
+    index: "08",
     name: "Housing Supply Lab",
     category: "Economic model",
     status: "Interactive model",
@@ -155,7 +174,7 @@ export const projects: Project[] = [
   },
   {
     id: "hilton-zhao",
-    index: "08",
+    index: "09",
     name: "Hilton–Zhao Counterexample",
     category: "Mathematics",
     status: "Paper + verifier",
