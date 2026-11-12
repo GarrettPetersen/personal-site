@@ -96,10 +96,10 @@
       "name": "24 Histories · KDP ebooks",
       "group": "secondary",
       "health": "attention",
-      "stage": "4 of 26 works live · next: Jinshu",
+      "stage": "4 of 26 works live · 22 introductions needed",
       "summary": "Publish all Twenty-Four Histories, Zizhi Tongjian and the Draft History of Qing as Kindle ebooks.",
-      "next": "Finish the reviewed Jinshu glossary and ebook QA, then continue through the remaining catalogue.",
-      "blocker": "Jinshu needs the reviewed glossary and final ebook QA before release.",
+      "next": "Write Jinshu’s introduction, then finish its glossary and ebook QA.",
+      "blocker": "Garrett needs to write the introductions for the 22 unpublished books. Introductions must be human-authored; AI translation is fine.",
       "repo": null,
       "url": "https://24histories.com/",
       "activity": null
@@ -179,16 +179,16 @@
       "checkedAt": "2026-11-12T18:38:02.290Z"
     },
     {
-      "id": "jinshu-ebook",
+      "id": "kdp-introductions",
       "projectId": "histories-kdp",
-      "title": "Prepare the next Jinshu ebook release",
-      "owner": "Garrett + Codex",
+      "title": "Write Jinshu’s introduction",
+      "owner": "Garrett",
       "priority": "later",
-      "source": "Owner direction + publishing plan",
-      "note": "26 source works in scope. Jinshu must pass the reviewed glossary, source, EPUB and KDP checks before release. Verify live titles separately; prepared manifests are not published editions.",
+      "source": "Owner direction",
+      "note": "Human-authored introductions are the main blocker for the 22 unpublished books. Publishing more volumes is a potential KDP revenue opportunity. AI translation is acceptable; AI must not write the introductions. Jinshu still needs its reviewed glossary and final ebook QA before release.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-12T20:37:41.000Z"
+      "checkedAt": "2026-11-12T20:52:22.000Z"
     }
   ],
   "metrics": [
@@ -357,6 +357,12 @@
       "label": "KDP publishing",
       "checkedAt": "2026-11-12T20:44:13.000Z",
       "note": "Bookshelf confirms four live Kindle ebooks. Royalties Estimator: CAD 505.28 for Jun 1–Nov 12, including CAD 19.12 for Nov 1–12; all four books, all marketplaces and formats. Amazon’s current FX estimate, not finalized earnings or cash received."
+    },
+    {
+      "id": "kdp-introductions",
+      "label": "KDP introduction backlog",
+      "checkedAt": "2026-11-12T20:52:22.000Z",
+      "note": "Owner confirms that introductions for the 22 unpublished books are the main publishing blocker. Garrett writes the introductions; AI translation is acceptable. Catalogue expansion is a potential revenue opportunity, with no earnings forecast."
     }
   ],
   "prototypeStrategy": {
