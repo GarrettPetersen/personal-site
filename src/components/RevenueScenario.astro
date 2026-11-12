@@ -1,0 +1,71 @@
+---
+import { calculateRevenueScenario, defaultRevenueScenario, formatRevenueUsd } from "../lib/revenue.mjs";
+const defaults = defaultRevenueScenario;
+const result = calculateRevenueScenario(defaults);
+const count = new Intl.NumberFormat("en-CA");
+---
+
+<section class="desk-revenue" aria-labelledby="revenue-title" id="revenue-scenario">
+  <div class="desk-revenue__heading">
+    <div><h3 id="revenue-title">First-week scenario</h3><p>Illustrative launch assumptions · USD</p></div>
+    <span>Back-of-envelope</span>
+  </div>
+  <form data-revenue-form novalidate>
+    <div class="desk-revenue__inputs">
+      <label><span>Launch wishlists</span><input name="launchWishlists" type="number" min="0" step="1" value={defaults.launchWishlists} required disabled /></label>
+      <label><span>Sales / wishlists (%)</span><input name="salesRatioPercent" type="number" min="0" step="0.01" value={defaults.salesRatioPercent} aria-describedby="revenue-ratio-note" required disabled /></label>
+      <label><span>List price (US$)</span><input name="priceUsd" type="number" min="0" step="0.01" value={defaults.priceUsd.toFixed(2)} required disabled /></label>
+      <label><span>Steam share (%)</span><input name="steamSharePercent" type="number" min="0" max="100" step="0.01" value={defaults.steamSharePercent} required disabled /></label>
+    </div>
+    <p id="revenue-ratio-note" class="desk-revenue__note">Assumed sales/wishlist ratio, not measured wishlister conversion. Sales can include buyers who didn’t wishlist.</p>
+    <dl class="desk-revenue__flow" aria-live="polite" aria-atomic="true">
+      <div><dt>First-week copies</dt><dd><output data-revenue-copies>{count.format(result.copies)}</output></dd><dd class="desk-revenue__formula">Wishlists × ratio, rounded</dd></div>
+      <div><dt>Nominal gross</dt><dd><output data-revenue-gross>{formatRevenueUsd(result.grossCents)}</output></dd><dd class="desk-revenue__formula">Copies × list price</dd></div>
+      <div><dt>After Steam share</dt><dd><output data-revenue-after>{formatRevenueUsd(result.afterSteamCents)}</output></dd><dd class="desk-revenue__formula">Gross × developer share</dd></div>
+    </dl>
+    <p class="desk-revenue__error" data-revenue-error role="status" hidden></p>
+    <div class="desk-revenue__bottom"><span>Scenario only; actual dated KPIs are above.</span><button type="reset" disabled>Reset assumptions</button></div>
+  </form>
+  <p class="desk-revenue__caveat">Illustrative arithmetic, not a forecast, profit or cash payout. List price is not an average realized price. Excludes discounts, regional pricing, refunds, chargebacks, FX, all taxes and development/marketing costs.</p>
+  <noscript><p>Enable JavaScript to adjust the assumptions.</p></noscript>
+</section>
+
+<script src="../scripts/revenue.ts"></script>
+
+<style>
+  .desk-revenue { margin-top: 1rem; padding: 1.25rem; border: 1px solid var(--desk-line); border-radius: .5rem; background: #f8faff; }
+  .desk-revenue__heading { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; margin-bottom: 1rem; }
+  .desk-revenue__heading h3 { margin: 0 0 .2rem; font-size: .9rem; font-weight: 580; letter-spacing: -.02em; }
+  .desk-revenue__heading p, .desk-revenue__heading > span { margin: 0; color: var(--desk-muted); font-size: .68rem; }
+  .desk-revenue__inputs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; }
+  label { display: grid; gap: .35rem; align-content: end; min-width: 0; }
+  label > span { color: #4c556d; font-size: .68rem; }
+  input { width: 100%; min-width: 0; padding: .6rem .65rem; border: 1px solid #cdd5e8; border-radius: .25rem; color: var(--ink); background: white; font: inherit; font-size: .85rem; font-variant-numeric: tabular-nums; }
+  input:focus-visible { outline: 2px solid var(--desk-blue); outline-offset: 2px; }
+  input[aria-invalid="true"] { border-color: #a13e24; }
+  .desk-revenue__note { margin: .65rem 0 1rem; font-size: .68rem; color: var(--desk-muted); }
+  .desk-revenue__flow { display: grid; grid-template-columns: .9fr 1.1fr 1.1fr; gap: 1.4rem; margin: 0; padding-block: 1rem; border-block: 1px solid #d8dfee; }
+  .desk-revenue__flow > div { position: relative; min-width: 0; }
+  .desk-revenue__flow > div + div::before { content: "→"; position: absolute; left: -1.1rem; top: 1.25rem; color: #99a8ce; font-size: .9rem; }
+  dt { font-size: .68rem; color: #4c556d; }
+  dd { margin: .3rem 0 0; font-size: clamp(1.05rem, 1.7vw, 1.5rem); font-weight: 580; font-variant-numeric: tabular-nums; letter-spacing: -.035em; overflow-wrap: anywhere; }
+  .desk-revenue__flow > div:last-child output { color: var(--desk-blue); }
+  dd.desk-revenue__formula { font-size: .6rem; color: var(--desk-muted); letter-spacing: 0; font-weight: 400; }
+  .desk-revenue__bottom { display: flex; justify-content: space-between; gap: .7rem; align-items: baseline; margin-top: .75rem; font-size: .65rem; color: var(--desk-muted); }
+  button { flex: 0 0 auto; padding: 0; border: 0; color: var(--desk-blue); background: transparent; font-size: .62rem !important; text-decoration: underline; text-underline-offset: .2em; }
+  .desk-revenue__caveat { margin: .9rem 0 0; max-width: 85ch; color: var(--desk-muted); font-size: .68rem; line-height: 1.6; }
+  .desk-revenue__error { margin: .7rem 0 0; color: #a13e24; font-size: .7rem; }
+  @media (max-width: 1050px) { .desk-revenue__inputs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 760px) {
+    .desk-revenue { padding: 1rem; }
+    .desk-revenue__heading { align-items: start; }
+    .desk-revenue__heading > span { text-align: right; max-width: 5rem; }
+    .desk-revenue__flow { grid-template-columns: minmax(0, 1fr); gap: .75rem; }
+    .desk-revenue__flow > div { display: grid; grid-template-columns: 1fr auto; gap: .15rem .6rem; align-items: baseline; }
+    .desk-revenue__flow > div + div { padding-top: .75rem; border-top: 1px solid #e3e8f5; }
+    .desk-revenue__flow > div + div::before { display: none; }
+    dd { margin: 0; font-size: 1.25rem; }
+    dd.desk-revenue__formula { grid-column: 1 / -1; font-size: .6rem; }
+    .desk-revenue__bottom { flex-wrap: wrap; }
+  }
+</style>

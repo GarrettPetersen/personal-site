@@ -1,0 +1,62 @@
+import { requiredElement } from "../lib/dom";
+import { calculateRevenueScenario, defaultRevenueScenario, formatRevenueUsd } from "../lib/revenue.mjs";
+
+const form = requiredElement("[data-revenue-form]", HTMLFormElement);
+const inputs = {
+  launchWishlists: requiredElement('[name="launchWishlists"]', HTMLInputElement, form),
+  salesRatioPercent: requiredElement('[name="salesRatioPercent"]', HTMLInputElement, form),
+  priceUsd: requiredElement('[name="priceUsd"]', HTMLInputElement, form),
+  steamSharePercent: requiredElement('[name="steamSharePercent"]', HTMLInputElement, form),
+};
+const copies = requiredElement("[data-revenue-copies]", HTMLOutputElement, form);
+const gross = requiredElement("[data-revenue-gross]", HTMLOutputElement, form);
+const after = requiredElement("[data-revenue-after]", HTMLOutputElement, form);
+const error = requiredElement("[data-revenue-error]", HTMLElement, form);
+const reset = requiredElement('button[type="reset"]', HTMLButtonElement, form);
+const count = new Intl.NumberFormat("en-CA");
+
+function showError(message: string) {
+  for (const output of [copies, gross, after]) output.value = "—";
+  error.textContent = message;
+  error.hidden = false;
+}
+
+function render() {
+  for (const input of Object.values(inputs)) input.setAttribute("aria-invalid", String(!input.validity.valid));
+  const invalid = Object.values(inputs).find((input) => !input.validity.valid);
+  if (invalid) {
+    const label = invalid.closest("label");
+    if (!label) throw new Error("Scenario input is missing its label");
+    const name = requiredElement("span", HTMLElement, label).textContent?.trim();
+    if (!name) throw new Error("Scenario input has an empty label");
+    showError(`${name}: ${invalid.validationMessage}`);
+    return;
+  }
+  try {
+    const result = calculateRevenueScenario({
+      launchWishlists: inputs.launchWishlists.valueAsNumber,
+      salesRatioPercent: inputs.salesRatioPercent.valueAsNumber,
+      priceUsd: inputs.priceUsd.valueAsNumber,
+      steamSharePercent: inputs.steamSharePercent.valueAsNumber,
+    });
+    copies.value = count.format(result.copies);
+    gross.value = formatRevenueUsd(result.grossCents);
+    after.value = formatRevenueUsd(result.afterSteamCents);
+    error.hidden = true;
+    error.textContent = "";
+  } catch (cause) {
+    if (!(cause instanceof RangeError)) throw cause;
+    showError(cause.message);
+  }
+}
+
+form.addEventListener("input", render);
+form.addEventListener("reset", (event) => {
+  event.preventDefault();
+  for (const key of Object.keys(inputs) as (keyof typeof inputs)[]) inputs[key].value = String(defaultRevenueScenario[key]);
+  render();
+});
+form.addEventListener("submit", (event) => event.preventDefault());
+for (const input of Object.values(inputs)) input.disabled = false;
+reset.disabled = false;
+render();

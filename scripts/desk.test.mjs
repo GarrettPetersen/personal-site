@@ -2,8 +2,29 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { calendarFeed, daysBetween, isStale, localDate, monthCells, parseDate, publishedGlossaryMetric, validateDesk } from "../src/lib/desk.mjs";
+import { calculateRevenueScenario, defaultRevenueScenario, formatRevenueUsd } from "../src/lib/revenue.mjs";
 
 const snapshot = JSON.parse(readFileSync(new URL("../src/data/desk.json", import.meta.url), "utf8"));
+
+test("first-week scenario reproduces the approved napkin math in cents", () => {
+  assert.deepEqual(calculateRevenueScenario(defaultRevenueScenario), { copies: 3000, grossCents: 4497000, afterSteamCents: 3147900 });
+  assert.equal(formatRevenueUsd(3147900), "US$31,479");
+  assert.equal(formatRevenueUsd(1573950), "US$15,739.50");
+  assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, launchWishlists: 5500 }).copies, 1100);
+});
+
+test("sales ratios can exceed 100% and fractional copy estimates round before revenue", () => {
+  assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, launchWishlists: 100, salesRatioPercent: 150 }).copies, 150);
+  assert.deepEqual(calculateRevenueScenario({ ...defaultRevenueScenario, launchWishlists: 13, salesRatioPercent: 20, priceUsd: .29 }), { copies: 3, grossCents: 87, afterSteamCents: 61 });
+  assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, launchWishlists: 0 }).afterSteamCents, 0);
+  assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, steamSharePercent: 100 }).afterSteamCents, 0);
+});
+
+test("invalid financial assumptions fail instead of showing plausible results", () => {
+  for (const change of [{ launchWishlists: -1 }, { launchWishlists: 1.5 }, { salesRatioPercent: NaN }, { priceUsd: Infinity }, { priceUsd: 14.999 }, { steamSharePercent: 101 }, { launchWishlists: Number.MAX_SAFE_INTEGER }]) {
+    assert.throws(() => calculateRevenueScenario({ ...defaultRevenueScenario, ...change }), RangeError);
+  }
+});
 
 test("published glossary output excludes empty reviews and intermediate extractions", () => {
   const status = { published: true, preview: false, generatedAt: "2026-11-07T02:31:38.080Z", people: 72, extractedChapters: 2050, publication: { publishedPeople: 72, publishedNonemptyChapters: 1, publishedChapters: 16, sourceChapters: 4099 } };

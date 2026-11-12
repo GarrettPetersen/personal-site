@@ -49,6 +49,8 @@ Twenty-Four Histories has initial translations for all 4,099 chapters; its activ
 
 Run `npm run desk:refresh` with an authenticated GitHub CLI to refresh aggregate repository activity and published glossary output. It records intermediate extraction counts separately in source context. This command replaces the snapshot only after every required source succeeds. It never copies commit titles, issue text, credentials or whole private reports. It does not advance editorial review, email or Steam observation times. Review CI against the actual release revision; a failed check on an older revision is not proof of a broken released build.
 
+The M&R first-week calculator is a separate illustrative scenario, not a KPI or forecast. Its owner-supplied defaults are 15,000 launch wishlists, a 20% first-week sales/wishlist ratio, US$14.99 list price and 30% Steam share: 3,000 copies, US$44,970 nominal gross, US$31,479 after the assumed share. Never replace the dated actual wishlist KPI with this scenario total. The ratio includes possible non-wishlist sales; list price is not an average realized price. Copies round to whole units, and currency calculations use cents. Discounts, regional pricing, refunds, chargebacks, currency conversion, taxes and development/marketing costs are excluded. These amounts are not profit or cash payout. Editing assumptions works locally in the tab; no account data or new scheduled work is involved.
+
 During the daily check-in:
 
 1. Read this README, check the worktree and pull the production branch with `git pull --ff-only` only when clean. Preserve other ongoing work; use an isolated worktree for a snapshot update if this checkout is busy. Do not edit or commit another chat’s changes.

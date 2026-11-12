@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/geologica";
 import snapshot from "../data/desk.json";
+import RevenueScenario from "../components/RevenueScenario.astro";
 import { validateDesk, localDate, formatDate, formatChecked, isStale, daysBetween, monthCells } from "../lib/desk.mjs";
 import "../styles/global.css";
 import "../styles/desk.css";
@@ -118,6 +119,7 @@ const healthLabels: Record<string, string> = { attention: "Needs attention", mov
               <p class="desk-next"><strong>Next</strong> {focus.next}</p>
               <div class="desk-project__bottom"><a href={focus.url!}>Project site</a><span>Latest code {formatDate(focus.activity.lastCommitAt.slice(0, 10))}</span></div>
             </article>
+            <RevenueScenario />
           </section>
 
           <section class="desk-section" aria-labelledby="prototypes-title">

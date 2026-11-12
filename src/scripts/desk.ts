@@ -1,10 +1,5 @@
 import { daysBetween, formatDate, isStale, localDate, monthCells } from "../lib/desk.mjs";
-
-function requiredElement<T extends Element>(selector: string, type: { new(...args: any[]): T }): T {
-  const element = document.querySelector(selector);
-  if (!(element instanceof type)) throw new Error(`Project desk is missing ${selector}`);
-  return element;
-}
+import { requiredElement } from "../lib/dom";
 
 const calendar = requiredElement("[data-calendar]", HTMLElement);
 const grid = requiredElement("[data-calendar-grid]", HTMLElement);
