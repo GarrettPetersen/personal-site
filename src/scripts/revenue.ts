@@ -1,5 +1,5 @@
 import { requiredElement } from "../lib/dom";
-import { calculateRevenueScenario, defaultRevenueScenario, formatRevenueUsd } from "../lib/revenue.mjs";
+import { calculateRevenueScenario, defaultRevenueScenario, formatMoney } from "../lib/revenue.mjs";
 
 const form = requiredElement("[data-revenue-form]", HTMLFormElement);
 const inputs = {
@@ -40,8 +40,8 @@ function render() {
       steamSharePercent: inputs.steamSharePercent.valueAsNumber,
     });
     copies.value = count.format(result.copies);
-    gross.value = formatRevenueUsd(result.grossCents);
-    after.value = formatRevenueUsd(result.afterSteamCents);
+    gross.value = formatMoney(result.grossCents);
+    after.value = formatMoney(result.afterSteamCents);
     error.hidden = true;
     error.textContent = "";
   } catch (cause) {

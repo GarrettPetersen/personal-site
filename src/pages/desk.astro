@@ -2,6 +2,7 @@
 import "@fontsource-variable/geologica";
 import snapshot from "../data/desk.json";
 import RevenueScenario from "../components/RevenueScenario.astro";
+import RevenueBreakdown from "../components/RevenueBreakdown.astro";
 import { validateDesk, localDate, formatDate, formatChecked, isStale, daysBetween, monthCells } from "../lib/desk.mjs";
 import "../styles/global.css";
 import "../styles/desk.css";
@@ -68,6 +69,8 @@ const healthLabels: Record<string, string> = { attention: "Needs attention", mov
         </div>
       </section>
 
+      <RevenueBreakdown streams={data.revenue} />
+
       <section class="desk-signals" aria-label="Key numbers">
         {data.metrics.map((metric) => (
           <article class="desk-signal" data-observed-at={metric.observedAt}>
@@ -117,7 +120,7 @@ const healthLabels: Record<string, string> = { attention: "Needs attention", mov
               <p>{focus.summary}</p>
               <div class="desk-blocker"><strong>Watch</strong><p>{focus.blocker}</p></div>
               <p class="desk-next"><strong>Next</strong> {focus.next}</p>
-              <div class="desk-project__bottom"><a href={focus.url!}>Project site</a><span>Latest code {formatDate(focus.activity.lastCommitAt.slice(0, 10))}</span></div>
+              <div class="desk-project__bottom"><a href={focus.url!}>Project site</a><span>Latest code {formatDate(focus.activity!.lastCommitAt.slice(0, 10))}</span></div>
             </article>
             <RevenueScenario />
           </section>
@@ -131,22 +134,23 @@ const healthLabels: Record<string, string> = { attention: "Needs attention", mov
                 <h3>{project.name}</h3>
                 <p>{project.summary}</p>
                 <p class="desk-next"><strong>Next</strong> {project.next}</p>
-                <details><summary>Open questions</summary><p>{project.blocker}</p><span>Latest code {formatDate(project.activity.lastCommitAt.slice(0, 10))}. Wishlist momentum not measured.</span></details>
+                <details><summary>Open questions</summary><p>{project.blocker}</p><span>Latest code {formatDate(project.activity!.lastCommitAt.slice(0, 10))}. Wishlist momentum not measured.</span></details>
                 {project.url && <a href={project.url}>Open prototype</a>}
               </article>)}
             </div>
           </section>
 
-          {secondary.map((project) => <section class="desk-section desk-secondary" aria-labelledby={`${project.id}-title`}>
-            <div class="desk-section-heading"><h2 id={`${project.id}-title`}>Other active work</h2><span>Secondary</span></div>
-            <article class="desk-project" id={project.id}>
+          <section class="desk-section desk-secondary" aria-labelledby="secondary-title">
+            <div class="desk-section-heading"><h2 id="secondary-title">Other active work</h2><span>Secondary</span></div>
+            {secondary.map((project) => <article class="desk-project" id={project.id}>
               <div class="desk-project__heading"><h3>{project.name}</h3><span class={`desk-status desk-status--${project.health}`}>{healthLabels[project.health]}</span></div>
+              <p class="desk-project__stage">{project.stage}</p>
               <p>{project.summary}</p>
               <p class="desk-next"><strong>Watch</strong> {project.blocker}</p>
               <p class="desk-next"><strong>Next</strong> {project.next}</p>
-              <div class="desk-project__bottom"><a href={project.url!}>Progress & evidence</a><span>{project.activity.openPullRequests} open reviews</span></div>
-            </article>
-          </section>)}
+              <div class="desk-project__bottom">{project.url && <a href={project.url}>Progress & evidence</a>}{project.activity && <span>{project.activity.openPullRequests} open reviews</span>}</div>
+            </article>)}
+          </section>
 
           {archiveGroups.map((group) => <details class="desk-archive">
             <summary><span>{group.title}</span><span>{group.projects.length} {group.projects.length === 1 ? "project" : "projects"}</span></summary>

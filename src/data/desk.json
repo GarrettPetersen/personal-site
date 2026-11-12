@@ -90,6 +90,19 @@
           "createdAt": "2026-11-07T02:16:26Z"
         }
       }
+    },
+    {
+      "id": "histories-kdp",
+      "name": "24 Histories · KDP ebooks",
+      "group": "secondary",
+      "health": "attention",
+      "stage": "4 of 26 works live · next: Jinshu",
+      "summary": "Publish all Twenty-Four Histories, Zizhi Tongjian and the Draft History of Qing as Kindle ebooks.",
+      "next": "Finish the reviewed Jinshu glossary and ebook QA, then continue through the remaining catalogue.",
+      "blocker": "Jinshu needs the reviewed glossary and final ebook QA before release.",
+      "repo": null,
+      "url": "https://24histories.com/",
+      "activity": null
     }
   ],
   "tasks": [
@@ -164,6 +177,18 @@
       "status": "done",
       "due": null,
       "checkedAt": "2026-11-12T18:38:02.290Z"
+    },
+    {
+      "id": "jinshu-ebook",
+      "projectId": "histories-kdp",
+      "title": "Prepare the next Jinshu ebook release",
+      "owner": "Garrett + Codex",
+      "priority": "later",
+      "source": "Owner direction + publishing plan",
+      "note": "26 source works in scope. Jinshu must pass the reviewed glossary, source, EPUB and KDP checks before release. Verify live titles separately; prepared manifests are not published editions.",
+      "status": "open",
+      "due": null,
+      "checkedAt": "2026-11-12T20:37:41.000Z"
     }
   ],
   "metrics": [
@@ -326,10 +351,47 @@
       "label": "M&R CI rerun",
       "checkedAt": "2026-11-12T20:14:04.743Z",
       "note": "Owner reports fixes; GitHub confirms Windows packaging passed while the regression job continues. Full CI success is not yet established."
+    },
+    {
+      "id": "kdp-publishing",
+      "label": "KDP publishing",
+      "checkedAt": "2026-11-12T20:40:34.000Z",
+      "note": "Bookshelf confirms four live Kindle ebooks. Royalties Estimator: CAD 19.12 for Nov 1–12, all four books, all marketplaces and formats. Estimate uses Amazon’s current FX; not finalized earnings or a cash payment."
     }
   ],
   "prototypeStrategy": {
     "approach": "For paid Steam games, page and trailer first. Build only enough for polished footage, including staged prototype scenes.",
     "decision": "Test wishlist momentum before full production; if it stalls, change the marketing approach or move on."
-  }
+  },
+  "revenue": [
+    {
+      "id": "kdp",
+      "label": "KDP ebooks",
+      "projectId": "histories-kdp",
+      "note": "Amazon’s CAD estimate; not cash received.",
+      "report": {
+        "amountCents": 1912,
+        "currency": "CAD",
+        "periodStart": "2026-11-01",
+        "periodEnd": "2026-11-12",
+        "basis": "estimated",
+        "observedAt": "2026-11-12T20:40:34.000Z",
+        "source": "KDP Royalties Estimator · all books & marketplaces"
+      }
+    },
+    {
+      "id": "steam",
+      "label": "Steam · Marque & Reprisal",
+      "projectId": "marque-and-reprisal",
+      "note": "Launch November 18. Sales unmeasured.",
+      "report": null
+    },
+    {
+      "id": "other",
+      "label": "Other projects",
+      "projectId": null,
+      "note": "No revenue reports connected.",
+      "report": null
+    }
+  ]
 }

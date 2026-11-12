@@ -52,6 +52,7 @@
 .desk-completed p { margin: 0; color: var(--desk-muted); font-size: .7rem; }
 .desk-completed strong { font-weight: 520; color: var(--ink); }
 .desk-project { border: 1px solid var(--desk-line); padding: 1.5rem; border-radius: .5rem; }
+.desk-secondary .desk-project + .desk-project { margin-top: 1rem; }
 .desk-project h3 { font-size: 1.12rem; line-height: 1.3; font-weight: 600; letter-spacing: -.035em; margin-bottom: .75rem; }
 .desk-project p { color: #535760; font-size: .77rem; margin-bottom: 1rem; }
 .desk-project__heading { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: .25rem; }

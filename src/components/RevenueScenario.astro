@@ -1,5 +1,5 @@
 ---
-import { calculateRevenueScenario, defaultRevenueScenario, formatRevenueUsd } from "../lib/revenue.mjs";
+import { calculateRevenueScenario, defaultRevenueScenario, formatMoney } from "../lib/revenue.mjs";
 const defaults = defaultRevenueScenario;
 const result = calculateRevenueScenario(defaults);
 const count = new Intl.NumberFormat("en-CA");
@@ -20,8 +20,8 @@ const count = new Intl.NumberFormat("en-CA");
     <p id="revenue-ratio-note" class="desk-revenue__note">Assumed sales/wishlist ratio, not measured wishlister conversion. Sales can include buyers who didn’t wishlist.</p>
     <dl class="desk-revenue__flow" aria-live="polite" aria-atomic="true">
       <div><dt>First-week copies</dt><dd><output data-revenue-copies>{count.format(result.copies)}</output></dd><dd class="desk-revenue__formula">Wishlists × ratio, rounded</dd></div>
-      <div><dt>Nominal gross</dt><dd><output data-revenue-gross>{formatRevenueUsd(result.grossCents)}</output></dd><dd class="desk-revenue__formula">Copies × list price</dd></div>
-      <div><dt>After Steam share</dt><dd><output data-revenue-after>{formatRevenueUsd(result.afterSteamCents)}</output></dd><dd class="desk-revenue__formula">Gross × developer share</dd></div>
+      <div><dt>Nominal gross</dt><dd><output data-revenue-gross>{formatMoney(result.grossCents)}</output></dd><dd class="desk-revenue__formula">Copies × list price</dd></div>
+      <div><dt>After Steam share</dt><dd><output data-revenue-after>{formatMoney(result.afterSteamCents)}</output></dd><dd class="desk-revenue__formula">Gross × developer share</dd></div>
     </dl>
     <p class="desk-revenue__error" data-revenue-error role="status" hidden></p>
     <div class="desk-revenue__bottom"><span>Scenario only; actual dated KPIs are above.</span><button type="reset" disabled>Reset assumptions</button></div>

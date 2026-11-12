@@ -1,16 +1,11 @@
+import { parseDate } from "./dates.mjs";
+import { summarizeRevenue } from "./revenue.mjs";
+
 export const timeZone = "America/Vancouver";
 
 /** @param {Date} [now] */
 export function localDate(now = new Date()) {
   return new Intl.DateTimeFormat("en-CA", { timeZone, year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
-}
-
-/** @param {string} value */
-export function parseDate(value) {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) throw new Error(`Invalid date: ${value}`);
-  const date = new Date(`${value}T12:00:00Z`);
-  if (!Number.isFinite(date.getTime()) || date.toISOString().slice(0, 10) !== value) throw new Error(`Invalid date: ${value}`);
-  return date;
 }
 
 /** @param {string} value @param {Intl.DateTimeFormatOptions} [options] */
@@ -118,7 +113,10 @@ export function validateDesk(data) {
     for (const field of ["name", "stage", "summary", "next", "blocker"]) required(text(project[field]), `${project.id} needs ${field}`);
     required(project.url === null || url(project.url), "invalid project URL");
     required(project.repo === null || /^[\w.-]+\/[\w.-]+$/.test(project.repo), "invalid repository");
+    required(project.activity !== undefined && (project.activity !== null || (project.repo === null && project.group === "secondary")), "repository projects need activity evidence");
   }
+  summarizeRevenue(data.revenue);
+  for (const stream of data.revenue) required(stream.projectId === null || ids.has(stream.projectId), "unknown revenue project");
   for (const group of [data.tasks, data.metrics, data.events, data.archive, data.sources]) {
     const itemIds = new Set();
     for (const item of group) {

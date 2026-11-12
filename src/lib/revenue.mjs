@@ -1,3 +1,5 @@
+import { parseDate } from "./dates.mjs";
+
 /** @typedef {{launchWishlists: number, salesRatioPercent: number, priceUsd: number, steamSharePercent: number}} RevenueAssumptions */
 
 /** Illustrative first-week assumptions, never an observed Steam KPI. @type {Readonly<RevenueAssumptions>} */
@@ -26,8 +28,41 @@ export function calculateRevenueScenario(assumptions) {
   return { copies, grossCents, afterSteamCents };
 }
 
-/** @param {number} cents */
-export function formatRevenueUsd(cents) {
-  if (!Number.isSafeInteger(cents) || cents < 0) throw new RangeError("Revenue must be a nonnegative whole number of cents.");
-  return new Intl.NumberFormat("en-CA", { style: "currency", currency: "USD", minimumFractionDigits: cents % 100 === 0 ? 0 : 2, maximumFractionDigits: 2 }).format(cents / 100);
+/** Signed earnings allow refunds and adjustments. @param {number} cents @param {string} [currency] */
+export function formatMoney(cents, currency = "USD") {
+  if (!Number.isSafeInteger(cents)) throw new RangeError("Money must be a safe whole number of cents.");
+  if (!Intl.supportedValuesOf("currency").includes(currency)) throw new RangeError("Money needs a recognized currency code.");
+  const formatter = new Intl.NumberFormat("en-CA", { style: "currency", currency });
+  if (formatter.resolvedOptions().maximumFractionDigits !== 2) throw new RangeError("This ledger supports currencies with two decimal places.");
+  return new Intl.NumberFormat("en-CA", { style: "currency", currency, minimumFractionDigits: cents % 100 === 0 ? 0 : 2, maximumFractionDigits: 2 }).format(cents / 100);
+}
+
+/** @typedef {{amountCents:number, currency:string, periodStart:string, periodEnd:string, basis:string, observedAt:string, source:string}} EarningsReport */
+/** @typedef {{id:string, label:string, projectId:string|null, note:string, report:EarningsReport|null}} RevenueStream */
+
+/** Never combine different periods, currencies or estimate/final bases. @param {RevenueStream[]} streams */
+export function summarizeRevenue(streams) {
+  if (!Array.isArray(streams) || streams.length === 0) throw new Error("Revenue needs at least one tracked source.");
+  const ids = new Set();
+  const totals = new Map();
+  let reported = 0;
+  for (const stream of streams) {
+    if (typeof stream.id !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(stream.id) || ids.has(stream.id) || !stream.label?.trim() || !stream.note?.trim()) throw new Error("Invalid or duplicate revenue source.");
+    ids.add(stream.id);
+    if (stream.report === null) continue;
+    const report = stream.report;
+    if (!report) throw new Error("Missing revenue must be explicitly unreported.");
+    if (typeof report.currency !== "string") throw new Error("Revenue needs its source currency.");
+    formatMoney(report.amountCents, report.currency);
+    for (const date of [report.periodStart, report.periodEnd]) parseDate(date);
+    if (report.periodStart > report.periodEnd || !["estimated", "finalized"].includes(report.basis) || !/T.*Z$/.test(report.observedAt) || !Number.isFinite(Date.parse(report.observedAt)) || report.observedAt.slice(0, 10) < report.periodEnd || !report.source?.trim()) throw new Error("Revenue needs a valid period, basis, source and observation time.");
+    const key = [report.currency, report.periodStart, report.periodEnd, report.basis].join("|");
+    const total = totals.get(key) ?? { currency: report.currency, periodStart: report.periodStart, periodEnd: report.periodEnd, basis: report.basis, amountCents: 0, sources: 0 };
+    total.amountCents += report.amountCents;
+    if (!Number.isSafeInteger(total.amountCents)) throw new RangeError("Revenue subtotal exceeds the safe numeric range.");
+    total.sources++;
+    totals.set(key, total);
+    reported++;
+  }
+  return { totals: [...totals.values()], reported, missing: streams.length - reported };
 }

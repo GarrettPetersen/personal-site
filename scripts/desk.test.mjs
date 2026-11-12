@@ -1,15 +1,16 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { calendarFeed, daysBetween, isStale, localDate, monthCells, parseDate, publishedGlossaryMetric, validateDesk } from "../src/lib/desk.mjs";
-import { calculateRevenueScenario, defaultRevenueScenario, formatRevenueUsd } from "../src/lib/revenue.mjs";
+import { calendarFeed, daysBetween, isStale, localDate, monthCells, publishedGlossaryMetric, validateDesk } from "../src/lib/desk.mjs";
+import { parseDate } from "../src/lib/dates.mjs";
+import { calculateRevenueScenario, defaultRevenueScenario, formatMoney, summarizeRevenue } from "../src/lib/revenue.mjs";
 
 const snapshot = JSON.parse(readFileSync(new URL("../src/data/desk.json", import.meta.url), "utf8"));
 
 test("first-week scenario reproduces the approved napkin math in cents", () => {
   assert.deepEqual(calculateRevenueScenario(defaultRevenueScenario), { copies: 3000, grossCents: 4497000, afterSteamCents: 3147900 });
-  assert.equal(formatRevenueUsd(3147900), "US$31,479");
-  assert.equal(formatRevenueUsd(1573950), "US$15,739.50");
+  assert.equal(formatMoney(3147900), "US$31,479");
+  assert.equal(formatMoney(1573950), "US$15,739.50");
   assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, launchWishlists: 5500 }).copies, 1100);
 });
 
@@ -24,6 +25,41 @@ test("invalid financial assumptions fail instead of showing plausible results", 
   for (const change of [{ launchWishlists: -1 }, { launchWishlists: 1.5 }, { salesRatioPercent: NaN }, { priceUsd: Infinity }, { priceUsd: 14.999 }, { steamSharePercent: 101 }, { launchWishlists: Number.MAX_SAFE_INTEGER }]) {
     assert.throws(() => calculateRevenueScenario({ ...defaultRevenueScenario, ...change }), RangeError);
   }
+});
+
+const earningsReport = { amountCents: 1912, currency: "CAD", periodStart: "2026-11-01", periodEnd: "2026-11-12", basis: "estimated", observedAt: "2026-11-12T20:40:34Z", source: "Test royalty report" };
+const revenueStream = (id, report) => ({ id, label: id, projectId: null, note: "Test source", report });
+
+test("revenue distinguishes unreported sources from measured zero and refunds", () => {
+  assert.deepEqual(summarizeRevenue([revenueStream("missing", null)]), { totals: [], reported: 0, missing: 1 });
+  const result = summarizeRevenue([revenueStream("kdp", earningsReport), revenueStream("zero", { ...earningsReport, amountCents: 0 }), revenueStream("refund", { ...earningsReport, amountCents: -100 }), revenueStream("missing", null)]);
+  assert.equal(result.totals[0].amountCents, 1812);
+  assert.equal(result.reported, 3);
+  assert.equal(result.missing, 1);
+  assert.equal(formatMoney(-100, "CAD"), "-$1");
+});
+
+test("revenue never adds incompatible currencies, periods or reporting bases", () => {
+  const result = summarizeRevenue([
+    revenueStream("kdp", earningsReport),
+    revenueStream("usd", { ...earningsReport, currency: "USD" }),
+    revenueStream("earlier", { ...earningsReport, periodEnd: "2026-11-11" }),
+    revenueStream("final", { ...earningsReport, basis: "finalized" }),
+  ]);
+  assert.equal(result.totals.length, 4);
+  assert.ok(result.totals.every((total) => total.amountCents === 1912));
+});
+
+test("incomplete or invalid revenue evidence fails before publication", () => {
+  for (const change of [{ amountCents: 1.1 }, { currency: undefined }, { currency: "XXX" }, { currency: "JPY" }, { periodEnd: "2026-02-30" }, { periodStart: "2026-11-13" }, { basis: "cash" }, { observedAt: "2026-11-11T20:00:00Z" }, { source: "" }]) {
+    assert.throws(() => summarizeRevenue([revenueStream("kdp", { ...earningsReport, ...change })]));
+  }
+  assert.throws(() => summarizeRevenue([revenueStream("kdp", undefined)]), /explicitly unreported/);
+  assert.throws(() => summarizeRevenue([revenueStream("same", earningsReport), revenueStream("same", earningsReport)]), /duplicate/);
+  assert.throws(() => summarizeRevenue([revenueStream("large", { ...earningsReport, amountCents: Number.MAX_SAFE_INTEGER }), revenueStream("extra", earningsReport)]), /safe numeric/);
+  const broken = structuredClone(snapshot);
+  broken.revenue[0].projectId = "missing-project";
+  assert.throws(() => validateDesk(broken), /unknown revenue project/);
 });
 
 test("published glossary output excludes empty reviews and intermediate extractions", () => {
