@@ -229,6 +229,13 @@
   ],
   "archive": [
     {
+      "id": "immortal-glory",
+      "name": "Immortal Glory",
+      "status": "On hold",
+      "url": null,
+      "description": "Online implementation of Napoleon’s Triumph with a map editor. Development tabled."
+    },
+    {
       "id": "human-penned",
       "name": "Human Penned",
       "status": "Shipped",

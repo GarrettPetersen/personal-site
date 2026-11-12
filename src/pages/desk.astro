@@ -14,6 +14,10 @@ const projectFor = (id: string | null) => id === null ? "Portfolio" : data.proje
 const focus = data.projects.find((project) => project.group === "focus")!;
 const prototypes = data.projects.filter((project) => project.group === "prototype");
 const secondary = data.projects.filter((project) => project.group === "secondary");
+const archiveGroups = [
+  { title: "On hold", description: "Tabled projects. Resume only when priorities change.", projects: data.archive.filter((project) => project.status === "On hold") },
+  { title: "Shipped & reference", description: "Completed releases and published work. Revisit when there’s a reason.", projects: data.archive.filter((project) => project.status !== "On hold") },
+].filter((group) => group.projects.length > 0);
 const launch = data.events.find((event) => event.id === "marque-launch")!;
 const daysToLaunch = daysBetween(today, launch.date);
 const dateParts = today.split("-").map(Number);
@@ -142,11 +146,14 @@ const healthLabels: Record<string, string> = { attention: "Needs attention", mov
             </article>
           </section>)}
 
-          <details class="desk-archive">
-            <summary><span>Shipped & reference</span><span>{data.archive.length} projects</span></summary>
-            <p>Completed releases and published work. Revisit when there’s a reason.</p>
-            <ul>{data.archive.map((project) => <li><a href={project.url}>{project.name}</a><span>{project.status}</span></li>)}</ul>
-          </details>
+          {archiveGroups.map((group) => <details class="desk-archive">
+            <summary><span>{group.title}</span><span>{group.projects.length} {group.projects.length === 1 ? "project" : "projects"}</span></summary>
+            <p>{group.description}</p>
+            <ul>{group.projects.map((project) => <li>
+              <div>{project.url ? <a href={project.url}>{project.name}</a> : <span>{project.name}</span>}{project.description && <p class="desk-archive__description">{project.description}</p>}</div>
+              <span>{project.status}</span>
+            </li>)}</ul>
+          </details>)}
         </div>
 
         <aside class="desk-side-column" aria-label="Calendar and source checks">

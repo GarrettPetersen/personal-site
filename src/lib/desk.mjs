@@ -143,5 +143,9 @@ export function validateDesk(data) {
     required(timestamp(event.verifiedAt) && (event.sourceUrl === null || url(event.sourceUrl)), "calendar evidence missing");
   }
   for (const source of data.sources) required(text(source.label) && timestamp(source.checkedAt), "invalid source check");
+  for (const project of data.archive) {
+    required(text(project.name) && text(project.status) && (project.url === null || url(project.url)), "invalid archived project");
+    if (project.description !== undefined || project.status === "On hold") required(text(project.description), "held projects need a description");
+  }
   return data;
 }

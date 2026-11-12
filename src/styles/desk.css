@@ -89,6 +89,8 @@
 .desk-archive ul { padding: 0; margin: 0; list-style: none; }
 .desk-archive li { display: flex; justify-content: space-between; gap: 1rem; padding-block: .6rem; border-top: 1px solid var(--desk-line); font-size: .73rem; }
 .desk-archive li > span { color: var(--desk-muted); font-size: .64rem; text-align: right; }
+.desk-archive .desk-archive__description { max-width: 65ch; margin: .3rem 0 0; color: var(--desk-muted); font-size: .68rem; }
+.desk-archive + .desk-archive { border-top: 0; }
 .desk-launch { padding: 1.4rem 1.5rem; border-radius: .5rem; background: var(--desk-blue); color: white; margin-bottom: 2.4rem; }
 .desk-launch > p:first-child { margin-bottom: 1.2rem; opacity: .82; font-size: .7rem; }
 .desk-launch__days { font-size: 3.4rem; font-weight: 580; letter-spacing: -.065em; line-height: 1; margin-bottom: 1.45rem; }
