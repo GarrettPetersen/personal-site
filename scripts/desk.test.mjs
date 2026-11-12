@@ -1,9 +1,21 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { calendarFeed, daysBetween, isStale, localDate, monthCells, parseDate, validateDesk } from "../src/lib/desk.mjs";
+import { calendarFeed, daysBetween, isStale, localDate, monthCells, parseDate, publishedGlossaryMetric, validateDesk } from "../src/lib/desk.mjs";
 
 const snapshot = JSON.parse(readFileSync(new URL("../src/data/desk.json", import.meta.url), "utf8"));
+
+test("published glossary output excludes empty reviews and intermediate extractions", () => {
+  const status = { published: true, preview: false, generatedAt: "2026-11-07T02:31:38.080Z", people: 72, extractedChapters: 2050, publication: { publishedPeople: 72, publishedNonemptyChapters: 1, publishedChapters: 16, sourceChapters: 4099 } };
+  const metric = publishedGlossaryMetric(status);
+  assert.equal(metric.value, 72);
+  assert.equal(metric.note, "1 nonempty chapter published.");
+  assert.equal(metric.observedAt, status.generatedAt);
+  assert.equal(metric.total, null);
+  assert.throws(() => publishedGlossaryMetric({ ...status, preview: true }), /unavailable/);
+  assert.throws(() => publishedGlossaryMetric({ ...status, people: 73 }), /disagree/);
+  assert.throws(() => publishedGlossaryMetric({ ...status, publication: { ...status.publication, publishedNonemptyChapters: undefined } }), /Invalid published/);
+});
 
 test("dates reject impossible days and remain calendar-based through daylight saving", () => {
   assert.throws(() => parseDate("2026-02-29"));

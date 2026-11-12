@@ -36,6 +36,25 @@ export function isStale(value, now = new Date()) {
   return age > 48 * 60 * 60 * 1000;
 }
 
+/** Published output excludes empty reviews and intermediate extractions. @param {any} status */
+export function publishedGlossaryMetric(status) {
+  const publication = status.publication;
+  const count = (value) => Number.isSafeInteger(value) && value >= 0;
+  if (status.published !== true || status.preview !== false || !Number.isFinite(Date.parse(status.generatedAt)) || !publication) throw new Error("Published glossary status is unavailable or its schema changed");
+  for (const key of ["publishedPeople", "publishedNonemptyChapters", "publishedChapters", "sourceChapters"]) {
+    if (!count(publication[key])) throw new Error(`Invalid published glossary count: ${key}`);
+  }
+  if (publication.publishedNonemptyChapters > publication.publishedChapters || publication.publishedChapters > publication.sourceChapters || status.people !== publication.publishedPeople) throw new Error("Published glossary counts disagree");
+  const chapters = publication.publishedNonemptyChapters;
+  return {
+    label: "Person pages published",
+    value: publication.publishedPeople,
+    total: null,
+    note: `${chapters.toLocaleString("en-CA")} nonempty chapter${chapters === 1 ? "" : "s"} published.`,
+    observedAt: status.generatedAt,
+  };
+}
+
 /** @param {number} year @param {number} month Zero-based month. */
 export function monthCells(year, month) {
   const first = new Date(Date.UTC(year, month, 1, 12));

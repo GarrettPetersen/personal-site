@@ -1,6 +1,6 @@
 import { execFileSync } from "node:child_process";
 import { readFile, rename, writeFile } from "node:fs/promises";
-import { validateDesk } from "../src/lib/desk.mjs";
+import { publishedGlossaryMetric, validateDesk } from "../src/lib/desk.mjs";
 
 // Only aggregates and dates cross this boundary. Never copy API payloads or
 // private commit/issue titles into the public repository.
@@ -33,19 +33,25 @@ for (const project of data.projects) {
   console.log(`Checked ${project.name}`);
 }
 
-const response = await fetch("https://24histories.com/data/progress.json", { signal: AbortSignal.timeout(30_000) });
-if (!response.ok) throw new Error(`Glossary data returned HTTP ${response.status}`);
-const progress = await response.json();
+async function publicJson(url) {
+  const response = await fetch(url, { signal: AbortSignal.timeout(30_000) });
+  if (!response.ok) throw new Error(`Glossary data returned HTTP ${response.status}: ${url}`);
+  return response.json();
+}
+const [progress, publication] = await Promise.all([
+  publicJson("https://24histories.com/data/progress.json"),
+  publicJson("https://24histories.com/data/people/site-status.json"),
+]);
 const glossary = progress.peopleGlossary;
 if (!glossary || !Number.isInteger(glossary.extractedChapters) || !Number.isInteger(glossary.sourceChapters) || !Number.isFinite(Date.parse(progress.generatedAt))) throw new Error("Glossary progress schema changed");
 const metric = data.metrics.find((item) => item.id === "glossary");
 if (!metric) throw new Error("Missing glossary metric");
-Object.assign(metric, { value: glossary.extractedChapters, total: glossary.sourceChapters, observedAt: progress.generatedAt });
+Object.assign(metric, publishedGlossaryMetric(publication));
 for (const id of ["github", "glossary"]) {
   const source = data.sources.find((item) => item.id === id);
   if (!source) throw new Error(`Missing source: ${id}`);
   source.checkedAt = checkedAt;
-  if (id === "glossary") source.note = "Measurement retains the published source snapshot’s original date; collection does not make it newer.";
+  if (id === "glossary") source.note = `Published output retains its source date. Separately, ${glossary.extractedChapters.toLocaleString("en-CA")} extracted chapters are intermediate work (source: ${progress.generatedAt.slice(0, 10)}), not published completion.`;
 }
 
 // Human/agent review, email and Steam observation times intentionally stay put.

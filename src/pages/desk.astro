@@ -24,6 +24,7 @@ const counts = new Intl.NumberFormat("en-CA");
 const sortedEvents = [...data.events].sort((a, b) => a.date.localeCompare(b.date));
 const upcomingEvents = sortedEvents.filter((event) => event.date >= today);
 const priorityLabels: Record<string, string> = { now: "Now", next: "Next", later: "After launch" };
+const healthLabels: Record<string, string> = { attention: "Needs attention", moving: "In progress", exploring: "Exploring" };
 ---
 
 <!doctype html>
@@ -106,7 +107,7 @@ const priorityLabels: Record<string, string> = { now: "Now", next: "Next", later
           <section class="desk-section desk-focus" aria-labelledby="focus-title">
             <div class="desk-section-heading"><h2 id="focus-title">Main focus</h2><span>Through launch</span></div>
             <article class="desk-project desk-project--focus" id={focus.id}>
-              <div class="desk-project__heading"><h3>{focus.name}</h3><span class="desk-status desk-status--attention">Needs attention</span></div>
+              <div class="desk-project__heading"><h3>{focus.name}</h3><span class={`desk-status desk-status--${focus.health}`}>{healthLabels[focus.health]}</span></div>
               <p class="desk-project__stage">{focus.stage}</p>
               <p>{focus.summary}</p>
               <div class="desk-blocker"><strong>Watch</strong><p>{focus.blocker}</p></div>
@@ -130,10 +131,11 @@ const priorityLabels: Record<string, string> = { now: "Now", next: "Next", later
           </section>
 
           {secondary.map((project) => <section class="desk-section desk-secondary" aria-labelledby={`${project.id}-title`}>
-            <div class="desk-section-heading"><h2 id={`${project.id}-title`}>Also moving</h2><span>Secondary</span></div>
+            <div class="desk-section-heading"><h2 id={`${project.id}-title`}>Other active work</h2><span>Secondary</span></div>
             <article class="desk-project" id={project.id}>
-              <div class="desk-project__heading"><h3>{project.name}</h3><span class="desk-status desk-status--moving">In progress</span></div>
+              <div class="desk-project__heading"><h3>{project.name}</h3><span class={`desk-status desk-status--${project.health}`}>{healthLabels[project.health]}</span></div>
               <p>{project.summary}</p>
+              <p class="desk-next"><strong>Watch</strong> {project.blocker}</p>
               <p class="desk-next"><strong>Next</strong> {project.next}</p>
               <div class="desk-project__bottom"><a href={project.url!}>Progress & evidence</a><span>{project.activity.openPullRequests} open reviews</span></div>
             </article>

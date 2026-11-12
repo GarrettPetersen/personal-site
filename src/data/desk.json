@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-11-12T17:50:14.219Z",
-  "brief": "Protect the November 18 launch. Compare the next-game prototypes after release.",
+  "reviewedAt": "2026-11-12T18:41:51.756Z",
+  "brief": "Launch readiness and qualified creator coverage through November 18.",
   "projects": [
     {
       "id": "marque-and-reprisal",
       "name": "Marque & Reprisal",
       "group": "focus",
       "health": "attention",
-      "stage": "Launch preparation",
-      "summary": "Steam launch on November 18. Wishlist growth is accelerating.",
-      "next": "Verify the release build and close the launch follow-ups.",
+      "stage": "Launch readiness + creator coverage",
+      "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
+      "next": "Verify release builds, follow up with well-matched creators, and prepare approved launch-day materials.",
       "blocker": "Latest CI failed at localization packaging and browser setup; release impact needs verification.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
-        "checkedAt": "2026-11-12T17:41:12.788Z",
-        "lastCommitAt": "2026-11-12T01:02:43Z",
+        "checkedAt": "2026-11-12T18:40:24.516Z",
+        "lastCommitAt": "2026-11-12T18:21:16Z",
         "openPullRequests": 0,
         "openIssues": 0,
         "ci": {
@@ -38,7 +38,7 @@
       "repo": "GarrettPetersen/subject-and-sovereign",
       "url": "https://subject-and-sovereign.garrett-m-petersen.workers.dev/",
       "activity": {
-        "checkedAt": "2026-11-12T17:41:12.788Z",
+        "checkedAt": "2026-11-12T18:40:24.516Z",
         "lastCommitAt": "2026-10-23T18:12:57Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -57,7 +57,7 @@
       "repo": "GarrettPetersen/anime-games",
       "url": null,
       "activity": {
-        "checkedAt": "2026-11-12T17:41:12.788Z",
+        "checkedAt": "2026-11-12T18:40:24.516Z",
         "lastCommitAt": "2026-11-01T12:45:37Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -72,15 +72,15 @@
       "id": "dynastic-histories",
       "name": "Twenty-Four Histories",
       "group": "secondary",
-      "health": "moving",
-      "stage": "Glossary review",
-      "summary": "Translation is published; the people glossary is still being extracted and reviewed.",
-      "next": "Review the open glossary batches before expanding the queue.",
-      "blocker": "Extraction coverage is not editorial completion.",
+      "health": "attention",
+      "stage": "Jinshu glossary completion",
+      "summary": "Initial translations are complete. Glossary output: 1 nonempty chapter published, with 72 person pages.",
+      "next": "Coordinator revalidation, then the second and third published Jinshu chapters. Target: all 130 chapters before ebook release.",
+      "blocker": "Resource check reported passing with narrow headroom; coordinator resumption remains unconfirmed.",
       "repo": "GarrettPetersen/records-of-the-grand-historian",
       "url": "https://24histories.com/progress",
       "activity": {
-        "checkedAt": "2026-11-12T17:41:12.788Z",
+        "checkedAt": "2026-11-12T18:40:24.516Z",
         "lastCommitAt": "2026-11-07T02:16:23Z",
         "openPullRequests": 100,
         "openIssues": 0,
@@ -96,38 +96,38 @@
     {
       "id": "launch-checks",
       "projectId": "marque-and-reprisal",
-      "title": "Verify and restore the launch checks",
+      "title": "Verify the release builds and launch flows",
       "owner": "Codex",
       "priority": "now",
       "source": "GitHub",
-      "note": "Check the current release revision against the failed localization and browser setup jobs. The failures alone do not establish a broken Steam build.",
+      "note": "Check the current release revision against the failed CI jobs, then verify Steam, demo and platform flows. Earlier CI failures alone do not establish a broken released build.",
       "status": "open",
       "due": "2026-11-17",
-      "checkedAt": "2026-11-12T17:38:00.000Z"
+      "checkedAt": "2026-11-12T18:38:02.290Z"
     },
     {
-      "id": "steam-socials",
+      "id": "creator-coverage",
       "projectId": "marque-and-reprisal",
-      "title": "Finish the Steam community links",
-      "owner": "Garrett",
+      "title": "Prepare qualified creator follow-ups",
+      "owner": "Garrett + marketing agent",
       "priority": "next",
-      "source": "Email",
-      "note": "Add Discord, YouTube and X in that order where Steam allows it.",
+      "source": "Marketing handoff",
+      "note": "Rank prospects by audience fit and expected reach. Garrett reviews and sends drafts. Check replies, including the giveaway decision; sent keys are not evidence of coverage.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-12T17:38:00.000Z"
+      "checkedAt": "2026-11-12T18:38:02.290Z"
     },
     {
-      "id": "creator-giveaway",
+      "id": "launch-package",
       "projectId": "marque-and-reprisal",
-      "title": "Decide on the creator giveaway request",
-      "owner": "Garrett",
+      "title": "Finish the approved launch-day package",
+      "owner": "Garrett + Codex",
       "priority": "next",
-      "source": "Email",
-      "note": "A creator has asked to run a giveaway. Decide whether to proceed; no reply has been sent.",
+      "source": "Marketing handoff",
+      "note": "Organize current gameplay assets and Garrett’s approved press/social wording. Confirm Steam community links: Discord, YouTube, X. Optional cross-promotion needs a separate scope and copy decision.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-12T17:38:00.000Z"
+      "checkedAt": "2026-11-12T18:38:02.290Z"
     },
     {
       "id": "prototype-comparison",
@@ -152,6 +152,18 @@
       "status": "done",
       "due": null,
       "checkedAt": "2026-11-12T17:41:00.000Z"
+    },
+    {
+      "id": "localized-materials-published",
+      "projectId": "marque-and-reprisal",
+      "title": "Localized store and press kit updated",
+      "owner": "Garrett + marketing agent",
+      "priority": "later",
+      "source": "Marketing delivery + live pages",
+      "note": "Website, press kit and both Steam pages aligned across 11 languages.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-12T18:38:02.290Z"
     }
   ],
   "metrics": [
@@ -176,11 +188,11 @@
     {
       "id": "glossary",
       "projectId": "dynastic-histories",
-      "label": "Chapters extracted",
-      "value": 2050,
-      "note": "Extraction coverage; editorial review is separate.",
-      "observedAt": "2026-11-07T02:36:32.561Z",
-      "total": 4099
+      "label": "Person pages published",
+      "value": 72,
+      "note": "1 nonempty chapter published.",
+      "observedAt": "2026-11-07T02:31:38.080Z",
+      "total": null
     }
   ],
   "events": [
@@ -190,7 +202,7 @@
       "date": "2026-11-16",
       "title": "Launch readiness review",
       "kind": "planned",
-      "note": "Suggested internal check: release builds, store links, support and launch assets. Target day in Vancouver; not an external deadline.",
+      "note": "Suggested internal check: stable release builds, Steam/demo/platform flows, community links, support and approved launch-day assets. Target day in Vancouver; not an external deadline.",
       "sourceUrl": null,
       "verifiedAt": "2026-11-12T17:38:00.000Z"
     },
@@ -263,7 +275,7 @@
     {
       "id": "github",
       "label": "GitHub",
-      "checkedAt": "2026-11-12T17:41:12.788Z",
+      "checkedAt": "2026-11-12T18:40:24.516Z",
       "note": "Default-branch activity, open work and CI. Activity does not measure product progress."
     },
     {
@@ -281,8 +293,20 @@
     {
       "id": "glossary",
       "label": "Published glossary data",
-      "checkedAt": "2026-11-12T17:41:12.788Z",
-      "note": "Measurement retains the published source snapshot’s original date; collection does not make it newer."
+      "checkedAt": "2026-11-12T18:40:24.516Z",
+      "note": "Published output retains its source date. Separately, 2,050 extracted chapters are intermediate work (source: 2026-11-07), not published completion."
+    },
+    {
+      "id": "marketing",
+      "label": "M&R Marketing",
+      "checkedAt": "2026-11-12T18:38:02.290Z",
+      "note": "Current strategy and delivery handoff, checked against the project chat and public pages. Wishlist attribution remains unverified."
+    },
+    {
+      "id": "histories-coordinator",
+      "label": "24 Histories coordinator handoff",
+      "checkedAt": "2026-11-12T18:40:24.185Z",
+      "note": "Coordinator handoff reports a passing resource check; resumption and sustainable throughput remain unverified. Model access is prepaid; remaining quota is unverified."
     }
   ]
 }
