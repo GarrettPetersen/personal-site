@@ -157,14 +157,14 @@
     {
       "id": "grant-submitted",
       "projectId": null,
-      "title": "Grant application submitted",
+      "title": "Creative BC grant application submitted",
       "owner": "Garrett",
       "priority": "later",
-      "source": "Submission record + owner confirmation",
-      "note": "Up to $50,000 in potential funding. Decision pending; no award assumed.",
+      "source": "Application receipt + program deadline",
+      "note": "Up to CA$50,000 in potential funding. Reply expected around January 18, 2027, based on the 11-week review estimate. Award pending.",
       "status": "done",
       "due": null,
-      "checkedAt": "2026-11-12T17:41:00.000Z"
+      "checkedAt": "2026-11-12T21:44:11.000Z"
     },
     {
       "id": "localized-materials-published",
@@ -250,6 +250,16 @@
       "note": "Suggested review: sales, wishlist conversion, player feedback and recurring issues. Then revisit next-game priorities. Target day in Vancouver.",
       "sourceUrl": null,
       "verifiedAt": "2026-11-12T17:38:00.000Z"
+    },
+    {
+      "id": "creative-bc-decision-check",
+      "projectId": null,
+      "date": "2027-01-18",
+      "title": "Creative BC decision check",
+      "kind": "planned",
+      "note": "Tentative check around the expected response: the receipt email gives 11 weeks from the November 2, 2026 program close. This points to January 18, 2027; no exact decision date or award is confirmed. Up to CA$50,000 in potential funding.",
+      "sourceUrl": "https://creativebc.com/wp-content/uploads/2026/08/Video-Games-Early-Stage-Growth_Guidelines-2627.pdf",
+      "verifiedAt": "2026-11-12T21:44:11.000Z"
     }
   ],
   "archive": [
@@ -363,6 +373,18 @@
       "label": "KDP introduction backlog",
       "checkedAt": "2026-11-12T20:52:22.000Z",
       "note": "Owner confirms that introductions for the 22 unpublished books are the main publishing blocker. Garrett writes the introductions; AI translation is acceptable. Catalogue expansion is a potential revenue opportunity, with no earnings forecast."
+    },
+    {
+      "id": "creative-bc",
+      "label": "Creative BC grant timeline",
+      "checkedAt": "2026-11-12T21:44:11.000Z",
+      "note": "Receipt email gives 11 weeks from program closing. Official guidelines confirm the November 2 deadline; January 18 is an inferred response estimate, not a confirmed decision date."
+    },
+    {
+      "id": "platform-expansion",
+      "label": "M&R platform plan",
+      "checkedAt": "2026-11-12T21:44:11.000Z",
+      "note": "Owner-authorized marketing handoff checked against the local plan. Mobile business model is decided; sequencing and release windows remain conditional. The local planning edit is not yet committed upstream."
     }
   ],
   "prototypeStrategy": {
@@ -399,5 +421,10 @@
       "note": "No revenue reports connected.",
       "report": null
     }
-  ]
+  ],
+  "platformExpansion": {
+    "model": "iOS/Android: free Mediterranean/Black Sea demo and connected rivers, with one purchase unlocking the full world. No time cutoff. Unlock price undecided.",
+    "timing": "Protect Steam launch/support first. January 2027: conditional one-week feasibility study. Q1–Q2 2027: possible mobile beta/launch window, with no committed date.",
+    "gates": "Native-device tests must prove touch usability, durable saves, performance/battery, and purchase/restore/offline flows. Assess consoles after Steam results and mobile feasibility."
+  }
 }

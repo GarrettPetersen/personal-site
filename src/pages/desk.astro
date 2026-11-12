@@ -120,6 +120,7 @@ const healthLabels: Record<string, string> = { attention: "Needs attention", mov
               <p>{focus.summary}</p>
               <div class="desk-blocker"><strong>Watch</strong><p>{focus.blocker}</p></div>
               <p class="desk-next"><strong>Next</strong> {focus.next}</p>
+              <details><summary>After Steam: mobile & consoles</summary><p>{data.platformExpansion.model}</p><p>{data.platformExpansion.timing}</p><p>{data.platformExpansion.gates}</p></details>
               <div class="desk-project__bottom"><a href={focus.url!}>Project site</a><span>Latest code {formatDate(focus.activity!.lastCommitAt.slice(0, 10))}</span></div>
             </article>
             <RevenueScenario />
