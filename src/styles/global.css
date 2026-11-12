@@ -868,6 +868,12 @@ svg {
   text-decoration: none;
 }
 
+.site-footer .desk-footer-link {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.7rem;
+}
+
 .not-found {
   display: grid;
   min-height: 100svh;
@@ -1067,7 +1073,11 @@ svg {
   }
 
   .site-footer p:nth-child(2) {
-    display: none;
+    justify-self: end;
+  }
+
+  .site-footer > a:last-child {
+    grid-column: 1 / -1;
   }
 }
 

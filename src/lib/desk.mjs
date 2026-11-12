@@ -1,0 +1,127 @@
+export const timeZone = "America/Vancouver";
+
+/** @param {Date} [now] */
+export function localDate(now = new Date()) {
+  return new Intl.DateTimeFormat("en-CA", { timeZone, year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
+}
+
+/** @param {string} value */
+export function parseDate(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) throw new Error(`Invalid date: ${value}`);
+  const date = new Date(`${value}T12:00:00Z`);
+  if (!Number.isFinite(date.getTime()) || date.toISOString().slice(0, 10) !== value) throw new Error(`Invalid date: ${value}`);
+  return date;
+}
+
+/** @param {string} value @param {Intl.DateTimeFormatOptions} [options] */
+export function formatDate(value, options = { month: "short", day: "numeric" }) {
+  return new Intl.DateTimeFormat("en-CA", { ...options, timeZone: "UTC" }).format(parseDate(value));
+}
+
+/** @param {string} value */
+export function formatChecked(value) {
+  return new Intl.DateTimeFormat("en-CA", { timeZone, month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).format(new Date(value));
+}
+
+/** @param {string} from @param {string} to */
+export function daysBetween(from, to) {
+  return Math.round((parseDate(to).getTime() - parseDate(from).getTime()) / 86_400_000);
+}
+
+/** @param {string} value @param {Date} [now] */
+export function isStale(value, now = new Date()) {
+  const observedAt = new Date(value.length === 10 ? `${value}T23:59:59Z` : value).getTime();
+  if (!Number.isFinite(observedAt) || !Number.isFinite(now.getTime())) throw new Error("Invalid freshness timestamp");
+  const age = now.getTime() - observedAt;
+  return age > 48 * 60 * 60 * 1000;
+}
+
+/** @param {number} year @param {number} month Zero-based month. */
+export function monthCells(year, month) {
+  const first = new Date(Date.UTC(year, month, 1, 12));
+  const offset = (first.getUTCDay() + 6) % 7;
+  const days = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+  return Array.from({ length: Math.ceil((offset + days) / 7) * 7 }, (_, index) => {
+    const day = index - offset + 1;
+    if (day < 1 || day > days) return null;
+    return new Date(Date.UTC(year, month, day, 12)).toISOString().slice(0, 10);
+  });
+}
+
+/** @param {string} text */
+function calendarText(text) {
+  return text.replace(/\\/g, "\\\\").replace(/\r\n|\r|\n/g, "\\n").replace(/;/g, "\\;").replace(/,/g, "\\,");
+}
+
+/** @param {string} line */
+function foldLine(line) {
+  const encoder = new TextEncoder();
+  let result = "", width = 0;
+  for (const character of line) {
+    const bytes = encoder.encode(character).length;
+    if (width + bytes > 75) { result += "\r\n "; width = 1; }
+    result += character;
+    width += bytes;
+  }
+  return result;
+}
+
+/** @param {{id:string, date:string, title:string, kind:string, note:string, sourceUrl:string|null}[]} events @param {string} updatedAt */
+export function calendarFeed(events, updatedAt) {
+  const stamp = new Date(updatedAt).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Garrett Petersen//Project desk//EN", "CALSCALE:GREGORIAN", "X-WR-CALNAME:Project desk"];
+  for (const event of events) {
+    const end = parseDate(event.date);
+    end.setUTCDate(end.getUTCDate() + 1);
+    lines.push("BEGIN:VEVENT", `UID:${event.id}@garrettpetersen.com`, `DTSTAMP:${stamp}`, `LAST-MODIFIED:${stamp}`, `DTSTART;VALUE=DATE:${event.date.replaceAll("-", "")}`, `DTEND;VALUE=DATE:${end.toISOString().slice(0, 10).replaceAll("-", "")}`, `SUMMARY:${calendarText(event.title)}`, `DESCRIPTION:${calendarText(event.note)}`, `STATUS:${event.kind === "confirmed" ? "CONFIRMED" : "TENTATIVE"}`);
+    if (event.sourceUrl) lines.push(`URL:${event.sourceUrl}`);
+    lines.push("END:VEVENT");
+  }
+  return [...lines, "END:VCALENDAR"].map(foldLine).join("\r\n") + "\r\n";
+}
+
+/** Validate the published allowlist, including cross-references. @param {any} data */
+export function validateDesk(data) {
+  const required = (condition, message) => { if (!condition) throw new Error(`Project desk: ${message}`); };
+  const timestamp = (value) => typeof value === "string" && /T.*Z$/.test(value) && Number.isFinite(Date.parse(value));
+  const text = (value) => typeof value === "string" && value.trim().length > 0;
+  const id = (value) => typeof value === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
+  const url = (value) => { try { return typeof value === "string" && !/\s/.test(value) && new URL(value).protocol === "https:"; } catch { return false; } };
+  required(data.schemaVersion === 1 && timestamp(data.reviewedAt), "invalid snapshot version or review time");
+  for (const field of ["projects", "tasks", "metrics", "events", "archive", "sources"]) required(Array.isArray(data[field]), `${field} must be an array`);
+  const ids = new Set();
+  for (const project of data.projects) {
+    required(id(project.id) && !ids.has(project.id), "project IDs must be unique slugs");
+    ids.add(project.id);
+    required(["focus", "prototype", "secondary"].includes(project.group), `invalid group for ${project.id}`);
+    required(["attention", "moving", "exploring"].includes(project.health), `invalid health for ${project.id}`);
+    for (const field of ["name", "stage", "summary", "next", "blocker"]) required(text(project[field]), `${project.id} needs ${field}`);
+    required(project.url === null || url(project.url), "invalid project URL");
+    required(project.repo === null || /^[\w.-]+\/[\w.-]+$/.test(project.repo), "invalid repository");
+  }
+  for (const group of [data.tasks, data.metrics, data.events, data.archive, data.sources]) {
+    const itemIds = new Set();
+    for (const item of group) {
+      required(id(item.id) && !itemIds.has(item.id), "item IDs must be unique slugs within a group");
+      itemIds.add(item.id);
+      if (item.projectId) required(ids.has(item.projectId), `unknown project ${item.projectId}`);
+    }
+  }
+  for (const task of data.tasks) {
+    required(["now", "next", "later"].includes(task.priority) && ["open", "done"].includes(task.status), "invalid task state");
+    for (const field of ["title", "owner", "source", "note"]) required(text(task[field]), `task needs ${field}`);
+    required(timestamp(task.checkedAt), "task needs its actual verification time");
+    if (task.due) parseDate(task.due);
+  }
+  for (const metric of data.metrics) {
+    required(Number.isFinite(metric.value) && text(metric.label) && text(metric.note) && timestamp(metric.observedAt), "invalid metric or missing observation time");
+    if (metric.total !== null) required(Number.isFinite(metric.total) && metric.total > 0 && metric.value >= 0 && metric.value <= metric.total, "invalid progress denominator");
+  }
+  for (const event of data.events) {
+    parseDate(event.date);
+    required(["confirmed", "planned"].includes(event.kind) && text(event.title) && text(event.note), "invalid calendar item");
+    required(timestamp(event.verifiedAt) && (event.sourceUrl === null || url(event.sourceUrl)), "calendar evidence missing");
+  }
+  for (const source of data.sources) required(text(source.label) && timestamp(source.checkedAt), "invalid source check");
+  return data;
+}

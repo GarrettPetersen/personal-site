@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-12T17:50:14.219Z",
+  "brief": "Protect the November 18 launch. Compare the next-game prototypes after release.",
+  "projects": [
+    {
+      "id": "marque-and-reprisal",
+      "name": "Marque & Reprisal",
+      "group": "focus",
+      "health": "attention",
+      "stage": "Launch preparation",
+      "summary": "Steam launch on November 18. Wishlist growth is accelerating.",
+      "next": "Verify the release build and close the launch follow-ups.",
+      "blocker": "Latest CI failed at localization packaging and browser setup; release impact needs verification.",
+      "repo": "GarrettPetersen/polyglobe",
+      "url": "https://marque-and-reprisal.com/",
+      "activity": {
+        "checkedAt": "2026-11-12T17:41:12.788Z",
+        "lastCommitAt": "2026-11-12T01:02:43Z",
+        "openPullRequests": 0,
+        "openIssues": 0,
+        "ci": {
+          "status": "completed",
+          "conclusion": "failure",
+          "createdAt": "2026-11-11T18:43:56Z"
+        }
+      }
+    },
+    {
+      "id": "subject-and-sovereign",
+      "name": "Subject & Sovereign",
+      "group": "prototype",
+      "health": "exploring",
+      "stage": "Playable prototype",
+      "summary": "Civil War strategy prototype with travel, couriers and a working simulation.",
+      "next": "Review the trailer slice and test whether the core promise lands.",
+      "blocker": "Combat and the wider political simulation remain unfinished.",
+      "repo": "GarrettPetersen/subject-and-sovereign",
+      "url": "https://subject-and-sovereign.garrett-m-petersen.workers.dev/",
+      "activity": {
+        "checkedAt": "2026-11-12T17:41:12.788Z",
+        "lastCommitAt": "2026-10-23T18:12:57Z",
+        "openPullRequests": 0,
+        "openIssues": 0,
+        "ci": null
+      }
+    },
+    {
+      "id": "shaolin-london",
+      "name": "Shaolin London",
+      "group": "prototype",
+      "health": "exploring",
+      "stage": "Playable prototype",
+      "summary": "Playable Hong Kong chase, traversal and combat studies.",
+      "next": "Playtest the opening and compare its hook with Subject & Sovereign.",
+      "blocker": "Latest deployment stopped at tests; playtest response is unmeasured.",
+      "repo": "GarrettPetersen/anime-games",
+      "url": null,
+      "activity": {
+        "checkedAt": "2026-11-12T17:41:12.788Z",
+        "lastCommitAt": "2026-11-01T12:45:37Z",
+        "openPullRequests": 0,
+        "openIssues": 0,
+        "ci": {
+          "status": "completed",
+          "conclusion": "failure",
+          "createdAt": "2026-11-01T12:45:45Z"
+        }
+      }
+    },
+    {
+      "id": "dynastic-histories",
+      "name": "Twenty-Four Histories",
+      "group": "secondary",
+      "health": "moving",
+      "stage": "Glossary review",
+      "summary": "Translation is published; the people glossary is still being extracted and reviewed.",
+      "next": "Review the open glossary batches before expanding the queue.",
+      "blocker": "Extraction coverage is not editorial completion.",
+      "repo": "GarrettPetersen/records-of-the-grand-historian",
+      "url": "https://24histories.com/progress",
+      "activity": {
+        "checkedAt": "2026-11-12T17:41:12.788Z",
+        "lastCommitAt": "2026-11-07T02:16:23Z",
+        "openPullRequests": 100,
+        "openIssues": 0,
+        "ci": {
+          "status": "completed",
+          "conclusion": "success",
+          "createdAt": "2026-11-07T02:16:26Z"
+        }
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "id": "launch-checks",
+      "projectId": "marque-and-reprisal",
+      "title": "Verify and restore the launch checks",
+      "owner": "Codex",
+      "priority": "now",
+      "source": "GitHub",
+      "note": "Check the current release revision against the failed localization and browser setup jobs. The failures alone do not establish a broken Steam build.",
+      "status": "open",
+      "due": "2026-11-17",
+      "checkedAt": "2026-11-12T17:38:00.000Z"
+    },
+    {
+      "id": "steam-socials",
+      "projectId": "marque-and-reprisal",
+      "title": "Finish the Steam community links",
+      "owner": "Garrett",
+      "priority": "next",
+      "source": "Email",
+      "note": "Add Discord, YouTube and X in that order where Steam allows it.",
+      "status": "open",
+      "due": null,
+      "checkedAt": "2026-11-12T17:38:00.000Z"
+    },
+    {
+      "id": "creator-giveaway",
+      "projectId": "marque-and-reprisal",
+      "title": "Decide on the creator giveaway request",
+      "owner": "Garrett",
+      "priority": "next",
+      "source": "Email",
+      "note": "A creator has asked to run a giveaway. Decide whether to proceed; no reply has been sent.",
+      "status": "open",
+      "due": null,
+      "checkedAt": "2026-11-12T17:38:00.000Z"
+    },
+    {
+      "id": "prototype-comparison",
+      "projectId": "subject-and-sovereign",
+      "title": "Compare the two next-game prototypes",
+      "owner": "Garrett + Codex",
+      "priority": "later",
+      "source": "Project plans",
+      "note": "After launch: compare player response, trailer readiness and scope before picking a production direction.",
+      "status": "open",
+      "due": null,
+      "checkedAt": "2026-11-12T17:38:00.000Z"
+    },
+    {
+      "id": "grant-submitted",
+      "projectId": null,
+      "title": "Grant application submitted",
+      "owner": "Garrett",
+      "priority": "later",
+      "source": "Submission record + owner confirmation",
+      "note": "Up to $50,000 in potential funding. Decision pending; no award assumed.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-12T17:41:00.000Z"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "wishlists",
+      "projectId": "marque-and-reprisal",
+      "label": "Outstanding wishlists",
+      "value": 12508,
+      "note": "Steamworks lifetime overview · Nov 12",
+      "observedAt": "2026-11-12T17:38:00.000Z",
+      "total": null
+    },
+    {
+      "id": "wishlist-week",
+      "projectId": "marque-and-reprisal",
+      "label": "Net wishlists / week",
+      "value": 4237,
+      "note": "Nov 5–11 · +79% vs. the prior week",
+      "observedAt": "2026-11-12T17:38:00.000Z",
+      "total": null
+    },
+    {
+      "id": "glossary",
+      "projectId": "dynastic-histories",
+      "label": "Chapters extracted",
+      "value": 2050,
+      "note": "Extraction coverage; editorial review is separate.",
+      "observedAt": "2026-11-07T02:36:32.561Z",
+      "total": 4099
+    }
+  ],
+  "events": [
+    {
+      "id": "launch-readiness",
+      "projectId": "marque-and-reprisal",
+      "date": "2026-11-16",
+      "title": "Launch readiness review",
+      "kind": "planned",
+      "note": "Suggested internal check: release builds, store links, support and launch assets. Target day in Vancouver; not an external deadline.",
+      "sourceUrl": null,
+      "verifiedAt": "2026-11-12T17:38:00.000Z"
+    },
+    {
+      "id": "marque-launch",
+      "projectId": "marque-and-reprisal",
+      "date": "2026-11-18",
+      "title": "Marque & Reprisal launches",
+      "kind": "confirmed",
+      "note": "Steam lists November 18, 2026. Exact unlock time is not verified. Release builds and store setup must be ready beforehand.",
+      "sourceUrl": "https://store.steampowered.com/app/4516500/Marque__Reprisal/",
+      "verifiedAt": "2026-11-12T17:38:00.000Z"
+    },
+    {
+      "id": "launch-week-review",
+      "projectId": "marque-and-reprisal",
+      "date": "2026-11-25",
+      "title": "First-week review",
+      "kind": "planned",
+      "note": "Suggested review: sales, wishlist conversion, player feedback and recurring issues. Then revisit next-game priorities. Target day in Vancouver.",
+      "sourceUrl": null,
+      "verifiedAt": "2026-11-12T17:38:00.000Z"
+    }
+  ],
+  "archive": [
+    {
+      "id": "human-penned",
+      "name": "Human Penned",
+      "status": "Shipped",
+      "url": "https://humanpenned.com/"
+    },
+    {
+      "id": "connecdoku",
+      "name": "Connecdoku",
+      "status": "Shipped · daily puzzles",
+      "url": "https://connecdoku.com/"
+    },
+    {
+      "id": "ask-thane",
+      "name": "Ask Thane",
+      "status": "Shipped",
+      "url": "https://askthane.com/ask-thane"
+    },
+    {
+      "id": "mystery-farm",
+      "name": "mystery.farm",
+      "status": "Shipped · daily puzzles",
+      "url": "https://mystery.farm/"
+    },
+    {
+      "id": "nodeword",
+      "name": "Nodeword",
+      "status": "Shipped · daily puzzles",
+      "url": "https://nodeword.com/"
+    },
+    {
+      "id": "housing-growth",
+      "name": "Housing Supply Lab",
+      "status": "Published",
+      "url": "https://inelastic-housing-growth.pages.dev/"
+    },
+    {
+      "id": "hilton-zhao",
+      "name": "Hilton–Zhao Counterexample",
+      "status": "Published",
+      "url": "https://github.com/GarrettPetersen/math"
+    }
+  ],
+  "sources": [
+    {
+      "id": "github",
+      "label": "GitHub",
+      "checkedAt": "2026-11-12T17:41:12.788Z",
+      "note": "Default-branch activity, open work and CI. Activity does not measure product progress."
+    },
+    {
+      "id": "email",
+      "label": "Project email",
+      "checkedAt": "2026-11-12T17:38:00.000Z",
+      "note": "Project-related messages only; public task summaries are paraphrased."
+    },
+    {
+      "id": "steam",
+      "label": "Steamworks",
+      "checkedAt": "2026-11-12T17:38:00.000Z",
+      "note": "Read from the signed-in report. The weekly window excludes the current day."
+    },
+    {
+      "id": "glossary",
+      "label": "Published glossary data",
+      "checkedAt": "2026-11-12T17:41:12.788Z",
+      "note": "Measurement retains the published source snapshot’s original date; collection does not make it newer."
+    }
+  ]
+}
