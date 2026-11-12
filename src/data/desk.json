@@ -233,7 +233,7 @@
       "name": "Immortal Glory",
       "status": "On hold",
       "url": null,
-      "description": "Online implementation of Napoleon’s Triumph with a map editor. Development tabled."
+      "description": "Earlier browser project: online Napoleon’s Triumph implementation with a map editor. On hold as the focus shifts to paid Steam games."
     },
     {
       "id": "human-penned",
@@ -318,12 +318,12 @@
     {
       "id": "prototype-strategy",
       "label": "Next-game strategy",
-      "checkedAt": "2026-11-12T18:49:29.958Z",
-      "note": "Owner direction: Steam page and trailer first; wishlist momentum gates full production. No numerical target or test window has been set."
+      "checkedAt": "2026-11-12T19:05:52.137Z",
+      "note": "Owner direction: paid Steam releases are the commercial focus. Wishlist momentum gates production; free web usage alone is not revenue evidence. No target or test window has been set."
     }
   ],
   "prototypeStrategy": {
-    "approach": "Steam page and trailer first. Build only enough for polished footage, including staged prototype scenes.",
+    "approach": "For paid Steam games, page and trailer first. Build only enough for polished footage, including staged prototype scenes.",
     "decision": "Test wishlist momentum before full production; if it stalls, change the marketing approach or move on."
   }
 }
