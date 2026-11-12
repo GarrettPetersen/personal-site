@@ -355,8 +355,8 @@
     {
       "id": "kdp-publishing",
       "label": "KDP publishing",
-      "checkedAt": "2026-11-12T20:40:34.000Z",
-      "note": "Bookshelf confirms four live Kindle ebooks. Royalties Estimator: CAD 19.12 for Nov 1–12, all four books, all marketplaces and formats. Estimate uses Amazon’s current FX; not finalized earnings or a cash payment."
+      "checkedAt": "2026-11-12T20:44:13.000Z",
+      "note": "Bookshelf confirms four live Kindle ebooks. Royalties Estimator: CAD 505.28 for Jun 1–Nov 12, including CAD 19.12 for Nov 1–12; all four books, all marketplaces and formats. Amazon’s current FX estimate, not finalized earnings or cash received."
     }
   ],
   "prototypeStrategy": {
@@ -368,14 +368,14 @@
       "id": "kdp",
       "label": "KDP ebooks",
       "projectId": "histories-kdp",
-      "note": "Amazon’s CAD estimate; not cash received.",
+      "note": "November to date: CA$19.12 (included above).",
       "report": {
-        "amountCents": 1912,
+        "amountCents": 50528,
         "currency": "CAD",
-        "periodStart": "2026-11-01",
+        "periodStart": "2026-06-01",
         "periodEnd": "2026-11-12",
         "basis": "estimated",
-        "observedAt": "2026-11-12T20:40:34.000Z",
+        "observedAt": "2026-11-12T20:44:13.000Z",
         "source": "KDP Royalties Estimator · all books & marketplaces"
       }
     },
