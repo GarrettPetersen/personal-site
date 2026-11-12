@@ -1,22 +1,23 @@
 import { requiredElement } from "../lib/dom";
-import { calculateRevenueScenario, defaultRevenueScenario, formatMoney } from "../lib/revenue.mjs";
+import { calculateRevenueScenario, compareRevenueScenarios, defaultRevenueScenario, formatMoney } from "../lib/revenue.mjs";
 
 const form = requiredElement("[data-revenue-form]", HTMLFormElement);
 const inputs = {
   launchWishlists: requiredElement('[name="launchWishlists"]', HTMLInputElement, form),
-  salesRatioPercent: requiredElement('[name="salesRatioPercent"]', HTMLInputElement, form),
+  salesPerWishlist: requiredElement('[name="salesPerWishlist"]', HTMLInputElement, form),
+  launchDiscountPercent: requiredElement('[name="launchDiscountPercent"]', HTMLInputElement, form),
   priceUsd: requiredElement('[name="priceUsd"]', HTMLInputElement, form),
   steamSharePercent: requiredElement('[name="steamSharePercent"]', HTMLInputElement, form),
 };
 const copies = requiredElement("[data-revenue-copies]", HTMLOutputElement, form);
-const gross = requiredElement("[data-revenue-gross]", HTMLOutputElement, form);
+const discounted = requiredElement("[data-revenue-discounted]", HTMLOutputElement, form);
 const after = requiredElement("[data-revenue-after]", HTMLOutputElement, form);
 const error = requiredElement("[data-revenue-error]", HTMLElement, form);
 const reset = requiredElement('button[type="reset"]', HTMLButtonElement, form);
 const count = new Intl.NumberFormat("en-CA");
 
 function showError(message: string) {
-  for (const output of [copies, gross, after]) output.value = "—";
+  for (const output of form.querySelectorAll("output")) output.value = "—";
   error.textContent = message;
   error.hidden = false;
 }
@@ -33,15 +34,22 @@ function render() {
     return;
   }
   try {
-    const result = calculateRevenueScenario({
+    const assumptions = {
       launchWishlists: inputs.launchWishlists.valueAsNumber,
-      salesRatioPercent: inputs.salesRatioPercent.valueAsNumber,
+      salesPerWishlist: inputs.salesPerWishlist.valueAsNumber,
+      launchDiscountPercent: inputs.launchDiscountPercent.valueAsNumber,
       priceUsd: inputs.priceUsd.valueAsNumber,
       steamSharePercent: inputs.steamSharePercent.valueAsNumber,
-    });
+    };
+    const result = calculateRevenueScenario(assumptions);
     copies.value = count.format(result.copies);
-    gross.value = formatMoney(result.grossCents);
+    discounted.value = formatMoney(result.discountedGrossCents);
     after.value = formatMoney(result.afterSteamCents);
+    for (const scenario of compareRevenueScenarios(assumptions)) {
+      const row = requiredElement(`[data-revenue-comparison="${scenario.salesPerWishlist}"]`, HTMLTableRowElement, form);
+      requiredElement("[data-comparison-copies]", HTMLOutputElement, row).value = count.format(scenario.copies);
+      requiredElement("[data-comparison-after]", HTMLOutputElement, row).value = formatMoney(scenario.afterSteamCents);
+    }
     error.hidden = true;
     error.textContent = "";
   } catch (cause) {

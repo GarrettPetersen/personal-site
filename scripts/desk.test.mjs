@@ -3,26 +3,29 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { calendarFeed, daysBetween, isStale, localDate, monthCells, publishedGlossaryMetric, validateDesk } from "../src/lib/desk.mjs";
 import { parseDate } from "../src/lib/dates.mjs";
-import { calculateRevenueScenario, defaultRevenueScenario, formatMoney, summarizeRevenue } from "../src/lib/revenue.mjs";
+import { calculateRevenueScenario, compareRevenueScenarios, defaultRevenueScenario, formatMoney, summarizeRevenue } from "../src/lib/revenue.mjs";
 
 const snapshot = JSON.parse(readFileSync(new URL("../src/data/desk.json", import.meta.url), "utf8"));
 
-test("first-week scenario reproduces the approved napkin math in cents", () => {
-  assert.deepEqual(calculateRevenueScenario(defaultRevenueScenario), { copies: 3000, grossCents: 4497000, afterSteamCents: 3147900 });
-  assert.equal(formatMoney(3147900), "US$31,479");
-  assert.equal(formatMoney(1573950), "US$15,739.50");
+test("first-week scenarios deduct launch discount before the Steam share", () => {
+  assert.deepEqual(calculateRevenueScenario(defaultRevenueScenario), { copies: 3000, grossCents: 4497000, discountedGrossCents: 4047300, afterSteamCents: 2833110 });
+  assert.equal(formatMoney(2833110), "US$28,331.10");
+  assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, launchDiscountPercent: 0 }).afterSteamCents, 3147900);
+  assert.deepEqual(compareRevenueScenarios(defaultRevenueScenario).map(({ copies, afterSteamCents }) => [copies, afterSteamCents]), [[1500, 1416555], [2250, 2124833], [3000, 2833110]]);
   assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, launchWishlists: 5500 }).copies, 1100);
 });
 
-test("sales ratios can exceed 100% and fractional copy estimates round before revenue", () => {
-  assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, launchWishlists: 100, salesRatioPercent: 150 }).copies, 150);
-  assert.deepEqual(calculateRevenueScenario({ ...defaultRevenueScenario, launchWishlists: 13, salesRatioPercent: 20, priceUsd: .29 }), { copies: 3, grossCents: 87, afterSteamCents: 61 });
+test("total-sales ratios allow organic buyers and round copies before currency", () => {
+  assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, launchWishlists: 100, salesPerWishlist: 1.5 }).copies, 150);
+  assert.deepEqual(calculateRevenueScenario({ ...defaultRevenueScenario, launchWishlists: 13, salesPerWishlist: .20, priceUsd: .29, launchDiscountPercent: 0 }), { copies: 3, grossCents: 87, discountedGrossCents: 87, afterSteamCents: 61 });
   assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, launchWishlists: 0 }).afterSteamCents, 0);
   assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, steamSharePercent: 100 }).afterSteamCents, 0);
+  assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, launchDiscountPercent: 100 }).afterSteamCents, 0);
+  assert.deepEqual(compareRevenueScenarios({ ...defaultRevenueScenario, salesPerWishlist: .18, launchDiscountPercent: 100 }).map(r => r.afterSteamCents), [0, 0, 0]);
 });
 
 test("invalid financial assumptions fail instead of showing plausible results", () => {
-  for (const change of [{ launchWishlists: -1 }, { launchWishlists: 1.5 }, { salesRatioPercent: NaN }, { priceUsd: Infinity }, { priceUsd: 14.999 }, { steamSharePercent: 101 }, { launchWishlists: Number.MAX_SAFE_INTEGER }]) {
+  for (const change of [{ launchWishlists: -1 }, { launchWishlists: 1.5 }, { salesPerWishlist: NaN }, { salesPerWishlist: -1 }, { priceUsd: Infinity }, { priceUsd: 14.999 }, { steamSharePercent: 101 }, { launchDiscountPercent: -1 }, { launchDiscountPercent: 101 }, { launchDiscountPercent: NaN }, { launchDiscountPercent: undefined }, { launchWishlists: Number.MAX_SAFE_INTEGER }]) {
     assert.throws(() => calculateRevenueScenario({ ...defaultRevenueScenario, ...change }), RangeError);
   }
 });
