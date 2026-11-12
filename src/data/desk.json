@@ -11,18 +11,18 @@
       "stage": "Launch readiness + creator coverage",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
       "next": "Verify release builds, follow up with well-matched creators, and prepare approved launch-day materials.",
-      "blocker": "Latest CI failed at localization packaging and browser setup; release impact needs verification.",
+      "blocker": "CI fixes reported; Windows packaging passed. Remaining regression checks are running.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
-        "checkedAt": "2026-11-12T18:40:24.516Z",
-        "lastCommitAt": "2026-11-12T18:21:16Z",
+        "checkedAt": "2026-11-12T20:12:59.482Z",
+        "lastCommitAt": "2026-11-12T19:50:19Z",
         "openPullRequests": 0,
         "openIssues": 0,
         "ci": {
-          "status": "completed",
-          "conclusion": "failure",
-          "createdAt": "2026-11-11T18:43:56Z"
+          "status": "in_progress",
+          "conclusion": null,
+          "createdAt": "2026-11-12T19:56:40Z"
         }
       }
     },
@@ -38,7 +38,7 @@
       "repo": "GarrettPetersen/subject-and-sovereign",
       "url": "https://subject-and-sovereign.garrett-m-petersen.workers.dev/",
       "activity": {
-        "checkedAt": "2026-11-12T18:40:24.516Z",
+        "checkedAt": "2026-11-12T20:12:59.482Z",
         "lastCommitAt": "2026-10-23T18:12:57Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -57,7 +57,7 @@
       "repo": "GarrettPetersen/anime-games",
       "url": null,
       "activity": {
-        "checkedAt": "2026-11-12T18:40:24.516Z",
+        "checkedAt": "2026-11-12T20:12:59.482Z",
         "lastCommitAt": "2026-11-01T12:45:37Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -80,7 +80,7 @@
       "repo": "GarrettPetersen/records-of-the-grand-historian",
       "url": "https://24histories.com/progress",
       "activity": {
-        "checkedAt": "2026-11-12T18:40:24.516Z",
+        "checkedAt": "2026-11-12T20:12:59.482Z",
         "lastCommitAt": "2026-11-07T02:16:23Z",
         "openPullRequests": 100,
         "openIssues": 0,
@@ -99,11 +99,11 @@
       "title": "Verify the release builds and launch flows",
       "owner": "Codex",
       "priority": "now",
-      "source": "GitHub",
-      "note": "Check the current release revision against the failed CI jobs, then verify Steam, demo and platform flows. Earlier CI failures alone do not establish a broken released build.",
+      "source": "Owner update + GitHub",
+      "note": "Fixes reported complete. Windows packaging passed; the regression job is still running. Confirm the full rerun, then finish Steam, demo and platform flow validation.",
       "status": "open",
       "due": "2026-11-17",
-      "checkedAt": "2026-11-12T18:38:02.290Z"
+      "checkedAt": "2026-11-12T20:14:04.743Z"
     },
     {
       "id": "creator-coverage",
@@ -282,7 +282,7 @@
     {
       "id": "github",
       "label": "GitHub",
-      "checkedAt": "2026-11-12T18:40:24.516Z",
+      "checkedAt": "2026-11-12T20:12:59.482Z",
       "note": "Default-branch activity, open work and CI. Activity does not measure product progress."
     },
     {
@@ -300,7 +300,7 @@
     {
       "id": "glossary",
       "label": "Published glossary data",
-      "checkedAt": "2026-11-12T18:40:24.516Z",
+      "checkedAt": "2026-11-12T20:12:59.482Z",
       "note": "Published output retains its source date. Separately, 2,050 extracted chapters are intermediate work (source: 2026-11-07), not published completion."
     },
     {
@@ -320,6 +320,12 @@
       "label": "Next-game strategy",
       "checkedAt": "2026-11-12T19:05:52.137Z",
       "note": "Owner direction: paid Steam releases are the commercial focus. Wishlist momentum gates production; free web usage alone is not revenue evidence. No target or test window has been set."
+    },
+    {
+      "id": "marque-ci",
+      "label": "M&R CI rerun",
+      "checkedAt": "2026-11-12T20:14:04.743Z",
+      "note": "Owner reports fixes; GitHub confirms Windows packaging passed while the regression job continues. Full CI success is not yet established."
     }
   ],
   "prototypeStrategy": {
