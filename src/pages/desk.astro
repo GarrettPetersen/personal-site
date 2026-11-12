@@ -1,176 +1,67 @@
 ---
 import "@fontsource-variable/geologica";
 import snapshot from "../data/desk.json";
+import kdp from "../data/kdp.json";
 import RevenueScenario from "../components/RevenueScenario.astro";
 import RevenueBreakdown from "../components/RevenueBreakdown.astro";
+import DecisionBoard from "../components/DecisionBoard.astro";
+import KdpReport from "../components/KdpReport.astro";
 import { validateDesk, localDate, formatDate, formatChecked, isStale, daysBetween, monthCells } from "../lib/desk.mjs";
+import { validateKdpReport } from "../lib/kdp.mjs";
 import "../styles/global.css";
 import "../styles/desk.css";
-
-const data = validateDesk(snapshot) as typeof snapshot;
-const today = localDate();
-const priorityOrder: Record<string, number> = { now: 0, next: 1, later: 2 };
-const openTasks = data.tasks.filter((task) => task.status === "open").sort((a, b) => priorityOrder[a.priority]! - priorityOrder[b.priority]!);
-const completedTasks = data.tasks.filter((task) => task.status === "done");
-const projectFor = (id: string | null) => id === null ? "Portfolio" : data.projects.find((project) => project.id === id)!.name;
-const focus = data.projects.find((project) => project.group === "focus")!;
-const prototypes = data.projects.filter((project) => project.group === "prototype");
-const secondary = data.projects.filter((project) => project.group === "secondary");
-const archiveGroups = [
-  { title: "On hold", description: "Tabled projects. Resume only when priorities change.", projects: data.archive.filter((project) => project.status === "On hold") },
-  { title: "Shipped & reference", description: "Completed releases and published work. Revisit when there’s a reason.", projects: data.archive.filter((project) => project.status !== "On hold") },
-].filter((group) => group.projects.length > 0);
-const launch = data.events.find((event) => event.id === "marque-launch")!;
-const daysToLaunch = daysBetween(today, launch.date);
-const dateParts = today.split("-").map(Number);
-const year = dateParts[0]!;
-const month = dateParts[1]! - 1;
-const monthLabel = (y: number, m: number) => new Intl.DateTimeFormat("en-CA", { timeZone: "UTC", month: "long", year: "numeric" }).format(new Date(Date.UTC(y, m, 1, 12)));
-const counts = new Intl.NumberFormat("en-CA");
-const sortedEvents = [...data.events].sort((a, b) => a.date.localeCompare(b.date));
-const upcomingEvents = sortedEvents.filter((event) => event.date >= today);
-const priorityLabels: Record<string, string> = { now: "Now", next: "Next", later: "After launch" };
-const healthLabels: Record<string, string> = { attention: "Needs attention", moving: "In progress", exploring: "Exploring" };
+const data=validateDesk(snapshot) as typeof snapshot;
+validateKdpReport(kdp);
+const today=localDate();
+const priorityOrder:Record<string,number>={now:0,next:1,later:2};
+const openTasks=data.tasks.filter(t=>t.status==='open').sort((a,b)=>priorityOrder[a.priority]!-priorityOrder[b.priority]!);
+const completedTasks=data.tasks.filter(t=>t.status==='done');
+const projectFor=(id:string|null)=>id===null?'Portfolio':data.projects.find(p=>p.id===id)!.name;
+const archiveGroups=[{title:'On hold',projects:data.archive.filter(p=>p.status==='On hold')},{title:'Shipped & reference',projects:data.archive.filter(p=>p.status!=='On hold')}];
+const launch=data.events.find(e=>e.id==='marque-launch')!;
+const daysToLaunch=daysBetween(today,launch.date);
+const year=Number(today.slice(0,4)),month=Number(today.slice(5,7))-1;
+const monthLabel=(y:number,m:number)=>new Intl.DateTimeFormat('en-CA',{timeZone:'UTC',month:'long',year:'numeric'}).format(new Date(Date.UTC(y,m,1,12)));
+const counts=new Intl.NumberFormat('en-CA');
+const sortedEvents=[...data.events].sort((a,b)=>a.date.localeCompare(b.date));
+const upcomingEvents=sortedEvents.filter(e=>e.date>=today);
+const priorityLabels:Record<string,string>={now:'Now',next:'Next',later:'Later'};
+const healthLabels:Record<string,string>={attention:'Needs attention',moving:'In progress',exploring:'Exploring'};
 ---
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="robots" content="noindex, nofollow, noarchive" />
-    <meta name="description" content="A concise working view of Garrett’s projects, priorities and upcoming dates." />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href="https://garrettpetersen.com/desk/" />
-    <title>Project desk — Garrett Petersen</title>
-  </head>
-  <body class="desk-page">
-    <a class="skip-link" href="#desk-main">Skip to dashboard</a>
-    <header class="desk-header">
-      <a class="identity" href="/" aria-label="Garrett Petersen, home">
-        <span class="identity__mark" aria-hidden="true"><span>G</span><span>P</span></span>
-        <span class="identity__name">Garrett Petersen</span>
-      </a>
-      <span class="desk-header__location">Project desk</span>
-      <a class="desk-home" href="/">Back to site <span aria-hidden="true">↗</span></a>
-    </header>
-
-    <main id="desk-main" class="desk-shell">
-      <section class="desk-intro" aria-labelledby="desk-title">
-        <div>
-          <h1 id="desk-title">Keep things moving.</h1>
-          <p>{data.brief}</p>
-        </div>
-        <div class="desk-freshness" data-reviewed-at={data.reviewedAt}>
-          <span class:list={["check-state", { "check-state--stale": isStale(data.reviewedAt) }]} data-check-state>{isStale(data.reviewedAt) ? "Review overdue" : "Reviewed"}</span>
-          <time datetime={data.reviewedAt}>{formatChecked(data.reviewedAt)} Pacific</time>
-          <span>Daily check-in · 9 a.m. Pacific</span>
-        </div>
-      </section>
-
-      <RevenueBreakdown streams={data.revenue} />
-
-      <section class="desk-signals" aria-label="Key numbers">
-        {data.metrics.map((metric) => (
-          <article class="desk-signal" data-observed-at={metric.observedAt}>
-            <p>{metric.label}</p>
-            <div class="desk-signal__value">
-              {metric.id === "wishlist-week" && "+"}{counts.format(metric.value)}
-              {metric.total && <span>/ {counts.format(metric.total)}</span>}
-            </div>
-            {metric.total && <progress value={metric.value} max={metric.total} aria-label={`${metric.label}: ${metric.value} of ${metric.total}`} />}
-            <p class="desk-signal__note">{metric.note}</p>
-            <span class="desk-measured">As of {formatDate(metric.observedAt.slice(0, 10))}<span class="desk-old" data-metric-stale hidden={!isStale(metric.observedAt)}> · Older snapshot</span></span>
-          </article>
-        ))}
-      </section>
-
-      <div class="desk-columns">
-        <div class="desk-main-column">
-          <section class="desk-section desk-priorities" aria-labelledby="priorities-title">
-            <div class="desk-section-heading"><h2 id="priorities-title">Next moves</h2><span>{openTasks.length} open</span></div>
-            <ol class="desk-task-list">
-              {openTasks.map((task) => (
-                <li data-priority={task.priority}>
-                  <span class:list={["desk-priority", `desk-priority--${task.priority}`]}>{priorityLabels[task.priority]}</span>
-                  <div class="desk-task">
-                    <h3>{task.title}</h3>
-                    <p>{projectFor(task.projectId)} <span aria-hidden="true">/</span> {task.owner}</p>
-                    <details>
-                      <summary>{task.source === "Email" ? "From project email" : "Context"}</summary>
-                      <p>{task.note}</p>
-                      <span>Checked {formatDate(task.checkedAt.slice(0, 10))}{task.due && ` · Target ${formatDate(task.due)}`}</span>
-                    </details>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            {completedTasks.length > 0 && <div class="desk-completed">
-              <h3>Done</h3>
-              {completedTasks.map((task) => <div><span aria-hidden="true">✓</span><p><strong>{task.title}</strong><br />{task.note}</p></div>)}
-            </div>}
-          </section>
-
-          <section class="desk-section desk-focus" aria-labelledby="focus-title">
-            <div class="desk-section-heading"><h2 id="focus-title">Main focus</h2><span>Through launch</span></div>
-            <article class="desk-project desk-project--focus" id={focus.id}>
-              <div class="desk-project__heading"><h3>{focus.name}</h3><span class={`desk-status desk-status--${focus.health}`}>{healthLabels[focus.health]}</span></div>
-              <p class="desk-project__stage">{focus.stage}</p>
-              <p>{focus.summary}</p>
-              <div class="desk-blocker"><strong>Watch</strong><p>{focus.blocker}</p></div>
-              <p class="desk-next"><strong>Next</strong> {focus.next}</p>
-              <details><summary>After Steam: mobile & consoles</summary><p>{data.platformExpansion.model}</p><p>{data.platformExpansion.timing}</p><p>{data.platformExpansion.gates}</p></details>
-              <div class="desk-project__bottom"><a href={focus.url!}>Project site</a><span>Latest code {formatDate(focus.activity!.lastCommitAt.slice(0, 10))}</span></div>
-            </article>
-            <RevenueScenario />
-          </section>
-
-          <section class="desk-section" aria-labelledby="prototypes-title">
-            <div class="desk-section-heading"><h2 id="prototypes-title">Next game</h2><span>Two candidates · no decision yet</span></div>
-            <p class="desk-strategy">{data.prototypeStrategy.approach} {data.prototypeStrategy.decision}</p>
-            <div class="desk-prototypes">
-              {prototypes.map((project) => <article class="desk-project" id={project.id}>
-                <span class="desk-status desk-status--exploring">{project.stage}</span>
-                <h3>{project.name}</h3>
-                <p>{project.summary}</p>
-                <p class="desk-next"><strong>Next</strong> {project.next}</p>
-                <details><summary>Open questions</summary><p>{project.blocker}</p><span>Latest code {formatDate(project.activity!.lastCommitAt.slice(0, 10))}. Wishlist momentum not measured.</span></details>
-                {project.url && <a href={project.url}>Open prototype</a>}
-              </article>)}
-            </div>
-          </section>
-
-          <section class="desk-section desk-secondary" aria-labelledby="secondary-title">
-            <div class="desk-section-heading"><h2 id="secondary-title">Other active work</h2><span>Secondary</span></div>
-            {secondary.map((project) => <article class="desk-project" id={project.id}>
-              <div class="desk-project__heading"><h3>{project.name}</h3><span class={`desk-status desk-status--${project.health}`}>{healthLabels[project.health]}</span></div>
-              <p class="desk-project__stage">{project.stage}</p>
-              <p>{project.summary}</p>
-              <p class="desk-next"><strong>Watch</strong> {project.blocker}</p>
-              <p class="desk-next"><strong>Next</strong> {project.next}</p>
-              <div class="desk-project__bottom">{project.url && <a href={project.url}>Progress & evidence</a>}{project.activity && <span>{project.activity.openPullRequests} open reviews</span>}</div>
-            </article>)}
-          </section>
-
-          {archiveGroups.map((group) => <details class="desk-archive">
-            <summary><span>{group.title}</span><span>{group.projects.length} {group.projects.length === 1 ? "project" : "projects"}</span></summary>
-            <p>{group.description}</p>
-            <ul>{group.projects.map((project) => <li>
-              <div>{project.url ? <a href={project.url}>{project.name}</a> : <span>{project.name}</span>}{project.description && <p class="desk-archive__description">{project.description}</p>}</div>
-              <span>{project.status}</span>
-            </li>)}</ul>
-          </details>)}
-        </div>
-
-        <aside class="desk-side-column" aria-label="Calendar and source checks">
-          <section class="desk-launch" aria-labelledby="launch-title" data-launch-date={launch.date}>
-            <p id="launch-title">Next milestone</p>
-            <div class="desk-launch__days" data-launch-count>{daysToLaunch > 0 ? daysToLaunch : daysToLaunch === 0 ? "Today" : "Past date"}<span>{daysToLaunch > 0 ? "days to launch" : daysToLaunch === 0 ? "Launch day" : "Confirm launch outcome"}</span></div>
-            <a href={launch.sourceUrl!}>Marque & Reprisal</a>
-            <p>{formatDate(launch.date, { month: "long", day: "numeric", year: "numeric" })}</p>
-          </section>
-
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="description" content="Projects, earnings and the next decisions." />
+  <meta name="theme-color" content="#ffffff" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="canonical" href="https://garrettpetersen.com/desk/" /><title>Project desk — Garrett Petersen</title>
+</head>
+<body class="desk-page">
+  <a class="skip-link" href="#desk-main">Skip to dashboard</a>
+  <header class="desk-header"><a class="identity" href="/" aria-label="Garrett Petersen, home"><span class="identity__mark" aria-hidden="true"><span>G</span><span>P</span></span><span class="identity__name">Garrett Petersen</span></a><nav aria-label="Dashboard"><a href="#decisions-title">Decisions</a><a href="#kdp-report-title">Earnings</a><a href="#calendar-title">Calendar</a></nav><a class="desk-home" href="/">Back to site ↗</a></header>
+  <main id="desk-main" class="desk-shell">
+    <section class="desk-intro"><div><h1>Project desk.</h1><p>{data.brief}</p></div><div class="desk-freshness" data-reviewed-at={data.reviewedAt}><span class:list={['check-state',{'check-state--stale':isStale(data.reviewedAt)}]} data-check-state>{isStale(data.reviewedAt)?'Review overdue':'Reviewed'}</span><time datetime={data.reviewedAt}>{formatChecked(data.reviewedAt)} Pacific</time><span>Daily check-in · 9 a.m.</span></div></section>
+    <section class="desk-pulse" aria-label="Current signals">
+      <div class="desk-launch" data-launch-date={launch.date}><div data-launch-count class="desk-launch__days">{daysToLaunch>0?daysToLaunch:daysToLaunch===0?'Today':'Past date'}<span>{daysToLaunch>0?'days to launch':daysToLaunch===0?'Launch day':'Confirm outcome'}</span></div><a href={launch.sourceUrl!}>M&R · {formatDate(launch.date,{month:'short',day:'numeric',year:'numeric'})}</a></div>
+      {data.metrics.map(metric=><article class="desk-signal" data-observed-at={metric.observedAt}><span>{metric.label}</span><strong>{metric.id==='wishlist-week'&&'+'}{counts.format(metric.value)}</strong><small>{metric.id==='glossary'?'1 nonempty chapter':metric.id==='wishlist-week'?'Nov 5–11 · +79%':'Steam lifetime snapshot'}<br />As of {formatDate(metric.observedAt.slice(0,10))}<span class="desk-old" data-metric-stale hidden={!isStale(metric.observedAt)}> · Older snapshot</span></small></article>)}
+    </section>
+    <DecisionBoard />
+    <RevenueBreakdown streams={data.revenue} />
+    <div class="desk-columns">
+      <div class="desk-main-column">
+        <KdpReport />
+        <details class="desk-tool"><summary><span>Launch revenue scenarios</span><small>Adjust price, discount and sales assumptions</small></summary><RevenueScenario /></details>
+        <section class="desk-actions" aria-labelledby="actions-title"><div class="desk-section-heading"><h2 id="actions-title">Next actions</h2><span>{openTasks.length} open</span></div>
+          <ol class="desk-task-list">{openTasks.map(task=><li><span class={`desk-priority desk-priority--${task.priority}`}>{priorityLabels[task.priority]}</span><details><summary>{task.title}<small>{task.owner}</small></summary><p>{task.note}</p><small>{projectFor(task.projectId)} · Checked {formatDate(task.checkedAt.slice(0,10))}{task.due&&` · Target ${formatDate(task.due)}`}</small></details></li>)}</ol>
+          <details class="desk-completed"><summary>Completed <span>{completedTasks.length}</span></summary><ul>{completedTasks.map(task=><li><span aria-hidden="true">✓</span><div><strong>{task.title}</strong><p>{task.note}</p></div></li>)}</ul></details>
+        </section>
+        <section class="desk-context" aria-labelledby="context-title"><div class="desk-section-heading"><h2 id="context-title">Project context</h2><span>Blockers & evidence</span></div>
+          {data.projects.map(project=><details class="desk-project" id={project.id}><summary><span>{project.name}<small>{project.stage}</small></span><span class={`desk-status desk-status--${project.health}`}>{healthLabels[project.health]}</span></summary><div class="desk-project__body" id={`${project.id}-context`}><p>{project.summary}</p><dl><div><dt>Blocker</dt><dd>{project.blocker}</dd></div><div><dt>Next</dt><dd>{project.next}</dd></div></dl>{project.id==='marque-and-reprisal'&&<div class="desk-platform"><h3>After Steam: mobile & consoles</h3><p>{data.platformExpansion.model}</p><p>{data.platformExpansion.timing}</p><p>{data.platformExpansion.gates}</p></div>}{project.group==='prototype'&&<p>{data.prototypeStrategy.approach} {data.prototypeStrategy.decision}</p>}<div class="desk-project__bottom">{project.url&&<a href={project.url}>Project site</a>}{project.activity&&<span>Latest code {formatDate(project.activity.lastCommitAt.slice(0,10))}</span>}</div></div></details>)}
+        </section>
+        {archiveGroups.map(group=><details class="desk-archive"><summary>{group.title}<span>{group.projects.length}</span></summary><ul>{group.projects.map(project=><li><div>{project.url?<a href={project.url}>{project.name}</a>:<span>{project.name}</span>}{project.description&&<p>{project.description}</p>}</div><small>{project.status}</small></li>)}</ul></details>)}
+      </div>
+      <aside class="desk-side-column" aria-label="Calendar and source checks">
           <section class="desk-calendar desk-section" aria-labelledby="calendar-title" data-calendar data-year={year} data-month={month}>
             <div class="desk-section-heading"><h2 id="calendar-title">On the calendar</h2><a href="/desk.ics" download>Export .ics</a></div>
             <div class="desk-month-nav">
@@ -185,7 +76,7 @@ const healthLabels: Record<string, string> = { attention: "Needs attention", mov
             <p class="desk-calendar-key"><span></span> Confirmed <span></span> Planned review</p>
             <div class="desk-agenda" data-agenda aria-live="polite">
               {sortedEvents.map((event) => <article data-event-date={event.date} hidden={event.date < today} class:list={["desk-event", { "desk-event--confirmed": event.kind === "confirmed" }]}>
-                <time datetime={event.date}>{formatDate(event.date)}</time>
+                <time datetime={event.date}>{formatDate(event.date,event.date.slice(0,4)===today.slice(0,4)?{month:"short",day:"numeric"}:{month:"short",day:"numeric",year:"numeric"})}</time>
                 <div><h3>{event.title}</h3><span>{event.kind === "confirmed" ? "Confirmed date · time unverified" : "Suggested review"}</span>
                   <details><summary>Details</summary><p>{event.note}</p>{event.sourceUrl && <a href={event.sourceUrl}>Source</a>}</details>
                 </div>
@@ -194,18 +85,12 @@ const healthLabels: Record<string, string> = { attention: "Needs attention", mov
             </div>
             <button class="desk-reset-calendar" type="button" data-calendar-reset hidden>Show upcoming dates</button>
           </section>
-
-          <details class="desk-sources">
-            <summary>What’s been checked</summary>
-            <ul>{data.sources.map((source) => <li><strong>{source.label}</strong><time datetime={source.checkedAt}>{formatChecked(source.checkedAt)} Pacific</time><p>{source.note}</p></li>)}</ul>
-            <p>Measured snapshots, not live feeds. A check-in reviews priorities and publishes changes. Missing KPIs stay unmeasured.</p>
-          </details>
-        </aside>
-      </div>
-
-      <footer class="desk-footer"><p>Public, lightly linked, and safe to share.</p><a href="/">garrettpetersen.com</a></footer>
-    </main>
-    <div id="desk-calendar-data" data-events={JSON.stringify(data.events)} hidden></div>
-    <script src="../scripts/desk.ts"></script>
-  </body>
+        <details class="desk-sources"><summary>What’s been checked</summary><ul>{data.sources.map(source=><li><strong>{source.label}</strong><time datetime={source.checkedAt}>{formatChecked(source.checkedAt)} Pacific</time><p>{source.note}</p></li>)}</ul><p>Dated snapshots. Missing KPIs stay unmeasured.</p></details>
+      </aside>
+    </div>
+    <footer class="desk-footer"><p>Public, lightly linked, safe to share.</p><a href="/">garrettpetersen.com</a></footer>
+  </main>
+  <div id="desk-calendar-data" data-events={JSON.stringify(data.events)} hidden></div>
+  <script src="../scripts/desk.ts"></script>
+</body>
 </html>

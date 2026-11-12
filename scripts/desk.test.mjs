@@ -3,9 +3,26 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { calendarFeed, daysBetween, isStale, localDate, monthCells, publishedGlossaryMetric, validateDesk } from "../src/lib/desk.mjs";
 import { parseDate } from "../src/lib/dates.mjs";
+import { validateKdpReport } from "../src/lib/kdp.mjs";
 import { calculateRevenueScenario, compareRevenueScenarios, defaultRevenueScenario, formatMoney, summarizeRevenue } from "../src/lib/revenue.mjs";
 
 const snapshot = JSON.parse(readFileSync(new URL("../src/data/desk.json", import.meta.url), "utf8"));
+const kdpSnapshot = JSON.parse(readFileSync(new URL("../src/data/kdp.json", import.meta.url), "utf8"));
+
+test("KDP charts reject mismatched units, currencies and historical benchmarks", () => {
+  assert.equal(validateKdpReport(structuredClone(kdpSnapshot)).schemaVersion,1);
+  for(const mutate of [r=>r.totalUnits++,r=>r.currencyTotals[0].amountCents++,r=>r.currencyTotals.pop(),r=>r.benchmark.maxMonthlyCents++,r=>r.months.reverse(),r=>r.catalogue.liveWorks=r.catalogue.totalWorks+1]){
+    const broken=structuredClone(kdpSnapshot);mutate(broken);
+    assert.throws(()=>validateKdpReport(broken),/KDP report:/);
+  }
+});
+
+test("decision board requires one next gate and qualitative evidence within its scale", () => {
+  const noGate=structuredClone(snapshot);noGate.opportunities[0].milestones.forEach(step=>{step.state='done';});
+  assert.throws(()=>validateDesk(noGate),/one next gate/);
+  const probability=structuredClone(snapshot);probability.opportunities[0].demand.level=75;
+  assert.throws(()=>validateDesk(probability),/qualitative evidence/);
+});
 
 test("first-week scenarios deduct launch discount before the Steam share", () => {
   assert.deepEqual(calculateRevenueScenario(defaultRevenueScenario), { copies: 3000, grossCents: 4497000, discountedGrossCents: 4047300, afterSteamCents: 2833110 });

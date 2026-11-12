@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "reviewedAt": "2026-11-12T18:41:51.756Z",
-  "brief": "Launch readiness and qualified creator coverage through November 18.",
+  "brief": "Launch Marque & Reprisal. Reassess the next commitment.",
   "projects": [
     {
       "id": "marque-and-reprisal",
@@ -385,6 +385,12 @@
       "label": "M&R platform plan",
       "checkedAt": "2026-11-12T21:44:11.000Z",
       "note": "Owner-authorized marketing handoff checked against the local plan. Mobile business model is decided; sequencing and release windows remain conditional. The local planning edit is not yet committed upstream."
+    },
+    {
+      "id": "kdp-export",
+      "label": "KDP export analysis",
+      "checkedAt": "2026-11-12T22:15:20.243Z",
+      "note": "June 1–November 12 export reconciled between Combined Sales and Summary: 58 net paid units. Native currencies remain separate. The title benchmark uses September–October USD royalties only; it is historical evidence, not a new-title forecast."
     }
   ],
   "prototypeStrategy": {
@@ -426,5 +432,202 @@
     "model": "iOS/Android: free Mediterranean/Black Sea demo and connected rivers, with one purchase unlocking the full world. No time cutoff. Unlock price undecided.",
     "timing": "Protect Steam launch/support first. January 2027: conditional one-week feasibility study. Q1–Q2 2027: possible mobile beta/launch window, with no committed date.",
     "gates": "Native-device tests must prove touch usability, durable saves, performance/battery, and purchase/restore/offline flows. Assess consoles after Steam results and mobile feasibility."
-  }
+  },
+  "opportunities": [
+    {
+      "id": "steam-launch",
+      "projectId": "marque-and-reprisal",
+      "name": "Marque & Reprisal",
+      "kind": "Earn",
+      "priority": "now",
+      "returnKind": "steam-scenario",
+      "returnNote": "First week · current calculator scenario",
+      "demand": {
+        "level": 2,
+        "label": "Wishlists"
+      },
+      "delivery": {
+        "level": 2,
+        "label": "Launch prep"
+      },
+      "effort": "Hours TBD",
+      "effortNote": "Release checks + support",
+      "gate": "Ship a stable release on November 18; use sales, refunds and support load to reassess the long tail.",
+      "milestones": [
+        {
+          "label": "Prototype",
+          "state": "done"
+        },
+        {
+          "label": "Steam page",
+          "state": "done"
+        },
+        {
+          "label": "Launch",
+          "state": "next"
+        },
+        {
+          "label": "Support",
+          "state": "later"
+        }
+      ],
+      "timing": "Launch November 18"
+    },
+    {
+      "id": "kdp-next-book",
+      "projectId": "histories-kdp",
+      "name": "KDP · next book",
+      "kind": "Earn",
+      "priority": "next",
+      "returnKind": "kdp-history",
+      "returnNote": "Historical title / month · US only",
+      "demand": {
+        "level": 2,
+        "label": "Sales history"
+      },
+      "delivery": {
+        "level": 2,
+        "label": "Repeatable flow"
+      },
+      "effort": "Hours TBD",
+      "effortNote": "Your introduction + QA",
+      "gate": "Write Jinshu’s introduction and complete its glossary and ebook QA. Measure your hours before estimating the next 21 books.",
+      "milestones": [
+        {
+          "label": "Translated",
+          "state": "done"
+        },
+        {
+          "label": "Your intro",
+          "state": "next"
+        },
+        {
+          "label": "QA",
+          "state": "later"
+        },
+        {
+          "label": "Publish",
+          "state": "later"
+        }
+      ],
+      "timing": "Next release undated"
+    },
+    {
+      "id": "mobile-feasibility",
+      "projectId": "marque-and-reprisal",
+      "name": "M&R · mobile ports",
+      "kind": "Learn",
+      "priority": "later",
+      "returnKind": "unknown",
+      "returnNote": "Port earnings not modeled",
+      "demand": {
+        "level": 0,
+        "label": "Untested"
+      },
+      "delivery": {
+        "level": 1,
+        "label": "Game exists"
+      },
+      "effort": "~1 week",
+      "effortNote": "Feasibility study only",
+      "gate": "After Steam support settles, test native devices and estimate the remaining port, store and maintenance work. January is conditional.",
+      "milestones": [
+        {
+          "label": "Study",
+          "state": "next"
+        },
+        {
+          "label": "Device QA",
+          "state": "later"
+        },
+        {
+          "label": "Paid unlock",
+          "state": "later"
+        },
+        {
+          "label": "Release",
+          "state": "later"
+        }
+      ],
+      "timing": "Q1–Q2 2027 · conditional"
+    },
+    {
+      "id": "subject-demand-test",
+      "projectId": "subject-and-sovereign",
+      "name": "Subject & Sovereign",
+      "kind": "Learn",
+      "priority": "later",
+      "returnKind": "unknown",
+      "returnNote": "Demand test earns evidence",
+      "demand": {
+        "level": 0,
+        "label": "Untested"
+      },
+      "delivery": {
+        "level": 1,
+        "label": "Prototype"
+      },
+      "effort": "Budget TBD",
+      "effortNote": "Cap the page/trailer test",
+      "gate": "Set a test budget, window and wishlist goal before launching the polished page and trailer. Then continue, revise marketing or stop.",
+      "milestones": [
+        {
+          "label": "Prototype",
+          "state": "done"
+        },
+        {
+          "label": "Page/trailer",
+          "state": "next"
+        },
+        {
+          "label": "Demand test",
+          "state": "later"
+        },
+        {
+          "label": "Production",
+          "state": "later"
+        }
+      ],
+      "timing": "Release date unknown"
+    },
+    {
+      "id": "shaolin-demand-test",
+      "projectId": "shaolin-london",
+      "name": "Shaolin London",
+      "kind": "Learn",
+      "priority": "later",
+      "returnKind": "unknown",
+      "returnNote": "Demand test earns evidence",
+      "demand": {
+        "level": 0,
+        "label": "Untested"
+      },
+      "delivery": {
+        "level": 1,
+        "label": "Prototype"
+      },
+      "effort": "Budget TBD",
+      "effortNote": "Cap the page/trailer test",
+      "gate": "Set a test budget, window and wishlist goal before launching the polished page and trailer. Compare demand before committing to a full game.",
+      "milestones": [
+        {
+          "label": "Prototype",
+          "state": "done"
+        },
+        {
+          "label": "Page/trailer",
+          "state": "next"
+        },
+        {
+          "label": "Demand test",
+          "state": "later"
+        },
+        {
+          "label": "Production",
+          "state": "later"
+        }
+      ],
+      "timing": "Release date unknown"
+    }
+  ]
 }

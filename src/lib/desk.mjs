@@ -118,6 +118,17 @@ export function validateDesk(data) {
   }
   summarizeRevenue(data.revenue);
   for (const stream of data.revenue) required(stream.projectId === null || ids.has(stream.projectId), "unknown revenue project");
+  required(Array.isArray(data.opportunities)&&data.opportunities.length>0,"missing next-commitment decisions");
+  const opportunityIds=new Set();
+  for(const opportunity of data.opportunities){
+    required(id(opportunity.id)&&!opportunityIds.has(opportunity.id)&&ids.has(opportunity.projectId),"invalid decision reference");
+    opportunityIds.add(opportunity.id);
+    for(const field of ["name","returnNote","timing","effort","effortNote","gate"])required(text(opportunity[field]),`decision needs ${field}`);
+    required(["Earn","Learn"].includes(opportunity.kind)&&["now","next","later"].includes(opportunity.priority)&&["steam-scenario","kdp-history","unknown"].includes(opportunity.returnKind),"invalid decision category");
+    for(const evidence of [opportunity.demand,opportunity.delivery])required(evidence&&Number.isInteger(evidence.level)&&evidence.level>=0&&evidence.level<=3&&text(evidence.label),"invalid qualitative evidence");
+    required(Array.isArray(opportunity.milestones)&&opportunity.milestones.length>=2&&opportunity.milestones.filter(s=>s.state==='next').length===1,"a decision needs one next gate");
+    for(const step of opportunity.milestones)required(text(step.label)&&["done","next","later"].includes(step.state),"invalid milestone");
+  }
   for (const group of [data.tasks, data.metrics, data.events, data.archive, data.sources]) {
     const itemIds = new Set();
     for (const item of group) {

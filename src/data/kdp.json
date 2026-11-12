@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "periodStart": "2026-06-01",
+  "periodEnd": "2026-11-12",
+  "importedAt": "2026-11-12T22:15:20.243Z",
+  "basis": "estimated",
+  "source": "KDP Royalties Estimator export",
+  "totalUnits": 58,
+  "currencyTotals": [
+    {
+      "currency": "USD",
+      "amountCents": 25624
+    },
+    {
+      "currency": "EUR",
+      "amountCents": 3190
+    },
+    {
+      "currency": "CAD",
+      "amountCents": 4696
+    },
+    {
+      "currency": "GBP",
+      "amountCents": 2525
+    }
+  ],
+  "months": [
+    {
+      "month": "2026-06",
+      "units": 10,
+      "partial": false
+    },
+    {
+      "month": "2026-07",
+      "units": 15,
+      "partial": false
+    },
+    {
+      "month": "2026-08",
+      "units": 9,
+      "partial": false
+    },
+    {
+      "month": "2026-09",
+      "units": 5,
+      "partial": false
+    },
+    {
+      "month": "2026-10",
+      "units": 17,
+      "partial": false
+    },
+    {
+      "month": "2026-11",
+      "units": 2,
+      "partial": true
+    }
+  ],
+  "titles": [
+    {
+      "id": "shiji",
+      "label": "Shiji",
+      "name": "Records of the Grand Historian: Shiji (史記)",
+      "units": 35,
+      "royalties": {
+        "USD": 14269,
+        "EUR": 2650,
+        "CAD": 3357,
+        "GBP": 1010
+      },
+      "recentMonthlyUsdCents": 3195
+    },
+    {
+      "id": "hanshu",
+      "label": "Book of Han",
+      "name": "Book of Han: Hanshu (漢書)",
+      "units": 10,
+      "royalties": {
+        "USD": 5323,
+        "GBP": 501,
+        "CAD": 665
+      },
+      "recentMonthlyUsdCents": 1663
+    },
+    {
+      "id": "sanguozhi",
+      "label": "Three Kingdoms",
+      "name": "Records of the Three Kingdoms: Sanguo Zhi (三國志)",
+      "units": 10,
+      "royalties": {
+        "USD": 4052,
+        "GBP": 1014,
+        "CAD": 674,
+        "EUR": 540
+      },
+      "recentMonthlyUsdCents": 674
+    },
+    {
+      "id": "houhanshu",
+      "label": "Later Han",
+      "name": "Book of Later Han: Hou Hanshu (後漢書)",
+      "units": 3,
+      "royalties": {
+        "USD": 1980,
+        "EUR": 0
+      },
+      "recentMonthlyUsdCents": 660
+    }
+  ],
+  "benchmark": {
+    "currency": "USD",
+    "periodStart": "2026-09-01",
+    "periodEnd": "2026-10-31",
+    "months": 2,
+    "minMonthlyCents": 660,
+    "maxMonthlyCents": 3195,
+    "coverage": "US royalties only; all four existing titles. Two complete calendar months."
+  },
+  "catalogue": {
+    "liveWorks": 4,
+    "totalWorks": 26,
+    "checkedAt": "2026-11-12T20:40:34.000Z",
+    "source": "KDP Bookshelf"
+  }
+}

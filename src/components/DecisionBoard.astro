@@ -1,0 +1,25 @@
+---
+import snapshot from '../data/desk.json';
+import kdp from '../data/kdp.json';
+import { calculateRevenueScenario, defaultRevenueScenario, formatMoney } from '../lib/revenue.mjs';
+const scenario=calculateRevenueScenario(defaultRevenueScenario);
+---
+<section class="decision-board" aria-labelledby="decisions-title">
+  <div class="desk-section-heading"><div><h2 id="decisions-title">Fund the next step.</h2><p>Deliver cash. Buy evidence. Reassess at each gate.</p></div><span>Remaining effort only</span></div>
+  <div class="decision-labels" aria-hidden="true"><span>Opportunity</span><span>Milestones</span><span>Return & horizon</span><span>Evidence</span><span>Next effort</span><span></span></div>
+  {snapshot.opportunities.map(item=><details class:list={['decision',{'decision--now':item.priority==='now'}]} id={item.id}>
+    <summary>
+      <div class="decision-name"><span class:list={['decision-kind',`decision-kind--${item.kind.toLowerCase()}`]}>{item.priority==='now'?'Now':item.kind}</span><h3>{item.name}</h3></div>
+      <ol class="milestone-path" aria-label={`${item.name} milestones`}>{item.milestones.map(step=><li class={`milestone--${step.state}`}><span aria-hidden="true">{step.state==='done'?'✓':''}</span><small>{step.label}</small><span class="sr-only">{step.state==='done'?'complete':step.state==='next'?'next gate':'future'}</span></li>)}</ol>
+      <div class="decision-return"><strong>{item.returnKind==='steam-scenario'?<output data-revenue-board-after>{formatMoney(scenario.afterSteamCents)}</output>:item.returnKind==='kdp-history'?<>~US${Math.round(kdp.benchmark.minMonthlyCents/100)}–{Math.round(kdp.benchmark.maxMonthlyCents/100)}</>:<>Unmodeled</>}</strong><small>{item.returnNote}</small><small class="decision-timing">{item.timing}</small></div>
+      <div class="decision-evidence">{[['Demand',item.demand],['Delivery',item.delivery]].map(([label,evidence])=>{
+        const signal=evidence as {level:number,label:string};
+        return <div><span>{label as string}</span><span class="evidence-dots" aria-hidden="true">{[1,2,3].map(n=><i class:list={{filled:n<=signal.level}} />)}</span><small>{signal.label}</small></div>;
+      })}</div>
+      <div class="decision-effort"><strong>{item.effort}</strong><small>{item.effortNote}</small></div>
+      <span class="decision-expand" aria-hidden="true">+</span>
+    </summary>
+    <div class="decision-gate"><strong>Next gate</strong><p>{item.gate}</p><a href={`#${item.projectId}-context`}>Project context</a></div>
+  </details>)}
+  <details class="decision-method"><summary>How to read this</summary><p>Compare incremental earnings over matching periods and currencies, alongside your remaining hours, cash costs and time to revenue. Evidence signals are qualitative, not probabilities. A page launch or feasibility study buys information before a larger commitment. KDP’s range is rounded historical US royalties from September–October, not a new-book forecast. A comparable 12-month return and owner-hour estimate are still missing for these opportunities.</p></details>
+</section>

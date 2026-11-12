@@ -12,11 +12,13 @@ const inputs = {
 const copies = requiredElement("[data-revenue-copies]", HTMLOutputElement, form);
 const discounted = requiredElement("[data-revenue-discounted]", HTMLOutputElement, form);
 const after = requiredElement("[data-revenue-after]", HTMLOutputElement, form);
+const boardAfter = requiredElement("[data-revenue-board-after]", HTMLOutputElement);
 const error = requiredElement("[data-revenue-error]", HTMLElement, form);
 const reset = requiredElement('button[type="reset"]', HTMLButtonElement, form);
 const count = new Intl.NumberFormat("en-CA");
 
 function showError(message: string) {
+  boardAfter.value = "—";
   for (const output of form.querySelectorAll("output")) output.value = "—";
   error.textContent = message;
   error.hidden = false;
@@ -45,6 +47,7 @@ function render() {
     copies.value = count.format(result.copies);
     discounted.value = formatMoney(result.discountedGrossCents);
     after.value = formatMoney(result.afterSteamCents);
+    boardAfter.value = after.value;
     for (const scenario of compareRevenueScenarios(assumptions)) {
       const row = requiredElement(`[data-revenue-comparison="${scenario.salesPerWishlist}"]`, HTMLTableRowElement, form);
       requiredElement("[data-comparison-copies]", HTMLOutputElement, row).value = count.format(scenario.copies);
