@@ -9,5 +9,5 @@ const summary=summarizeRevenue(streams);
 <section class="earnings-strip" aria-labelledby="earnings-title" id="revenue">
   <div class="earnings-total"><h2 id="earnings-title">Reported earnings</h2>{summary.totals.length===0?<strong>Awaiting reports</strong>:summary.totals.map(total=><div><strong>{formatMoney(total.amountCents,total.currency)}</strong><small>{total.currency} · {formatDate(total.periodStart)}–{formatDate(total.periodEnd,{month:'short',day:'numeric',year:'numeric'})}<br />{total.basis==='estimated'?'Estimated':'Finalized'} · {summary.missing>0?'partial coverage':'reported total'}</small></div>)}</div>
   <dl class="earnings-sources">{streams.map(stream=><div class:list={{'earnings-source--missing':stream.report===null}}><dt>{stream.label}</dt><dd>{stream.report?formatMoney(stream.report.amountCents,stream.report.currency):'Unreported'}</dd><dd class="earnings-source-note">{stream.report?`${stream.report.currency} · ${stream.note}`:stream.note}</dd></div>)}</dl>
-  <p>Before income tax & costs. Scenarios and pending grants excluded.</p>
+  <p>Before income tax & costs.</p>
 </section>

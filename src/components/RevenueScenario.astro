@@ -8,8 +8,7 @@ const count = new Intl.NumberFormat("en-CA");
 
 <section class="desk-revenue" aria-labelledby="revenue-title" id="revenue-scenario">
   <div class="desk-revenue__heading">
-    <div><h3 id="revenue-title">First-week scenarios</h3><p>Illustrative launch assumptions · USD</p></div>
-    <span>Back-of-envelope</span>
+    <div><h3 id="revenue-title">Week-one scenarios</h3><p>USD · illustrative</p></div>
   </div>
   <form data-revenue-form novalidate>
     <div class="desk-revenue__inputs">
@@ -19,15 +18,15 @@ const count = new Intl.NumberFormat("en-CA");
       <label><span>Launch discount (%)</span><input name="launchDiscountPercent" type="number" min="0" max="100" step="0.01" value={defaults.launchDiscountPercent} aria-describedby="revenue-discount-note" required disabled /></label>
       <label><span>Steam share (%)</span><input name="steamSharePercent" type="number" min="0" max="100" step="0.01" value={defaults.steamSharePercent} required disabled /></label>
     </div>
-    <p id="revenue-ratio-note" class="desk-revenue__note">Total first-week sales / launch wishlists, including non-wishlist buyers. No extra organic-sales uplift.</p>
-    <p id="revenue-discount-note" class="desk-revenue__note">15,000 wishlists and a 10% discount are illustrative defaults. The configured launch discount is unverified.</p>
+    <p id="revenue-ratio-note" class="desk-revenue__note">Total sales include non-wishlist buyers.</p>
+    <p id="revenue-discount-note" class="desk-revenue__note">Defaults are illustrative; actual launch discount unverified.</p>
     <dl class="desk-revenue__flow" aria-live="polite" aria-atomic="true">
-      <div><dt>First-week copies</dt><dd><output data-revenue-copies>{count.format(result.copies)}</output></dd><dd class="desk-revenue__formula">Wishlists × ratio, rounded</dd></div>
-      <div><dt>Discounted gross</dt><dd><output data-revenue-discounted>{formatMoney(result.discountedGrossCents)}</output></dd><dd class="desk-revenue__formula">Copies × price × discount factor</dd></div>
+      <div><dt>First-week copies</dt><dd><output data-revenue-copies>{count.format(result.copies)}</output></dd><dd class="desk-revenue__formula">Wishlists × ratio</dd></div>
+      <div><dt>Discounted gross</dt><dd><output data-revenue-discounted>{formatMoney(result.discountedGrossCents)}</output></dd><dd class="desk-revenue__formula">Copies × discounted price</dd></div>
       <div><dt>After Steam share</dt><dd><output data-revenue-after>{formatMoney(result.afterSteamCents)}</output></dd><dd class="desk-revenue__formula">Gross × developer share</dd></div>
     </dl>
     <table class="desk-revenue__comparisons">
-      <caption>Compare ratios with your other inputs</caption>
+      <caption>Compare ratios</caption>
       <thead><tr><th scope="col">Sales / wishlist</th><th scope="col">Copies</th><th scope="col">After discount & Steam</th></tr></thead>
       <tbody>{comparisons.map((scenario) => <tr data-revenue-comparison={scenario.salesPerWishlist}>
         <th scope="row">{scenario.salesPerWishlist.toFixed(2)}×</th>
@@ -35,15 +34,12 @@ const count = new Intl.NumberFormat("en-CA");
         <td><output data-comparison-after>{formatMoney(scenario.afterSteamCents)}</output></td>
       </tr>)}</tbody>
     </table>
-    <p class="desk-revenue__note">Scenarios, not bounds or confidence intervals. Outcomes can fall outside them.</p>
+    <p class="desk-revenue__note">Illustrative cases, not bounds.</p>
     <p class="desk-revenue__error" data-revenue-error role="status" hidden></p>
-    <div class="desk-revenue__bottom"><span>Scenario only; actual dated KPIs are above.</span><button type="reset" disabled>Reset assumptions</button></div>
+    <div class="desk-revenue__bottom"><button type="reset" disabled>Reset assumptions</button></div>
   </form>
-  <p class="desk-revenue__caveat">Illustrative arithmetic, not a forecast, profit or cash payout. List price is not an average realized price. Launch discount and Steam share are modeled. Regional pricing, refunds, chargebacks, FX, all taxes and project costs remain unmodeled.</p>
-  <details class="desk-revenue__sources"><summary>Why these ratios?</summary>
-    <p><a href="https://newsletter.gamediscover.co/p/the-state-of-steam-wishlist-conversions?open=false">GameDiscoverCo, Oct 2025</a>: externally estimated week-one medians were 0.15 for games with over 25,000 launch wishlists, or 0.10 for that cohort’s games priced above US$10. That cohort does not predict M&R’s results.</p>
-    <p>0.20 keeps the original owner scenario. The <a href="https://howtomarketagame.com/2020/08/10/great-talks-at-gdc-summer-2020/">older 20–30% rule</a> includes discovery sales. <a href="https://howtomarketagame.com/2026/10/13/wishlist-inflation-is-real-but-they-are-still-important/">HTMAG’s 2026 study</a> covers month one, not week one.</p>
-  </details>
+  <p class="desk-revenue__caveat">Uses US list price. Excludes regional pricing, refunds, chargebacks, FX, taxes and costs. Not profit or payout.</p>
+  <details class="desk-revenue__sources"><summary>Ratio sources</summary><p><a href="https://newsletter.gamediscover.co/p/the-state-of-steam-wishlist-conversions?open=false">2025 medians</a>: 0.15 overall; 0.10 for games above US$10. All had 25k+ launch wishlists. 0.20 is the original scenario.</p></details>
   <noscript><p>Enable JavaScript to adjust the assumptions.</p></noscript>
 </section>
 
@@ -68,7 +64,7 @@ const count = new Intl.NumberFormat("en-CA");
   dd { margin: .3rem 0 0; font-size: clamp(1.05rem, 1.7vw, 1.5rem); font-weight: 580; font-variant-numeric: tabular-nums; letter-spacing: -.035em; overflow-wrap: anywhere; }
   .desk-revenue__flow > div:last-child output { color: var(--desk-blue); }
   dd.desk-revenue__formula { font-size: .6rem; color: var(--desk-muted); letter-spacing: 0; font-weight: 400; }
-  .desk-revenue__bottom { display: flex; justify-content: space-between; gap: .7rem; align-items: baseline; margin-top: .75rem; font-size: .65rem; color: var(--desk-muted); }
+  .desk-revenue__bottom { display: flex; justify-content: flex-end; gap: .7rem; align-items: baseline; margin-top: .75rem; font-size: .65rem; color: var(--desk-muted); }
   button { flex: 0 0 auto; padding: 0; border: 0; color: var(--desk-blue); background: transparent; font-size: .62rem !important; text-decoration: underline; text-underline-offset: .2em; }
   .desk-revenue__caveat { margin: .9rem 0 0; max-width: 85ch; color: var(--desk-muted); font-size: .68rem; line-height: 1.6; }
   .desk-revenue__comparisons { width: 100%; border-collapse: collapse; margin-top: 1.2rem; font-size: .68rem; font-variant-numeric: tabular-nums; }

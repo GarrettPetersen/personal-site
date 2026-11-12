@@ -123,7 +123,7 @@ export function validateDesk(data) {
   for(const opportunity of data.opportunities){
     required(id(opportunity.id)&&!opportunityIds.has(opportunity.id)&&ids.has(opportunity.projectId),"invalid decision reference");
     opportunityIds.add(opportunity.id);
-    for(const field of ["name","returnNote","timing","effort","effortNote","gate"])required(text(opportunity[field]),`decision needs ${field}`);
+    for(const field of ["name","returnNote","timing","effort","effortNote","effortAssumptions","gate"])required(text(opportunity[field]),`decision needs ${field}`);
     required(["Earn","Learn"].includes(opportunity.kind)&&["now","next","later"].includes(opportunity.priority)&&["steam-scenario","kdp-history","unknown"].includes(opportunity.returnKind),"invalid decision category");
     for(const evidence of [opportunity.demand,opportunity.delivery])required(evidence&&Number.isInteger(evidence.level)&&evidence.level>=0&&evidence.level<=3&&text(evidence.label),"invalid qualitative evidence");
     required(Array.isArray(opportunity.milestones)&&opportunity.milestones.length>=2&&opportunity.milestones.filter(s=>s.state==='next').length===1,"a decision needs one next gate");

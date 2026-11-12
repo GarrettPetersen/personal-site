@@ -51,19 +51,19 @@ const healthLabels:Record<string,string>={attention:'Needs attention',moving:'In
     <div class="desk-columns">
       <div class="desk-main-column">
         <KdpReport />
-        <details class="desk-tool"><summary><span>Launch revenue scenarios</span><small>Adjust price, discount and sales assumptions</small></summary><RevenueScenario /></details>
+        <details class="desk-tool"><summary><span>Launch calculator</span></summary><RevenueScenario /></details>
         <section class="desk-actions" aria-labelledby="actions-title"><div class="desk-section-heading"><h2 id="actions-title">Next actions</h2><span>{openTasks.length} open</span></div>
           <ol class="desk-task-list">{openTasks.map(task=><li><span class={`desk-priority desk-priority--${task.priority}`}>{priorityLabels[task.priority]}</span><details><summary>{task.title}<small>{task.owner}</small></summary><p>{task.note}</p><small>{projectFor(task.projectId)} · Checked {formatDate(task.checkedAt.slice(0,10))}{task.due&&` · Target ${formatDate(task.due)}`}</small></details></li>)}</ol>
           <details class="desk-completed"><summary>Completed <span>{completedTasks.length}</span></summary><ul>{completedTasks.map(task=><li><span aria-hidden="true">✓</span><div><strong>{task.title}</strong><p>{task.note}</p></div></li>)}</ul></details>
         </section>
-        <section class="desk-context" aria-labelledby="context-title"><div class="desk-section-heading"><h2 id="context-title">Project context</h2><span>Blockers & evidence</span></div>
+        <section class="desk-context" aria-labelledby="context-title"><div class="desk-section-heading"><h2 id="context-title">Project context</h2></div>
           {data.projects.map(project=><details class="desk-project" id={project.id}><summary><span>{project.name}<small>{project.stage}</small></span><span class={`desk-status desk-status--${project.health}`}>{healthLabels[project.health]}</span></summary><div class="desk-project__body" id={`${project.id}-context`}><p>{project.summary}</p><dl><div><dt>Blocker</dt><dd>{project.blocker}</dd></div><div><dt>Next</dt><dd>{project.next}</dd></div></dl>{project.id==='marque-and-reprisal'&&<div class="desk-platform"><h3>After Steam: mobile & consoles</h3><p>{data.platformExpansion.model}</p><p>{data.platformExpansion.timing}</p><p>{data.platformExpansion.gates}</p></div>}{project.group==='prototype'&&<p>{data.prototypeStrategy.approach} {data.prototypeStrategy.decision}</p>}<div class="desk-project__bottom">{project.url&&<a href={project.url}>Project site</a>}{project.activity&&<span>Latest code {formatDate(project.activity.lastCommitAt.slice(0,10))}</span>}</div></div></details>)}
         </section>
         {archiveGroups.map(group=><details class="desk-archive"><summary>{group.title}<span>{group.projects.length}</span></summary><ul>{group.projects.map(project=><li><div>{project.url?<a href={project.url}>{project.name}</a>:<span>{project.name}</span>}{project.description&&<p>{project.description}</p>}</div><small>{project.status}</small></li>)}</ul></details>)}
       </div>
       <aside class="desk-side-column" aria-label="Calendar and source checks">
           <section class="desk-calendar desk-section" aria-labelledby="calendar-title" data-calendar data-year={year} data-month={month}>
-            <div class="desk-section-heading"><h2 id="calendar-title">On the calendar</h2><a href="/desk.ics" download>Export .ics</a></div>
+            <div class="desk-section-heading"><h2 id="calendar-title">Calendar</h2><a href="/desk.ics" download>Export .ics</a></div>
             <div class="desk-month-nav">
               <button type="button" aria-label="Previous month" data-month-step="-1" hidden>‹</button>
               <h3 data-month-label aria-live="polite">{monthLabel(year, month)}</h3>
@@ -73,11 +73,11 @@ const healthLabels:Record<string,string>={attention:'Needs attention',moving:'In
             <div class="desk-calendar-grid" data-calendar-grid>
               {monthCells(year, month).map((date) => date ? <span class:list={["desk-day", { "desk-day--today": date === today, "desk-day--event": data.events.some((event) => event.date === date) }]}>{Number(date.slice(-2))}</span> : <span />)}
             </div>
-            <p class="desk-calendar-key"><span></span> Confirmed <span></span> Planned review</p>
+            <p class="desk-calendar-key"><span></span> Confirmed <span></span> Tentative</p>
             <div class="desk-agenda" data-agenda aria-live="polite">
               {sortedEvents.map((event) => <article data-event-date={event.date} hidden={event.date < today} class:list={["desk-event", { "desk-event--confirmed": event.kind === "confirmed" }]}>
                 <time datetime={event.date}>{formatDate(event.date,event.date.slice(0,4)===today.slice(0,4)?{month:"short",day:"numeric"}:{month:"short",day:"numeric",year:"numeric"})}</time>
-                <div><h3>{event.title}</h3><span>{event.kind === "confirmed" ? "Confirmed date · time unverified" : "Suggested review"}</span>
+                <div><h3>{event.title}</h3><span>{event.kind === "confirmed" ? "Confirmed" : "Tentative"}</span>
                   <details><summary>Details</summary><p>{event.note}</p>{event.sourceUrl && <a href={event.sourceUrl}>Source</a>}</details>
                 </div>
               </article>)}
@@ -85,10 +85,10 @@ const healthLabels:Record<string,string>={attention:'Needs attention',moving:'In
             </div>
             <button class="desk-reset-calendar" type="button" data-calendar-reset hidden>Show upcoming dates</button>
           </section>
-        <details class="desk-sources"><summary>What’s been checked</summary><ul>{data.sources.map(source=><li><strong>{source.label}</strong><time datetime={source.checkedAt}>{formatChecked(source.checkedAt)} Pacific</time><p>{source.note}</p></li>)}</ul><p>Dated snapshots. Missing KPIs stay unmeasured.</p></details>
+        <details class="desk-sources"><summary>Sources</summary><ul>{data.sources.map(source=><li><strong>{source.label}</strong><time datetime={source.checkedAt}>{formatChecked(source.checkedAt)} Pacific</time><p>{source.note}</p></li>)}</ul></details>
       </aside>
     </div>
-    <footer class="desk-footer"><p>Public, lightly linked, safe to share.</p><a href="/">garrettpetersen.com</a></footer>
+    <footer class="desk-footer"><a href="/">garrettpetersen.com</a></footer>
   </main>
   <div id="desk-calendar-data" data-events={JSON.stringify(data.events)} hidden></div>
   <script src="../scripts/desk.ts"></script>

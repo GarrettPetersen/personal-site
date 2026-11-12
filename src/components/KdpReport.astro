@@ -6,17 +6,16 @@ const monthMax=Math.max(...report.months.map(m=>m.units));
 const monthName=(month:string)=>new Intl.DateTimeFormat('en-CA',{month:'short',timeZone:'UTC'}).format(new Date(`${month}-01T12:00:00Z`));
 ---
 <section class="kdp-report" aria-labelledby="kdp-report-title">
-  <div class="desk-section-heading"><div><h2 id="kdp-report-title">Books already earning</h2><p>June 1–November 12, 2026 · estimated royalties</p></div><span>{report.totalUnits} paid units</span></div>
+  <div class="desk-section-heading"><div><h2 id="kdp-report-title">KDP</h2><p>Jun 1–Nov 12, 2026 · estimated</p></div><span>{report.totalUnits} units</span></div>
   <div class="kdp-charts">
-    <figure class="kdp-title-chart"><figcaption>Monthly US royalties by title <small>September–October average</small></figcaption>
+    <figure class="kdp-title-chart"><figcaption>Monthly royalties (USD)<small>Sep–Oct average · US store</small></figcaption>
       <ol>{[...report.titles].sort((a,b)=>b.recentMonthlyUsdCents-a.recentMonthlyUsdCents).map(title=><li><div><span>{title.label}</span><strong>{formatMoney(title.recentMonthlyUsdCents)}</strong></div><svg class="kdp-track" viewBox="0 0 100 6" preserveAspectRatio="none" width="100%" height="6" aria-hidden="true"><rect width={titleMax===0?0:100*title.recentMonthlyUsdCents/titleMax} height="6" /></svg></li>)}</ol>
-      <p>Four-title sample. Other currencies excluded. Historical pace, not a forecast for the next book.</p>
     </figure>
-    <figure class="kdp-month-chart"><figcaption>Net paid ebook units <small>All marketplaces</small></figcaption>
+    <figure class="kdp-month-chart"><figcaption>Net paid units <small>All stores</small></figcaption>
       <div class="kdp-month-bars" role="img" aria-label={report.months.map(m=>`${monthName(m.month)}: ${m.units} units${m.partial?' through November 12':''}`).join('; ')}>{report.months.map(month=><div class:list={{'kdp-month--partial':month.partial}}><strong>{month.units}</strong><div><svg viewBox="0 0 33 130" preserveAspectRatio="none" width="100%" height="130" aria-hidden="true"><defs><pattern id={`kdp-partial-${month.month}`} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#e3eafa" /><path d="M0 0V6" stroke="#7c9ae1" stroke-width="2" /></pattern></defs><rect x="0" y={monthMax===0?130:130*(1-month.units/monthMax)} width="33" height={monthMax===0?0:130*month.units/monthMax} fill={month.partial?`url(#kdp-partial-${month.month})`:'#7c9ae1'} /></svg></div><small>{monthName(month.month)}{month.partial?'*':''}</small></div>)}</div>
-      <p>*November 1–12 only.</p>
+      <p>*Nov 1–12.</p>
     </figure>
   </div>
-  <div class="kdp-currency-totals"><span>Report totals</span>{report.currencyTotals.map(total=><div><small>{total.currency}</small><strong>{formatMoney(total.amountCents,total.currency)}</strong></div>)}<small>Source currencies; the CAD total above uses Amazon’s estimated FX.</small></div>
-  <div class="book-progress"><div><strong>{report.catalogue.liveWorks} <span>/ {report.catalogue.totalWorks} works live</span></strong><span>{report.catalogue.totalWorks-report.catalogue.liveWorks} human introductions needed</span></div><div class="book-spine" role="img" aria-label={`${report.catalogue.liveWorks} of ${report.catalogue.totalWorks} works published; ${report.catalogue.totalWorks-report.catalogue.liveWorks} remain`}>{Array.from({length:report.catalogue.totalWorks},(_,i)=><span class:list={{published:i<report.catalogue.liveWorks}} />)}</div></div>
+  <div class="kdp-currency-totals"><span>Royalties</span>{report.currencyTotals.map(total=><div><small>{total.currency}</small><strong>{formatMoney(total.amountCents,total.currency)}</strong></div>)}<small>CAD total above: Amazon FX estimate.</small></div>
+  <div class="book-progress"><div><strong>{report.catalogue.liveWorks} <span>/ {report.catalogue.totalWorks} live</span></strong><span>{report.catalogue.totalWorks-report.catalogue.liveWorks} intros needed</span></div><div class="book-spine" role="img" aria-label={`${report.catalogue.liveWorks} of ${report.catalogue.totalWorks} works published; ${report.catalogue.totalWorks-report.catalogue.liveWorks} remain`}>{Array.from({length:report.catalogue.totalWorks},(_,i)=><span class:list={{published:i<report.catalogue.liveWorks}} />)}</div></div>
 </section>

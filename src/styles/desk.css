@@ -25,3 +25,7 @@
 .decision-return small.decision-timing{font-size:.54rem;color:#455e88;margin-top:.4rem}
 
 @media(max-width:650px){.kdp-charts figcaption small,.kdp-charts figure>p,.kdp-currency-totals>small{font-size:.6875rem}.decision-return small,.decision-effort small{font-size:.65rem}.decision-return small.decision-timing{font-size:.6rem}}
+
+.decision-gate>div>small{display:block;color:var(--desk-muted);font-size:.62rem;margin-top:.35rem;max-width:85ch}
+
+@media(max-width:650px){.decision-effort strong{font-size:.8rem}}

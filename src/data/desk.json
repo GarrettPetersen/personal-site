@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "reviewedAt": "2026-11-12T18:41:51.756Z",
-  "brief": "Launch Marque & Reprisal. Reassess the next commitment.",
+  "brief": "Marque & Reprisal launches November 18.",
   "projects": [
     {
       "id": "marque-and-reprisal",
@@ -11,7 +11,7 @@
       "stage": "Launch readiness + creator coverage",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
       "next": "Verify release builds, follow up with well-matched creators, and prepare approved launch-day materials.",
-      "blocker": "CI fixes reported; Windows packaging passed. Remaining regression checks are running.",
+      "blocker": "CI passed; final Steam/demo/platform checks remain.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
@@ -109,19 +109,19 @@
     {
       "id": "launch-checks",
       "projectId": "marque-and-reprisal",
-      "title": "Verify the release builds and launch flows",
+      "title": "Release checks",
       "owner": "Codex",
       "priority": "now",
       "source": "Owner update + GitHub",
-      "note": "Fixes reported complete. Windows packaging passed; the regression job is still running. Confirm the full rerun, then finish Steam, demo and platform flow validation.",
+      "note": "Latest master CI passed. Check Steam, demo and platform flows.",
       "status": "open",
       "due": "2026-11-17",
-      "checkedAt": "2026-11-12T20:14:04.743Z"
+      "checkedAt": "2026-11-12T22:52:22.000Z"
     },
     {
       "id": "creator-coverage",
       "projectId": "marque-and-reprisal",
-      "title": "Prepare qualified creator follow-ups",
+      "title": "Creator follow-ups",
       "owner": "Garrett + marketing agent",
       "priority": "next",
       "source": "Marketing handoff",
@@ -133,7 +133,7 @@
     {
       "id": "launch-package",
       "projectId": "marque-and-reprisal",
-      "title": "Finish the approved launch-day package",
+      "title": "Launch-day materials",
       "owner": "Garrett + Codex",
       "priority": "next",
       "source": "Marketing handoff",
@@ -145,7 +145,7 @@
     {
       "id": "prototype-comparison",
       "projectId": "subject-and-sovereign",
-      "title": "Test next-game demand with pages and trailers",
+      "title": "Test next-game demand",
       "owner": "Garrett + Codex",
       "priority": "later",
       "source": "Owner strategy",
@@ -181,7 +181,7 @@
     {
       "id": "kdp-introductions",
       "projectId": "histories-kdp",
-      "title": "Write Jinshu’s introduction",
+      "title": "Write Jinshu’s intro",
       "owner": "Garrett",
       "priority": "later",
       "source": "Owner direction",
@@ -359,8 +359,8 @@
     {
       "id": "marque-ci",
       "label": "M&R CI rerun",
-      "checkedAt": "2026-11-12T20:14:04.743Z",
-      "note": "Owner reports fixes; GitHub confirms Windows packaging passed while the regression job continues. Full CI success is not yet established."
+      "checkedAt": "2026-11-12T22:52:22.000Z",
+      "note": "Current master passed Game action and runtime checks. Manual release-flow validation remains."
     },
     {
       "id": "kdp-publishing",
@@ -391,6 +391,12 @@
       "label": "KDP export analysis",
       "checkedAt": "2026-11-12T22:15:20.243Z",
       "note": "June 1–November 12 export reconciled between Combined Sales and Summary: 58 net paid units. Native currencies remain separate. The title benchmark uses September–October USD royalties only; it is historical evidence, not a new-title forecast."
+    },
+    {
+      "id": "effort-estimates",
+      "label": "Effort estimates",
+      "checkedAt": "2026-11-12T22:52:22.000Z",
+      "note": "Rough AI-assisted estimates of Garrett’s hands-on hours; agent execution and store waits are separate. Recalibrate after milestones."
     }
   ],
   "prototypeStrategy": {
@@ -402,7 +408,7 @@
       "id": "kdp",
       "label": "KDP ebooks",
       "projectId": "histories-kdp",
-      "note": "November to date: CA$19.12 (included above).",
+      "note": "Nov: CA$19.12 included.",
       "report": {
         "amountCents": 50528,
         "currency": "CAD",
@@ -417,14 +423,14 @@
       "id": "steam",
       "label": "Steam · Marque & Reprisal",
       "projectId": "marque-and-reprisal",
-      "note": "Launch November 18. Sales unmeasured.",
+      "note": "Launch Nov 18.",
       "report": null
     },
     {
       "id": "other",
       "label": "Other projects",
       "projectId": null,
-      "note": "No revenue reports connected.",
+      "note": "Not tracked yet.",
       "report": null
     }
   ],
@@ -441,7 +447,7 @@
       "kind": "Earn",
       "priority": "now",
       "returnKind": "steam-scenario",
-      "returnNote": "First week · current calculator scenario",
+      "returnNote": "Week 1 · scenario",
       "demand": {
         "level": 2,
         "label": "Wishlists"
@@ -450,9 +456,9 @@
         "level": 2,
         "label": "Launch prep"
       },
-      "effort": "Hours TBD",
-      "effortNote": "Release checks + support",
-      "gate": "Ship a stable release on November 18; use sales, refunds and support load to reassess the long tail.",
+      "effort": "8–16 h",
+      "effortNote": "Launch + week-one support",
+      "gate": "Launch November 18; monitor sales and support.",
       "milestones": [
         {
           "label": "Prototype",
@@ -471,7 +477,8 @@
           "state": "later"
         }
       ],
-      "timing": "Launch November 18"
+      "timing": "Nov 18 launch",
+      "effortAssumptions": "AI handles fixes and tests. Your time covers release checks, approvals and support."
     },
     {
       "id": "kdp-next-book",
@@ -480,7 +487,7 @@
       "kind": "Earn",
       "priority": "next",
       "returnKind": "kdp-history",
-      "returnNote": "Historical title / month · US only",
+      "returnNote": "Historical / title / month · US",
       "demand": {
         "level": 2,
         "label": "Sales history"
@@ -489,9 +496,9 @@
         "level": 2,
         "label": "Repeatable flow"
       },
-      "effort": "Hours TBD",
-      "effortNote": "Your introduction + QA",
-      "gate": "Write Jinshu’s introduction and complete its glossary and ebook QA. Measure your hours before estimating the next 21 books.",
+      "effort": "4–8 h/book",
+      "effortNote": "You write; AI packages",
+      "gate": "Write Jinshu’s intro; finish glossary and QA.",
       "milestones": [
         {
           "label": "Translated",
@@ -510,7 +517,8 @@
           "state": "later"
         }
       ],
-      "timing": "Next release undated"
+      "timing": "After intro + QA",
+      "effortAssumptions": "Short introduction, revision and final review. AI handles packaging and technical checks; glossary backlog is separate."
     },
     {
       "id": "mobile-feasibility",
@@ -519,7 +527,7 @@
       "kind": "Learn",
       "priority": "later",
       "returnKind": "unknown",
-      "returnNote": "Port earnings not modeled",
+      "returnNote": "Study first",
       "demand": {
         "level": 0,
         "label": "Untested"
@@ -528,9 +536,9 @@
         "level": 1,
         "label": "Game exists"
       },
-      "effort": "~1 week",
-      "effortNote": "Feasibility study only",
-      "gate": "After Steam support settles, test native devices and estimate the remaining port, store and maintenance work. January is conditional.",
+      "effort": "2–4 h",
+      "effortNote": "Study · ~1 week elapsed",
+      "gate": "Test native builds, saves and purchases.",
       "milestones": [
         {
           "label": "Study",
@@ -549,7 +557,8 @@
           "state": "later"
         }
       ],
-      "timing": "Q1–Q2 2027 · conditional"
+      "timing": "H1 2027 · tentative",
+      "effortAssumptions": "AI builds the prototypes; you test devices and review results. Full ports: very roughly 20–50 hands-on hours if feasible."
     },
     {
       "id": "subject-demand-test",
@@ -558,7 +567,7 @@
       "kind": "Learn",
       "priority": "later",
       "returnKind": "unknown",
-      "returnNote": "Demand test earns evidence",
+      "returnNote": "Page test first",
       "demand": {
         "level": 0,
         "label": "Untested"
@@ -567,9 +576,9 @@
         "level": 1,
         "label": "Prototype"
       },
-      "effort": "Budget TBD",
-      "effortNote": "Cap the page/trailer test",
-      "gate": "Set a test budget, window and wishlist goal before launching the polished page and trailer. Then continue, revise marketing or stop.",
+      "effort": "6–12 h",
+      "effortNote": "Page + trailer",
+      "gate": "Launch page/trailer; test wishlist momentum.",
       "milestones": [
         {
           "label": "Prototype",
@@ -588,7 +597,8 @@
           "state": "later"
         }
       ],
-      "timing": "Release date unknown"
+      "timing": "After M&R launch",
+      "effortAssumptions": "AI implements, captures and edits. You supply the pitch, art direction and review. Allow roughly 1–2 weeks elapsed plus store review."
     },
     {
       "id": "shaolin-demand-test",
@@ -597,7 +607,7 @@
       "kind": "Learn",
       "priority": "later",
       "returnKind": "unknown",
-      "returnNote": "Demand test earns evidence",
+      "returnNote": "Page test first",
       "demand": {
         "level": 0,
         "label": "Untested"
@@ -606,9 +616,9 @@
         "level": 1,
         "label": "Prototype"
       },
-      "effort": "Budget TBD",
-      "effortNote": "Cap the page/trailer test",
-      "gate": "Set a test budget, window and wishlist goal before launching the polished page and trailer. Compare demand before committing to a full game.",
+      "effort": "8–16 h",
+      "effortNote": "Page + trailer",
+      "gate": "Launch page/trailer; test wishlist momentum.",
       "milestones": [
         {
           "label": "Prototype",
@@ -627,7 +637,8 @@
           "state": "later"
         }
       ],
-      "timing": "Release date unknown"
+      "timing": "After M&R launch",
+      "effortAssumptions": "AI implements, captures and edits. You supply the pitch, art direction and review. Allow roughly 1–2 weeks elapsed plus store review."
     }
   ]
 }
