@@ -5,9 +5,46 @@ import { calendarFeed, daysBetween, isStale, localDate, monthCells, publishedGlo
 import { parseDate } from "../src/lib/dates.mjs";
 import { validateKdpReport } from "../src/lib/kdp.mjs";
 import { calculateRevenueScenario, compareRevenueScenarios, defaultRevenueScenario, formatMoney, summarizeRevenue } from "../src/lib/revenue.mjs";
+import { dailyTasks, totalEffort, formatEffort } from "../src/lib/tasks.mjs";
+import { marqueTelemetrySnapshot } from "../src/lib/telemetry.mjs";
 
 const snapshot = JSON.parse(readFileSync(new URL("../src/data/desk.json", import.meta.url), "utf8"));
 const kdpSnapshot = JSON.parse(readFileSync(new URL("../src/data/kdp.json", import.meta.url), "utf8"));
+
+test("daily picks reject completed, dismissed or unknown work and preserve bounded owner effort", () => {
+  const tasks = [
+    { id: "short-important", status: "open", importance: 5, effortMinutes: { min: 10, max: 15 } },
+    { id: "long-later", status: "open", importance: 2, effortMinutes: { min: 90, max: 120 } },
+    { id: "longer-important", status: "open", importance: 5, effortMinutes: { min: 20, max: 40 } },
+  ];
+  const picks = dailyTasks(tasks, { taskIds: tasks.map(task => task.id) });
+  assert.deepEqual(picks.map(task => task.id), ["longer-important", "short-important", "long-later"]);
+  assert.deepEqual(totalEffort(picks), { min: 120, max: 175 });
+  assert.equal(formatEffort(totalEffort(picks)), "2h–2h 55m");
+  for (const state of ["done", "dismissed"]) {
+    const invalid = structuredClone(snapshot);
+    const task = invalid.tasks.find(task => task.id === invalid.dailyPlan.taskIds[0]);
+    task.status = state;
+    task.dismissedReason = "Owner declined";
+    assert.throws(() => validateDesk(invalid), /open tasks/);
+  }
+  for (const mutate of [
+    d => d.dailyPlan.taskIds.push(d.dailyPlan.taskIds[0]),
+    d => d.dailyPlan.taskIds[0] = "missing-task",
+    d => d.dailyPlan.date = "2026-11-11",
+    d => d.tasks.find(t => t.id === d.dailyPlan.taskIds[0]).effortMinutes.max = -1,
+  ]) {
+    const invalid = structuredClone(snapshot); mutate(invalid);
+    assert.throws(() => validateDesk(invalid), /daily|open tasks/);
+  }
+});
+
+test("telemetry imports only aggregates and rejects missing or invalid observations", () => {
+  const payload = { schemaVersion: 5, windowDays: 1, generatedAt: "2026-11-12T23:14:29.706Z", totals: { players: 62, sessions: 164, crashes: 0 }, mapIntegrityIssues: [{ reports: 39, privateContext: "never publish" }, { reports: 5 }], rawFeedback: "never publish" };
+  const clean = marqueTelemetrySnapshot(payload);
+  assert.deepEqual(clean, { observedAt: payload.generatedAt, windowDays: 1, installations: 62, sessions: 164, crashReports: 0, chartWarnings: 44 });
+  for (const change of [{ schemaVersion: 6 }, { windowDays: 7 }, { generatedAt: "invalid" }, { totals: { players: 62, sessions: 164 } }, { mapIntegrityIssues: [{ reports: -1 }] }]) assert.throws(() => marqueTelemetrySnapshot({ ...payload, ...change }));
+});
 
 test("KDP charts reject mismatched units, currencies and historical benchmarks", () => {
   assert.equal(validateKdpReport(structuredClone(kdpSnapshot)).schemaVersion,1);

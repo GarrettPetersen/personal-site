@@ -1,5 +1,6 @@
 import { parseDate } from "./dates.mjs";
 import { summarizeRevenue } from "./revenue.mjs";
+import { validateTelemetry } from "./telemetry.mjs";
 
 export const timeZone = "America/Vancouver";
 
@@ -138,11 +139,32 @@ export function validateDesk(data) {
     }
   }
   for (const task of data.tasks) {
-    required(["now", "next", "later"].includes(task.priority) && ["open", "done"].includes(task.status), "invalid task state");
+    required(["now", "next", "later"].includes(task.priority) && ["open", "done", "dismissed"].includes(task.status), "invalid task state");
     for (const field of ["title", "owner", "source", "note"]) required(text(task[field]), `task needs ${field}`);
     required(timestamp(task.checkedAt), "task needs its actual verification time");
     if (task.due) parseDate(task.due);
+    if (task.completedOn !== null) {
+      parseDate(task.completedOn);
+      required(task.status === "done" && task.completedOn <= localDate(new Date(task.checkedAt)), "invalid task completion date");
+    }
+    if (task.status === "dismissed") required(text(task.dismissedReason), "dismissed task needs the owner's reason");
+    required(task.completionKind === null || (task.completionKind === "source" && task.status === "done"), "invalid completion kind");
   }
+  const plan = data.dailyPlan;
+  required(plan && timestamp(plan.checkedAt), "daily picks need a review timestamp");
+  required(text(plan.focus) && plan.focus.length <= 350, "daily focus must be a short big-picture priority");
+  parseDate(plan.date);
+  required(plan.date === localDate(new Date(plan.checkedAt)), "daily picks must match their review date");
+  required(Array.isArray(plan.taskIds) && plan.taskIds.length >= 1 && plan.taskIds.length <= 5 && new Set(plan.taskIds).size === plan.taskIds.length, "choose one to five unique daily tasks");
+  for (const taskId of plan.taskIds) {
+    const task = data.tasks.find(task => task.id === taskId);
+    required(task && task.status === "open", "daily picks must reference open tasks");
+    required(Number.isInteger(task.importance) && task.importance >= 1 && task.importance <= 5, "daily task needs an importance rating");
+    required(task.effortMinutes && Number.isSafeInteger(task.effortMinutes.min) && Number.isSafeInteger(task.effortMinutes.max) && task.effortMinutes.min > 0 && task.effortMinutes.max >= task.effortMinutes.min, "invalid daily effort range");
+    required(["blue", "coral", "sage", "gold"].includes(task.tone) && text(task.signal) && text(task.outcome), "daily task needs presentation and a completion condition");
+    required(typeof task.optional === "boolean", "daily task must distinguish optional work");
+  }
+  validateTelemetry(data.telemetry);
   for (const metric of data.metrics) {
     required(Number.isFinite(metric.value) && text(metric.label) && text(metric.note) && timestamp(metric.observedAt), "invalid metric or missing observation time");
     if (metric.total !== null) required(Number.isFinite(metric.total) && metric.total > 0 && metric.value >= 0 && metric.value <= metric.total, "invalid progress denominator");

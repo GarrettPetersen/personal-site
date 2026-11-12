@@ -1,6 +1,7 @@
 import { execFileSync } from "node:child_process";
 import { readFile, rename, writeFile } from "node:fs/promises";
 import { publishedGlossaryMetric, validateDesk } from "../src/lib/desk.mjs";
+import { marqueTelemetrySnapshot, marqueTelemetryUrl } from "../src/lib/telemetry.mjs";
 
 // Only aggregates and dates cross this boundary. Never copy API payloads or
 // private commit/issue titles into the public repository.
@@ -35,13 +36,18 @@ for (const project of data.projects) {
 
 async function publicJson(url) {
   const response = await fetch(url, { signal: AbortSignal.timeout(30_000) });
-  if (!response.ok) throw new Error(`Glossary data returned HTTP ${response.status}: ${url}`);
+  if (!response.ok) throw new Error(`Source returned HTTP ${response.status}: ${url}`);
   return response.json();
 }
 const [progress, publication] = await Promise.all([
   publicJson("https://24histories.com/data/progress.json"),
   publicJson("https://24histories.com/data/people/site-status.json"),
 ]);
+data.telemetry = marqueTelemetrySnapshot(await publicJson(marqueTelemetryUrl));
+const telemetrySource = data.sources.find(source => source.id === "marque-telemetry");
+if (!telemetrySource) throw new Error("Missing telemetry source");
+telemetrySource.checkedAt = checkedAt;
+telemetrySource.note = `24h opt-in snapshot at ${data.telemetry.observedAt}: ${data.telemetry.installations} installations, ${data.telemetry.sessions} sessions, ${data.telemetry.crashReports} crash reports and ${data.telemetry.chartWarnings} chart warnings. Reports are not distinct bugs. No diagnostic cursor changed.`;
 const glossary = progress.peopleGlossary;
 if (!glossary || !Number.isInteger(glossary.extractedChapters) || !Number.isInteger(glossary.sourceChapters) || !Number.isFinite(Date.parse(progress.generatedAt))) throw new Error("Glossary progress schema changed");
 const metric = data.metrics.find((item) => item.id === "glossary");

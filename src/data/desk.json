@@ -11,18 +11,18 @@
       "stage": "Launch readiness + creator coverage",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
       "next": "Verify release builds, follow up with well-matched creators, and prepare approved launch-day materials.",
-      "blocker": "CI passed; final Steam/demo/platform checks remain.",
+      "blocker": "Navigation and input reports remain open. Previous CI passed; newer source is under test.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
-        "checkedAt": "2026-11-12T20:12:59.482Z",
-        "lastCommitAt": "2026-11-12T19:50:19Z",
+        "checkedAt": "2026-11-12T23:26:10.807Z",
+        "lastCommitAt": "2026-11-12T22:30:29Z",
         "openPullRequests": 0,
         "openIssues": 0,
         "ci": {
           "status": "in_progress",
           "conclusion": null,
-          "createdAt": "2026-11-12T19:56:40Z"
+          "createdAt": "2026-11-12T23:00:59Z"
         }
       }
     },
@@ -38,7 +38,7 @@
       "repo": "GarrettPetersen/subject-and-sovereign",
       "url": "https://subject-and-sovereign.garrett-m-petersen.workers.dev/",
       "activity": {
-        "checkedAt": "2026-11-12T20:12:59.482Z",
+        "checkedAt": "2026-11-12T23:26:10.807Z",
         "lastCommitAt": "2026-10-23T18:12:57Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -57,7 +57,7 @@
       "repo": "GarrettPetersen/anime-games",
       "url": null,
       "activity": {
-        "checkedAt": "2026-11-12T20:12:59.482Z",
+        "checkedAt": "2026-11-12T23:26:10.807Z",
         "lastCommitAt": "2026-11-01T12:45:37Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -80,7 +80,7 @@
       "repo": "GarrettPetersen/records-of-the-grand-historian",
       "url": "https://24histories.com/progress",
       "activity": {
-        "checkedAt": "2026-11-12T20:12:59.482Z",
+        "checkedAt": "2026-11-12T23:26:10.807Z",
         "lastCommitAt": "2026-11-07T02:16:23Z",
         "openPullRequests": 100,
         "openIssues": 0,
@@ -103,6 +103,19 @@
       "repo": null,
       "url": "https://24histories.com/",
       "activity": null
+    },
+    {
+      "id": "marque-supporter-pack",
+      "name": "M&R · Supporter Pack",
+      "group": "secondary",
+      "health": "attention",
+      "stage": "Day-one DLC · globe in development",
+      "summary": "Optional paid DLC with a living desktop globe built from M&R’s world, pixel art and simulation. A working native prototype exists.",
+      "next": "Confirm scope, price and Steam readiness; finish globe controls, lighting, profiling and packaging.",
+      "blocker": "Final QA, platform packaging and Steam DLC/store/depot setup and review remain unverified.",
+      "repo": null,
+      "url": null,
+      "activity": null
     }
   ],
   "tasks": [
@@ -113,10 +126,12 @@
       "owner": "Codex",
       "priority": "now",
       "source": "Owner update + GitHub",
-      "note": "Latest master CI passed. Check Steam, demo and platform flows.",
+      "note": "Previous CI passed. Confirm the newer source run, then Steam, demo and platform flows.",
       "status": "open",
       "due": "2026-11-17",
-      "checkedAt": "2026-11-12T22:52:22.000Z"
+      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "completedOn": null,
+      "completionKind": null
     },
     {
       "id": "creator-coverage",
@@ -128,7 +143,9 @@
       "note": "Rank prospects by audience fit and expected reach. Garrett reviews and sends drafts. Check replies, including the giveaway decision; sent keys are not evidence of coverage.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-12T18:38:02.290Z"
+      "checkedAt": "2026-11-12T18:38:02.290Z",
+      "completedOn": null,
+      "completionKind": null
     },
     {
       "id": "launch-package",
@@ -140,19 +157,23 @@
       "note": "Organize current gameplay assets and Garrett’s approved press/social wording. Confirm Steam community links: Discord, YouTube, X. Optional cross-promotion needs a separate scope and copy decision.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-12T18:38:02.290Z"
+      "checkedAt": "2026-11-12T18:38:02.290Z",
+      "completedOn": null,
+      "completionKind": null
     },
     {
       "id": "prototype-comparison",
       "projectId": "subject-and-sovereign",
-      "title": "Test next-game demand",
+      "title": "Prepare Subject & Sovereign’s page test",
       "owner": "Garrett + Codex",
       "priority": "later",
       "source": "Owner strategy",
-      "note": "After the M&R launch: make polished Steam pages and trailers using only the prototype scenes needed. Set a measurement window and wishlist goals before judging demand. If momentum is weak, revise the marketing approach or choose a different game before committing to full production.",
+      "note": "After the M&R launch: polish the trailer slice and Steam page, then measure wishlist momentum before committing to production. Set a test window and wishlist goal first.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-12T18:49:29.958Z"
+      "checkedAt": "2026-11-12T18:49:29.958Z",
+      "completedOn": null,
+      "completionKind": null
     },
     {
       "id": "grant-submitted",
@@ -164,7 +185,9 @@
       "note": "Up to CA$50,000 in potential funding. Reply expected around January 18, 2027, based on the 11-week review estimate. Award pending.",
       "status": "done",
       "due": null,
-      "checkedAt": "2026-11-12T21:44:11.000Z"
+      "checkedAt": "2026-11-12T21:44:11.000Z",
+      "completedOn": "2026-11-02",
+      "completionKind": null
     },
     {
       "id": "localized-materials-published",
@@ -176,7 +199,9 @@
       "note": "Website, press kit and both Steam pages aligned across 11 languages.",
       "status": "done",
       "due": null,
-      "checkedAt": "2026-11-12T18:38:02.290Z"
+      "checkedAt": "2026-11-12T18:38:02.290Z",
+      "completedOn": null,
+      "completionKind": null
     },
     {
       "id": "kdp-introductions",
@@ -188,7 +213,162 @@
       "note": "Human-authored introductions are the main blocker for the 22 unpublished books. Publishing more volumes is a potential KDP revenue opportunity. AI translation is acceptable; AI must not write the introductions. Jinshu still needs its reviewed glossary and final ebook QA before release.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-12T20:52:22.000Z"
+      "checkedAt": "2026-11-12T20:52:22.000Z",
+      "completedOn": null,
+      "completionKind": null
+    },
+    {
+      "id": "navigation-replay",
+      "projectId": "marque-and-reprisal",
+      "title": "Replay navigation failures",
+      "owner": "Queued for AI · you review",
+      "priority": "now",
+      "source": "Remote feedback + live telemetry",
+      "note": "Reproduce current Steam-demo chart reframe and ship-arrival failures. AI prepares replays and regression cases; review the evidence before choosing a fix.",
+      "status": "open",
+      "due": "2026-11-13",
+      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "importance": 4,
+      "effortMinutes": {
+        "min": 20,
+        "max": 40
+      },
+      "tone": "coral",
+      "signal": "Repeated chart warnings in the Steam demo.",
+      "outcome": "A reproducible case and a focused fix/test plan.",
+      "completedOn": null,
+      "completionKind": null,
+      "optional": false
+    },
+    {
+      "id": "input-reproduction",
+      "projectId": "marque-and-reprisal",
+      "title": "Reproduce cannon/controller reports",
+      "owner": "AI + Garrett",
+      "priority": "now",
+      "source": "Remote player-feedback list",
+      "note": "Loaded-cannon Q/E and Linux Steam Controller reports still lack decisive reproduction. Gather binding, rowing, crew-duty and input evidence before changing mechanics. New diagnostic capture is not a confirmed repair.",
+      "status": "open",
+      "due": null,
+      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "completedOn": null,
+      "completionKind": null
+    },
+    {
+      "id": "supporter-scope",
+      "projectId": "marque-supporter-pack",
+      "title": "Lock the Supporter Pack scope",
+      "owner": "Your decision",
+      "priority": "now",
+      "source": "Supporter Pack project handoff",
+      "note": "Confirm final contents, price and Steam DLC review readiness for November 18. The globe is still in development; US$6.99 is unapproved and audio files are excluded.",
+      "status": "open",
+      "due": "2026-11-14",
+      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "importance": 5,
+      "effortMinutes": {
+        "min": 15,
+        "max": 30
+      },
+      "tone": "blue",
+      "signal": "Price + Steam review still unconfirmed.",
+      "outcome": "Contents, price and remaining launch dependencies recorded.",
+      "completedOn": null,
+      "completionKind": null,
+      "optional": false
+    },
+    {
+      "id": "jinshu-opening",
+      "projectId": "histories-kdp",
+      "title": "Write Jinshu’s opening",
+      "owner": "If there’s room · you write",
+      "priority": "next",
+      "source": "Owner publishing priorities",
+      "note": "One session writing the opening in your own voice. Full introduction/review: roughly 4–8 hours; glossary and ebook QA follow.",
+      "status": "open",
+      "due": null,
+      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "importance": 3,
+      "effortMinutes": {
+        "min": 30,
+        "max": 60
+      },
+      "tone": "sage",
+      "signal": "A small step toward book five.",
+      "outcome": "A human-written opening draft saved.",
+      "completedOn": null,
+      "completionKind": null,
+      "optional": true
+    },
+    {
+      "id": "escape-pause-source",
+      "projectId": "marque-and-reprisal",
+      "title": "Escape / fullscreen fix",
+      "owner": "Game agent",
+      "priority": "later",
+      "source": "Remote feedback list · source fix",
+      "note": "The remote feedback list records the Escape/pause fullscreen fix and passing Electron regressions. Native Windows CI and storefront delivery are separate; this records the source fix.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "completedOn": "2026-11-12",
+      "completionKind": "source"
+    },
+    {
+      "id": "memorial-layout-source",
+      "projectId": "marque-and-reprisal",
+      "title": "Memorial text fits",
+      "owner": "Game agent",
+      "priority": "later",
+      "source": "Remote telemetry review · source fix",
+      "note": "Memorial metadata and names wrap within available space. The source review records the all-locale, both-text-style rendering matrix passing. Storefront release remains separate.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "completedOn": "2026-11-12",
+      "completionKind": "source"
+    },
+    {
+      "id": "waypoint-hud-source",
+      "projectId": "marque-and-reprisal",
+      "title": "Waypoints under large HUDs",
+      "owner": "Game agent",
+      "priority": "later",
+      "source": "Remote telemetry review · source fix",
+      "note": "Removed an irrelevant viewport-center precondition while retaining perimeter and obstacle checks. The remote review records passing regressions; this is a source fix, not a storefront release.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "completedOn": "2026-11-12",
+      "completionKind": "source"
+    },
+    {
+      "id": "kdp-report-analyzed",
+      "projectId": "histories-kdp",
+      "title": "KDP sales mapped",
+      "owner": "Codex",
+      "priority": "later",
+      "source": "Reconciled KDP export",
+      "note": "Reconciled 58 net paid units, separate native-currency totals and the historical monthly title benchmark. Selected aggregates are published on the desk.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-12T22:15:20.243Z",
+      "completedOn": "2026-11-12",
+      "completionKind": null
+    },
+    {
+      "id": "shaolin-page-test",
+      "projectId": "shaolin-london",
+      "title": "Prepare Shaolin London’s page test",
+      "owner": "Garrett + Codex",
+      "priority": "later",
+      "source": "Owner strategy",
+      "note": "After the M&R launch: finish the chase/combat scenes needed for the trailer and Steam page. Measure wishlists before expanding production; revise marketing or choose another game if momentum is weak.",
+      "status": "open",
+      "due": null,
+      "checkedAt": "2026-11-12T18:49:29.958Z",
+      "completedOn": null,
+      "completionKind": null
     }
   ],
   "metrics": [
@@ -317,7 +497,7 @@
     {
       "id": "github",
       "label": "GitHub",
-      "checkedAt": "2026-11-12T20:12:59.482Z",
+      "checkedAt": "2026-11-12T23:26:10.807Z",
       "note": "Default-branch activity, open work and CI. Activity does not measure product progress."
     },
     {
@@ -335,7 +515,7 @@
     {
       "id": "glossary",
       "label": "Published glossary data",
-      "checkedAt": "2026-11-12T20:12:59.482Z",
+      "checkedAt": "2026-11-12T23:26:10.807Z",
       "note": "Published output retains its source date. Separately, 2,050 extracted chapters are intermediate work (source: 2026-11-07), not published completion."
     },
     {
@@ -359,8 +539,8 @@
     {
       "id": "marque-ci",
       "label": "M&R CI rerun",
-      "checkedAt": "2026-11-12T22:52:22.000Z",
-      "note": "Current master passed Game action and runtime checks. Manual release-flow validation remains."
+      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "note": "Previous master run passed; a newer run for e9198e1 is in progress. Check the actual release revision before treating CI as cleared."
     },
     {
       "id": "kdp-publishing",
@@ -397,6 +577,24 @@
       "label": "Effort estimates",
       "checkedAt": "2026-11-12T22:52:22.000Z",
       "note": "Rough AI-assisted estimates of Garrett’s hands-on hours; agent execution and store waits are separate. Recalibrate after milestones."
+    },
+    {
+      "id": "marque-telemetry",
+      "label": "M&R live telemetry · 24h",
+      "checkedAt": "2026-11-12T23:26:10.807Z",
+      "note": "24h opt-in snapshot at 2026-11-12T23:26:28.050Z: 63 installations, 165 sessions, 0 crash reports and 44 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
+    },
+    {
+      "id": "marque-feedback",
+      "label": "M&R remote feedback review",
+      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "note": "Read the player action list and November 12 telemetry review from remote master e9198e1. Navigation and input investigations remain open; design suggestions are separate. Source fixes are distinguished from Steam delivery."
+    },
+    {
+      "id": "supporter-pack",
+      "label": "Supporter Pack project handoff",
+      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "note": "Working globe prototype reported by the owning project chat. Development, resource profiling and packaging continue; Steam setup/review and final pricing remain unverified. November 18 is a target."
     }
   ],
   "prototypeStrategy": {
@@ -640,5 +838,23 @@
       "timing": "After M&R launch",
       "effortAssumptions": "AI implements, captures and edits. You supply the pitch, art direction and review. Allow roughly 1–2 weeks elapsed plus store review."
     }
-  ]
+  ],
+  "dailyPlan": {
+    "date": "2026-11-12",
+    "checkedAt": "2026-11-12T23:19:55.783Z",
+    "taskIds": [
+      "navigation-replay",
+      "supporter-scope",
+      "jinshu-opening"
+    ],
+    "focus": "Protect Marque & Reprisal’s November 18 launch. Keep the Supporter Pack small, and defer side projects if they threaten release quality."
+  },
+  "telemetry": {
+    "observedAt": "2026-11-12T23:26:28.050Z",
+    "windowDays": 1,
+    "installations": 63,
+    "sessions": 165,
+    "crashReports": 0,
+    "chartWarnings": 44
+  }
 }

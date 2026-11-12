@@ -6,6 +6,7 @@ import RevenueScenario from "../components/RevenueScenario.astro";
 import RevenueBreakdown from "../components/RevenueBreakdown.astro";
 import DecisionBoard from "../components/DecisionBoard.astro";
 import KdpReport from "../components/KdpReport.astro";
+import DailyBoard from "../components/DailyBoard.astro";
 import { validateDesk, localDate, formatDate, formatChecked, isStale, daysBetween, monthCells } from "../lib/desk.mjs";
 import { validateKdpReport } from "../lib/kdp.mjs";
 import "../styles/global.css";
@@ -14,8 +15,7 @@ const data=validateDesk(snapshot) as typeof snapshot;
 validateKdpReport(kdp);
 const today=localDate();
 const priorityOrder:Record<string,number>={now:0,next:1,later:2};
-const openTasks=data.tasks.filter(t=>t.status==='open').sort((a,b)=>priorityOrder[a.priority]!-priorityOrder[b.priority]!);
-const completedTasks=data.tasks.filter(t=>t.status==='done');
+const openTasks=data.tasks.filter(t=>t.status==='open'&&!data.dailyPlan.taskIds.includes(t.id)).sort((a,b)=>priorityOrder[a.priority]!-priorityOrder[b.priority]!);
 const projectFor=(id:string|null)=>id===null?'Portfolio':data.projects.find(p=>p.id===id)!.name;
 const archiveGroups=[{title:'On hold',projects:data.archive.filter(p=>p.status==='On hold')},{title:'Shipped & reference',projects:data.archive.filter(p=>p.status!=='On hold')}];
 const launch=data.events.find(e=>e.id==='marque-launch')!;
@@ -39,22 +39,22 @@ const healthLabels:Record<string,string>={attention:'Needs attention',moving:'In
 </head>
 <body class="desk-page">
   <a class="skip-link" href="#desk-main">Skip to dashboard</a>
-  <header class="desk-header"><a class="identity" href="/" aria-label="Garrett Petersen, home"><span class="identity__mark" aria-hidden="true"><span>G</span><span>P</span></span><span class="identity__name">Garrett Petersen</span></a><nav aria-label="Dashboard"><a href="#decisions-title">Decisions</a><a href="#kdp-report-title">Earnings</a><a href="#calendar-title">Calendar</a></nav><a class="desk-home" href="/">Back to site ↗</a></header>
+  <header class="desk-header"><a class="identity" href="/" aria-label="Garrett Petersen, home"><span class="identity__mark" aria-hidden="true"><span>G</span><span>P</span></span><span class="identity__name">Garrett Petersen</span></a><nav aria-label="Dashboard"><a href="#daily-title">Today</a><a href="#decisions-title">Projects</a><a href="#calendar-title">Calendar</a></nav><a class="desk-home" href="/">Back to site ↗</a></header>
   <main id="desk-main" class="desk-shell">
     <section class="desk-intro"><div><h1>Project desk.</h1><p>{data.brief}</p></div><div class="desk-freshness" data-reviewed-at={data.reviewedAt}><span class:list={['check-state',{'check-state--stale':isStale(data.reviewedAt)}]} data-check-state>{isStale(data.reviewedAt)?'Review overdue':'Reviewed'}</span><time datetime={data.reviewedAt}>{formatChecked(data.reviewedAt)} Pacific</time><span>Daily check-in · 9 a.m.</span></div></section>
+    <DailyBoard />
     <section class="desk-pulse" aria-label="Current signals">
       <div class="desk-launch" data-launch-date={launch.date}><div data-launch-count class="desk-launch__days">{daysToLaunch>0?daysToLaunch:daysToLaunch===0?'Today':'Past date'}<span>{daysToLaunch>0?'days to launch':daysToLaunch===0?'Launch day':'Confirm outcome'}</span></div><a href={launch.sourceUrl!}>M&R · {formatDate(launch.date,{month:'short',day:'numeric',year:'numeric'})}</a></div>
       {data.metrics.map(metric=><article class="desk-signal" data-observed-at={metric.observedAt}><span>{metric.label}</span><strong>{metric.id==='wishlist-week'&&'+'}{counts.format(metric.value)}</strong><small>{metric.id==='glossary'?'1 nonempty chapter':metric.id==='wishlist-week'?'Nov 5–11 · +79%':'Steam lifetime snapshot'}<br />As of {formatDate(metric.observedAt.slice(0,10))}<span class="desk-old" data-metric-stale hidden={!isStale(metric.observedAt)}> · Older snapshot</span></small></article>)}
     </section>
-    <DecisionBoard />
+    <details class="desk-outlook"><summary><span>Portfolio outlook</span><small>Revenue, milestones & effort</small></summary><DecisionBoard /></details>
     <RevenueBreakdown streams={data.revenue} />
     <div class="desk-columns">
       <div class="desk-main-column">
         <KdpReport />
         <details class="desk-tool"><summary><span>Launch calculator</span></summary><RevenueScenario /></details>
-        <section class="desk-actions" aria-labelledby="actions-title"><div class="desk-section-heading"><h2 id="actions-title">Next actions</h2><span>{openTasks.length} open</span></div>
-          <ol class="desk-task-list">{openTasks.map(task=><li><span class={`desk-priority desk-priority--${task.priority}`}>{priorityLabels[task.priority]}</span><details><summary>{task.title}<small>{task.owner}</small></summary><p>{task.note}</p><small>{projectFor(task.projectId)} · Checked {formatDate(task.checkedAt.slice(0,10))}{task.due&&` · Target ${formatDate(task.due)}`}</small></details></li>)}</ol>
-          <details class="desk-completed"><summary>Completed <span>{completedTasks.length}</span></summary><ul>{completedTasks.map(task=><li><span aria-hidden="true">✓</span><div><strong>{task.title}</strong><p>{task.note}</p></div></li>)}</ul></details>
+        <section class="desk-actions" aria-labelledby="actions-title"><div class="desk-section-heading"><h2 id="actions-title">The queue</h2><span>{openTasks.length} open</span></div>
+          <ol class="desk-task-list">{openTasks.map(task=><li><span class={`desk-priority desk-priority--${task.priority}`}>{priorityLabels[task.priority]}</span><details id={`task-${task.id}`}><summary>{task.title}<small>{projectFor(task.projectId)} · {task.owner}</small></summary><p>{task.note}</p><small>Checked {formatDate(task.checkedAt.slice(0,10))}{task.due&&` · Target ${formatDate(task.due)}`}</small></details></li>)}</ol>
         </section>
         <section class="desk-context" aria-labelledby="context-title"><div class="desk-section-heading"><h2 id="context-title">Project context</h2></div>
           {data.projects.map(project=><details class="desk-project" id={project.id}><summary><span>{project.name}<small>{project.stage}</small></span><span class={`desk-status desk-status--${project.health}`}>{healthLabels[project.health]}</span></summary><div class="desk-project__body" id={`${project.id}-context`}><p>{project.summary}</p><dl><div><dt>Blocker</dt><dd>{project.blocker}</dd></div><div><dt>Next</dt><dd>{project.next}</dd></div></dl>{project.id==='marque-and-reprisal'&&<div class="desk-platform"><h3>After Steam: mobile & consoles</h3><p>{data.platformExpansion.model}</p><p>{data.platformExpansion.timing}</p><p>{data.platformExpansion.gates}</p></div>}{project.group==='prototype'&&<p>{data.prototypeStrategy.approach} {data.prototypeStrategy.decision}</p>}<div class="desk-project__bottom">{project.url&&<a href={project.url}>Project site</a>}{project.activity&&<span>Latest code {formatDate(project.activity.lastCommitAt.slice(0,10))}</span>}</div></div></details>)}

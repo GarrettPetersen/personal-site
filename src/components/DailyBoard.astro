@@ -1,0 +1,34 @@
+---
+import snapshot from "../data/desk.json";
+import { dailyTasks, formatEffort, totalEffort } from "../lib/tasks.mjs";
+import { formatChecked, formatDate, localDate } from "../lib/desk.mjs";
+import "../styles/daily.css";
+type DailyTask = (typeof snapshot.tasks)[number] & { effortMinutes: { min: number; max: number }; tone: string; signal: string; outcome: string; optional: boolean };
+const picks = dailyTasks(snapshot.tasks, snapshot.dailyPlan) as DailyTask[];
+const priorities = picks.filter(task => !task.optional);
+const complete = snapshot.tasks.filter(task => task.status === 'done').sort((a,b) => (b.completedOn || b.checkedAt).localeCompare(a.completedOn || a.checkedAt));
+const project = (id:string|null) => id === null ? 'Portfolio' : snapshot.projects.find(project => project.id === id)!.name;
+---
+<section class="daily-board" aria-labelledby="daily-title" data-daily-date={snapshot.dailyPlan.date}>
+  <aside class="daily-focus" aria-label="Big picture"><span>Big picture</span><p>{snapshot.dailyPlan.focus}</p></aside>
+  <div class="daily-heading"><h2 id="daily-title" data-daily-title>{snapshot.dailyPlan.date === localDate() ? 'Today' : 'Last picks'}</h2><time datetime={snapshot.dailyPlan.date}>{formatDate(snapshot.dailyPlan.date,{weekday:'long',month:'short',day:'numeric'})}</time></div>
+  <div class="daily-grid" data-count={picks.length}>
+    {picks.map((task,index) => <details class:list={['task-tile',`task-tile--${task.tone}`,{'task-tile--lead':index === 0}]} id={`task-${task.id}`}>
+      <summary>
+        <div class="task-tile__top"><span>{project(task.projectId)}</span><span class="task-tile__effort">~{formatEffort(task.effortMinutes)}</span></div>
+        <div class="task-tile__title"><h3>{task.title}</h3><p>{task.signal}</p></div>
+        <div class="task-tile__bottom"><span>{task.owner}</span><span class="task-tile__disclosure">Details <span aria-hidden="true">+</span></span></div>
+      </summary>
+      <div class="task-tile__details"><p>{task.note}</p><p><strong>Done when</strong> {task.outcome}</p><div><span>{task.source} · {formatChecked(task.checkedAt)} Pacific</span>{task.projectId && <a href={`#${task.projectId}-context`}>Project</a>}</div></div>
+    </details>)}
+  </div>
+  <div class="daily-footnote"><span>{priorities.length} priorities · ~{formatEffort(totalEffort(priorities))} of your time, with AI assistance</span><span>Tell me what to drop.</span></div>
+  <details class="daily-evidence"><summary>What informed these picks</summary><p>Remote feedback and source review, plus <a href="https://dashboard.marque-and-reprisal.com/">M&R’s opt-in telemetry</a>: {snapshot.telemetry.crashReports} crash reports and {snapshot.telemetry.chartWarnings} chart warnings over 24 hours. Warnings are reports, not distinct bugs. Snapshot: {formatChecked(snapshot.telemetry.observedAt)} Pacific.</p></details>
+</section>
+<section class="finished-work" aria-labelledby="finished-title">
+  <div class="finished-heading"><h2 id="finished-title">The done pile<span>{complete.length}</span></h2></div>
+  {complete.length > 0 ? <div class="finished-pile">{complete.map(task => <details class="finished-piece" id={`task-${task.id}`}>
+    <summary><span aria-hidden="true">✓</span><span>{task.title}<small>{task.completionKind === 'source' ? `${project(task.projectId)} · Code complete` : project(task.projectId)}</small></span></summary>
+    <div><p>{task.note}</p><small>{task.completedOn ? `Completed ${formatDate(task.completedOn)}` : `Verified ${formatDate(task.checkedAt.slice(0,10))}`}</small></div>
+  </details>)}</div> : <p class="finished-empty">Finished tasks will collect here.</p>}
+</section>

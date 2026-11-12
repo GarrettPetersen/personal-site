@@ -58,6 +58,8 @@ for (const button of document.querySelectorAll<HTMLButtonElement>("[data-month-s
 reset.addEventListener("click", () => { selectedDate = undefined; renderAgenda(); renderMonth(); });
 
 function refreshDates() {
+  const dailyBoard = requiredElement("[data-daily-date]", HTMLElement);
+  requiredElement("[data-daily-title]", HTMLElement).textContent = dailyBoard.dataset.dailyDate === localDate() ? "Today" : "Last picks";
   const freshness = requiredElement("[data-reviewed-at]", HTMLElement);
   const reviewedAt = freshness.dataset.reviewedAt;
   if (!reviewedAt) throw new Error("Missing review timestamp");
