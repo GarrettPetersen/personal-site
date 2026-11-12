@@ -31,10 +31,10 @@
       "name": "Subject & Sovereign",
       "group": "prototype",
       "health": "exploring",
-      "stage": "Playable prototype",
+      "stage": "Steam page + trailer test",
       "summary": "Civil War strategy prototype with travel, couriers and a working simulation.",
-      "next": "Review the trailer slice and test whether the core promise lands.",
-      "blocker": "Combat and the wider political simulation remain unfinished.",
+      "next": "Polish the woodcut trailer slice and prepare its Steam page for a wishlist test.",
+      "blocker": "Page/trailer readiness and wishlist momentum are unverified.",
       "repo": "GarrettPetersen/subject-and-sovereign",
       "url": "https://subject-and-sovereign.garrett-m-petersen.workers.dev/",
       "activity": {
@@ -50,10 +50,10 @@
       "name": "Shaolin London",
       "group": "prototype",
       "health": "exploring",
-      "stage": "Playable prototype",
+      "stage": "Steam page + trailer test",
       "summary": "Playable Hong Kong chase, traversal and combat studies.",
-      "next": "Playtest the opening and compare its hook with Subject & Sovereign.",
-      "blocker": "Latest deployment stopped at tests; playtest response is unmeasured.",
+      "next": "Finish a compelling chase/combat trailer slice and prepare its Steam page for a wishlist test.",
+      "blocker": "Wishlist momentum is unmeasured. The latest prototype deployment stopped at tests.",
       "repo": "GarrettPetersen/anime-games",
       "url": null,
       "activity": {
@@ -132,14 +132,14 @@
     {
       "id": "prototype-comparison",
       "projectId": "subject-and-sovereign",
-      "title": "Compare the two next-game prototypes",
+      "title": "Test next-game demand with pages and trailers",
       "owner": "Garrett + Codex",
       "priority": "later",
-      "source": "Project plans",
-      "note": "After launch: compare player response, trailer readiness and scope before picking a production direction.",
+      "source": "Owner strategy",
+      "note": "After the M&R launch: make polished Steam pages and trailers using only the prototype scenes needed. Set a measurement window and wishlist goals before judging demand. If momentum is weak, revise the marketing approach or choose a different game before committing to full production.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-12T17:38:00.000Z"
+      "checkedAt": "2026-11-12T18:49:29.958Z"
     },
     {
       "id": "grant-submitted",
@@ -307,6 +307,16 @@
       "label": "24 Histories coordinator handoff",
       "checkedAt": "2026-11-12T18:40:24.185Z",
       "note": "Coordinator handoff reports a passing resource check; resumption and sustainable throughput remain unverified. Model access is prepaid; remaining quota is unverified."
+    },
+    {
+      "id": "prototype-strategy",
+      "label": "Next-game strategy",
+      "checkedAt": "2026-11-12T18:49:29.958Z",
+      "note": "Owner direction: Steam page and trailer first; wishlist momentum gates full production. No numerical target or test window has been set."
     }
-  ]
+  ],
+  "prototypeStrategy": {
+    "approach": "Steam page and trailer first. Build only enough for polished footage, including staged prototype scenes.",
+    "decision": "Test wishlist momentum before full production; if it stalls, change the marketing approach or move on."
+  }
 }

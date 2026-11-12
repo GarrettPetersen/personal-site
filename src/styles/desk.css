@@ -72,6 +72,7 @@
 .desk-project a { color: var(--desk-blue); font-size: .67rem; }
 .desk-project__bottom > span { color: var(--desk-muted); }
 .desk-prototypes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.desk-strategy { margin: -.2rem 0 1.15rem; color: var(--desk-muted); font-size: .77rem; line-height: 1.6; max-width: 74ch; }
 .desk-prototypes .desk-status { margin-bottom: .65rem; }
 .desk-prototypes .desk-project { padding: 1.25rem; }
 .desk-prototypes .desk-project h3 { font-size: 1rem; }

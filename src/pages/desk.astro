@@ -118,13 +118,14 @@ const healthLabels: Record<string, string> = { attention: "Needs attention", mov
 
           <section class="desk-section" aria-labelledby="prototypes-title">
             <div class="desk-section-heading"><h2 id="prototypes-title">Next game</h2><span>Two candidates · no decision yet</span></div>
+            <p class="desk-strategy">{data.prototypeStrategy.approach} {data.prototypeStrategy.decision}</p>
             <div class="desk-prototypes">
               {prototypes.map((project) => <article class="desk-project" id={project.id}>
                 <span class="desk-status desk-status--exploring">{project.stage}</span>
                 <h3>{project.name}</h3>
                 <p>{project.summary}</p>
                 <p class="desk-next"><strong>Next</strong> {project.next}</p>
-                <details><summary>Open questions</summary><p>{project.blocker}</p><span>Latest code {formatDate(project.activity.lastCommitAt.slice(0, 10))}. Audience KPIs not measured.</span></details>
+                <details><summary>Open questions</summary><p>{project.blocker}</p><span>Latest code {formatDate(project.activity.lastCommitAt.slice(0, 10))}. Wishlist momentum not measured.</span></details>
                 {project.url && <a href={project.url}>Open prototype</a>}
               </article>)}
             </div>

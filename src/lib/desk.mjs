@@ -107,6 +107,7 @@ export function validateDesk(data) {
   const id = (value) => typeof value === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
   const url = (value) => { try { return typeof value === "string" && !/\s/.test(value) && new URL(value).protocol === "https:"; } catch { return false; } };
   required(data.schemaVersion === 1 && timestamp(data.reviewedAt), "invalid snapshot version or review time");
+  required(data.prototypeStrategy && text(data.prototypeStrategy.approach) && text(data.prototypeStrategy.decision), "next-game strategy needs an approach and decision gate");
   for (const field of ["projects", "tasks", "metrics", "events", "archive", "sources"]) required(Array.isArray(data[field]), `${field} must be an array`);
   const ids = new Set();
   for (const project of data.projects) {
