@@ -109,10 +109,10 @@
       "name": "M&R · Supporter Pack",
       "group": "secondary",
       "health": "attention",
-      "stage": "Day-one DLC · globe in development",
-      "summary": "Optional paid DLC with a living desktop globe built from M&R’s world, pixel art and simulation. A working native prototype exists.",
-      "next": "Confirm scope, price and Steam readiness; finish globe controls, lighting, profiling and packaging.",
-      "blocker": "Final QA, platform packaging and Steam DLC/store/depot setup and review remain unverified.",
+      "stage": "Packaged local globe prototype · Steam setup open",
+      "summary": "The desktop globe is packaged and locally tested on Apple Silicon. Steam release remains pending.",
+      "next": "Confirm price, contents and Steam DLC setup/review; finish release-platform QA and packaging.",
+      "blocker": "Steam DLC app/depot/store setup, review and pricing remain open. Seasonal ground snow and sea-ice visuals are not integrated.",
       "repo": null,
       "url": null,
       "activity": null
@@ -261,10 +261,10 @@
       "owner": "Your decision",
       "priority": "now",
       "source": "Supporter Pack project handoff",
-      "note": "Confirm final contents, price and Steam DLC review readiness for November 18. The globe is still in development; US$6.99 is unapproved and audio files are excluded.",
+      "note": "Confirm final contents, price and Steam DLC review readiness for November 18. The packaged local globe prototype has passed reported local QA; Steam delivery remains open. US$6.99 is unapproved; audio files are excluded.",
       "status": "open",
       "due": "2026-11-14",
-      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "checkedAt": "2026-11-12T23:40:38.533Z",
       "importance": 5,
       "effortMinutes": {
         "min": 15,
@@ -369,6 +369,20 @@
       "checkedAt": "2026-11-12T18:49:29.958Z",
       "completedOn": null,
       "completionKind": null
+    },
+    {
+      "id": "globe-local-prototype-packaged",
+      "projectId": "marque-supporter-pack",
+      "title": "Local globe prototype packaged",
+      "owner": "Supporter Pack agent",
+      "priority": "later",
+      "source": "Owning project status report",
+      "note": "Packaged and opened locally on Apple Silicon. The owning project reports passing companion/game tests, all-locale rendering, three fresh-profile launches and native resize/minimize/resume/save checks. Steam DLC setup/review and pricing remain open.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-12T23:40:38.533Z",
+      "completedOn": "2026-11-12",
+      "completionKind": "source"
     }
   ],
   "metrics": [
@@ -593,8 +607,8 @@
     {
       "id": "supporter-pack",
       "label": "Supporter Pack project handoff",
-      "checkedAt": "2026-11-12T23:19:55.783Z",
-      "note": "Working globe prototype reported by the owning project chat. Development, resource profiling and packaging continue; Steam setup/review and final pricing remain unverified. November 18 is a target."
+      "checkedAt": "2026-11-12T23:40:38.533Z",
+      "note": "Owning project reports a packaged Apple Silicon globe prototype opened for Garrett. Companion/game/localization tests, three fresh-profile launches and native lifecycle/save checks passed. One idle sample was about 12.5% of one CPU core at 14.5 FPS; simulation/rendering stopped when minimized. Steam DLC/store/depot setup and review, final pricing and other release-platform work remain open. Snow/sea-ice visuals are unintegrated; no audio files included. This is a reported local milestone, not a Steam release."
     }
   ],
   "prototypeStrategy": {
