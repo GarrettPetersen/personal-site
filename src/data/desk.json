@@ -8,20 +8,20 @@
       "name": "Marque & Reprisal",
       "group": "focus",
       "health": "attention",
-      "stage": "Launch readiness + creator coverage",
+      "stage": "Reliability update promoted · launch preparation",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
-      "next": "Verify release builds, follow up with well-matched creators, and prepare approved launch-day materials.",
-      "blocker": "Navigation and input reports remain open. Previous CI passed; newer source is under test.",
+      "next": "Monitor fresh-build feedback and prepare launch-day coverage.",
+      "blocker": "Remaining investigations: NPC/chart reports and the Linux Steam Controller hardware case.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
-        "checkedAt": "2026-11-12T23:26:10.807Z",
-        "lastCommitAt": "2026-11-12T22:30:29Z",
+        "checkedAt": "2026-11-13T01:10:32.552Z",
+        "lastCommitAt": "2026-11-13T01:04:36Z",
         "openPullRequests": 0,
         "openIssues": 0,
         "ci": {
-          "status": "in_progress",
-          "conclusion": null,
+          "status": "completed",
+          "conclusion": "success",
           "createdAt": "2026-11-12T23:00:59Z"
         }
       }
@@ -38,7 +38,7 @@
       "repo": "GarrettPetersen/subject-and-sovereign",
       "url": "https://subject-and-sovereign.garrett-m-petersen.workers.dev/",
       "activity": {
-        "checkedAt": "2026-11-12T23:26:10.807Z",
+        "checkedAt": "2026-11-13T01:10:32.552Z",
         "lastCommitAt": "2026-10-23T18:12:57Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -57,7 +57,7 @@
       "repo": "GarrettPetersen/anime-games",
       "url": null,
       "activity": {
-        "checkedAt": "2026-11-12T23:26:10.807Z",
+        "checkedAt": "2026-11-13T01:10:32.552Z",
         "lastCommitAt": "2026-11-01T12:45:37Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -80,14 +80,14 @@
       "repo": "GarrettPetersen/records-of-the-grand-historian",
       "url": "https://24histories.com/progress",
       "activity": {
-        "checkedAt": "2026-11-12T23:26:10.807Z",
-        "lastCommitAt": "2026-11-07T02:16:23Z",
+        "checkedAt": "2026-11-13T01:10:32.552Z",
+        "lastCommitAt": "2026-11-13T00:25:56Z",
         "openPullRequests": 100,
         "openIssues": 0,
         "ci": {
           "status": "completed",
           "conclusion": "success",
-          "createdAt": "2026-11-07T02:16:26Z"
+          "createdAt": "2026-11-13T00:26:00Z"
         }
       }
     },
@@ -122,16 +122,25 @@
     {
       "id": "launch-checks",
       "projectId": "marque-and-reprisal",
-      "title": "Release checks",
-      "owner": "Codex",
+      "title": "Steam update promoted",
+      "owner": "You + release agent",
       "priority": "now",
-      "source": "Owner update + GitHub",
-      "note": "Previous CI passed. Confirm the newer source run, then Steam, demo and platform flows.",
-      "status": "open",
+      "source": "Owner confirmation + remote release record",
+      "note": "Owner confirmed Steam promotion after the recorded full 26632259 and demo 26632262 uploads. This completes build promotion; the November 18 full-game launch and patch-note publication are separate.",
+      "status": "done",
       "due": "2026-11-17",
-      "checkedAt": "2026-11-12T23:19:55.783Z",
-      "completedOn": null,
-      "completionKind": null
+      "checkedAt": "2026-11-13T01:14:30.251Z",
+      "completedOn": "2026-11-12",
+      "completionKind": null,
+      "importance": 5,
+      "effortMinutes": {
+        "min": 10,
+        "max": 15
+      },
+      "tone": "blue",
+      "signal": "Builds uploaded; promotion still unverified.",
+      "outcome": "Both default-branch build IDs verified and release status recorded.",
+      "optional": false
     },
     {
       "id": "creator-coverage",
@@ -220,22 +229,22 @@
     {
       "id": "navigation-replay",
       "projectId": "marque-and-reprisal",
-      "title": "Replay navigation failures",
+      "title": "Investigate remaining NPC/chart reports",
       "owner": "Queued for AI · you review",
-      "priority": "now",
-      "source": "Remote feedback + live telemetry",
-      "note": "Reproduce current Steam-demo chart reframe and ship-arrival failures. AI prepares replays and regression cases; review the evidence before choosing a fix.",
+      "priority": "next",
+      "source": "Remote changelog + telemetry review",
+      "note": "The captured player bank-turn failures are fixed and Steam promotion is confirmed. Remaining chart reframe and NPC stuck-route reports are separate investigations. Compare fresh-build incidents before choosing more changes; old-build warnings do not establish a regression.",
       "status": "open",
       "due": "2026-11-13",
-      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "checkedAt": "2026-11-13T01:14:30.251Z",
       "importance": 4,
       "effortMinutes": {
         "min": 20,
         "max": 40
       },
       "tone": "coral",
-      "signal": "Repeated chart warnings in the Steam demo.",
-      "outcome": "A reproducible case and a focused fix/test plan.",
+      "signal": "Player turns fixed; NPC/chart cases remain.",
+      "outcome": "Remaining incidents classified by build and a focused reproduction plan recorded.",
       "completedOn": null,
       "completionKind": null,
       "optional": false
@@ -243,14 +252,14 @@
     {
       "id": "input-reproduction",
       "projectId": "marque-and-reprisal",
-      "title": "Reproduce cannon/controller reports",
+      "title": "Reproduce Linux controller failure",
       "owner": "AI + Garrett",
-      "priority": "now",
-      "source": "Remote player-feedback list",
-      "note": "Loaded-cannon Q/E and Linux Steam Controller reports still lack decisive reproduction. Gather binding, rowing, crew-duty and input evidence before changing mechanics. New diagnostic capture is not a confirmed repair.",
+      "priority": "next",
+      "source": "Remote changelog + player-feedback list",
+      "note": "The reproduced cannon crew-starvation behavior is fixed; canonical Q/E and controller firing passed on the short-crewed galleass. The original input snapshot and Linux Steam Controller hardware failure remain unverified. Reproduce that hardware path before changing bindings.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "checkedAt": "2026-11-13T01:11:41.043Z",
       "completedOn": null,
       "completionKind": null
     },
@@ -265,7 +274,7 @@
       "status": "open",
       "due": "2026-11-14",
       "checkedAt": "2026-11-12T23:40:38.533Z",
-      "importance": 5,
+      "importance": 4,
       "effortMinutes": {
         "min": 15,
         "max": 30
@@ -306,13 +315,13 @@
       "title": "Escape / fullscreen fix",
       "owner": "Game agent",
       "priority": "later",
-      "source": "Remote feedback list · source fix",
-      "note": "The remote feedback list records the Escape/pause fullscreen fix and passing Electron regressions. Native Windows CI and storefront delivery are separate; this records the source fix.",
+      "source": "Remote reliability changelog + release record",
+      "note": "Escape/pause and voyage-window fixes passed native Windows CI and release checks. Included in the promoted Steam reliability update and live itch release.",
       "status": "done",
       "due": null,
-      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "checkedAt": "2026-11-13T01:14:30.251Z",
       "completedOn": "2026-11-12",
-      "completionKind": "source"
+      "completionKind": null
     },
     {
       "id": "memorial-layout-source",
@@ -320,13 +329,13 @@
       "title": "Memorial text fits",
       "owner": "Game agent",
       "priority": "later",
-      "source": "Remote telemetry review · source fix",
-      "note": "Memorial metadata and names wrap within available space. The source review records the all-locale, both-text-style rendering matrix passing. Storefront release remains separate.",
+      "source": "Remote reliability changelog + release record",
+      "note": "Memorial text wrapping passed the localized release matrix. Included in the promoted Steam reliability update and live itch release.",
       "status": "done",
       "due": null,
-      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "checkedAt": "2026-11-13T01:14:30.251Z",
       "completedOn": "2026-11-12",
-      "completionKind": "source"
+      "completionKind": null
     },
     {
       "id": "waypoint-hud-source",
@@ -334,13 +343,13 @@
       "title": "Waypoints under large HUDs",
       "owner": "Game agent",
       "priority": "later",
-      "source": "Remote telemetry review · source fix",
-      "note": "Removed an irrelevant viewport-center precondition while retaining perimeter and obstacle checks. The remote review records passing regressions; this is a source fix, not a storefront release.",
+      "source": "Remote reliability changelog + release record",
+      "note": "Large-HUD waypoint placement passed the release checks. Included in the promoted Steam reliability update and live itch release.",
       "status": "done",
       "due": null,
-      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "checkedAt": "2026-11-13T01:14:30.251Z",
       "completedOn": "2026-11-12",
-      "completionKind": "source"
+      "completionKind": null
     },
     {
       "id": "kdp-report-analyzed",
@@ -383,6 +392,48 @@
       "checkedAt": "2026-11-12T23:40:38.533Z",
       "completedOn": "2026-11-12",
       "completionKind": "source"
+    },
+    {
+      "id": "bank-turn-fix",
+      "projectId": "marque-and-reprisal",
+      "title": "Bank-side turns freed",
+      "owner": "Game + release agents",
+      "priority": "later",
+      "source": "Remote reliability changelog · artifact dc5b674e",
+      "note": "Reproduced river/coastal galleass and xebec turns complete without backup relocation. Built-artifact replays passed at 30/60/240 Hz. Included in the promoted Steam reliability update and live itch release.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-13T01:14:30.251Z",
+      "completedOn": "2026-11-12",
+      "completionKind": null
+    },
+    {
+      "id": "cannon-crew-fix",
+      "projectId": "marque-and-reprisal",
+      "title": "Cannon crews share the oars",
+      "owner": "Game + release agents",
+      "priority": "later",
+      "source": "Remote reliability changelog · artifact dc5b674e",
+      "note": "Crew shortages are shared between rowing and gunnery. Actual voyage keyboard and canonical controller firing passed while rowing or resting. Included in the promoted Steam update and live itch release; the original hardware-specific report remains open.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-13T01:14:30.251Z",
+      "completedOn": "2026-11-12",
+      "completionKind": null
+    },
+    {
+      "id": "reliability-release-gates",
+      "projectId": "marque-and-reprisal",
+      "title": "Release builds verified",
+      "owner": "Game + release agents",
+      "priority": "later",
+      "source": "Remote reliability changelog · artifact dc5b674e",
+      "note": "The release record reports 9,482 Node tests, 1,122 localized layout views, 93 desktop-host checks and three independent packaged launches per edition passing. The matching Windows, Linux and macOS full/demo packages are uploaded and Steam promotion was confirmed by the owner.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-13T01:14:30.251Z",
+      "completedOn": "2026-11-12",
+      "completionKind": null
     }
   ],
   "metrics": [
@@ -410,7 +461,7 @@
       "label": "Person pages published",
       "value": 72,
       "note": "1 nonempty chapter published.",
-      "observedAt": "2026-11-07T02:31:38.080Z",
+      "observedAt": "2026-11-13T00:37:43.810Z",
       "total": null
     }
   ],
@@ -511,7 +562,7 @@
     {
       "id": "github",
       "label": "GitHub",
-      "checkedAt": "2026-11-12T23:26:10.807Z",
+      "checkedAt": "2026-11-13T01:10:32.552Z",
       "note": "Default-branch activity, open work and CI. Activity does not measure product progress."
     },
     {
@@ -529,8 +580,8 @@
     {
       "id": "glossary",
       "label": "Published glossary data",
-      "checkedAt": "2026-11-12T23:26:10.807Z",
-      "note": "Published output retains its source date. Separately, 2,050 extracted chapters are intermediate work (source: 2026-11-07), not published completion."
+      "checkedAt": "2026-11-13T01:10:32.552Z",
+      "note": "Published output retains its source date. Separately, 2,050 extracted chapters are intermediate work (source: 2026-11-12 Pacific), not published completion."
     },
     {
       "id": "marketing",
@@ -553,8 +604,8 @@
     {
       "id": "marque-ci",
       "label": "M&R CI rerun",
-      "checkedAt": "2026-11-12T23:19:55.783Z",
-      "note": "Previous master run passed; a newer run for e9198e1 is in progress. Check the actual release revision before treating CI as cleared."
+      "checkedAt": "2026-11-13T01:11:41.043Z",
+      "note": "GitHub runtime/Windows workflow e9198e1 completed successfully. The later dc5b674e release artifact has passing gates recorded in changelog revision 3eb4f6b; do not confuse those checks with a GitHub Actions run on that artifact."
     },
     {
       "id": "kdp-publishing",
@@ -595,20 +646,32 @@
     {
       "id": "marque-telemetry",
       "label": "M&R live telemetry · 24h",
-      "checkedAt": "2026-11-12T23:26:10.807Z",
-      "note": "24h opt-in snapshot at 2026-11-12T23:26:28.050Z: 63 installations, 165 sessions, 0 crash reports and 44 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
+      "checkedAt": "2026-11-13T01:10:32.552Z",
+      "note": "24h opt-in snapshot at 2026-11-13T01:10:49.498Z: 68 installations, 185 sessions, 0 crash reports and 46 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
     },
     {
       "id": "marque-feedback",
       "label": "M&R remote feedback review",
-      "checkedAt": "2026-11-12T23:19:55.783Z",
-      "note": "Read the player action list and November 12 telemetry review from remote master e9198e1. Navigation and input investigations remain open; design suggestions are separate. Source fixes are distinguished from Steam delivery."
+      "checkedAt": "2026-11-13T01:11:41.043Z",
+      "note": "Read remote master 3eb4f6b: the November 12 changelog, updated telemetry review and feedback action list. Player bank-turn and crew-starvation fixes are recorded; NPC/chart and Linux controller investigations remain open."
     },
     {
       "id": "supporter-pack",
       "label": "Supporter Pack project handoff",
       "checkedAt": "2026-11-12T23:40:38.533Z",
       "note": "Owning project reports a packaged Apple Silicon globe prototype opened for Garrett. Companion/game/localization tests, three fresh-profile launches and native lifecycle/save checks passed. One idle sample was about 12.5% of one CPU core at 14.5 FPS; simulation/rendering stopped when minimized. Steam DLC/store/depot setup and review, final pricing and other release-platform work remain open. Snow/sea-ice visuals are unintegrated; no audio files included. This is a reported local milestone, not a Steam release."
+    },
+    {
+      "id": "marque-reliability-release",
+      "label": "November 12 reliability release",
+      "checkedAt": "2026-11-13T01:14:30.251Z",
+      "note": "Remote changelog 3eb4f6b records artifact dc5b674e, uploaded full Steam build 26632259 and demo 26632262. Owner subsequently confirmed Steam promotion. Public itch devlog and HTML5 version dc5b674e checked directly. Steam patch-note publication remains unverified."
+    },
+    {
+      "id": "marque-steam-promotion",
+      "label": "Steam promotion confirmed",
+      "checkedAt": "2026-11-13T01:14:30.251Z",
+      "note": "Owner confirmed promotion of the just-uploaded reliability update. This is separate from the November 18 full-game launch; no release or publishing action was taken from the desk."
     }
   ],
   "prototypeStrategy": {
@@ -855,20 +918,19 @@
   ],
   "dailyPlan": {
     "date": "2026-11-12",
-    "checkedAt": "2026-11-12T23:19:55.783Z",
+    "checkedAt": "2026-11-13T01:14:30.251Z",
     "taskIds": [
-      "navigation-replay",
       "supporter-scope",
       "jinshu-opening"
     ],
-    "focus": "Protect Marque & Reprisal’s November 18 launch. Keep the Supporter Pack small, and defer side projects if they threaten release quality."
+    "focus": "M&R’s reliability update is live on Steam. Keep launch risk low: settle the Supporter Pack’s scope and price before adding more work."
   },
   "telemetry": {
-    "observedAt": "2026-11-12T23:26:28.050Z",
+    "observedAt": "2026-11-13T01:10:49.498Z",
     "windowDays": 1,
-    "installations": 63,
-    "sessions": 165,
+    "installations": 68,
+    "sessions": 185,
     "crashReports": 0,
-    "chartWarnings": 44
+    "chartWarnings": 46
   }
 }

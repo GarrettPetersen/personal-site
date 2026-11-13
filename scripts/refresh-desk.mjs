@@ -1,6 +1,6 @@
 import { execFileSync } from "node:child_process";
 import { readFile, rename, writeFile } from "node:fs/promises";
-import { publishedGlossaryMetric, validateDesk } from "../src/lib/desk.mjs";
+import { localDate, publishedGlossaryMetric, validateDesk } from "../src/lib/desk.mjs";
 import { marqueTelemetrySnapshot, marqueTelemetryUrl } from "../src/lib/telemetry.mjs";
 
 // Only aggregates and dates cross this boundary. Never copy API payloads or
@@ -57,7 +57,7 @@ for (const id of ["github", "glossary"]) {
   const source = data.sources.find((item) => item.id === id);
   if (!source) throw new Error(`Missing source: ${id}`);
   source.checkedAt = checkedAt;
-  if (id === "glossary") source.note = `Published output retains its source date. Separately, ${glossary.extractedChapters.toLocaleString("en-CA")} extracted chapters are intermediate work (source: ${progress.generatedAt.slice(0, 10)}), not published completion.`;
+  if (id === "glossary") source.note = `Published output retains its source date. Separately, ${glossary.extractedChapters.toLocaleString("en-CA")} extracted chapters are intermediate work (source: ${localDate(new Date(progress.generatedAt))} Pacific), not published completion.`;
 }
 
 // Human/agent review, email and Steam observation times intentionally stay put.

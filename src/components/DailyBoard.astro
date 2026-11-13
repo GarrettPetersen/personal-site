@@ -13,7 +13,7 @@ const project = (id:string|null) => id === null ? 'Portfolio' : snapshot.project
   <aside class="daily-focus" aria-label="Big picture"><span>Big picture</span><p>{snapshot.dailyPlan.focus}</p></aside>
   <div class="daily-heading"><h2 id="daily-title" data-daily-title>{snapshot.dailyPlan.date === localDate() ? 'Today' : 'Last picks'}</h2><time datetime={snapshot.dailyPlan.date}>{formatDate(snapshot.dailyPlan.date,{weekday:'long',month:'short',day:'numeric'})}</time></div>
   <div class="daily-grid" data-count={picks.length}>
-    {picks.map((task,index) => <details class:list={['task-tile',`task-tile--${task.tone}`,{'task-tile--lead':index === 0}]} id={`task-${task.id}`}>
+    {picks.map((task,index) => <details class:list={['task-tile',`task-tile--${task.tone}`,{'task-tile--lead':index === 0,'task-tile--optional':task.optional}]} id={`task-${task.id}`}>
       <summary>
         <div class="task-tile__top"><span>{project(task.projectId)}</span><span class="task-tile__effort">~{formatEffort(task.effortMinutes)}</span></div>
         <div class="task-tile__title"><h3>{task.title}</h3><p>{task.signal}</p></div>
@@ -22,13 +22,13 @@ const project = (id:string|null) => id === null ? 'Portfolio' : snapshot.project
       <div class="task-tile__details"><p>{task.note}</p><p><strong>Done when</strong> {task.outcome}</p><div><span>{task.source} · {formatChecked(task.checkedAt)} Pacific</span>{task.projectId && <a href={`#${task.projectId}-context`}>Project</a>}</div></div>
     </details>)}
   </div>
-  <div class="daily-footnote"><span>{priorities.length} priorities · ~{formatEffort(totalEffort(priorities))} of your time, with AI assistance</span><span>Tell me what to drop.</span></div>
+  <div class="daily-footnote"><span>{priorities.length > 0 ? `${priorities.length} ${priorities.length === 1 ? 'priority' : 'priorities'} · ~${formatEffort(totalEffort(priorities))} of your time, with AI assistance` : 'Optional work only today'}</span><span>Tell me what to drop.</span></div>
   <details class="daily-evidence"><summary>What informed these picks</summary><p>Remote feedback and source review, plus <a href="https://dashboard.marque-and-reprisal.com/">M&R’s opt-in telemetry</a>: {snapshot.telemetry.crashReports} crash reports and {snapshot.telemetry.chartWarnings} chart warnings over 24 hours. Warnings are reports, not distinct bugs. Snapshot: {formatChecked(snapshot.telemetry.observedAt)} Pacific.</p></details>
 </section>
 <section class="finished-work" aria-labelledby="finished-title">
   <div class="finished-heading"><h2 id="finished-title">The done pile<span>{complete.length}</span></h2></div>
   {complete.length > 0 ? <div class="finished-pile">{complete.map(task => <details class="finished-piece" id={`task-${task.id}`}>
     <summary><span aria-hidden="true">✓</span><span>{task.title}<small>{task.completionKind === 'source' ? `${project(task.projectId)} · Code complete` : project(task.projectId)}</small></span></summary>
-    <div><p>{task.note}</p><small>{task.completedOn ? `Completed ${formatDate(task.completedOn)}` : `Verified ${formatDate(task.checkedAt.slice(0,10))}`}</small></div>
+    <div><p>{task.note}</p><small>{task.completedOn ? `Completed ${formatDate(task.completedOn)}` : `Verified ${formatDate(localDate(new Date(task.checkedAt)))}`}</small></div>
   </details>)}</div> : <p class="finished-empty">Finished tasks will collect here.</p>}
 </section>
