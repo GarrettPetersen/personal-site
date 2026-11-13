@@ -6,7 +6,7 @@ const monthMax=Math.max(...report.months.map(m=>m.units));
 const monthName=(month:string)=>new Intl.DateTimeFormat('en-CA',{month:'short',timeZone:'UTC'}).format(new Date(`${month}-01T12:00:00Z`));
 ---
 <section class="kdp-report" aria-labelledby="kdp-report-title">
-  <div class="desk-section-heading"><div><h2 id="kdp-report-title">KDP</h2><p>Jun 1–Nov 12, 2026 · estimated</p></div><span>{report.totalUnits} units</span></div>
+  <div class="desk-section-heading"><div><h2 id="kdp-report-title">KDP</h2><p>Export · Jun 1–Nov 12, 2026</p></div><span>{report.totalUnits} units</span></div>
   <div class="kdp-charts">
     <figure class="kdp-title-chart"><figcaption>Monthly royalties (USD)<small>Sep–Oct average · US store</small></figcaption>
       <ol>{[...report.titles].sort((a,b)=>b.recentMonthlyUsdCents-a.recentMonthlyUsdCents).map(title=><li><div><span>{title.label}</span><strong>{formatMoney(title.recentMonthlyUsdCents)}</strong></div><svg class="kdp-track" viewBox="0 0 100 6" preserveAspectRatio="none" width="100%" height="6" aria-hidden="true"><rect width={titleMax===0?0:100*title.recentMonthlyUsdCents/titleMax} height="6" /></svg></li>)}</ol>

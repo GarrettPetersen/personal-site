@@ -44,7 +44,7 @@ const healthLabels:Record<string,string>={attention:'Needs attention',moving:'In
     <DailyBoard />
     <section class="desk-pulse" aria-label="Current signals">
       <div class="desk-launch" data-launch-date={launch.date}><div data-launch-count class="desk-launch__days">{daysToLaunch>0?daysToLaunch:daysToLaunch===0?'Today':'Past date'}<span>{daysToLaunch>0?'days to launch':daysToLaunch===0?'Launch day':'Confirm outcome'}</span></div><a href={launch.sourceUrl!}>M&R · {formatDate(launch.date,{month:'short',day:'numeric',year:'numeric'})}</a></div>
-      {data.metrics.map(metric=><article class="desk-signal" data-observed-at={metric.observedAt}><span>{metric.label}</span><strong>{metric.id==='wishlist-week'&&'+'}{counts.format(metric.value)}</strong><small>{metric.id==='glossary'?'1 nonempty chapter':metric.id==='wishlist-week'?'Nov 5–11 · +79%':'Steam lifetime snapshot'}<br />As of {formatDate(localDate(new Date(metric.observedAt)))}<span class="desk-old" data-metric-stale hidden={!isStale(metric.observedAt)}> · Older snapshot</span></small></article>)}
+      {data.metrics.map(metric=><article class="desk-signal" data-observed-at={metric.observedAt}><span>{metric.label}</span><strong>{metric.id==='wishlist-week'&&'+'}{counts.format(metric.value)}</strong><small>{metric.note}<br />As of {formatDate(localDate(new Date(metric.observedAt)))}<span class="desk-old" data-metric-stale hidden={!isStale(metric.observedAt)}> · Older snapshot</span></small></article>)}
     </section>
     <details class="desk-outlook"><summary><span>Portfolio outlook</span><small>Revenue, milestones & effort</small></summary><DecisionBoard /></details>
     <RevenueBreakdown streams={data.revenue} />

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-11-12T18:41:51.756Z",
+  "reviewedAt": "2026-11-13T16:12:39.178Z",
   "brief": "Marque & Reprisal launches November 18.",
   "projects": [
     {
@@ -8,15 +8,15 @@
       "name": "Marque & Reprisal",
       "group": "focus",
       "health": "attention",
-      "stage": "Approved for release · November 18",
+      "stage": "Launch November 18 · navigation release pending",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
-      "next": "Lock the launch plan and prepare distribution; restrict code changes to reproduced release problems.",
-      "blocker": "Launch hour and release/support handoff unconfirmed. Monitor fresh-build failures.",
+      "next": "Finish signing and verified release of the navigation fixes; lock release/support ownership.",
+      "blocker": "Latest navigation-release preflight could not access macOS notarization. Exact launch hour remains unconfirmed.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
-        "checkedAt": "2026-11-13T01:10:32.552Z",
-        "lastCommitAt": "2026-11-13T01:04:36Z",
+        "checkedAt": "2026-11-13T16:06:02.680Z",
+        "lastCommitAt": "2026-11-13T14:40:08Z",
         "openPullRequests": 0,
         "openIssues": 0,
         "ci": {
@@ -31,14 +31,14 @@
       "name": "Subject & Sovereign",
       "group": "prototype",
       "health": "exploring",
-      "stage": "Steam page + trailer test",
-      "summary": "Civil War strategy prototype with travel, couriers and a working simulation.",
+      "stage": "Prototype development · demand untested",
+      "summary": "Playable Civil War simulation is being refined in its owning project; Steam demand remains unmeasured.",
       "next": "Polish the woodcut trailer slice and prepare its Steam page for a wishlist test.",
       "blocker": "Page/trailer readiness and wishlist momentum are unverified.",
       "repo": "GarrettPetersen/subject-and-sovereign",
       "url": "https://subject-and-sovereign.garrett-m-petersen.workers.dev/",
       "activity": {
-        "checkedAt": "2026-11-13T01:10:32.552Z",
+        "checkedAt": "2026-11-13T16:06:02.680Z",
         "lastCommitAt": "2026-10-23T18:12:57Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -57,7 +57,7 @@
       "repo": "GarrettPetersen/anime-games",
       "url": null,
       "activity": {
-        "checkedAt": "2026-11-13T01:10:32.552Z",
+        "checkedAt": "2026-11-13T16:06:02.680Z",
         "lastCommitAt": "2026-11-01T12:45:37Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -75,19 +75,19 @@
       "health": "attention",
       "stage": "Jinshu glossary completion",
       "summary": "Initial translations are complete. Glossary output: 1 nonempty chapter published, with 72 person pages.",
-      "next": "Coordinator revalidation, then the second and third published Jinshu chapters. Target: all 130 chapters before ebook release.",
-      "blocker": "Resource check reported passing with narrow headroom; coordinator resumption remains unconfirmed.",
+      "next": "Revalidate the coordinator hold, finish Jinshu 119 certification and publish the next nonempty chapter.",
+      "blocker": "Jinshu 119 date approval, identity certification and publication remain pending; saved coordinator hold is not confirmed cleared.",
       "repo": "GarrettPetersen/records-of-the-grand-historian",
       "url": "https://24histories.com/progress",
       "activity": {
-        "checkedAt": "2026-11-13T01:10:32.552Z",
-        "lastCommitAt": "2026-11-13T00:25:56Z",
+        "checkedAt": "2026-11-13T16:06:02.680Z",
+        "lastCommitAt": "2026-11-13T05:31:02Z",
         "openPullRequests": 100,
         "openIssues": 0,
         "ci": {
           "status": "completed",
           "conclusion": "success",
-          "createdAt": "2026-11-13T00:26:00Z"
+          "createdAt": "2026-11-13T05:31:05Z"
         }
       }
     },
@@ -109,10 +109,10 @@
       "name": "M&R · Supporter Pack",
       "group": "secondary",
       "health": "moving",
-      "stage": "Store review pending · configuration fix",
-      "summary": "Optional US$6.99 supporter DLC with a desktop globe. Store review pending; pricing published.",
-      "next": "Resolve platform configuration and await store approval. Base game launches independently.",
-      "blocker": "Platform claims do not match between Steamworks and the store page; content checklist incomplete.",
+      "stage": "Platforms matched · store review pending",
+      "summary": "Optional US$6.99 supporter DLC with a desktop globe. Platform configuration is complete; refined globe source is pushed.",
+      "next": "Verify all three release packages; keep DLC off the base-game critical path.",
+      "blocker": "Steam store review and final cross-platform release-package/ownership QA remain.",
       "repo": null,
       "url": null,
       "activity": null
@@ -154,21 +154,6 @@
       "signal": "Builds uploaded; promotion still unverified.",
       "outcome": "Both default-branch build IDs verified and release status recorded.",
       "optional": false
-    },
-    {
-      "id": "creator-coverage",
-      "projectId": "marque-and-reprisal",
-      "title": "Daily creator outreach",
-      "owner": "Garrett + marketing agent",
-      "priority": "next",
-      "source": "Owner recurring-task instruction",
-      "note": "Recurring daily work: choose the next useful step from creator research, ready drafts, replies, coverage and contact reconciliation. The eight-email batch for November 12 is complete; resume with a fresh action at the next daily check-in.",
-      "status": "open",
-      "due": null,
-      "checkedAt": "2026-11-13T04:51:39.061Z",
-      "completedOn": null,
-      "completionKind": null,
-      "lane": "active"
     },
     {
       "id": "launch-package",
@@ -239,14 +224,14 @@
     {
       "id": "navigation-replay",
       "projectId": "marque-and-reprisal",
-      "title": "Investigate remaining NPC/chart reports",
+      "title": "Navigation fixes verified in source",
       "owner": "Queued for AI · you review",
       "priority": "next",
-      "source": "Remote changelog + telemetry review",
-      "note": "The captured player bank-turn failures are fixed and Steam promotion is confirmed. Remaining chart reframe and NPC stuck-route reports are separate investigations. Compare fresh-build incidents before choosing more changes; old-build warnings do not establish a regression.",
-      "status": "open",
+      "source": "Remote November 13 telemetry review · a32993cd",
+      "note": "Remote source fixes reproduced bank-pivot oscillation, chart-origin admission and synchronous NPC route-search stalls. The recorded full suite passed 9,495 Node tests and 93 desktop-host checks. This is code completion only: packaging, notarization and storefront deployment are not yet verified. Several geometry and sparse-terrain cases remain open.",
+      "status": "done",
       "due": "2026-11-13",
-      "checkedAt": "2026-11-13T01:14:30.251Z",
+      "checkedAt": "2026-11-13T16:12:39.178Z",
       "importance": 4,
       "effortMinutes": {
         "min": 20,
@@ -255,8 +240,8 @@
       "tone": "coral",
       "signal": "Player turns fixed; NPC/chart cases remain.",
       "outcome": "Remaining incidents classified by build and a focused reproduction plan recorded.",
-      "completedOn": null,
-      "completionKind": null,
+      "completedOn": "2026-11-13",
+      "completionKind": "source",
       "lane": "active"
     },
     {
@@ -281,10 +266,10 @@
       "owner": "Release agent + Garrett",
       "priority": "next",
       "source": "Steamworks DLC landing page",
-      "note": "Store page submitted November 12; Steam estimates 3–5 business days. Pricing is published at US$6.99. Record approval or requested changes when they arrive. This is a waiting item; the separate platform-configuration mismatch still needs action. If DLC is late, launch the base game on November 18 anyway.",
+      "note": "Store page remains queued from November 12; Steam estimates 3–5 business days. US$6.99 pricing is published. Platform claims now match and the content-settings checklist is complete. Await approval or requested changes; release-package QA remains separate. Late DLC must not delay the base game.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-13T05:16:22.484Z",
+      "checkedAt": "2026-11-13T16:12:39.178Z",
       "importance": 3,
       "effortMinutes": {
         "min": 5,
@@ -544,7 +529,7 @@
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
-      "importance": 5,
+      "importance": 4,
       "effortMinutes": {
         "min": 15,
         "max": 30
@@ -556,15 +541,15 @@
     {
       "id": "supporter-platform-config",
       "projectId": "marque-supporter-pack",
-      "title": "Resolve DLC platform mismatch",
+      "title": "Supporter platforms matched",
       "owner": "Release agent + Garrett",
       "priority": "now",
-      "source": "Steamworks launch-readiness review",
-      "note": "Steamworks reports that the supported platforms in DLC configuration do not match its store page; the content checklist is incomplete. Have the owning release agent reconcile these against the actual deliverables and verify the checklist. Pricing is already published at US$6.99. Bound this release fix; avoid expanding globe features at the expense of the main launch.",
-      "status": "open",
+      "source": "Steamworks + owning project handoff",
+      "note": "Windows, macOS and Linux claims now match in Steamworks and the store page; the content-settings checklist is complete. The owner confirmed all three platforms. This clears configuration, not final release-package or entitlement QA. Store approval is still pending.",
+      "status": "done",
       "due": "2026-11-17",
-      "checkedAt": "2026-11-13T05:16:22.484Z",
-      "completedOn": null,
+      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "completedOn": "2026-11-13",
       "completionKind": null,
       "lane": "active",
       "importance": 4,
@@ -575,6 +560,75 @@
       "tone": "coral",
       "signal": "Verified configuration blocker; separate from store review.",
       "outcome": "Platform claims match the deliverable and the required content checklist passes."
+    },
+    {
+      "id": "navigation-release-2026-11-13",
+      "projectId": "marque-and-reprisal",
+      "title": "Release the navigation fixes",
+      "owner": "Release agent · you review",
+      "priority": "now",
+      "source": "Daily project review · November 13",
+      "note": "Current-build turn failures and route-search stalls have verified source fixes. The latest remote preflight could not access the macOS notarization profile. Resolve signing access, finish packaged release gates, and record full/demo build IDs and storefront promotion. Keep the stable build until the candidate passes; this task does not close the remaining chart-geometry cases.",
+      "status": "open",
+      "due": "2026-11-13",
+      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active",
+      "importance": 5,
+      "effortMinutes": {
+        "min": 15,
+        "max": 30
+      },
+      "tone": "blue",
+      "signal": "Source checks pass; signing and release remain.",
+      "outcome": "Packaged candidate passes release gates and live full/demo build IDs are verified."
+    },
+    {
+      "id": "creator-outreach-2026-11-13",
+      "projectId": "marque-and-reprisal",
+      "title": "Review today’s creator reply",
+      "owner": "Garrett · outreach chat",
+      "priority": "now",
+      "source": "Daily project review · November 13",
+      "note": "A creator reply asks whether promotion is paid or organic. Recommendation: keep the current outreach organic; no rate, budget or expected return is established for a paid placement. Decide the disposition and use your own words for any response in the outreach chat. A reply is not confirmed coverage. Yesterday’s eight-email batch stays complete.",
+      "status": "open",
+      "due": "2026-11-13",
+      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active",
+      "importance": 3,
+      "effortMinutes": {
+        "min": 5,
+        "max": 10
+      },
+      "tone": "gold",
+      "signal": "One paid/organic decision · keep it bounded.",
+      "outcome": "Reply disposition recorded; any authorized response handled in the outreach chat."
+    },
+    {
+      "id": "supporter-release-qa",
+      "projectId": "marque-supporter-pack",
+      "title": "Verify supporter release packages",
+      "owner": "Release agent · you review",
+      "priority": "next",
+      "source": "Daily project review · November 13",
+      "note": "The platform configuration is fixed and globe refinements are pushed. Verify packaged Windows, macOS and Linux delivery, clean install/startup, ownership unlock and native lifecycle/save behavior before release. Store approval is a separate waiting item. Keep the DLC optional if these gates threaten the base-game launch.",
+      "status": "open",
+      "due": "2026-11-17",
+      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active",
+      "importance": 2,
+      "effortMinutes": {
+        "min": 15,
+        "max": 30
+      },
+      "tone": "sage",
+      "signal": "Configuration complete; package QA still pending.",
+      "outcome": "All three release packages and entitlement paths verified, with store approval recorded separately."
     }
   ],
   "metrics": [
@@ -582,18 +636,18 @@
       "id": "wishlists",
       "projectId": "marque-and-reprisal",
       "label": "Outstanding wishlists",
-      "value": 12508,
-      "note": "Steamworks lifetime overview · Nov 12",
-      "observedAt": "2026-11-12T17:38:00.000Z",
+      "value": 13197,
+      "note": "Steam lifetime snapshot",
+      "observedAt": "2026-11-13T16:12:39.178Z",
       "total": null
     },
     {
       "id": "wishlist-week",
       "projectId": "marque-and-reprisal",
       "label": "Net wishlists / week",
-      "value": 4237,
-      "note": "Nov 5–11 · +79% vs. the prior week",
-      "observedAt": "2026-11-12T17:38:00.000Z",
+      "value": 4508,
+      "note": "Nov 6–12 · +65% vs. prior week",
+      "observedAt": "2026-11-13T16:12:39.178Z",
       "total": null
     },
     {
@@ -602,7 +656,7 @@
       "label": "Person pages published",
       "value": 72,
       "note": "1 nonempty chapter published.",
-      "observedAt": "2026-11-13T00:37:43.810Z",
+      "observedAt": "2026-11-13T05:37:49.753Z",
       "total": null
     }
   ],
@@ -713,25 +767,25 @@
     {
       "id": "github",
       "label": "GitHub",
-      "checkedAt": "2026-11-13T01:10:32.552Z",
+      "checkedAt": "2026-11-13T16:06:02.680Z",
       "note": "Default-branch activity, open work and CI. Activity does not measure product progress."
     },
     {
       "id": "email",
       "label": "Project email",
-      "checkedAt": "2026-11-12T17:38:00.000Z",
-      "note": "Project-related messages only; public task summaries are paraphrased."
+      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "note": "Reviewed new project mail and later replies. One creator asks about paid promotion; recommend an organic disposition. An unsolicited bundle proposal is deferred rather than added to launch-week work. No correspondence or contacts are published; no mail sent."
     },
     {
       "id": "steam",
       "label": "Steamworks",
-      "checkedAt": "2026-11-12T17:38:00.000Z",
-      "note": "Read from the signed-in report. The weekly window excludes the current day."
+      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "note": "Steamworks lifetime overview: 13,197 outstanding wishlists. Nov 6–12: 4,728 adds, 220 deletions, net +4,508; prior week net +2,730 (+65%). These are demand signals, not revenue or attribution evidence."
     },
     {
       "id": "glossary",
       "label": "Published glossary data",
-      "checkedAt": "2026-11-13T01:10:32.552Z",
+      "checkedAt": "2026-11-13T16:06:02.680Z",
       "note": "Published output retains its source date. Separately, 2,050 extracted chapters are intermediate work (source: 2026-11-12 Pacific), not published completion."
     },
     {
@@ -743,8 +797,8 @@
     {
       "id": "histories-coordinator",
       "label": "24 Histories coordinator handoff",
-      "checkedAt": "2026-11-12T18:40:24.185Z",
-      "note": "Coordinator handoff reports a passing resource check; resumption and sustainable throughput remain unverified. Model access is prepaid; remaining quota is unverified."
+      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "note": "Project handoff reports merged PR 5381: Jinshu 119 English/span repairs are applied, while date approval, identity certification and publication remain pending. Published output is still one nonempty chapter and 72 person pages. Do not infer coordinator resumption from a separate resource observation."
     },
     {
       "id": "prototype-strategy",
@@ -761,8 +815,8 @@
     {
       "id": "kdp-publishing",
       "label": "KDP publishing",
-      "checkedAt": "2026-11-12T20:44:13.000Z",
-      "note": "Bookshelf confirms four live Kindle ebooks. Royalties Estimator: CAD 505.28 for Jun 1–Nov 12, including CAD 19.12 for Nov 1–12; all four books, all marketplaces and formats. Amazon’s current FX estimate, not finalized earnings or cash received."
+      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "note": "Royalties Estimator, all four books, marketplaces and formats: CA$505.31 for Jun 1–Nov 13, including CA$19.14 for Nov 1–13. Current Amazon FX estimate, not finalized earnings or cash. The detailed export charts still cover Jun 1–Nov 12."
     },
     {
       "id": "kdp-introductions",
@@ -797,20 +851,20 @@
     {
       "id": "marque-telemetry",
       "label": "M&R live telemetry · 24h",
-      "checkedAt": "2026-11-13T01:10:32.552Z",
-      "note": "24h opt-in snapshot at 2026-11-13T01:10:49.498Z: 68 installations, 185 sessions, 0 crash reports and 46 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
+      "checkedAt": "2026-11-13T16:06:02.680Z",
+      "note": "24h opt-in snapshot at 2026-11-13T16:06:22.902Z: 93 installations, 225 sessions, 0 crash reports and 59 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
     },
     {
       "id": "marque-feedback",
       "label": "M&R remote feedback review",
-      "checkedAt": "2026-11-13T01:11:41.043Z",
-      "note": "Read remote master 3eb4f6b: the November 12 changelog, updated telemetry review and feedback action list. Player bank-turn and crew-starvation fixes are recorded; NPC/chart and Linux controller investigations remain open."
+      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "note": "Read remote master a32993cd: November 13 telemetry review and feedback list. Current-build bank-pivot/chart-origin failures and synchronous route stalls have source fixes. Full Node/host checks passed; packaging and notarization are not yet confirmed. Other geometry/sparse-terrain cases remain open; no cursor advanced."
     },
     {
       "id": "supporter-pack",
       "label": "Supporter Pack project handoff",
-      "checkedAt": "2026-11-13T05:16:22.484Z",
-      "note": "Steamworks: store page queued November 12, US$6.99 pricing published, platform-support mismatch and content checklist incomplete. Only the store page requires review for this DLC. Base game is already approved for release."
+      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "note": "Steamworks now shows matching Windows/macOS/Linux claims and a complete content checklist. Store review remains pending, US$6.99 pricing published. Owning project reports globe refinements pushed at 442cedf9, with local Mac QA; final cross-platform release packages remain pending."
     },
     {
       "id": "marque-reliability-release",
@@ -847,6 +901,18 @@
       "label": "Steam launch readiness",
       "checkedAt": "2026-11-13T05:16:22.484Z",
       "note": "Main game store and build approved; US$14.99 list price, 15% launch discount for 7 days. Release is manual; exact launch hour is not recorded. Read-only review; no Steam settings or release actions changed."
+    },
+    {
+      "id": "navigation-release-nov13",
+      "label": "Navigation release candidate",
+      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "note": "Remote a32993cd records 9,495 passing Node tests and 93 host checks. Latest preflight could not access the notarization profile; no new uploaded/deployed artifact is claimed. Source verification and storefront delivery are separate."
+    },
+    {
+      "id": "creator-reply-nov13",
+      "label": "Daily creator outreach",
+      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "note": "One new creator reply requires a paid/organic disposition. No paid budget, rate or coverage is established. The November 12 eight-email batch remains complete. No reply sent or new drafting batch started by this desk."
     }
   ],
   "prototypeStrategy": {
@@ -858,14 +924,14 @@
       "id": "kdp",
       "label": "KDP ebooks",
       "projectId": "histories-kdp",
-      "note": "Nov: CA$19.12 included.",
+      "note": "Nov 1–13: CA$19.14 included.",
       "report": {
-        "amountCents": 50528,
+        "amountCents": 50531,
         "currency": "CAD",
         "periodStart": "2026-06-01",
-        "periodEnd": "2026-11-12",
+        "periodEnd": "2026-11-13",
         "basis": "estimated",
-        "observedAt": "2026-11-12T20:44:13.000Z",
+        "observedAt": "2026-11-13T16:12:39.178Z",
         "source": "KDP Royalties Estimator · all books & marketplaces"
       }
     },
@@ -1092,22 +1158,22 @@
     }
   ],
   "dailyPlan": {
-    "date": "2026-11-12",
-    "checkedAt": "2026-11-13T05:16:22.484Z",
+    "date": "2026-11-13",
+    "checkedAt": "2026-11-13T16:12:39.178Z",
     "taskIds": [
+      "navigation-release-2026-11-13",
       "launch-control",
-      "launch-package",
-      "economics-detective-launch-episode"
+      "creator-outreach-2026-11-13"
     ],
-    "focus": "Protect November 18: lock the release handoff, put launch communications in place, and record the short podcast episode. Books and new games can wait; optional DLC must not delay the main game.",
-    "basis": "Main game approval and a 15% launch discount are verified in Steamworks. The reliability update and patch notes are live; eight creator emails are sent. The next gains come from a coordinated launch and reaching existing audiences, rather than new scope."
+    "focus": "Five days to launch: get the navigation fixes through signing and release, settle launch ownership, and clear the creator reply. Keep new features, books and prototypes off the critical path.",
+    "basis": "Steam: 13,197 outstanding wishlists, +4,508 for Nov 6–12. Current-build navigation failures have source fixes, with packaging/signing pending. Supporter platform configuration is cleared. One creator reply needs a disposition; no paid campaign is approved."
   },
   "telemetry": {
-    "observedAt": "2026-11-13T01:10:49.498Z",
+    "observedAt": "2026-11-13T16:06:22.902Z",
     "windowDays": 1,
-    "installations": 68,
-    "sessions": 185,
+    "installations": 93,
+    "sessions": 225,
     "crashReports": 0,
-    "chartWarnings": 46
+    "chartWarnings": 59
   }
 }
