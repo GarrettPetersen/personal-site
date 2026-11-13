@@ -108,11 +108,24 @@
       "id": "marque-supporter-pack",
       "name": "M&R · Supporter Pack",
       "group": "secondary",
+      "health": "moving",
+      "stage": "Awaiting Steam review",
+      "summary": "Optional supporter DLC with a desktop globe. Submitted to Steam for review; approval is pending.",
+      "next": "Track the Steam review result and confirm launch details for November 18.",
+      "blocker": "Steam review pending. Final price and contents have not been recorded here.",
+      "repo": null,
+      "url": null,
+      "activity": null
+    },
+    {
+      "id": "economics-detective",
+      "name": "Economics Detective",
+      "group": "secondary",
       "health": "attention",
-      "stage": "Packaged local globe prototype · Steam setup open",
-      "summary": "The desktop globe is packaged and locally tested on Apple Silicon. Steam release remains pending.",
-      "next": "Confirm price, contents and Steam DLC setup/review; finish release-platform QA and packaging.",
-      "blocker": "Steam DLC app/depot/store setup, review and pricing remain open. Seasonal ground snow and sea-ice visuals are not integrated.",
+      "stage": "One-off life-update episode · November 18",
+      "summary": "A life-update podcast episode introducing Marque & Reprisal for launch day.",
+      "next": "Record, edit, review and schedule the episode for November 18.",
+      "blocker": "Recording and scheduling are not yet complete.",
       "repo": null,
       "url": null,
       "activity": null
@@ -266,22 +279,22 @@
     {
       "id": "supporter-scope",
       "projectId": "marque-supporter-pack",
-      "title": "Lock the Supporter Pack scope",
-      "owner": "Your decision",
-      "priority": "now",
-      "source": "Supporter Pack project handoff",
-      "note": "Confirm final contents, price and Steam DLC review readiness for November 18. The packaged local globe prototype has passed reported local QA; Steam delivery remains open. US$6.99 is unapproved; audio files are excluded.",
+      "title": "Track Supporter Pack Steam review",
+      "owner": "Release agent + Garrett",
+      "priority": "next",
+      "source": "Owner status update",
+      "note": "The Supporter Pack is in Steam’s review queue. Record the decision and any requested changes, then confirm final price, contents and launch readiness. Submission is complete; approval remains pending.",
       "status": "open",
-      "due": "2026-11-14",
-      "checkedAt": "2026-11-12T23:40:38.533Z",
-      "importance": 4,
+      "due": null,
+      "checkedAt": "2026-11-13T04:14:46.276Z",
+      "importance": 3,
       "effortMinutes": {
-        "min": 15,
-        "max": 30
+        "min": 5,
+        "max": 15
       },
       "tone": "blue",
-      "signal": "Price + Steam review still unconfirmed.",
-      "outcome": "Contents, price and remaining launch dependencies recorded.",
+      "signal": "Submitted; waiting for Steam’s response.",
+      "outcome": "Review decision recorded and remaining launch details confirmed.",
       "completedOn": null,
       "completionKind": null,
       "optional": false
@@ -434,6 +447,43 @@
       "checkedAt": "2026-11-13T01:14:30.251Z",
       "completedOn": "2026-11-12",
       "completionKind": null
+    },
+    {
+      "id": "supporter-steam-review-submitted",
+      "projectId": "marque-supporter-pack",
+      "title": "Supporter Pack submitted for review",
+      "owner": "Garrett + release agent",
+      "priority": "later",
+      "source": "Owner confirmation",
+      "note": "Owner confirmed the Supporter Pack is in Steam’s review queue. Approval and release remain separate.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-13T04:14:46.276Z",
+      "completedOn": "2026-11-12",
+      "completionKind": null
+    },
+    {
+      "id": "economics-detective-launch-episode",
+      "projectId": "economics-detective",
+      "title": "Record the life update",
+      "owner": "You record · AI assists production",
+      "priority": "now",
+      "source": "Owner direction",
+      "note": "Record an Economics Detective life update and introduce Marque & Reprisal in your own words. Lightly edit, review the episode notes and game link, then schedule publication for November 18. One episode is planned; no recurring cadence is assumed.",
+      "status": "open",
+      "due": "2026-11-18",
+      "checkedAt": "2026-11-13T04:14:46.276Z",
+      "completedOn": null,
+      "completionKind": null,
+      "importance": 5,
+      "effortMinutes": {
+        "min": 60,
+        "max": 120
+      },
+      "tone": "blue",
+      "signal": "Economics Detective · release November 18.",
+      "outcome": "Episode recorded, edited, reviewed and scheduled for November 18.",
+      "optional": false
     }
   ],
   "metrics": [
@@ -505,6 +555,16 @@
       "note": "Tentative check around the expected response: the receipt email gives 11 weeks from the November 2, 2026 program close. This points to January 18, 2027; no exact decision date or award is confirmed. Up to CA$50,000 in potential funding.",
       "sourceUrl": "https://creativebc.com/wp-content/uploads/2026/08/Video-Games-Early-Stage-Growth_Guidelines-2627.pdf",
       "verifiedAt": "2026-11-12T21:44:11.000Z"
+    },
+    {
+      "id": "economics-detective-episode-release",
+      "projectId": "economics-detective",
+      "date": "2026-11-18",
+      "title": "Economics Detective life update",
+      "kind": "planned",
+      "note": "Requested release date for the life-update episode and Marque & Reprisal launch mention. Vancouver date; release time is unset. Recording, editing and host scheduling remain to be completed.",
+      "sourceUrl": null,
+      "verifiedAt": "2026-11-13T04:14:46.276Z"
     }
   ],
   "archive": [
@@ -658,8 +718,8 @@
     {
       "id": "supporter-pack",
       "label": "Supporter Pack project handoff",
-      "checkedAt": "2026-11-12T23:40:38.533Z",
-      "note": "Owning project reports a packaged Apple Silicon globe prototype opened for Garrett. Companion/game/localization tests, three fresh-profile launches and native lifecycle/save checks passed. One idle sample was about 12.5% of one CPU core at 14.5 FPS; simulation/rendering stopped when minimized. Steam DLC/store/depot setup and review, final pricing and other release-platform work remain open. Snow/sea-ice visuals are unintegrated; no audio files included. This is a reported local milestone, not a Steam release."
+      "checkedAt": "2026-11-13T04:14:46.276Z",
+      "note": "Owner confirmed the Supporter Pack is in Steam’s review queue. Local globe prototype and QA milestones are already recorded; submission is complete, approval remains pending. Final price and pack contents are not recorded here."
     },
     {
       "id": "marque-reliability-release",
@@ -672,6 +732,12 @@
       "label": "Steam promotion confirmed",
       "checkedAt": "2026-11-13T01:14:30.251Z",
       "note": "Owner confirmed promotion of the just-uploaded reliability update. This is separate from the November 18 full-game launch; no release or publishing action was taken from the desk."
+    },
+    {
+      "id": "economics-detective-episode",
+      "label": "Economics Detective launch episode",
+      "checkedAt": "2026-11-13T04:14:46.276Z",
+      "note": "Owner requested a one-off life-update episode introducing Marque & Reprisal, to release November 18. Recording/scheduling are pending; no publication time or continuing podcast cadence was specified."
     }
   ],
   "prototypeStrategy": {
@@ -918,12 +984,12 @@
   ],
   "dailyPlan": {
     "date": "2026-11-12",
-    "checkedAt": "2026-11-13T01:14:30.251Z",
+    "checkedAt": "2026-11-13T04:14:46.276Z",
     "taskIds": [
-      "supporter-scope",
+      "economics-detective-launch-episode",
       "jinshu-opening"
     ],
-    "focus": "M&R’s reliability update is live on Steam. Keep launch risk low: settle the Supporter Pack’s scope and price before adding more work."
+    "focus": "Prepare the Economics Detective life update for November 18, with a Marque & Reprisal launch mention. The Supporter Pack is now waiting on Steam review."
   },
   "telemetry": {
     "observedAt": "2026-11-13T01:10:49.498Z",
