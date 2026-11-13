@@ -7,7 +7,7 @@ export const defaultRevenueScenario = Object.freeze({
   launchWishlists: 15_000,
   salesPerWishlist: 0.20,
   priceUsd: 14.99,
-  launchDiscountPercent: 10,
+  launchDiscountPercent: 15,
   steamSharePercent: 30,
 });
 

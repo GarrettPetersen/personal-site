@@ -8,10 +8,10 @@
       "name": "Marque & Reprisal",
       "group": "focus",
       "health": "attention",
-      "stage": "Reliability update promoted · launch preparation",
+      "stage": "Approved for release · November 18",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
-      "next": "Monitor fresh-build feedback and prepare launch-day coverage.",
-      "blocker": "Remaining investigations: NPC/chart reports and the Linux Steam Controller hardware case.",
+      "next": "Lock the launch plan and prepare distribution; restrict code changes to reproduced release problems.",
+      "blocker": "Launch hour and release/support handoff unconfirmed. Monitor fresh-build failures.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
@@ -109,10 +109,10 @@
       "name": "M&R · Supporter Pack",
       "group": "secondary",
       "health": "moving",
-      "stage": "Awaiting Steam review",
-      "summary": "Optional supporter DLC with a desktop globe. Submitted to Steam for review; approval is pending.",
-      "next": "Track the Steam review result and confirm launch details for November 18.",
-      "blocker": "Steam review pending. Final price and contents have not been recorded here.",
+      "stage": "Store review pending · configuration fix",
+      "summary": "Optional US$6.99 supporter DLC with a desktop globe. Store review pending; pricing published.",
+      "next": "Resolve platform configuration and await store approval. Base game launches independently.",
+      "blocker": "Platform claims do not match between Steamworks and the store page; content checklist incomplete.",
       "repo": null,
       "url": null,
       "activity": null
@@ -167,21 +167,31 @@
       "due": null,
       "checkedAt": "2026-11-13T04:51:39.061Z",
       "completedOn": null,
-      "completionKind": null
+      "completionKind": null,
+      "lane": "active"
     },
     {
       "id": "launch-package",
       "projectId": "marque-and-reprisal",
-      "title": "Launch-day materials",
+      "title": "Ready launch communications",
       "owner": "Garrett + Codex",
       "priority": "next",
-      "source": "Marketing handoff",
-      "note": "Organize current gameplay assets and Garrett’s approved press/social wording. Confirm Steam community links: Discord, YouTube, X. Optional cross-promotion needs a separate scope and copy decision.",
+      "source": "Marketing handoff + launch-readiness review",
+      "note": "Audit what already exists, then assemble the final trailer/gameplay assets, working store link, Garrett-approved launch announcement and channel schedule. Record who posts where and when. Reuse approved material; commission new assets only for a clear gap. Keep optional site cross-promotion a separate decision.",
       "status": "open",
-      "due": null,
-      "checkedAt": "2026-11-12T18:38:02.290Z",
+      "due": "2026-11-17",
+      "checkedAt": "2026-11-13T05:16:22.484Z",
       "completedOn": null,
-      "completionKind": null
+      "completionKind": null,
+      "lane": "active",
+      "importance": 4,
+      "effortMinutes": {
+        "min": 30,
+        "max": 60
+      },
+      "tone": "gold",
+      "signal": "One launch folder, ready before November 18.",
+      "outcome": "Every launch channel has an owner, time and approved material, with missing items resolved."
     },
     {
       "id": "prototype-comparison",
@@ -195,7 +205,8 @@
       "due": null,
       "checkedAt": "2026-11-12T18:49:29.958Z",
       "completedOn": null,
-      "completionKind": null
+      "completionKind": null,
+      "lane": "backburner"
     },
     {
       "id": "grant-submitted",
@@ -226,20 +237,6 @@
       "completionKind": null
     },
     {
-      "id": "kdp-introductions",
-      "projectId": "histories-kdp",
-      "title": "Write Jinshu’s intro",
-      "owner": "Garrett",
-      "priority": "later",
-      "source": "Owner direction",
-      "note": "Write and revise Jinshu’s introduction as a researched biographical essay. The four published examples and current draft require source reading, historical judgment and narrative work. AI may assist translation and ebook production, not write or rewrite the introduction. Glossary and final QA remain separate.",
-      "status": "open",
-      "due": null,
-      "checkedAt": "2026-11-13T04:59:03.560Z",
-      "completedOn": null,
-      "completionKind": null
-    },
-    {
       "id": "navigation-replay",
       "projectId": "marque-and-reprisal",
       "title": "Investigate remaining NPC/chart reports",
@@ -260,7 +257,7 @@
       "outcome": "Remaining incidents classified by build and a focused reproduction plan recorded.",
       "completedOn": null,
       "completionKind": null,
-      "optional": false
+      "lane": "active"
     },
     {
       "id": "input-reproduction",
@@ -269,35 +266,36 @@
       "owner": "AI + Garrett",
       "priority": "next",
       "source": "Remote changelog + player-feedback list",
-      "note": "The reproduced cannon crew-starvation behavior is fixed; canonical Q/E and controller firing passed on the short-crewed galleass. The original input snapshot and Linux Steam Controller hardware failure remain unverified. Reproduce that hardware path before changing bindings.",
+      "note": "The original Linux Steam Controller report still lacks a reproducible hardware/input snapshot. Canonical keyboard/controller firing and the cannon-crew fix passed. Wait for usable hardware evidence; escalate a confirmed current-build loss of controls immediately.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-13T01:11:41.043Z",
+      "checkedAt": "2026-11-13T05:16:22.484Z",
       "completedOn": null,
-      "completionKind": null
+      "completionKind": null,
+      "lane": "waiting"
     },
     {
       "id": "supporter-scope",
       "projectId": "marque-supporter-pack",
-      "title": "Track Supporter Pack Steam review",
+      "title": "Supporter Pack store review",
       "owner": "Release agent + Garrett",
       "priority": "next",
-      "source": "Owner status update",
-      "note": "The Supporter Pack is in Steam’s review queue. Record the decision and any requested changes, then confirm final price, contents and launch readiness. Submission is complete; approval remains pending.",
+      "source": "Steamworks DLC landing page",
+      "note": "Store page submitted November 12; Steam estimates 3–5 business days. Pricing is published at US$6.99. Record approval or requested changes when they arrive. This is a waiting item; the separate platform-configuration mismatch still needs action. If DLC is late, launch the base game on November 18 anyway.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-13T04:14:46.276Z",
+      "checkedAt": "2026-11-13T05:16:22.484Z",
       "importance": 3,
       "effortMinutes": {
         "min": 5,
         "max": 15
       },
       "tone": "blue",
-      "signal": "Submitted; waiting for Steam’s response.",
+      "signal": "Store review pending; base-game launch stays fixed.",
       "outcome": "Review decision recorded and remaining launch details confirmed.",
       "completedOn": null,
       "completionKind": null,
-      "optional": false
+      "lane": "waiting"
     },
     {
       "id": "jinshu-opening",
@@ -390,7 +388,8 @@
       "due": null,
       "checkedAt": "2026-11-12T18:49:29.958Z",
       "completedOn": null,
-      "completionKind": null
+      "completionKind": null,
+      "lane": "backburner"
     },
     {
       "id": "globe-local-prototype-packaged",
@@ -469,21 +468,21 @@
       "owner": "You record · AI assists production",
       "priority": "now",
       "source": "Owner direction",
-      "note": "Record an Economics Detective life update and introduce Marque & Reprisal in your own words. Lightly edit, review the episode notes and game link, then schedule publication for November 18. One episode is planned; no recurring cadence is assumed.",
+      "note": "Record the life update and game introduction in your own words. Cap recording and review at roughly 1–2 hours; AI can assist light editing and production. Review the game link and schedule November 18 publication around the confirmed launch time. Judge the response before committing to more episodes.",
       "status": "open",
       "due": "2026-11-18",
-      "checkedAt": "2026-11-13T04:14:46.276Z",
+      "checkedAt": "2026-11-13T05:16:22.484Z",
       "completedOn": null,
       "completionKind": null,
-      "importance": 5,
+      "importance": 3,
       "effortMinutes": {
         "min": 60,
         "max": 120
       },
-      "tone": "blue",
-      "signal": "Economics Detective · release November 18.",
+      "tone": "sage",
+      "signal": "A bounded test of an existing audience.",
       "outcome": "Episode recorded, edited, reviewed and scheduled for November 18.",
-      "optional": false
+      "lane": "active"
     },
     {
       "id": "creator-draft-review",
@@ -515,10 +514,10 @@
       "owner": "You research and write",
       "priority": "later",
       "source": "Four published introductions + current draft",
-      "note": "One focused session on the next biographical section or an unresolved source question. Keep the introduction human-authored. The full researched introduction has a provisional 12–24-hour allowance; ebook production and glossary work are separate.",
+      "note": "One focused session on the next biographical section or unresolved source question, only when deliberately choosing a break from launch work. Full introduction: provisional 12–24 human hours. Keep the prose human-authored; glossary and production work remain separate.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-13T04:59:03.560Z",
+      "checkedAt": "2026-11-13T05:16:22.484Z",
       "completedOn": null,
       "completionKind": null,
       "importance": 3,
@@ -527,9 +526,55 @@
         "max": 90
       },
       "tone": "sage",
-      "signal": "One research/writing session · optional.",
+      "signal": "A deliberate break, not a launch-week obligation.",
       "outcome": "A source question resolved or a biographical section advanced in your notes/draft.",
-      "optional": true
+      "lane": "backburner"
+    },
+    {
+      "id": "launch-control",
+      "projectId": "marque-and-reprisal",
+      "title": "Lock the launch plan",
+      "owner": "Garrett + release agent",
+      "priority": "now",
+      "source": "Steamworks launch-readiness review",
+      "note": "Main game store and build are already approved. Confirm the November 18 launch hour, who manually releases it, the final build and the support/rollback handoff. Steam does not release approved games automatically. Keep optional DLC off the critical path; reserve the first support window for buying, launch, saves, controls and progression failures.",
+      "status": "open",
+      "due": "2026-11-17",
+      "checkedAt": "2026-11-13T05:16:22.484Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active",
+      "importance": 5,
+      "effortMinutes": {
+        "min": 15,
+        "max": 30
+      },
+      "tone": "blue",
+      "signal": "Approved to release. Exact hour and handoff remain unconfirmed.",
+      "outcome": "Launch hour, release owner, final build and first-response plan recorded."
+    },
+    {
+      "id": "supporter-platform-config",
+      "projectId": "marque-supporter-pack",
+      "title": "Resolve DLC platform mismatch",
+      "owner": "Release agent + Garrett",
+      "priority": "now",
+      "source": "Steamworks launch-readiness review",
+      "note": "Steamworks reports that the supported platforms in DLC configuration do not match its store page; the content checklist is incomplete. Have the owning release agent reconcile these against the actual deliverables and verify the checklist. Pricing is already published at US$6.99. Bound this release fix; avoid expanding globe features at the expense of the main launch.",
+      "status": "open",
+      "due": "2026-11-17",
+      "checkedAt": "2026-11-13T05:16:22.484Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active",
+      "importance": 4,
+      "effortMinutes": {
+        "min": 10,
+        "max": 20
+      },
+      "tone": "coral",
+      "signal": "Verified configuration blocker; separate from store review.",
+      "outcome": "Platform claims match the deliverable and the required content checklist passes."
     }
   ],
   "metrics": [
@@ -764,14 +809,14 @@
     {
       "id": "supporter-pack",
       "label": "Supporter Pack project handoff",
-      "checkedAt": "2026-11-13T04:14:46.276Z",
-      "note": "Owner confirmed the Supporter Pack is in Steam’s review queue. Local globe prototype and QA milestones are already recorded; submission is complete, approval remains pending. Final price and pack contents are not recorded here."
+      "checkedAt": "2026-11-13T05:16:22.484Z",
+      "note": "Steamworks: store page queued November 12, US$6.99 pricing published, platform-support mismatch and content checklist incomplete. Only the store page requires review for this DLC. Base game is already approved for release."
     },
     {
       "id": "marque-reliability-release",
       "label": "November 12 reliability release",
-      "checkedAt": "2026-11-13T01:14:30.251Z",
-      "note": "Remote changelog 3eb4f6b records artifact dc5b674e, uploaded full Steam build 26632259 and demo 26632262. Owner subsequently confirmed Steam promotion. Public itch devlog and HTML5 version dc5b674e checked directly. Steam patch-note publication remains unverified."
+      "checkedAt": "2026-11-13T05:16:22.484Z",
+      "note": "Remote changelog 6cc5602d confirms live full build 26632259, demo 26632262 and published Steam patch-note event 694277726961402204. The reliability release is complete; remaining hardware/NPC investigations are separate."
     },
     {
       "id": "marque-steam-promotion",
@@ -796,6 +841,12 @@
       "label": "Human introduction scope reviewed",
       "checkedAt": "2026-11-13T04:59:03.560Z",
       "note": "Read the Shiji, Hanshu, Hou Hanshu and Sanguozhi introduction sources plus the supplied Fang Xuanling draft. These are researched biographical essays. An opening already exists; remaining writing time is unmeasured. Manuscript text and private draft links are not copied here."
+    },
+    {
+      "id": "launch-readiness",
+      "label": "Steam launch readiness",
+      "checkedAt": "2026-11-13T05:16:22.484Z",
+      "note": "Main game store and build approved; US$14.99 list price, 15% launch discount for 7 days. Release is manual; exact launch hour is not recorded. Read-only review; no Steam settings or release actions changed."
     }
   ],
   "prototypeStrategy": {
@@ -1042,12 +1093,14 @@
   ],
   "dailyPlan": {
     "date": "2026-11-12",
-    "checkedAt": "2026-11-13T04:59:03.560Z",
+    "checkedAt": "2026-11-13T05:16:22.484Z",
     "taskIds": [
-      "economics-detective-launch-episode",
-      "jinshu-research-session"
+      "launch-control",
+      "launch-package",
+      "economics-detective-launch-episode"
     ],
-    "focus": "The eight creator emails are sent. Prepare Economics Detective for November 18; reserve proper research sessions for Jinshu after launch work is covered."
+    "focus": "Protect November 18: lock the release handoff, put launch communications in place, and record the short podcast episode. Books and new games can wait; optional DLC must not delay the main game.",
+    "basis": "Main game approval and a 15% launch discount are verified in Steamworks. The reliability update and patch notes are live; eight creator emails are sent. The next gains come from a coordinated launch and reaching existing audiences, rather than new scope."
   },
   "telemetry": {
     "observedAt": "2026-11-13T01:10:49.498Z",

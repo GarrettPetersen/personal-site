@@ -19,7 +19,7 @@ const count = new Intl.NumberFormat("en-CA");
       <label><span>Steam share (%)</span><input name="steamSharePercent" type="number" min="0" max="100" step="0.01" value={defaults.steamSharePercent} required disabled /></label>
     </div>
     <p id="revenue-ratio-note" class="desk-revenue__note">Total sales include non-wishlist buyers.</p>
-    <p id="revenue-discount-note" class="desk-revenue__note">Defaults are illustrative; actual launch discount unverified.</p>
+    <p id="revenue-discount-note" class="desk-revenue__note">15% for 7 days configured in Steamworks · checked November 12. Sales assumptions remain illustrative.</p>
     <dl class="desk-revenue__flow" aria-live="polite" aria-atomic="true">
       <div><dt>First-week copies</dt><dd><output data-revenue-copies>{count.format(result.copies)}</output></dd><dd class="desk-revenue__formula">Wishlists × ratio</dd></div>
       <div><dt>Discounted gross</dt><dd><output data-revenue-discounted>{formatMoney(result.discountedGrossCents)}</output></dd><dd class="desk-revenue__formula">Copies × discounted price</dd></div>

@@ -44,13 +44,6 @@
 .daily-grid[data-count="1"] .task-tile > summary { min-height: 280px; }
 .daily-grid[data-count="2"] .task-tile { grid-row: auto; }
 .daily-grid[data-count="2"] .task-tile > summary { min-height: 320px; }
-.daily-grid[data-count="2"] .task-tile--optional { align-self: end; }
-.daily-grid[data-count="2"] .task-tile--optional > summary { min-height: 184px; }
-.daily-grid[data-count="4"] .task-tile, .daily-grid[data-count="5"] .task-tile { grid-column: span 3; }
-.daily-grid[data-count="4"] .task-tile--lead, .daily-grid[data-count="5"] .task-tile--lead { grid-column: span 6; }
-.daily-grid[data-count="4"] .task-tile:nth-child(2) { grid-column: span 6; }
-.daily-grid[data-count="4"] .task-tile__title h3, .daily-grid[data-count="5"] .task-tile__title h3 { font-size: 1.25rem; }
-.daily-grid[data-count="4"] .task-tile--lead h3, .daily-grid[data-count="5"] .task-tile--lead h3 { font-size: clamp(2rem, 3.3vw, 3rem); }
 .daily-footnote { display: flex; justify-content: space-between; gap: 1rem; margin-top: .9rem; font-size: .65rem; color: var(--desk-muted); }
 .daily-evidence { margin-top: .65rem; color: var(--desk-muted); font-size: .62rem; }
 .daily-evidence p { max-width: 85ch; margin: .65rem 0 0; line-height: 1.6; }
@@ -84,14 +77,11 @@
   .task-tile--lead h3 { font-size: 2.4rem; }
   .task-tile__top { font-size: .63rem; gap: .5rem; }
   .task-tile__effort { font-size: .7rem; }
-  .daily-grid[data-count="4"] .task-tile, .daily-grid[data-count="5"] .task-tile { grid-column: span 6; }
-  .daily-grid[data-count="4"] .task-tile--lead, .daily-grid[data-count="5"] .task-tile--lead { grid-column: span 6; }
   .finished-piece { flex-basis: 30%; }
 }
 @media (max-width: 650px) {
   .daily-grid[data-count="2"] .task-tile > summary { min-height: 180px; }
   .daily-grid[data-count="2"] .task-tile--lead > summary { min-height: 290px; }
-  .daily-grid[data-count="2"] .task-tile--optional { align-self: stretch; }
   .daily-focus { grid-template-columns: 1fr; gap: .4rem; padding: .9rem 1rem; margin-bottom: 1.3rem; }
   .daily-focus p { font-size: .75rem; }
   .daily-heading h2 { font-size: 1.2rem; }
@@ -113,3 +103,13 @@
   .finished-piece > summary { font-size: .7rem; padding: .8rem; }
   .finished-piece small { font-size: .6rem; }
 }
+
+.desk-task-shelf { border-top: 1px solid var(--desk-line); padding: 1rem 0; }
+.desk-task-shelf > summary { display: flex; gap: .7rem; align-items: baseline; list-style: none; font-size: .85rem; font-weight: 500; }
+.desk-task-shelf > summary::before { content: '+'; color: var(--desk-blue); }
+.desk-task-shelf[open] > summary::before { content: '−'; }
+.desk-task-shelf > summary small { margin-left: auto; color: var(--desk-muted); font-size: .63rem; font-weight: 400; }
+.desk-task-shelf > p { color: var(--desk-muted); font-size: .72rem; margin: 1rem 0 0; }
+.desk-task-shelf .desk-task-list { margin-top: 1rem; }
+
+.daily-footnote a { color: var(--desk-blue); margin-left: .4rem; }

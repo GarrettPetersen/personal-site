@@ -7,6 +7,8 @@ import RevenueBreakdown from "../components/RevenueBreakdown.astro";
 import DecisionBoard from "../components/DecisionBoard.astro";
 import KdpReport from "../components/KdpReport.astro";
 import DailyBoard from "../components/DailyBoard.astro";
+import TaskList from "../components/TaskList.astro";
+import { taskLanes } from "../lib/tasks.mjs";
 import { validateDesk, localDate, formatDate, formatChecked, isStale, daysBetween, monthCells } from "../lib/desk.mjs";
 import { validateKdpReport } from "../lib/kdp.mjs";
 import "../styles/global.css";
@@ -14,9 +16,7 @@ import "../styles/desk.css";
 const data=validateDesk(snapshot) as typeof snapshot;
 validateKdpReport(kdp);
 const today=localDate();
-const priorityOrder:Record<string,number>={now:0,next:1,later:2};
-const openTasks=data.tasks.filter(t=>t.status==='open'&&!data.dailyPlan.taskIds.includes(t.id)).sort((a,b)=>priorityOrder[a.priority]!-priorityOrder[b.priority]!);
-const projectFor=(id:string|null)=>id===null?'Portfolio':data.projects.find(p=>p.id===id)!.name;
+const lanes = taskLanes(data.tasks, data.dailyPlan) as Record<'active'|'waiting'|'backburner',(typeof data.tasks)[number][]>;
 const archiveGroups=[{title:'On hold',projects:data.archive.filter(p=>p.status==='On hold')},{title:'Shipped & reference',projects:data.archive.filter(p=>p.status!=='On hold')}];
 const launch=data.events.find(e=>e.id==='marque-launch')!;
 const daysToLaunch=daysBetween(today,launch.date);
@@ -25,7 +25,6 @@ const monthLabel=(y:number,m:number)=>new Intl.DateTimeFormat('en-CA',{timeZone:
 const counts=new Intl.NumberFormat('en-CA');
 const sortedEvents=[...data.events].sort((a,b)=>a.date.localeCompare(b.date));
 const upcomingEvents=sortedEvents.filter(e=>e.date>=today);
-const priorityLabels:Record<string,string>={now:'Now',next:'Next',later:'Later'};
 const healthLabels:Record<string,string>={attention:'Needs attention',moving:'In progress',exploring:'Exploring'};
 ---
 <!doctype html>
@@ -53,9 +52,11 @@ const healthLabels:Record<string,string>={attention:'Needs attention',moving:'In
       <div class="desk-main-column">
         <KdpReport />
         <details class="desk-tool"><summary><span>Launch calculator</span></summary><RevenueScenario /></details>
-        <section class="desk-actions" aria-labelledby="actions-title"><div class="desk-section-heading"><h2 id="actions-title">The queue</h2><span>{openTasks.length} open</span></div>
-          <ol class="desk-task-list">{openTasks.map(task=><li><span class={`desk-priority desk-priority--${task.priority}`}>{priorityLabels[task.priority]}</span><details id={`task-${task.id}`}><summary>{task.title}<small>{projectFor(task.projectId)} · {task.owner}</small></summary><p>{task.note}</p><small>Checked {formatDate(localDate(new Date(task.checkedAt)))}{task.due&&` · Target ${formatDate(task.due)}`}</small></details></li>)}</ol>
+        <section class="desk-actions" aria-labelledby="actions-title"><div class="desk-section-heading"><h2 id="actions-title">Next in line</h2><span>{lanes.active.length} open</span></div>
+          <TaskList tasks={lanes.active} />
         </section>
+        <details class="desk-task-shelf" id="waiting"><summary><span>Waiting on others</span><small>{lanes.waiting.length}</small></summary><TaskList tasks={lanes.waiting} /></details>
+        <details class="desk-task-shelf" id="backburner"><summary><span>Backburner</span><small>{lanes.backburner.length} · when you choose a break</small></summary><p>Optional work. Reconsider after launch week; no catch-up obligation.</p><TaskList tasks={lanes.backburner} /></details>
         <section class="desk-context" aria-labelledby="context-title"><div class="desk-section-heading"><h2 id="context-title">Project context</h2></div>
           {data.projects.map(project=><details class="desk-project" id={project.id}><summary><span>{project.name}<small>{project.stage}</small></span><span class={`desk-status desk-status--${project.health}`}>{healthLabels[project.health]}</span></summary><div class="desk-project__body" id={`${project.id}-context`}><p>{project.summary}</p><dl><div><dt>Blocker</dt><dd>{project.blocker}</dd></div><div><dt>Next</dt><dd>{project.next}</dd></div></dl>{project.id==='marque-and-reprisal'&&<div class="desk-platform"><h3>After Steam: mobile & consoles</h3><p>{data.platformExpansion.model}</p><p>{data.platformExpansion.timing}</p><p>{data.platformExpansion.gates}</p></div>}{project.group==='prototype'&&<p>{data.prototypeStrategy.approach} {data.prototypeStrategy.decision}</p>}<div class="desk-project__bottom">{project.url&&<a href={project.url}>Project site</a>}{project.activity&&<span>Latest code {formatDate(localDate(new Date(project.activity.lastCommitAt)))}</span>}</div></div></details>)}
         </section>

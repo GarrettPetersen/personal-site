@@ -5,7 +5,7 @@ import { calendarFeed, daysBetween, isStale, localDate, monthCells, publishedGlo
 import { parseDate } from "../src/lib/dates.mjs";
 import { validateKdpReport } from "../src/lib/kdp.mjs";
 import { calculateRevenueScenario, compareRevenueScenarios, defaultRevenueScenario, formatMoney, summarizeRevenue } from "../src/lib/revenue.mjs";
-import { dailyTasks, totalEffort, formatEffort } from "../src/lib/tasks.mjs";
+import { dailyTasks, taskLanes, totalEffort, formatEffort } from "../src/lib/tasks.mjs";
 import { marqueTelemetrySnapshot } from "../src/lib/telemetry.mjs";
 
 const snapshot = JSON.parse(readFileSync(new URL("../src/data/desk.json", import.meta.url), "utf8"));
@@ -17,6 +17,7 @@ test("daily picks reject completed, dismissed or unknown work and preserve bound
     { id: "long-later", status: "open", importance: 2, effortMinutes: { min: 90, max: 120 } },
     { id: "longer-important", status: "open", importance: 5, effortMinutes: { min: 20, max: 40 } },
   ];
+  tasks.forEach(task => { task.lane = 'active'; });
   const picks = dailyTasks(tasks, { taskIds: tasks.map(task => task.id) });
   assert.deepEqual(picks.map(task => task.id), ["longer-important", "short-important", "long-later"]);
   assert.deepEqual(totalEffort(picks), { min: 120, max: 175 });
@@ -37,6 +38,23 @@ test("daily picks reject completed, dismissed or unknown work and preserve bound
     const invalid = structuredClone(snapshot); mutate(invalid);
     assert.throws(() => validateDesk(invalid), /daily|open tasks/);
   }
+});
+
+test("waiting and backburner work cannot leak onto the priority board", () => {
+  for (const lane of ['waiting', 'backburner']) {
+    const broken = structuredClone(snapshot);
+    const task = broken.tasks.find(t => t.id === broken.dailyPlan.taskIds[0]);
+    task.lane = lane;
+    assert.throws(() => validateDesk(broken), /daily picks must be active/);
+    assert.throws(() => dailyTasks(broken.tasks, broken.dailyPlan), /open and active/);
+  }
+  const lanes = taskLanes(snapshot.tasks, snapshot.dailyPlan);
+  const remaining = snapshot.tasks.filter(t => t.status === 'open' && !snapshot.dailyPlan.taskIds.includes(t.id));
+  assert.equal(Object.values(lanes).flat().length, remaining.length);
+  for (const [lane, tasks] of Object.entries(lanes)) assert.ok(tasks.every(t => t.lane === lane));
+  const broken = structuredClone(snapshot); delete broken.tasks.find(t => t.status === 'open').lane;
+  assert.throws(() => validateDesk(broken), /explicit lane/);
+  assert.throws(() => taskLanes(broken.tasks, broken.dailyPlan), /Invalid task lane/);
 });
 
 test("telemetry imports only aggregates and rejects missing or invalid observations", () => {
@@ -62,10 +80,10 @@ test("decision board requires one next gate and qualitative evidence within its 
 });
 
 test("first-week scenarios deduct launch discount before the Steam share", () => {
-  assert.deepEqual(calculateRevenueScenario(defaultRevenueScenario), { copies: 3000, grossCents: 4497000, discountedGrossCents: 4047300, afterSteamCents: 2833110 });
-  assert.equal(formatMoney(2833110), "US$28,331.10");
+  assert.deepEqual(calculateRevenueScenario(defaultRevenueScenario), { copies: 3000, grossCents: 4497000, discountedGrossCents: 3822450, afterSteamCents: 2675715 });
+  assert.equal(formatMoney(2675715), "US$26,757.15");
   assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, launchDiscountPercent: 0 }).afterSteamCents, 3147900);
-  assert.deepEqual(compareRevenueScenarios(defaultRevenueScenario).map(({ copies, afterSteamCents }) => [copies, afterSteamCents]), [[1500, 1416555], [2250, 2124833], [3000, 2833110]]);
+  assert.deepEqual(compareRevenueScenarios(defaultRevenueScenario).map(({ copies, afterSteamCents }) => [copies, afterSteamCents]), [[1500, 1337858], [2250, 2006787], [3000, 2675715]]);
   assert.equal(calculateRevenueScenario({ ...defaultRevenueScenario, launchWishlists: 5500 }).copies, 1100);
 });
 

@@ -1,0 +1,12 @@
+---
+import snapshot from '../data/desk.json';
+import { formatDate, localDate } from '../lib/desk.mjs';
+interface Props { tasks: (typeof snapshot.tasks)[number][]; }
+const { tasks } = Astro.props;
+const labels: Record<string,string> = { now: 'Now', next: 'Next', later: 'Later' };
+const projectFor = (id: string | null) => id === null ? 'Portfolio' : snapshot.projects.find(project => project.id === id)!.name;
+---
+<ol class="desk-task-list">{tasks.map(task => <li>
+  <span class={`desk-priority desk-priority--${task.priority}`}>{labels[task.priority]}</span>
+  <details id={`task-${task.id}`}><summary>{task.title}<small>{projectFor(task.projectId)} · {task.owner}</small></summary><p>{task.note}</p><small>Checked {formatDate(localDate(new Date(task.checkedAt)))}{task.due && ` · Target ${formatDate(task.due)}`}</small></details>
+</li>)}</ol>
