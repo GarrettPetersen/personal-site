@@ -8,10 +8,10 @@
       "name": "Marque & Reprisal",
       "group": "focus",
       "health": "attention",
-      "stage": "Launch November 18 · navigation release pending",
+      "stage": "Navigation update live · launch November 18",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
-      "next": "Finish signing and verified release of the navigation fixes; lock release/support ownership.",
-      "blocker": "Latest navigation-release preflight could not access macOS notarization. Exact launch hour remains unconfirmed.",
+      "next": "Coordinate launch communications and monitor feedback from the new build.",
+      "blocker": "Exact November 18 launch hour and release/support handoff remain unconfirmed.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
@@ -529,7 +529,7 @@
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
-      "importance": 4,
+      "importance": 5,
       "effortMinutes": {
         "min": 15,
         "max": 30
@@ -564,15 +564,15 @@
     {
       "id": "navigation-release-2026-11-13",
       "projectId": "marque-and-reprisal",
-      "title": "Release the navigation fixes",
+      "title": "Navigation update released",
       "owner": "Release agent · you review",
       "priority": "now",
-      "source": "Daily project review · November 13",
-      "note": "Current-build turn failures and route-search stalls have verified source fixes. The latest remote preflight could not access the macOS notarization profile. Resolve signing access, finish packaged release gates, and record full/demo build IDs and storefront promotion. Keep the stable build until the candidate passes; this task does not close the remaining chart-geometry cases.",
-      "status": "open",
+      "source": "Owner confirmation + remote release record f70723ba",
+      "note": "Navigation artifact a32993cd passed the recorded release gates, packaging and notarization. Full Steam build 26655823 and demo 26655831 are promoted; Steam and itch patch notes are published. This completes the update, not every remaining navigation report. The global November 18 game launch is separate.",
+      "status": "done",
       "due": "2026-11-13",
-      "checkedAt": "2026-11-13T16:12:39.178Z",
-      "completedOn": null,
+      "checkedAt": "2026-11-13T22:59:38.883Z",
+      "completedOn": "2026-11-13",
       "completionKind": null,
       "lane": "active",
       "importance": 5,
@@ -581,21 +581,21 @@
         "max": 30
       },
       "tone": "blue",
-      "signal": "Source checks pass; signing and release remain.",
+      "signal": "Both Steam builds promoted; patch notes published.",
       "outcome": "Packaged candidate passes release gates and live full/demo build IDs are verified."
     },
     {
       "id": "creator-outreach-2026-11-13",
       "projectId": "marque-and-reprisal",
-      "title": "Review today’s creator reply",
+      "title": "Paid coverage declined",
       "owner": "Garrett · outreach chat",
       "priority": "now",
-      "source": "Daily project review · November 13",
-      "note": "A creator reply asks whether promotion is paid or organic. Recommendation: keep the current outreach organic; no rate, budget or expected return is established for a paid placement. Decide the disposition and use your own words for any response in the outreach chat. A reply is not confirmed coverage. Yesterday’s eight-email batch stays complete.",
-      "status": "open",
+      "source": "Owner decision",
+      "note": "Garrett decided against paid creator coverage. Continue organic outreach and independent coverage; revisit paid placements only if he reopens the decision. This completes today’s decision task without implying an email reply or confirmed coverage.",
+      "status": "done",
       "due": "2026-11-13",
-      "checkedAt": "2026-11-13T16:12:39.178Z",
-      "completedOn": null,
+      "checkedAt": "2026-11-13T22:59:38.883Z",
+      "completedOn": "2026-11-13",
       "completionKind": null,
       "lane": "active",
       "importance": 3,
@@ -604,7 +604,7 @@
         "max": 10
       },
       "tone": "gold",
-      "signal": "One paid/organic decision · keep it bounded.",
+      "signal": "Decision complete · continue organic outreach.",
       "outcome": "Reply disposition recorded; any authorized response handled in the outreach chat."
     },
     {
@@ -774,7 +774,7 @@
       "id": "email",
       "label": "Project email",
       "checkedAt": "2026-11-13T16:12:39.178Z",
-      "note": "Reviewed new project mail and later replies. One creator asks about paid promotion; recommend an organic disposition. An unsolicited bundle proposal is deferred rather than added to launch-week work. No correspondence or contacts are published; no mail sent."
+      "note": "Morning project-mail review found a creator’s paid/organic question and an unsolicited bundle proposal. The later owner decision is recorded separately in the outreach source. The bundle proposal is deferred. No mail sent and no raw correspondence or contacts published."
     },
     {
       "id": "steam",
@@ -857,8 +857,8 @@
     {
       "id": "marque-feedback",
       "label": "M&R remote feedback review",
-      "checkedAt": "2026-11-13T16:12:39.178Z",
-      "note": "Read remote master a32993cd: November 13 telemetry review and feedback list. Current-build bank-pivot/chart-origin failures and synchronous route stalls have source fixes. Full Node/host checks passed; packaging and notarization are not yet confirmed. Other geometry/sparse-terrain cases remain open; no cursor advanced."
+      "checkedAt": "2026-11-13T22:59:38.883Z",
+      "note": "November 13 telemetry review and release record checked at remote f70723ba: bank-pivot, chart-origin and route-search fixes are now released as a32993cd. Several geometry/sparse-terrain cases remain open. The source’s 22:02 UTC backend recheck found no crashes or new-build groups; absence of reports is not proof of complete resolution. No cursor advanced."
     },
     {
       "id": "supporter-pack",
@@ -905,14 +905,14 @@
     {
       "id": "navigation-release-nov13",
       "label": "Navigation release candidate",
-      "checkedAt": "2026-11-13T16:12:39.178Z",
-      "note": "Remote a32993cd records 9,495 passing Node tests and 93 host checks. Latest preflight could not access the notarization profile; no new uploaded/deployed artifact is claimed. Source verification and storefront delivery are separate."
+      "checkedAt": "2026-11-13T22:59:38.883Z",
+      "note": "Remote f70723ba confirms verified artifact a32993cd, completed macOS notarization, promoted full Steam build 26655823 and demo 26655831, published Steam patch-note event 694277726961402439 and updated itch delivery. Owner confirms the build push. No release actions were performed by this desk."
     },
     {
       "id": "creator-reply-nov13",
       "label": "Daily creator outreach",
-      "checkedAt": "2026-11-13T16:12:39.178Z",
-      "note": "One new creator reply requires a paid/organic disposition. No paid budget, rate or coverage is established. The November 12 eight-email batch remains complete. No reply sent or new drafting batch started by this desk."
+      "checkedAt": "2026-11-13T22:59:38.883Z",
+      "note": "Owner declined paid coverage. Today’s creator decision is complete; organic outreach continues on the next day. Do not create another same-day obligation or reopen paid placements without owner direction. No reply or coverage is implied."
     }
   ],
   "prototypeStrategy": {
@@ -1159,14 +1159,14 @@
   ],
   "dailyPlan": {
     "date": "2026-11-13",
-    "checkedAt": "2026-11-13T16:12:39.178Z",
+    "checkedAt": "2026-11-13T22:59:38.883Z",
     "taskIds": [
-      "navigation-release-2026-11-13",
       "launch-control",
-      "creator-outreach-2026-11-13"
+      "launch-package",
+      "economics-detective-launch-episode"
     ],
-    "focus": "Five days to launch: get the navigation fixes through signing and release, settle launch ownership, and clear the creator reply. Keep new features, books and prototypes off the critical path.",
-    "basis": "Steam: 13,197 outstanding wishlists, +4,508 for Nov 6–12. Current-build navigation failures have source fixes, with packaging/signing pending. Supporter platform configuration is cleared. One creator reply needs a disposition; no paid campaign is approved."
+    "focus": "The navigation update is live. Focus on launch timing, approved launch communications and the one-off podcast; keep new features and side projects off the critical path.",
+    "basis": "Remote f70723ba confirms full/demo Steam promotion and published patch notes. The signing blocker is resolved. Paid coverage is declined, completing today’s outreach decision; the next recurring outreach action belongs to the next day."
   },
   "telemetry": {
     "observedAt": "2026-11-13T16:06:22.902Z",
