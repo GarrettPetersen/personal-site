@@ -158,14 +158,14 @@
     {
       "id": "creator-coverage",
       "projectId": "marque-and-reprisal",
-      "title": "Creator follow-ups",
+      "title": "Keep creator outreach moving",
       "owner": "Garrett + marketing agent",
       "priority": "next",
-      "source": "Marketing handoff",
-      "note": "Rank prospects by audience fit and expected reach. Garrett reviews and sends drafts. Check replies, including the giveaway decision; sent keys are not evidence of coverage.",
+      "source": "Creator outreach project handoff",
+      "note": "Ongoing launch work: reconcile sends, bounces, replies, coverage and handoffs; research further uncontacted creators with relevant reach and a credible chance of coverage. Prepare another targeted batch in the outreach project when requested. Sent keys and unsent drafts are separate from actual coverage.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-12T18:38:02.290Z",
+      "checkedAt": "2026-11-13T04:44:14.636Z",
       "completedOn": null,
       "completionKind": null
     },
@@ -475,14 +475,37 @@
       "checkedAt": "2026-11-13T04:14:46.276Z",
       "completedOn": null,
       "completionKind": null,
-      "importance": 5,
+      "importance": 4,
       "effortMinutes": {
         "min": 60,
         "max": 120
       },
-      "tone": "blue",
+      "tone": "coral",
       "signal": "Economics Detective · release November 18.",
       "outcome": "Episode recorded, edited, reviewed and scheduled for November 18.",
+      "optional": false
+    },
+    {
+      "id": "creator-draft-review",
+      "projectId": "marque-and-reprisal",
+      "title": "Review 8 creator drafts",
+      "owner": "You review and send",
+      "priority": "now",
+      "source": "Creator outreach agent handoff",
+      "note": "The outreach agent reports eight new, unsent Gmail drafts using your approved wording and allocated review keys. Review them, send the ones you approve, and record sent or declined status. The continuing outreach pipeline stays open after this batch.",
+      "status": "open",
+      "due": null,
+      "checkedAt": "2026-11-13T04:44:14.636Z",
+      "completedOn": null,
+      "completionKind": null,
+      "importance": 5,
+      "effortMinutes": {
+        "min": 15,
+        "max": 30
+      },
+      "tone": "blue",
+      "signal": "Ready in Gmail · not sent.",
+      "outcome": "All eight drafts reviewed and sent or declined statuses recorded.",
       "optional": false
     }
   ],
@@ -738,6 +761,12 @@
       "label": "Economics Detective launch episode",
       "checkedAt": "2026-11-13T04:14:46.276Z",
       "note": "Owner requested a one-off life-update episode introducing Marque & Reprisal, to release November 18. Recording/scheduling are pending; no publication time or continuing podcast cadence was specified."
+    },
+    {
+      "id": "creator-outreach-handoff",
+      "label": "Creator outreach handoff",
+      "checkedAt": "2026-11-13T04:44:14.636Z",
+      "note": "Owning agent reports eight new unsent drafts prepared and read back. Garrett must review and send; no sends or coverage are claimed. Research, further batches, contact reconciliation and follow-ups remain ongoing launch work. Recipient details and keys remain outside the public snapshot."
     }
   ],
   "prototypeStrategy": {
@@ -984,12 +1013,13 @@
   ],
   "dailyPlan": {
     "date": "2026-11-12",
-    "checkedAt": "2026-11-13T04:14:46.276Z",
+    "checkedAt": "2026-11-13T04:44:14.636Z",
     "taskIds": [
+      "creator-draft-review",
       "economics-detective-launch-episode",
       "jinshu-opening"
     ],
-    "focus": "Prepare the Economics Detective life update for November 18, with a Marque & Reprisal launch mention. The Supporter Pack is now waiting on Steam review."
+    "focus": "Clear the ready creator drafts, then prepare Economics Detective for November 18. The Supporter Pack is waiting on Steam review."
   },
   "telemetry": {
     "observedAt": "2026-11-13T01:10:49.498Z",
