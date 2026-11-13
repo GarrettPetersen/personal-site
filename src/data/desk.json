@@ -96,10 +96,10 @@
       "name": "24 Histories · KDP ebooks",
       "group": "secondary",
       "health": "attention",
-      "stage": "4 of 26 works live · 22 introductions needed",
+      "stage": "4 of 26 works live · Jinshu introduction in progress",
       "summary": "Publish all Twenty-Four Histories, Zizhi Tongjian and the Draft History of Qing as Kindle ebooks.",
-      "next": "Write Jinshu’s introduction, then finish its glossary and ebook QA.",
-      "blocker": "Garrett needs to write the introductions for the 22 unpublished books. Introductions must be human-authored; AI translation is fine.",
+      "next": "Continue Jinshu’s researched introduction; finish its glossary and ebook QA before release.",
+      "blocker": "Human research and writing are the main bottleneck for the 22 remaining introductions. Jinshu also needs its reviewed glossary and technical QA.",
       "repo": null,
       "url": "https://24histories.com/",
       "activity": null
@@ -158,14 +158,14 @@
     {
       "id": "creator-coverage",
       "projectId": "marque-and-reprisal",
-      "title": "Keep creator outreach moving",
+      "title": "Daily creator outreach",
       "owner": "Garrett + marketing agent",
       "priority": "next",
-      "source": "Creator outreach project handoff",
-      "note": "Ongoing launch work: reconcile sends, bounces, replies, coverage and handoffs; research further uncontacted creators with relevant reach and a credible chance of coverage. Prepare another targeted batch in the outreach project when requested. Sent keys and unsent drafts are separate from actual coverage.",
+      "source": "Owner recurring-task instruction",
+      "note": "Recurring daily work: choose the next useful step from creator research, ready drafts, replies, coverage and contact reconciliation. The eight-email batch for November 12 is complete; resume with a fresh action at the next daily check-in.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-13T04:44:14.636Z",
+      "checkedAt": "2026-11-13T04:51:39.061Z",
       "completedOn": null,
       "completionKind": null
     },
@@ -232,10 +232,10 @@
       "owner": "Garrett",
       "priority": "later",
       "source": "Owner direction",
-      "note": "Human-authored introductions are the main blocker for the 22 unpublished books. Publishing more volumes is a potential KDP revenue opportunity. AI translation is acceptable; AI must not write the introductions. Jinshu still needs its reviewed glossary and final ebook QA before release.",
+      "note": "Write and revise Jinshu’s introduction as a researched biographical essay. The four published examples and current draft require source reading, historical judgment and narrative work. AI may assist translation and ebook production, not write or rewrite the introduction. Glossary and final QA remain separate.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-12T20:52:22.000Z",
+      "checkedAt": "2026-11-13T04:59:03.560Z",
       "completedOn": null,
       "completionKind": null
     },
@@ -302,14 +302,14 @@
     {
       "id": "jinshu-opening",
       "projectId": "histories-kdp",
-      "title": "Write Jinshu’s opening",
+      "title": "Jinshu introduction started",
       "owner": "If there’s room · you write",
       "priority": "next",
-      "source": "Owner publishing priorities",
-      "note": "One session writing the opening in your own voice. Full introduction/review: roughly 4–8 hours; glossary and ebook QA follow.",
-      "status": "open",
+      "source": "Supplied human-authored draft",
+      "note": "The supplied Fang Xuanling snapshot already contains the opening: historical setting, naming-source uncertainty and the start of his early life. This confirms a start, not a finished introduction.",
+      "status": "done",
       "due": null,
-      "checkedAt": "2026-11-12T23:19:55.783Z",
+      "checkedAt": "2026-11-13T04:59:03.560Z",
       "importance": 3,
       "effortMinutes": {
         "min": 30,
@@ -475,12 +475,12 @@
       "checkedAt": "2026-11-13T04:14:46.276Z",
       "completedOn": null,
       "completionKind": null,
-      "importance": 4,
+      "importance": 5,
       "effortMinutes": {
         "min": 60,
         "max": 120
       },
-      "tone": "coral",
+      "tone": "blue",
       "signal": "Economics Detective · release November 18.",
       "outcome": "Episode recorded, edited, reviewed and scheduled for November 18.",
       "optional": false
@@ -488,15 +488,15 @@
     {
       "id": "creator-draft-review",
       "projectId": "marque-and-reprisal",
-      "title": "Review 8 creator drafts",
+      "title": "8 creator emails sent",
       "owner": "You review and send",
       "priority": "now",
-      "source": "Creator outreach agent handoff",
-      "note": "The outreach agent reports eight new, unsent Gmail drafts using your approved wording and allocated review keys. Review them, send the ones you approve, and record sent or declined status. The continuing outreach pipeline stays open after this batch.",
-      "status": "open",
+      "source": "Owner confirmation",
+      "note": "Garrett confirmed all eight prepared creator emails were sent. Replies and coverage remain to be tracked; the daily outreach workstream continues.",
+      "status": "done",
       "due": null,
-      "checkedAt": "2026-11-13T04:44:14.636Z",
-      "completedOn": null,
+      "checkedAt": "2026-11-13T04:51:39.061Z",
+      "completedOn": "2026-11-12",
       "completionKind": null,
       "importance": 5,
       "effortMinutes": {
@@ -507,6 +507,29 @@
       "signal": "Ready in Gmail · not sent.",
       "outcome": "All eight drafts reviewed and sent or declined statuses recorded.",
       "optional": false
+    },
+    {
+      "id": "jinshu-research-session",
+      "projectId": "histories-kdp",
+      "title": "Continue Jinshu research",
+      "owner": "You research and write",
+      "priority": "later",
+      "source": "Four published introductions + current draft",
+      "note": "One focused session on the next biographical section or an unresolved source question. Keep the introduction human-authored. The full researched introduction has a provisional 12–24-hour allowance; ebook production and glossary work are separate.",
+      "status": "open",
+      "due": null,
+      "checkedAt": "2026-11-13T04:59:03.560Z",
+      "completedOn": null,
+      "completionKind": null,
+      "importance": 3,
+      "effortMinutes": {
+        "min": 60,
+        "max": 90
+      },
+      "tone": "sage",
+      "signal": "One research/writing session · optional.",
+      "outcome": "A source question resolved or a biographical section advanced in your notes/draft.",
+      "optional": true
     }
   ],
   "metrics": [
@@ -723,8 +746,8 @@
     {
       "id": "effort-estimates",
       "label": "Effort estimates",
-      "checkedAt": "2026-11-12T22:52:22.000Z",
-      "note": "Rough AI-assisted estimates of Garrett’s hands-on hours; agent execution and store waits are separate. Recalibrate after milestones."
+      "checkedAt": "2026-11-13T04:59:03.560Z",
+      "note": "KDP introduction allowance revised to 12–24 human hours after reading four existing essays and the supplied Jinshu draft. This is a provisional planning range, not measured time; research and authorial judgment are separate from AI production work."
     },
     {
       "id": "marque-telemetry",
@@ -765,8 +788,14 @@
     {
       "id": "creator-outreach-handoff",
       "label": "Creator outreach handoff",
-      "checkedAt": "2026-11-13T04:44:14.636Z",
-      "note": "Owning agent reports eight new unsent drafts prepared and read back. Garrett must review and send; no sends or coverage are claimed. Research, further batches, contact reconciliation and follow-ups remain ongoing launch work. Recipient details and keys remain outside the public snapshot."
+      "checkedAt": "2026-11-13T04:51:39.061Z",
+      "note": "Owner confirmed all eight prepared emails were sent and requested creator outreach as a recurring daily task. Preserve this completed batch, then choose a new dated action on each new day. Replies, coverage and further batches remain separate states."
+    },
+    {
+      "id": "kdp-introduction-scope",
+      "label": "Human introduction scope reviewed",
+      "checkedAt": "2026-11-13T04:59:03.560Z",
+      "note": "Read the Shiji, Hanshu, Hou Hanshu and Sanguozhi introduction sources plus the supplied Fang Xuanling draft. These are researched biographical essays. An opening already exists; remaining writing time is unmeasured. Manuscript text and private draft links are not copied here."
     }
   ],
   "prototypeStrategy": {
@@ -866,9 +895,9 @@
         "level": 2,
         "label": "Repeatable flow"
       },
-      "effort": "4–8 h/book",
-      "effortNote": "You write; AI packages",
-      "gate": "Write Jinshu’s intro; finish glossary and QA.",
+      "effort": "12–24 h",
+      "effortNote": "Research + human writing",
+      "gate": "Finish Jinshu’s researched introduction; complete glossary and QA.",
       "milestones": [
         {
           "label": "Translated",
@@ -888,7 +917,7 @@
         }
       ],
       "timing": "After intro + QA",
-      "effortAssumptions": "Short introduction, revision and final review. AI handles packaging and technical checks; glossary backlog is separate."
+      "effortAssumptions": "Provisional allowance for source reading, drafting and revision of a researched introduction. AI may translate references and handle ebook production; glossary work and final technical QA are separate. Calibrate after Jinshu."
     },
     {
       "id": "mobile-feasibility",
@@ -1013,13 +1042,12 @@
   ],
   "dailyPlan": {
     "date": "2026-11-12",
-    "checkedAt": "2026-11-13T04:44:14.636Z",
+    "checkedAt": "2026-11-13T04:59:03.560Z",
     "taskIds": [
-      "creator-draft-review",
       "economics-detective-launch-episode",
-      "jinshu-opening"
+      "jinshu-research-session"
     ],
-    "focus": "Clear the ready creator drafts, then prepare Economics Detective for November 18. The Supporter Pack is waiting on Steam review."
+    "focus": "The eight creator emails are sent. Prepare Economics Detective for November 18; reserve proper research sessions for Jinshu after launch work is covered."
   },
   "telemetry": {
     "observedAt": "2026-11-13T01:10:49.498Z",
