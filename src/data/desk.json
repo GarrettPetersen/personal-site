@@ -10,8 +10,8 @@
       "health": "attention",
       "stage": "Launch November 18 · Windows gate needs review",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
-      "next": "Triage the Windows startup gate; finalize launch build/time and support coverage.",
-      "blocker": "Windows startup/fullscreen CI timed out on the shipped revision; cause unclassified. Exact launch hour remains unconfirmed.",
+      "next": "Resolve the native Windows launch gate; execute the locked November 18, 10 AM Vancouver release plan.",
+      "blocker": "Native Windows fullscreen startup query timed out on selected source a32993cd; cause and genuine native passing checks remain required before release.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
@@ -521,12 +521,12 @@
       "title": "Lock the launch plan",
       "owner": "Garrett + release agent",
       "priority": "now",
-      "source": "Steamworks launch-readiness review",
-      "note": "Confirm the November 18 launch hour, manual release owner, final build and first-response/rollback coverage. The main game remains Steam-approved. Assess the new unshipped restore/localization fixes as a final candidate with proper release gates; avoid expanding features. Keep optional DLC off the critical path.",
-      "status": "open",
+      "source": "Garrett confirmation + remote release record f70723ba + candidate d1387f44 + CI run 43483876009",
+      "note": "Locked November 14: November 18 at 10:00 AM America/Vancouver (UTC-7; 17:00 UTC, 9:00 AM Seattle). Garrett manually releases and owns customer replies and rollback decisions; staffed 9:00 AM–2:00 PM Vancouver with the release agent for technical triage. Garrett resumes the release chat at 9:00 AM; no unattended agent is scheduled. Selected final source a32993cd: full 26655823, demo 26655831. Keep these promoted artifacts unless a narrow replacement passes complete release, localization, save/Continue, native-platform and signed-package gates by November 17 noon Vancouver. d1387f44 has 208 recorded focused passes but no storefront qualification; master also includes equipment/garrison changes, so do not promote it wholesale. The separate Windows startup gate remains a launch blocker. Check support every 15 minutes through noon, then every 30 minutes until 2:00 PM; record the next check/owner at handoff. Garrett remains escalation owner afterward. For a later replacement, rollback target is 26655823/26655831; for a32993cd itself, prior recorded pair is 26632259/26632262 at dc5b674e, only after live availability and current-save compatibility checks. Preserve saves. No commercial-launch reversal is implied. Full runbook: polyglobe/apps/pixel-globe/promotional-materials/marketing-plan.md, Locked launch handoff. Optional DLC stays off the critical path. Planning complete; no release or build promotion performed.",
+      "status": "done",
       "due": "2026-11-17",
-      "checkedAt": "2026-11-14T16:12:32.465Z",
-      "completedOn": null,
+      "checkedAt": "2026-11-14T16:34:40.497Z",
+      "completedOn": "2026-11-14",
       "completionKind": null,
       "lane": "active",
       "importance": 4,
@@ -535,8 +535,8 @@
         "max": 30
       },
       "tone": "gold",
-      "signal": "Approved to release. Exact hour and handoff remain unconfirmed.",
-      "outcome": "Launch hour, release owner, final build and first-response plan recorded."
+      "signal": "10 AM Vancouver launch locked; Garrett owns release and support. Windows execution gate remains open.",
+      "outcome": "Launch hour, manual owner, selected full/demo builds and first-response/rollback plan recorded; release execution is separately gated."
     },
     {
       "id": "supporter-platform-config",
@@ -746,9 +746,9 @@
       "date": "2026-11-16",
       "title": "Launch readiness review",
       "kind": "planned",
-      "note": "Suggested internal check: stable release builds, Steam/demo/platform flows, community links, support and approved launch-day assets. Target day in Vancouver; not an external deadline.",
+      "note": "Internal readiness review for selected a32993cd full 26655823/demo 26655831: resolve Windows interaction failure, verify platform delivery and save/Continue, confirm rollback compatibility and support access. November 17 noon Vancouver is the replacement-build cutoff. Main launch is November 18, 10 AM Vancouver; optional DLC is independent.",
       "sourceUrl": null,
-      "verifiedAt": "2026-11-12T17:38:00.000Z"
+      "verifiedAt": "2026-11-14T16:34:40.497Z"
     },
     {
       "id": "marque-launch",
@@ -756,9 +756,9 @@
       "date": "2026-11-18",
       "title": "Marque & Reprisal launches",
       "kind": "confirmed",
-      "note": "Steam lists November 18, 2026. Exact unlock time is not verified. Release builds and store setup must be ready beforehand.",
+      "note": "Garrett confirmed manual release November 18 at 10:00 AM America/Vancouver (UTC-7; 17:00 UTC, 9:00 AM Seattle). Staffed 9:00 AM–2:00 PM Vancouver. Selected full 26655823/demo 26655831 at a32993cd; native Windows launch gate must clear. Optional DLC is independent.",
       "sourceUrl": "https://store.steampowered.com/app/4516500/Marque__Reprisal/",
-      "verifiedAt": "2026-11-12T17:38:00.000Z"
+      "verifiedAt": "2026-11-14T16:34:40.497Z"
     },
     {
       "id": "launch-week-review",
@@ -978,8 +978,8 @@
     {
       "id": "launch-readiness",
       "label": "Steam launch readiness",
-      "checkedAt": "2026-11-13T05:16:22.484Z",
-      "note": "Main game store and build approved; US$14.99 list price, 15% launch discount for 7 days. Release is manual; exact launch hour is not recorded. Read-only review; no Steam settings or release actions changed."
+      "checkedAt": "2026-11-14T16:34:40.497Z",
+      "note": "Garrett confirmed November 18, 10:00 AM Vancouver (17:00 UTC) manual release and 9:00 AM–2:00 PM coverage. Full 26655823/demo 26655831 at a32993cd selected; new restore/localization candidate remains unqualified. Read CI 43483876009: runtime job passed; native Windows fullscreen startup query failed and subsequent font/package checks were skipped. Launch hold remains on the separate Windows task. Store/build approval and last-verified US$14.99/15% seven-day discount are unchanged. No Steam settings or release actions changed."
     },
     {
       "id": "navigation-release-nov13",
@@ -1250,13 +1250,12 @@
   ],
   "dailyPlan": {
     "date": "2026-11-14",
-    "checkedAt": "2026-11-14T16:12:32.465Z",
+    "checkedAt": "2026-11-14T16:34:40.497Z",
     "taskIds": [
       "windows-startup-gate",
-      "launch-control",
       "economics-detective-launch-episode"
     ],
-    "focus": "Four days to launch: resolve the Windows startup-check timeout, lock release ownership/time, and record the short podcast. Outreach is reconciled; keep new features and side projects off the critical path.",
+    "focus": "Launch is locked for November 18 at 10 AM Vancouver. Resolve the Windows startup-check failure and record the short podcast. Preserve the selected release builds; keep unqualified patches, optional DLC and new features off the critical path.",
     "basis": "Steam: 13,949 outstanding wishlists, +4,757 for Nov 7–13. The shipped revision has a Windows CI timeout requiring diagnosis. Eight more outreach emails are sent and one creator expressed interest; today’s reconciliation is complete. New restore/localization fixes are not a storefront release."
   },
   "telemetry": {
