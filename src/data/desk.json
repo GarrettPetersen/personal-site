@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-11-13T16:12:39.178Z",
+  "reviewedAt": "2026-11-14T16:12:32.465Z",
   "brief": "Marque & Reprisal launches November 18.",
   "projects": [
     {
@@ -8,21 +8,21 @@
       "name": "Marque & Reprisal",
       "group": "focus",
       "health": "attention",
-      "stage": "Navigation update live · launch November 18",
+      "stage": "Launch November 18 · Windows gate needs review",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
-      "next": "Coordinate launch communications and monitor feedback from the new build.",
-      "blocker": "Exact November 18 launch hour and release/support handoff remain unconfirmed.",
+      "next": "Triage the Windows startup gate; finalize launch build/time and support coverage.",
+      "blocker": "Windows startup/fullscreen CI timed out on the shipped revision; cause unclassified. Exact launch hour remains unconfirmed.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
-        "checkedAt": "2026-11-13T16:06:02.680Z",
-        "lastCommitAt": "2026-11-13T14:40:08Z",
+        "checkedAt": "2026-11-14T16:02:49.130Z",
+        "lastCommitAt": "2026-11-14T14:54:08Z",
         "openPullRequests": 0,
         "openIssues": 0,
         "ci": {
           "status": "completed",
-          "conclusion": "success",
-          "createdAt": "2026-11-12T23:00:59Z"
+          "conclusion": "failure",
+          "createdAt": "2026-11-13T18:34:04Z"
         }
       }
     },
@@ -31,14 +31,14 @@
       "name": "Subject & Sovereign",
       "group": "prototype",
       "health": "exploring",
-      "stage": "Prototype development · demand untested",
-      "summary": "Playable Civil War simulation is being refined in its owning project; Steam demand remains unmeasured.",
+      "stage": "Rebuilt mechanical slice · demand untested",
+      "summary": "Three-character simulation prototype rebuilt around actions, persistent concerns and frontier news/letters. Steam demand remains unmeasured.",
       "next": "Polish the woodcut trailer slice and prepare its Steam page for a wishlist test.",
       "blocker": "Page/trailer readiness and wishlist momentum are unverified.",
       "repo": "GarrettPetersen/subject-and-sovereign",
       "url": "https://subject-and-sovereign.garrett-m-petersen.workers.dev/",
       "activity": {
-        "checkedAt": "2026-11-13T16:06:02.680Z",
+        "checkedAt": "2026-11-14T16:02:49.130Z",
         "lastCommitAt": "2026-10-23T18:12:57Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -57,7 +57,7 @@
       "repo": "GarrettPetersen/anime-games",
       "url": null,
       "activity": {
-        "checkedAt": "2026-11-13T16:06:02.680Z",
+        "checkedAt": "2026-11-14T16:02:49.130Z",
         "lastCommitAt": "2026-11-01T12:45:37Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -75,12 +75,12 @@
       "health": "attention",
       "stage": "Jinshu glossary completion",
       "summary": "Initial translations are complete. Glossary output: 1 nonempty chapter published, with 72 person pages.",
-      "next": "Revalidate the coordinator hold, finish Jinshu 119 certification and publish the next nonempty chapter.",
-      "blocker": "Jinshu 119 date approval, identity certification and publication remain pending; saved coordinator hold is not confirmed cleared.",
+      "next": "Finish coordinator review/submission validation, then final review and publication of the retained chapter drafts.",
+      "blocker": "Independent code review and native submission checks remain; published nonempty-chapter output is unchanged.",
       "repo": "GarrettPetersen/records-of-the-grand-historian",
       "url": "https://24histories.com/progress",
       "activity": {
-        "checkedAt": "2026-11-13T16:06:02.680Z",
+        "checkedAt": "2026-11-14T16:02:49.130Z",
         "lastCommitAt": "2026-11-13T05:31:02Z",
         "openPullRequests": 100,
         "openIssues": 0,
@@ -109,10 +109,10 @@
       "name": "M&R · Supporter Pack",
       "group": "secondary",
       "health": "moving",
-      "stage": "Platforms matched · store review pending",
-      "summary": "Optional US$6.99 supporter DLC with a desktop globe. Platform configuration is complete; refined globe source is pushed.",
-      "next": "Verify all three release packages; keep DLC off the base-game critical path.",
-      "blocker": "Steam store review and final cross-platform release-package/ownership QA remain.",
+      "stage": "Release handoff ready · store review pending",
+      "summary": "Optional US$6.99 desktop globe DLC. Cross-platform package preparation and Steam delivery configuration are handed off.",
+      "next": "Complete signed release builds and native platform/ownership checks on the signing machine.",
+      "blocker": "Store review, final signing/notarization, native platform verification and Steam upload remain.",
       "repo": null,
       "url": null,
       "activity": null
@@ -266,10 +266,10 @@
       "owner": "Release agent + Garrett",
       "priority": "next",
       "source": "Steamworks DLC landing page",
-      "note": "Store page remains queued from November 12; Steam estimates 3–5 business days. US$6.99 pricing is published. Platform claims now match and the content-settings checklist is complete. Await approval or requested changes; release-package QA remains separate. Late DLC must not delay the base game.",
+      "note": "Store page remains queued from November 12; Steam estimates 3–5 business days. Platform configuration and both checklists are complete. US$6.99 pricing is published. Final package signing, native-platform verification and upload remain separate; late DLC must not delay the base game.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "checkedAt": "2026-11-14T16:12:32.465Z",
       "importance": 3,
       "effortMinutes": {
         "min": 5,
@@ -522,19 +522,19 @@
       "owner": "Garrett + release agent",
       "priority": "now",
       "source": "Steamworks launch-readiness review",
-      "note": "Main game store and build are already approved. Confirm the November 18 launch hour, who manually releases it, the final build and the support/rollback handoff. Steam does not release approved games automatically. Keep optional DLC off the critical path; reserve the first support window for buying, launch, saves, controls and progression failures.",
+      "note": "Confirm the November 18 launch hour, manual release owner, final build and first-response/rollback coverage. The main game remains Steam-approved. Assess the new unshipped restore/localization fixes as a final candidate with proper release gates; avoid expanding features. Keep optional DLC off the critical path.",
       "status": "open",
       "due": "2026-11-17",
-      "checkedAt": "2026-11-13T05:16:22.484Z",
+      "checkedAt": "2026-11-14T16:12:32.465Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
-      "importance": 5,
+      "importance": 4,
       "effortMinutes": {
         "min": 15,
         "max": 30
       },
-      "tone": "blue",
+      "tone": "gold",
       "signal": "Approved to release. Exact hour and handoff remain unconfirmed.",
       "outcome": "Launch hour, release owner, final build and first-response plan recorded."
     },
@@ -611,13 +611,13 @@
       "id": "supporter-release-qa",
       "projectId": "marque-supporter-pack",
       "title": "Verify supporter release packages",
-      "owner": "Release agent · you review",
+      "owner": "Release agent on signing machine",
       "priority": "next",
       "source": "Daily project review · November 13",
-      "note": "The platform configuration is fixed and globe refinements are pushed. Verify packaged Windows, macOS and Linux delivery, clean install/startup, ownership unlock and native lifecycle/save behavior before release. Store approval is a separate waiting item. Keep the DLC optional if these gates threaten the base-game launch.",
+      "note": "Release handoff ee0dac94 is ready. The signing machine owns the final signed/notarized builds and Steam upload. Native Windows/Linux/Intel Mac verification and ownership/delivery QA remain. Store approval is a separate waiting item. Keep the DLC optional if these gates threaten the main launch.",
       "status": "open",
       "due": "2026-11-17",
-      "checkedAt": "2026-11-13T16:12:39.178Z",
+      "checkedAt": "2026-11-14T16:12:32.465Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
@@ -629,6 +629,85 @@
       "tone": "sage",
       "signal": "Configuration complete; package QA still pending.",
       "outcome": "All three release packages and entitlement paths verified, with store approval recorded separately."
+    },
+    {
+      "id": "creator-batch-2026-11-13",
+      "projectId": "marque-and-reprisal",
+      "title": "8 more creator emails sent",
+      "owner": "Garrett",
+      "priority": "next",
+      "source": "November 14 source review",
+      "note": "Gmail confirms eight additional outreach messages sent November 13, including the two most recently prepared drafts. No matching unsent drafts remain. These are sends, not confirmed coverage; the November 12 batch stays a separate completed milestone.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "completedOn": "2026-11-13",
+      "completionKind": null
+    },
+    {
+      "id": "creator-outreach-2026-11-14",
+      "projectId": "marque-and-reprisal",
+      "title": "Creator outreach reconciled",
+      "owner": "Codex · daily check-in",
+      "priority": "next",
+      "source": "November 14 source review",
+      "note": "Reconciled the marketing handoff with current drafts, sent messages and replies. The two prepared drafts are already sent; no pending review batch was found. One creator expressed interest, without committing to coverage. Today’s bounded outreach check is complete; no messages or keys were sent by this desk.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "completedOn": "2026-11-14",
+      "completionKind": null
+    },
+    {
+      "id": "supporter-release-handoff",
+      "projectId": "marque-supporter-pack",
+      "title": "Supporter release handoff prepared",
+      "owner": "Supporter project",
+      "priority": "next",
+      "source": "November 14 source review",
+      "note": "Owning project pushed ee0dac94 with cross-platform package preparation, Steam depot/launch-option configuration and a signing-machine handoff. It reports 36 tests, rendering/localization checks and three native Mac launches passed. Final signed builds, native Windows/Linux/Intel Mac verification and Steam upload remain.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "completedOn": "2026-11-13",
+      "completionKind": "source"
+    },
+    {
+      "id": "subject-simulation-rebuild",
+      "projectId": "subject-and-sovereign",
+      "title": "Prototype simulation rebuilt",
+      "owner": "Subject & Sovereign project",
+      "priority": "next",
+      "source": "November 14 source review",
+      "note": "Owning project reports the rebuilt three-character mechanical slice deployed, with shared actions, frontier news/letters and persistent character concerns. It reports 61 scoped tests, 19 hosted-worker checks and browser save/reload validation. This is prototype code completion, not a finished game or validated Steam demand.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "completedOn": "2026-11-13",
+      "completionKind": "source"
+    },
+    {
+      "id": "windows-startup-gate",
+      "projectId": "marque-and-reprisal",
+      "title": "Resolve Windows launch check",
+      "owner": "Queued for AI · you review",
+      "priority": "now",
+      "source": "GitHub Actions run 43483876009 · shipped a32993cd",
+      "note": "The Windows startup/fullscreen interaction gate failed on the current Steam source revision a32993cd: its startup query timed out. The separate runtime-test job passed. This is not yet a confirmed player-facing failure or a diagnosed runner issue. Reproduce on Windows, identify the cause and obtain a valid passing interaction check before launch; fix the product or harness according to evidence rather than suppressing the gate.",
+      "status": "open",
+      "due": "2026-11-15",
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active",
+      "importance": 5,
+      "effortMinutes": {
+        "min": 15,
+        "max": 30
+      },
+      "tone": "blue",
+      "signal": "Current Steam revision has a failed native Windows gate.",
+      "outcome": "Cause established and a genuine Windows startup/fullscreen/voyage interaction check passes."
     }
   ],
   "metrics": [
@@ -636,18 +715,18 @@
       "id": "wishlists",
       "projectId": "marque-and-reprisal",
       "label": "Outstanding wishlists",
-      "value": 13197,
+      "value": 13949,
       "note": "Steam lifetime snapshot",
-      "observedAt": "2026-11-13T16:12:39.178Z",
+      "observedAt": "2026-11-14T16:12:32.465Z",
       "total": null
     },
     {
       "id": "wishlist-week",
       "projectId": "marque-and-reprisal",
       "label": "Net wishlists / week",
-      "value": 4508,
-      "note": "Nov 6–12 · +65% vs. prior week",
-      "observedAt": "2026-11-13T16:12:39.178Z",
+      "value": 4757,
+      "note": "Nov 7–13 · +53% vs. prior week",
+      "observedAt": "2026-11-14T16:12:32.465Z",
       "total": null
     },
     {
@@ -767,25 +846,25 @@
     {
       "id": "github",
       "label": "GitHub",
-      "checkedAt": "2026-11-13T16:06:02.680Z",
+      "checkedAt": "2026-11-14T16:02:49.130Z",
       "note": "Default-branch activity, open work and CI. Activity does not measure product progress."
     },
     {
       "id": "email",
       "label": "Project email",
-      "checkedAt": "2026-11-13T16:12:39.178Z",
-      "note": "Morning project-mail review found a creator’s paid/organic question and an unsolicited bundle proposal. The later owner decision is recorded separately in the outreach source. The bundle proposal is deferred. No mail sent and no raw correspondence or contacts published."
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "note": "Reviewed new project replies and reconciled current Gmail drafts/sends with the marketing handoff. Eight additional outreach messages were sent November 13 and no pending draft batch remains. One creator expressed interest, not a coverage commitment. No mail or keys sent by this desk."
     },
     {
       "id": "steam",
       "label": "Steamworks",
-      "checkedAt": "2026-11-13T16:12:39.178Z",
-      "note": "Steamworks lifetime overview: 13,197 outstanding wishlists. Nov 6–12: 4,728 adds, 220 deletions, net +4,508; prior week net +2,730 (+65%). These are demand signals, not revenue or attribution evidence."
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "note": "Steamworks: 13,949 outstanding wishlists. Nov 7–13: 5,000 additions, 243 deletions, net +4,757; previous week net +3,091 (+53%). Lifetime balance and closed-week movement are separate. No revenue or source attribution inferred."
     },
     {
       "id": "glossary",
       "label": "Published glossary data",
-      "checkedAt": "2026-11-13T16:06:02.680Z",
+      "checkedAt": "2026-11-14T16:02:49.130Z",
       "note": "Published output retains its source date. Separately, 2,050 extracted chapters are intermediate work (source: 2026-11-12 Pacific), not published completion."
     },
     {
@@ -797,8 +876,8 @@
     {
       "id": "histories-coordinator",
       "label": "24 Histories coordinator handoff",
-      "checkedAt": "2026-11-13T16:12:39.178Z",
-      "note": "Project handoff reports merged PR 5381: Jinshu 119 English/span repairs are applied, while date approval, identity certification and publication remain pending. Published output is still one nonempty chapter and 72 person pages. Do not infer coordinator resumption from a separate resource observation."
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "note": "Coordinator reports two retained chapter drafts pending bridge-code review and a native submission fix for unchanged English. Its independent-review execution awaits platform approval. No new nonempty chapter is published; the dashboard neither approves nor interrupts its jobs."
     },
     {
       "id": "prototype-strategy",
@@ -809,14 +888,14 @@
     {
       "id": "marque-ci",
       "label": "M&R CI rerun",
-      "checkedAt": "2026-11-13T01:11:41.043Z",
-      "note": "GitHub runtime/Windows workflow e9198e1 completed successfully. The later dc5b674e release artifact has passing gates recorded in changelog revision 3eb4f6b; do not confuse those checks with a GitHub Actions run on that artifact."
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "note": "GitHub Actions run 43483876009 on shipped source a32993cd: runtime-test job passed; native Windows startup/fullscreen interaction job failed because the startup query did not finish. Cause is unclassified; neither a player-facing regression nor a harmless runner issue is established."
     },
     {
       "id": "kdp-publishing",
       "label": "KDP publishing",
-      "checkedAt": "2026-11-13T16:12:39.178Z",
-      "note": "Royalties Estimator, all four books, marketplaces and formats: CA$505.31 for Jun 1–Nov 13, including CA$19.14 for Nov 1–13. Current Amazon FX estimate, not finalized earnings or cash. The detailed export charts still cover Jun 1–Nov 12."
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "note": "Royalties Estimator, all four books, marketplaces and formats: CA$505.32 for Jun 1–Nov 14, including CA$19.15 for Nov 1–14. Current Amazon FX estimate, not finalized earnings or cash. Detailed export charts still end November 12."
     },
     {
       "id": "kdp-introductions",
@@ -851,20 +930,20 @@
     {
       "id": "marque-telemetry",
       "label": "M&R live telemetry · 24h",
-      "checkedAt": "2026-11-13T16:06:02.680Z",
-      "note": "24h opt-in snapshot at 2026-11-13T16:06:22.902Z: 93 installations, 225 sessions, 0 crash reports and 59 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
+      "checkedAt": "2026-11-14T16:02:49.130Z",
+      "note": "24h opt-in snapshot at 2026-11-14T16:03:06.540Z: 88 installations, 151 sessions, 0 crash reports and 54 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
     },
     {
       "id": "marque-feedback",
       "label": "M&R remote feedback review",
-      "checkedAt": "2026-11-13T22:59:38.883Z",
-      "note": "November 13 telemetry review and release record checked at remote f70723ba: bank-pivot, chart-origin and route-search fixes are now released as a32993cd. Several geometry/sparse-terrain cases remain open. The source’s 22:02 UTC backend recheck found no crashes or new-build groups; absence of reports is not proof of complete resolution. No cursor advanced."
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "note": "Read remote d1387f4: November 14 telemetry review and feedback list. Restore-origin admission, exact-layout retry and Chinese conquest-notice composition have new source fixes with 208 focused tests recorded. No new Steam/itch release is requested or claimed. Steam remains a32993cd; other geometry/performance cases remain open. No cursor advanced."
     },
     {
       "id": "supporter-pack",
       "label": "Supporter Pack project handoff",
-      "checkedAt": "2026-11-13T16:12:39.178Z",
-      "note": "Steamworks now shows matching Windows/macOS/Linux claims and a complete content checklist. Store review remains pending, US$6.99 pricing published. Owning project reports globe refinements pushed at 442cedf9, with local Mac QA; final cross-platform release packages remain pending."
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "note": "Steamworks store review still pending. Release handoff ee0dac94 prepares all three platform packages and Steam delivery configuration; local Mac checks passed according to the project. Signing/notarization, native Windows/Linux/Intel Mac verification and upload belong to the signing machine."
     },
     {
       "id": "marque-reliability-release",
@@ -913,6 +992,18 @@
       "label": "Daily creator outreach",
       "checkedAt": "2026-11-13T22:59:38.883Z",
       "note": "Owner declined paid coverage. Today’s creator decision is complete; organic outreach continues on the next day. Do not create another same-day obligation or reopen paid placements without owner direction. No reply or coverage is implied."
+    },
+    {
+      "id": "creator-outreach-nov14",
+      "label": "Daily creator outreach reconciliation",
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "note": "Current Gmail confirms the latest two prepared drafts are already sent, within eight November 13 outreach messages. No matching unsent drafts remain. One positive creator reply is interest only. Today’s dated reconciliation is complete; paid coverage remains declined."
+    },
+    {
+      "id": "subject-rebuild",
+      "label": "Subject & Sovereign prototype handoff",
+      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "note": "Owning project reports the rebuilt three-character prototype deployed, with 61 scoped tests and 19 hosted-worker checks plus browser validation. The broader game and Steam demand test remain incomplete. Agent-reported milestone; no production commitment inferred."
     }
   ],
   "prototypeStrategy": {
@@ -924,14 +1015,14 @@
       "id": "kdp",
       "label": "KDP ebooks",
       "projectId": "histories-kdp",
-      "note": "Nov 1–13: CA$19.14 included.",
+      "note": "Nov 1–14: CA$19.15 included.",
       "report": {
-        "amountCents": 50531,
+        "amountCents": 50532,
         "currency": "CAD",
         "periodStart": "2026-06-01",
-        "periodEnd": "2026-11-13",
+        "periodEnd": "2026-11-14",
         "basis": "estimated",
-        "observedAt": "2026-11-13T16:12:39.178Z",
+        "observedAt": "2026-11-14T16:12:32.465Z",
         "source": "KDP Royalties Estimator · all books & marketplaces"
       }
     },
@@ -1158,22 +1249,22 @@
     }
   ],
   "dailyPlan": {
-    "date": "2026-11-13",
-    "checkedAt": "2026-11-13T22:59:38.883Z",
+    "date": "2026-11-14",
+    "checkedAt": "2026-11-14T16:12:32.465Z",
     "taskIds": [
+      "windows-startup-gate",
       "launch-control",
-      "launch-package",
       "economics-detective-launch-episode"
     ],
-    "focus": "The navigation update is live. Focus on launch timing, approved launch communications and the one-off podcast; keep new features and side projects off the critical path.",
-    "basis": "Remote f70723ba confirms full/demo Steam promotion and published patch notes. The signing blocker is resolved. Paid coverage is declined, completing today’s outreach decision; the next recurring outreach action belongs to the next day."
+    "focus": "Four days to launch: resolve the Windows startup-check timeout, lock release ownership/time, and record the short podcast. Outreach is reconciled; keep new features and side projects off the critical path.",
+    "basis": "Steam: 13,949 outstanding wishlists, +4,757 for Nov 7–13. The shipped revision has a Windows CI timeout requiring diagnosis. Eight more outreach emails are sent and one creator expressed interest; today’s reconciliation is complete. New restore/localization fixes are not a storefront release."
   },
   "telemetry": {
-    "observedAt": "2026-11-13T16:06:22.902Z",
+    "observedAt": "2026-11-14T16:03:06.540Z",
     "windowDays": 1,
-    "installations": 93,
-    "sessions": 225,
+    "installations": 88,
+    "sessions": 151,
     "crashReports": 0,
-    "chartWarnings": 59
+    "chartWarnings": 54
   }
 }
