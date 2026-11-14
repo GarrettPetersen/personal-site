@@ -7,22 +7,22 @@
       "id": "marque-and-reprisal",
       "name": "Marque & Reprisal",
       "group": "focus",
-      "health": "attention",
-      "stage": "Launch November 18 · Windows gate needs review",
+      "health": "moving",
+      "stage": "New builds promoted · Windows gate passed",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
-      "next": "Resolve the native Windows launch gate; execute the locked November 18, 10 AM Vancouver release plan.",
-      "blocker": "Native Windows fullscreen startup query timed out on selected source a32993cd; cause and genuine native passing checks remain required before release.",
+      "next": "Prepare the podcast and approved launch materials; monitor feedback from eb04fa49.",
+      "blocker": "New Steam patch-note publication is unverified; launch communications and podcast remain.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
-        "checkedAt": "2026-11-14T16:02:49.130Z",
-        "lastCommitAt": "2026-11-14T14:54:08Z",
+        "checkedAt": "2026-11-14T18:44:38.255Z",
+        "lastCommitAt": "2026-11-14T17:37:30Z",
         "openPullRequests": 0,
         "openIssues": 0,
         "ci": {
           "status": "completed",
-          "conclusion": "failure",
-          "createdAt": "2026-11-13T18:34:04Z"
+          "conclusion": "success",
+          "createdAt": "2026-11-14T17:11:17Z"
         }
       }
     },
@@ -162,10 +162,10 @@
       "owner": "Garrett + Codex",
       "priority": "next",
       "source": "Marketing handoff + launch-readiness review",
-      "note": "Audit what already exists, then assemble the final trailer/gameplay assets, working store link, Garrett-approved launch announcement and channel schedule. Record who posts where and when. Reuse approved material; commission new assets only for a clear gap. Keep optional site cross-promotion a separate decision.",
+      "note": "Assemble the final trailer/gameplay assets, working store link, Garrett-approved launch wording and channel schedule for November 18 at 10 AM Vancouver. Confirm owners and posting times. Also check the existing November 14 Steam update draft: promotion is confirmed, but its public publication is not verified. Reuse approved material; optional site cross-promotion stays a separate decision.",
       "status": "open",
       "due": "2026-11-17",
-      "checkedAt": "2026-11-13T05:16:22.484Z",
+      "checkedAt": "2026-11-14T18:44:38.255Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
@@ -459,7 +459,7 @@
       "checkedAt": "2026-11-13T05:16:22.484Z",
       "completedOn": null,
       "completionKind": null,
-      "importance": 3,
+      "importance": 5,
       "effortMinutes": {
         "min": 60,
         "max": 120
@@ -689,15 +689,15 @@
     {
       "id": "windows-startup-gate",
       "projectId": "marque-and-reprisal",
-      "title": "Resolve Windows launch check",
-      "owner": "Queued for AI · you review",
+      "title": "Windows launch check passed",
+      "owner": "Release agent + GitHub CI",
       "priority": "now",
-      "source": "GitHub Actions run 43483876009 · shipped a32993cd",
-      "note": "The Windows startup/fullscreen interaction gate failed on the current Steam source revision a32993cd: its startup query timed out. The separate runtime-test job passed. This is not yet a confirmed player-facing failure or a diagnosed runner issue. Reproduce on Windows, identify the cause and obtain a valid passing interaction check before launch; fix the product or harness according to evidence rather than suppressing the gate.",
-      "status": "open",
+      "source": "GitHub Actions run 43619732776 · promoted eb04fa49",
+      "note": "The newly promoted eb04fa49 passes both CI jobs, including real Windows Escape/fullscreen/voyage interaction, native glyphs, Windows demo packaging and actual-package font checks. The interaction-test file is unchanged from a32993cd. This clears verification for the selected build; the earlier startup timeout’s cause remains unclassified.",
+      "status": "done",
       "due": "2026-11-15",
-      "checkedAt": "2026-11-14T16:12:32.465Z",
-      "completedOn": null,
+      "checkedAt": "2026-11-14T18:44:38.255Z",
+      "completedOn": "2026-11-14",
       "completionKind": null,
       "lane": "active",
       "importance": 5,
@@ -706,8 +706,22 @@
         "max": 30
       },
       "tone": "blue",
-      "signal": "Current Steam revision has a failed native Windows gate.",
-      "outcome": "Cause established and a genuine Windows startup/fullscreen/voyage interaction check passes."
+      "signal": "Native Windows interaction and package checks pass.",
+      "outcome": "Selected promoted revision passes the genuine Windows interaction and package checks without weakening the test."
+    },
+    {
+      "id": "release-2026-11-14",
+      "projectId": "marque-and-reprisal",
+      "title": "Raids and fleet update promoted",
+      "owner": "Release agent + Garrett",
+      "priority": "next",
+      "source": "Owner promotion confirmation + release record 71d12d0b",
+      "note": "Garrett confirms promotion of the new builds. Recorded artifact eb04fa49: full Steam build 26670017, demo 26670026. Release records cover 9,510 game tests, 350 city-renderer tests, 93 host checks, 1,056 localized views, compiled replays, signing/notarization and packaging; CI also passes native Windows checks. Itch delivery is updated. The Steam patch-note post remains unverified; the November 18 global game launch is separate.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-14T18:44:38.255Z",
+      "completedOn": "2026-11-14",
+      "completionKind": null
     }
   ],
   "metrics": [
@@ -756,9 +770,9 @@
       "date": "2026-11-18",
       "title": "Marque & Reprisal launches",
       "kind": "confirmed",
-      "note": "Garrett confirmed manual release November 18 at 10:00 AM America/Vancouver (UTC-7; 17:00 UTC, 9:00 AM Seattle). Staffed 9:00 AM–2:00 PM Vancouver. Selected full 26655823/demo 26655831 at a32993cd; native Windows launch gate must clear. Optional DLC is independent.",
+      "note": "Locked manual release November 18 at 10:00 AM America/Vancouver (17:00 UTC), with Garrett owning release/customer replies/rollback and 9 AM–2 PM Vancouver coverage. Newly promoted selection: full 26670017/demo 26670026 at eb04fa49. CI passes native Windows interaction and packaging. Optional DLC remains independent.",
       "sourceUrl": "https://store.steampowered.com/app/4516500/Marque__Reprisal/",
-      "verifiedAt": "2026-11-14T16:34:40.497Z"
+      "verifiedAt": "2026-11-14T18:44:38.255Z"
     },
     {
       "id": "launch-week-review",
@@ -888,8 +902,8 @@
     {
       "id": "marque-ci",
       "label": "M&R CI rerun",
-      "checkedAt": "2026-11-14T16:12:32.465Z",
-      "note": "GitHub Actions run 43483876009 on shipped source a32993cd: runtime-test job passed; native Windows startup/fullscreen interaction job failed because the startup query did not finish. Cause is unclassified; neither a player-facing regression nor a harmless runner issue is established."
+      "checkedAt": "2026-11-14T18:44:38.255Z",
+      "note": "Run 43619732776 on promoted artifact eb04fa49 passes both runtime and Windows jobs. Real Windows Escape/fullscreen/voyage interaction, native glyphs, demo packaging and actual-package font checks all passed. The interaction test is byte-identical to the earlier a32993cd test. Current verification is cleared; the old timeout’s cause is not established."
     },
     {
       "id": "kdp-publishing",
@@ -936,8 +950,8 @@
     {
       "id": "marque-feedback",
       "label": "M&R remote feedback review",
-      "checkedAt": "2026-11-14T16:12:32.465Z",
-      "note": "Read remote d1387f4: November 14 telemetry review and feedback list. Restore-origin admission, exact-layout retry and Chinese conquest-notice composition have new source fixes with 208 focused tests recorded. No new Steam/itch release is requested or claimed. Steam remains a32993cd; other geometry/performance cases remain open. No cursor advanced."
+      "checkedAt": "2026-11-14T18:44:38.255Z",
+      "note": "Remote 71d12d0b release record includes restore/chart retry and conquest-localization fixes plus raid, equipment and fleet changes in eb04fa49. Complete release gates and native Windows CI passed. Owner confirms Steam promotion. Several bank/chart/controller cases remain open; no telemetry cursor advanced."
     },
     {
       "id": "supporter-pack",
@@ -978,8 +992,8 @@
     {
       "id": "launch-readiness",
       "label": "Steam launch readiness",
-      "checkedAt": "2026-11-14T16:34:40.497Z",
-      "note": "Garrett confirmed November 18, 10:00 AM Vancouver (17:00 UTC) manual release and 9:00 AM–2:00 PM coverage. Full 26655823/demo 26655831 at a32993cd selected; new restore/localization candidate remains unqualified. Read CI 43483876009: runtime job passed; native Windows fullscreen startup query failed and subsequent font/package checks were skipped. Launch hold remains on the separate Windows task. Store/build approval and last-verified US$14.99/15% seven-day discount are unchanged. No Steam settings or release actions changed."
+      "checkedAt": "2026-11-14T18:44:38.255Z",
+      "note": "November 18, 10 AM Vancouver manual launch and 9 AM–2 PM coverage remain locked. Current promoted selection is eb04fa49: full 26670017/demo 26670026. Native Windows CI 43619732776 passes interaction, fonts and packaging, clearing that hold. Prior pair a32993cd (26655823/26655831) is a rollback candidate only after availability, current-save compatibility and native-check verification. No launch or promotion performed by the desk."
     },
     {
       "id": "navigation-release-nov13",
@@ -1004,6 +1018,12 @@
       "label": "Subject & Sovereign prototype handoff",
       "checkedAt": "2026-11-14T16:12:32.465Z",
       "note": "Owning project reports the rebuilt three-character prototype deployed, with 61 scoped tests and 19 hosted-worker checks plus browser validation. The broader game and Steam demand test remain incomplete. Agent-reported milestone; no production commitment inferred."
+    },
+    {
+      "id": "marque-release-nov14",
+      "label": "November 14 promoted builds",
+      "checkedAt": "2026-11-14T18:44:38.255Z",
+      "note": "Owner promotion confirmation matched to remote upload record 71d12d0b: artifact eb04fa49, full 26670017/demo 26670026. Full release gates and native Windows CI pass. Itch is published. The saved Steam event 694277726961402546 is not yet verified public; the public news feed still lists the previous update."
     }
   ],
   "prototypeStrategy": {
@@ -1250,13 +1270,13 @@
   ],
   "dailyPlan": {
     "date": "2026-11-14",
-    "checkedAt": "2026-11-14T16:34:40.497Z",
+    "checkedAt": "2026-11-14T18:44:38.255Z",
     "taskIds": [
-      "windows-startup-gate",
-      "economics-detective-launch-episode"
+      "economics-detective-launch-episode",
+      "launch-package"
     ],
-    "focus": "Launch is locked for November 18 at 10 AM Vancouver. Resolve the Windows startup-check failure and record the short podcast. Preserve the selected release builds; keep unqualified patches, optional DLC and new features off the critical path.",
-    "basis": "Steam: 13,949 outstanding wishlists, +4,757 for Nov 7–13. The shipped revision has a Windows CI timeout requiring diagnosis. Eight more outreach emails are sent and one creator expressed interest; today’s reconciliation is complete. New restore/localization fixes are not a storefront release."
+    "focus": "The new full/demo builds are promoted and the Windows gate passes. Make launch communications and the short podcast ready for November 18 at 10 AM Vancouver; keep optional DLC and new features off the critical path.",
+    "basis": "Owner confirms promotion of full 26670017/demo 26670026 at eb04fa49. CI 43619732776 passes the unchanged native Windows interaction test plus fonts and packaging. The launch plan stays locked; new Steam patch-note publication remains unverified."
   },
   "telemetry": {
     "observedAt": "2026-11-14T16:03:06.540Z",
