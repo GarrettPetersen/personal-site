@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-11-14T16:12:32.465Z",
+  "reviewedAt": "2026-11-15T16:12:54.523Z",
   "brief": "Marque & Reprisal launches November 18.",
   "projects": [
     {
@@ -8,15 +8,15 @@
       "name": "Marque & Reprisal",
       "group": "focus",
       "health": "moving",
-      "stage": "New builds promoted · Windows gate passed",
+      "stage": "Launch November 18 · final candidate review",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
-      "next": "Prepare the podcast and approved launch materials; monitor feedback from eb04fa49.",
-      "blocker": "New Steam patch-note publication is unverified; launch communications and podcast remain.",
+      "next": "Finish podcast/launch messages and Monday’s smoke review of 3b89a229, full 26677140/demo 26677147.",
+      "blocker": "Final native candidate smoke evidence and launch communications remain; no new Windows failure is recorded.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
-        "checkedAt": "2026-11-14T18:44:38.255Z",
-        "lastCommitAt": "2026-11-14T17:37:30Z",
+        "checkedAt": "2026-11-15T15:57:54.068Z",
+        "lastCommitAt": "2026-11-15T04:55:37Z",
         "openPullRequests": 0,
         "openIssues": 0,
         "ci": {
@@ -38,7 +38,7 @@
       "repo": "GarrettPetersen/subject-and-sovereign",
       "url": "https://subject-and-sovereign.garrett-m-petersen.workers.dev/",
       "activity": {
-        "checkedAt": "2026-11-14T16:02:49.130Z",
+        "checkedAt": "2026-11-15T15:57:54.068Z",
         "lastCommitAt": "2026-10-23T18:12:57Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -57,7 +57,7 @@
       "repo": "GarrettPetersen/anime-games",
       "url": null,
       "activity": {
-        "checkedAt": "2026-11-14T16:02:49.130Z",
+        "checkedAt": "2026-11-15T15:57:54.068Z",
         "lastCommitAt": "2026-11-01T12:45:37Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -75,19 +75,19 @@
       "health": "attention",
       "stage": "Jinshu glossary completion",
       "summary": "Initial translations are complete. Glossary output: 1 nonempty chapter published, with 72 person pages.",
-      "next": "Finish coordinator review/submission validation, then final review and publication of the retained chapter drafts.",
-      "blocker": "Independent code review and native submission checks remain; published nonempty-chapter output is unchanged.",
+      "next": "Resolve native publication adapters while preserving independent approvals, then qualify and publish the retained chapters.",
+      "blocker": "Jinshu 119 remains unqualified and unpublished; adapter work and coordinator approval are pending.",
       "repo": "GarrettPetersen/records-of-the-grand-historian",
       "url": "https://24histories.com/progress",
       "activity": {
-        "checkedAt": "2026-11-14T16:02:49.130Z",
-        "lastCommitAt": "2026-11-13T05:31:02Z",
+        "checkedAt": "2026-11-15T15:57:54.068Z",
+        "lastCommitAt": "2026-11-14T21:49:18Z",
         "openPullRequests": 100,
         "openIssues": 0,
         "ci": {
           "status": "completed",
           "conclusion": "success",
-          "createdAt": "2026-11-13T05:31:05Z"
+          "createdAt": "2026-11-14T21:49:21Z"
         }
       }
     },
@@ -162,10 +162,10 @@
       "owner": "Garrett + Codex",
       "priority": "next",
       "source": "Marketing handoff + launch-readiness review",
-      "note": "Assemble the final trailer/gameplay assets, working store link, Garrett-approved launch wording and channel schedule for November 18 at 10 AM Vancouver. Confirm owners and posting times. Also check the existing November 14 Steam update draft: promotion is confirmed, but its public publication is not verified. Reuse approved material; optional site cross-promotion stays a separate decision.",
+      "note": "Finish the channel schedule, working store/game links and Garrett-approved launch wording for November 18 at 10 AM Vancouver. The November 14 Steam updates are now verified public; do not repeat that publication task. Reuse approved assets and set who posts where/when. Keep optional site cross-promotion separate.",
       "status": "open",
       "due": "2026-11-17",
-      "checkedAt": "2026-11-14T18:44:38.255Z",
+      "checkedAt": "2026-11-15T16:12:54.523Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
@@ -266,10 +266,10 @@
       "owner": "Release agent + Garrett",
       "priority": "next",
       "source": "Steamworks DLC landing page",
-      "note": "Store page remains queued from November 12; Steam estimates 3–5 business days. Platform configuration and both checklists are complete. US$6.99 pricing is published. Final package signing, native-platform verification and upload remain separate; late DLC must not delay the base game.",
+      "note": "Steam store review remains queued from November 12; both checklists and platform settings remain complete. Final signing, native-platform/ownership checks and upload are separate. Optional DLC must not delay the base game.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-14T16:12:32.465Z",
+      "checkedAt": "2026-11-15T16:12:54.523Z",
       "importance": 3,
       "effortMinutes": {
         "min": 5,
@@ -722,6 +722,130 @@
       "checkedAt": "2026-11-14T18:44:38.255Z",
       "completedOn": "2026-11-14",
       "completionKind": null
+    },
+    {
+      "id": "navigation-continuity-release-2026-11-14",
+      "projectId": "marque-and-reprisal",
+      "title": "Navigation continuity update released",
+      "owner": "Release agent + Garrett",
+      "priority": "next",
+      "source": "Owner confirmation + remote release record",
+      "note": "Remote 6fd3860d verifies promoted full 26677140/demo 26677147 at artifact 3b89a229, with Steam and itch notes published. Recorded qualification includes 9,531 game tests, 350 city tests, 33 frozen saves, 1,056 localized views and compiled continuity/restore/turn replays. Native Mac launches passed; the recorded Windows package checks ran on Mac, with final native candidate smoke checks tracked separately.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-15T16:19:06.393Z",
+      "completedOn": "2026-11-14",
+      "completionKind": null
+    },
+    {
+      "id": "creator-batch-2026-11-14",
+      "projectId": "marque-and-reprisal",
+      "title": "16 creator emails sent",
+      "owner": "Garrett",
+      "priority": "next",
+      "source": "November 15 project review",
+      "note": "Gmail confirms sixteen initial outreach messages on November 14 in Vancouver. These are separate from the earlier batches. Two later replies report full schedules; neither is a coverage commitment. Paid coverage remains declined.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "completedOn": "2026-11-14",
+      "completionKind": null
+    },
+    {
+      "id": "creator-outreach-2026-11-15",
+      "projectId": "marque-and-reprisal",
+      "title": "10 more creator emails sent",
+      "owner": "Garrett",
+      "priority": "next",
+      "source": "November 15 project review",
+      "note": "Gmail confirms ten initial creator emails sent this morning, November 15, including faithful localized messages. No matching unsent drafts remain. Today’s recurring outreach action is complete; do not add another same-day sending obligation. No emails or keys were sent by this dashboard check-in.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "completedOn": "2026-11-15",
+      "completionKind": null
+    },
+    {
+      "id": "pressengine-request",
+      "projectId": "marque-and-reprisal",
+      "title": "PressEngine request submitted",
+      "owner": "Garrett + marketing agent",
+      "priority": "next",
+      "source": "November 15 project review",
+      "note": "The owning marketing chat reports the free Starter request submitted and a confirmation received. Account setup/approval is pending; no payment details or Steam keys were shared. This is a submitted request, not active distribution or secured coverage.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "completedOn": "2026-11-15",
+      "completionKind": null
+    },
+    {
+      "id": "final-candidate-smoke",
+      "projectId": "marque-and-reprisal",
+      "title": "Verify the final release candidate",
+      "owner": "Queued for release agent · you review",
+      "priority": "now",
+      "source": "November 15 project review",
+      "note": "At Monday’s readiness review, record native install/launch/save/Continue smoke results for the exact current full/demo packages: 26677140/26677147 at 3b89a229. Current release evidence covers native Mac launches and Windows package/font checks on Mac. Last native Windows CI passed on eb04fa49; host/interaction files are unchanged, which is component coverage rather than a new executable test. No current native failure is established. Finalize evidence and any qualified narrow replacement by November 17 noon Vancouver.",
+      "status": "open",
+      "due": "2026-11-16",
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active",
+      "importance": 5,
+      "effortMinutes": {
+        "min": 15,
+        "max": 45
+      },
+      "tone": "blue",
+      "signal": "Monday readiness review · exact current build pair.",
+      "outcome": "Current candidate’s native platform smoke results and any remaining blockers recorded before the build cutoff."
+    },
+    {
+      "id": "pressengine-account",
+      "projectId": "marque-and-reprisal",
+      "title": "PressEngine account response",
+      "owner": "External · marketing chat",
+      "priority": "next",
+      "source": "November 15 project review",
+      "note": "The free account request is submitted. Await the setup response before counting the service as usable. The owning project expects roughly 1–2 business days; this is not a confirmed completion date or a main-game launch blocker.",
+      "status": "open",
+      "due": null,
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "waiting"
+    },
+    {
+      "id": "keymailer-setup",
+      "projectId": "marque-and-reprisal",
+      "title": "Complete Keymailer setup",
+      "owner": "Garrett",
+      "priority": "next",
+      "source": "November 15 project review",
+      "note": "The owning marketing chat prepared the free signup; its human password/terms step remains unconfirmed. Complete or verify that step in the existing marketing chat when at the computer. Account approval and actual creator coverage are separate; no keys should be counted as distributed from signup alone.",
+      "status": "open",
+      "due": null,
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active"
+    },
+    {
+      "id": "podcast-archive-housekeeping",
+      "projectId": "economics-detective",
+      "title": "Podcast archive housekeeping",
+      "owner": "Garrett + site agent",
+      "priority": "later",
+      "source": "November 15 project review",
+      "note": "Routine maintenance review of the older podcast archive and its plugins after launch. Preserve archive, episode and game links. Keep this separate from recording and scheduling the November 18 episode.",
+      "status": "open",
+      "due": null,
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "backburner"
     }
   ],
   "metrics": [
@@ -729,18 +853,18 @@
       "id": "wishlists",
       "projectId": "marque-and-reprisal",
       "label": "Outstanding wishlists",
-      "value": 13949,
+      "value": 15719,
       "note": "Steam lifetime snapshot",
-      "observedAt": "2026-11-14T16:12:32.465Z",
+      "observedAt": "2026-11-15T16:12:54.523Z",
       "total": null
     },
     {
       "id": "wishlist-week",
       "projectId": "marque-and-reprisal",
       "label": "Net wishlists / week",
-      "value": 4757,
-      "note": "Nov 7–13 · +53% vs. prior week",
-      "observedAt": "2026-11-14T16:12:32.465Z",
+      "value": 5125,
+      "note": "Nov 8–14 · +42% vs. prior week",
+      "observedAt": "2026-11-15T16:12:54.523Z",
       "total": null
     },
     {
@@ -749,7 +873,7 @@
       "label": "Person pages published",
       "value": 72,
       "note": "1 nonempty chapter published.",
-      "observedAt": "2026-11-13T05:37:49.753Z",
+      "observedAt": "2026-11-14T21:58:10.111Z",
       "total": null
     }
   ],
@@ -760,9 +884,9 @@
       "date": "2026-11-16",
       "title": "Launch readiness review",
       "kind": "planned",
-      "note": "Internal readiness review for selected a32993cd full 26655823/demo 26655831: resolve Windows interaction failure, verify platform delivery and save/Continue, confirm rollback compatibility and support access. November 17 noon Vancouver is the replacement-build cutoff. Main launch is November 18, 10 AM Vancouver; optional DLC is independent.",
+      "note": "Monday’s suggested readiness review: native install/launch/save/Continue smoke results for current full 26677140/demo 26677147 at 3b89a229, approved launch materials, support cover and podcast scheduling. Final qualified build cutoff: November 17 noon Vancouver. Existing old-revision Windows success is component evidence, not a fresh execution test of this candidate.",
       "sourceUrl": null,
-      "verifiedAt": "2026-11-14T16:34:40.497Z"
+      "verifiedAt": "2026-11-15T16:12:54.523Z"
     },
     {
       "id": "marque-launch",
@@ -770,9 +894,9 @@
       "date": "2026-11-18",
       "title": "Marque & Reprisal launches",
       "kind": "confirmed",
-      "note": "Locked manual release November 18 at 10:00 AM America/Vancouver (17:00 UTC), with Garrett owning release/customer replies/rollback and 9 AM–2 PM Vancouver coverage. Newly promoted selection: full 26670017/demo 26670026 at eb04fa49. CI passes native Windows interaction and packaging. Optional DLC remains independent.",
+      "note": "Locked manual release November 18 at 10 AM America/Vancouver (17:00 UTC), with Garrett owning release/replies/rollback and 9 AM–2 PM coverage. Latest promoted candidate: full 26677140/demo 26677147 at 3b89a229. Final native smoke evidence remains in Monday’s readiness review. Optional DLC is independent.",
       "sourceUrl": "https://store.steampowered.com/app/4516500/Marque__Reprisal/",
-      "verifiedAt": "2026-11-14T18:44:38.255Z"
+      "verifiedAt": "2026-11-15T16:12:54.523Z"
     },
     {
       "id": "launch-week-review",
@@ -860,26 +984,26 @@
     {
       "id": "github",
       "label": "GitHub",
-      "checkedAt": "2026-11-14T16:02:49.130Z",
+      "checkedAt": "2026-11-15T15:57:54.068Z",
       "note": "Default-branch activity, open work and CI. Activity does not measure product progress."
     },
     {
       "id": "email",
       "label": "Project email",
-      "checkedAt": "2026-11-14T16:12:32.465Z",
-      "note": "Reviewed new project replies and reconciled current Gmail drafts/sends with the marketing handoff. Eight additional outreach messages were sent November 13 and no pending draft batch remains. One creator expressed interest, not a coverage commitment. No mail or keys sent by this desk."
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "note": "Reviewed new project mail and current draft/sent states. Sixteen initial creator messages were sent November 14 and ten November 15 in Vancouver; no pending draft batch remains. Two creator replies report full schedules, with no new organic coverage commitment. Paid services remain declined. Routine archive maintenance is backburner work; no private notices or account details are published."
     },
     {
       "id": "steam",
       "label": "Steamworks",
-      "checkedAt": "2026-11-14T16:12:32.465Z",
-      "note": "Steamworks: 13,949 outstanding wishlists. Nov 7–13: 5,000 additions, 243 deletions, net +4,757; previous week net +3,091 (+53%). Lifetime balance and closed-week movement are separate. No revenue or source attribution inferred."
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "note": "Steamworks lifetime overview: 15,719 outstanding wishlists. Nov 8–14: 5,387 additions, 262 deletions, net +5,125; prior week net +3,597 (+42%). No sales or outreach attribution is inferred."
     },
     {
       "id": "glossary",
       "label": "Published glossary data",
-      "checkedAt": "2026-11-14T16:02:49.130Z",
-      "note": "Published output retains its source date. Separately, 2,050 extracted chapters are intermediate work (source: 2026-11-12 Pacific), not published completion."
+      "checkedAt": "2026-11-15T15:57:54.068Z",
+      "note": "Published output retains its source date. Separately, 2,050 extracted chapters are intermediate work (source: 2026-11-14 Pacific), not published completion."
     },
     {
       "id": "marketing",
@@ -890,8 +1014,8 @@
     {
       "id": "histories-coordinator",
       "label": "24 Histories coordinator handoff",
-      "checkedAt": "2026-11-14T16:12:32.465Z",
-      "note": "Coordinator reports two retained chapter drafts pending bridge-code review and a native submission fix for unchanged English. Its independent-review execution awaits platform approval. No new nonempty chapter is published; the dashboard neither approves nor interrupts its jobs."
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "note": "Latest coordinator reports publication integration work still pending. Jinshu 119 remains unqualified and unpublished. No additional published chapters are confirmed; ongoing work stays with its owning project."
     },
     {
       "id": "prototype-strategy",
@@ -902,14 +1026,14 @@
     {
       "id": "marque-ci",
       "label": "M&R CI rerun",
-      "checkedAt": "2026-11-14T18:44:38.255Z",
-      "note": "Run 43619732776 on promoted artifact eb04fa49 passes both runtime and Windows jobs. Real Windows Escape/fullscreen/voyage interaction, native glyphs, demo packaging and actual-package font checks all passed. The interaction test is byte-identical to the earlier a32993cd test. Current verification is cleared; the old timeout’s cause is not established."
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "note": "Latest native Windows CI remains 43619732776 on eb04fa49 and passed. The newer promoted artifact 3b89a229 has complete recorded release-suite and Mac-native checks; Windows package/font checks were on Mac. No host/interaction/workflow/font files changed between eb04fa49 and 3b89a229. Do not present the earlier CI result as a new native executable test."
     },
     {
       "id": "kdp-publishing",
       "label": "KDP publishing",
-      "checkedAt": "2026-11-14T16:12:32.465Z",
-      "note": "Royalties Estimator, all four books, marketplaces and formats: CA$505.32 for Jun 1–Nov 14, including CA$19.15 for Nov 1–14. Current Amazon FX estimate, not finalized earnings or cash. Detailed export charts still end November 12."
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "note": "Royalties Estimator, all four books/marketplaces/formats: CA$505.32 for Jun 1–Nov 15, including CA$19.15 for Nov 1–15. Amazon FX estimate, not finalized receipts. Detailed export charts still end November 12."
     },
     {
       "id": "kdp-introductions",
@@ -944,20 +1068,20 @@
     {
       "id": "marque-telemetry",
       "label": "M&R live telemetry · 24h",
-      "checkedAt": "2026-11-14T16:02:49.130Z",
-      "note": "24h opt-in snapshot at 2026-11-14T16:03:06.540Z: 88 installations, 151 sessions, 0 crash reports and 54 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
+      "checkedAt": "2026-11-15T15:57:54.068Z",
+      "note": "24h opt-in snapshot at 2026-11-15T15:58:12.125Z: 147 installations, 231 sessions, 0 crash reports and 31 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
     },
     {
       "id": "marque-feedback",
       "label": "M&R remote feedback review",
-      "checkedAt": "2026-11-14T18:44:38.255Z",
-      "note": "Remote 71d12d0b release record includes restore/chart retry and conquest-localization fixes plus raid, equipment and fleet changes in eb04fa49. Complete release gates and native Windows CI passed. Owner confirms Steam promotion. Several bank/chart/controller cases remain open; no telemetry cursor advanced."
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "note": "Read remote 6fd3860d: updated November 14 release records and navigation continuity changes. New compiled checks cover 16 continuity/restore rounds and all six captured turn recoveries; full 26677140/demo 26677147 promotion and both public changelogs are verified in the record. Other diagnostics stay open unless reproduced/resolved; no cursor advanced."
     },
     {
       "id": "supporter-pack",
       "label": "Supporter Pack project handoff",
-      "checkedAt": "2026-11-14T16:12:32.465Z",
-      "note": "Steamworks store review still pending. Release handoff ee0dac94 prepares all three platform packages and Steam delivery configuration; local Mac checks passed according to the project. Signing/notarization, native Windows/Linux/Intel Mac verification and upload belong to the signing machine."
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "note": "Steam store review remains queued from November 12. Configuration/checklists remain complete. The ee0dac94 signing-machine handoff and completed preparation remain preserved; final signed release packages, native-platform/ownership verification and upload are not newly confirmed."
     },
     {
       "id": "marque-reliability-release",
@@ -992,8 +1116,8 @@
     {
       "id": "launch-readiness",
       "label": "Steam launch readiness",
-      "checkedAt": "2026-11-14T18:44:38.255Z",
-      "note": "November 18, 10 AM Vancouver manual launch and 9 AM–2 PM coverage remain locked. Current promoted selection is eb04fa49: full 26670017/demo 26670026. Native Windows CI 43619732776 passes interaction, fonts and packaging, clearing that hold. Prior pair a32993cd (26655823/26655831) is a rollback candidate only after availability, current-save compatibility and native-check verification. No launch or promotion performed by the desk."
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "note": "November 18 at 10 AM Vancouver manual launch and 9 AM–2 PM coverage stay locked. Latest promoted candidate is 3b89a229, full 26677140/demo 26677147. Recorded full release qualification passed; final native-platform smoke evidence belongs to Monday’s review. Any rollback requires actual availability and current-save compatibility checks; no automatic fallback is authorized."
     },
     {
       "id": "navigation-release-nov13",
@@ -1022,8 +1146,26 @@
     {
       "id": "marque-release-nov14",
       "label": "November 14 promoted builds",
-      "checkedAt": "2026-11-14T18:44:38.255Z",
-      "note": "Owner promotion confirmation matched to remote upload record 71d12d0b: artifact eb04fa49, full 26670017/demo 26670026. Full release gates and native Windows CI pass. Itch is published. The saved Steam event 694277726961402546 is not yet verified public; the public news feed still lists the previous update."
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "note": "The earlier eb04fa49 pair 26670017/26670026 remains a completed release. Steam event 694277726961402546 is now confirmed published and build-linked by remote 6fd3860d and the public news feed. A later 3b89a229 update is also promoted and published, tracked separately."
+    },
+    {
+      "id": "navigation-continuity-release",
+      "label": "Latest promoted navigation candidate",
+      "checkedAt": "2026-11-15T16:19:06.393Z",
+      "note": "Garrett confirms the new builds are promoted. Remote 6fd3860d records 3b89a229 at full 26677140/demo 26677147, public Steam event 694277726961402571 and published itch notes. Recorded qualification passed; native Windows execution of this newest pair is not claimed by that record."
+    },
+    {
+      "id": "creator-outreach-nov15",
+      "label": "Daily organic outreach",
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "note": "Gmail confirms sixteen initial messages November 14 and ten this morning in Vancouver; message Date/internal timestamp checked. No matching unsent drafts remain. Today’s recurrence is complete; no extra same-day action created. Two new replies are unavailable for organic coverage; paid pitches do not reopen the declined paid strategy."
+    },
+    {
+      "id": "creator-platform-setup",
+      "label": "Free creator-platform setup",
+      "checkedAt": "2026-11-15T16:12:54.523Z",
+      "note": "Owning marketing chat confirms PressEngine’s free request submitted with a success receipt. Account response is pending; Keymailer’s human signup step remains unconfirmed. No payments or keys were shared in the request. The desk creates no accounts or outbound messages."
     }
   ],
   "prototypeStrategy": {
@@ -1035,14 +1177,14 @@
       "id": "kdp",
       "label": "KDP ebooks",
       "projectId": "histories-kdp",
-      "note": "Nov 1–14: CA$19.15 included.",
+      "note": "Nov 1–15: CA$19.15 included.",
       "report": {
         "amountCents": 50532,
         "currency": "CAD",
         "periodStart": "2026-06-01",
-        "periodEnd": "2026-11-14",
+        "periodEnd": "2026-11-15",
         "basis": "estimated",
-        "observedAt": "2026-11-14T16:12:32.465Z",
+        "observedAt": "2026-11-15T16:12:54.523Z",
         "source": "KDP Royalties Estimator · all books & marketplaces"
       }
     },
@@ -1269,21 +1411,22 @@
     }
   ],
   "dailyPlan": {
-    "date": "2026-11-14",
-    "checkedAt": "2026-11-14T18:44:38.255Z",
+    "date": "2026-11-15",
+    "checkedAt": "2026-11-15T16:12:54.523Z",
     "taskIds": [
       "economics-detective-launch-episode",
+      "final-candidate-smoke",
       "launch-package"
     ],
-    "focus": "The new full/demo builds are promoted and the Windows gate passes. Make launch communications and the short podcast ready for November 18 at 10 AM Vancouver; keep optional DLC and new features off the critical path.",
-    "basis": "Owner confirms promotion of full 26670017/demo 26670026 at eb04fa49. CI 43619732776 passes the unchanged native Windows interaction test plus fonts and packaging. The launch plan stays locked; new Steam patch-note publication remains unverified."
+    "focus": "Three days to launch: finish the podcast and approved launch messages; use Monday’s review to verify the exact current build on native platforms. Demand is growing—protect the candidate and keep new features and side projects off the critical path.",
+    "basis": "Steam: 15,719 wishlists, +5,125 for Nov 8–14. Latest promoted pair is 26677140/26677147 at 3b89a229, with notes published. Ten creator emails are already sent today. Last native Windows CI is on eb04fa49; final candidate smoke evidence remains to be recorded."
   },
   "telemetry": {
-    "observedAt": "2026-11-14T16:03:06.540Z",
+    "observedAt": "2026-11-15T15:58:12.125Z",
     "windowDays": 1,
-    "installations": 88,
-    "sessions": 151,
+    "installations": 147,
+    "sessions": 231,
     "crashReports": 0,
-    "chartWarnings": 54
+    "chartWarnings": 31
   }
 }
