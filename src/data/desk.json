@@ -1,28 +1,28 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-11-18T16:13:20.659Z",
-  "brief": "Launch day · Marque & Reprisal at 10 AM Vancouver.",
+  "reviewedAt": "2026-11-19T16:08:12.837Z",
+  "brief": "Launch week · Marque & Reprisal live on Steam",
   "projects": [
     {
       "id": "marque-and-reprisal",
       "name": "Marque & Reprisal",
       "group": "focus",
       "health": "moving",
-      "stage": "Launch day · 10 AM Vancouver",
+      "stage": "Live on Steam · first support week",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
-      "next": "Garrett releases at 10 AM, then publishes approved messages and watches the first buyers.",
-      "blocker": "The manual release and purchase-path confirmation are still pending. Track current-build control/navigation reports; newer source fixes are not yet packaged.",
+      "next": "Verify recovery on the latest Steam builds and review first-voyage friction.",
+      "blocker": "A port-exit report and sailing stalls need current-build reproduction. New docking and menu fixes are in source.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
-        "checkedAt": "2026-11-18T15:57:25.045Z",
-        "lastCommitAt": "2026-11-18T15:32:48Z",
+        "checkedAt": "2026-11-19T16:02:17.960Z",
+        "lastCommitAt": "2026-11-19T14:37:30Z",
         "openPullRequests": 0,
         "openIssues": 0,
         "ci": {
           "status": "completed",
           "conclusion": "success",
-          "createdAt": "2026-11-18T01:42:59Z"
+          "createdAt": "2026-11-19T14:29:26Z"
         }
       }
     },
@@ -38,7 +38,7 @@
       "repo": "GarrettPetersen/subject-and-sovereign",
       "url": "https://subject-and-sovereign.garrett-m-petersen.workers.dev/",
       "activity": {
-        "checkedAt": "2026-11-18T15:57:25.045Z",
+        "checkedAt": "2026-11-19T16:02:17.960Z",
         "lastCommitAt": "2026-11-18T02:39:40Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -57,7 +57,7 @@
       "repo": "GarrettPetersen/anime-games",
       "url": null,
       "activity": {
-        "checkedAt": "2026-11-18T15:57:25.045Z",
+        "checkedAt": "2026-11-19T16:02:17.960Z",
         "lastCommitAt": "2026-11-01T12:45:37Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -76,18 +76,18 @@
       "stage": "5 nonempty chapters live · 129 pending release",
       "summary": "665 person pages across five nonempty Jinshu chapters are published; chapter 120 is now included.",
       "next": "Finish the retained chapter-129 release through its owning project’s hosted checks.",
-      "blocker": "Chapter 129 is not confirmed live. Its release work and other review holds remain with the owning project; sustained throughput is unproven.",
+      "blocker": "Chapter 129 remains paused with its release owner. The published glossary still covers five nonempty chapters.",
       "repo": "GarrettPetersen/records-of-the-grand-historian",
       "url": "https://24histories.com/progress",
       "activity": {
-        "checkedAt": "2026-11-18T15:57:25.045Z",
-        "lastCommitAt": "2026-11-18T09:08:19Z",
-        "openPullRequests": 101,
+        "checkedAt": "2026-11-19T16:02:17.960Z",
+        "lastCommitAt": "2026-11-18T20:29:11Z",
+        "openPullRequests": 100,
         "openIssues": 0,
         "ci": {
           "status": "completed",
           "conclusion": "success",
-          "createdAt": "2026-11-18T09:08:23Z"
+          "createdAt": "2026-11-18T20:29:14Z"
         }
       }
     },
@@ -109,10 +109,10 @@
       "name": "M&R · Supporter Pack",
       "group": "secondary",
       "health": "attention",
-      "stage": "Optional · store review still pending",
-      "summary": "Optional US$6.99 desktop globe DLC. Latest source updates globe geography; final appearance and packages remain under review.",
-      "next": "Await the store decision; revisit final appearance and delivery QA after the base game is steady.",
-      "blocker": "Store approval and final refreshed package/ownership delivery checks remain unverified. Do not delay the main game.",
+      "stage": "Store approved · delivery QA remains",
+      "summary": "Optional US$6.99 globe DLC. Windows, macOS and Linux settings are selected.",
+      "next": "Verify final globe appearance and package ownership after the base game is steady.",
+      "blocker": "Refreshed native packages, entitlement and combined depot delivery still need verification.",
       "repo": null,
       "url": null,
       "activity": null
@@ -122,12 +122,12 @@
       "name": "Economics Detective",
       "group": "secondary",
       "health": "moving",
-      "stage": "Uploaded and scheduled · 10:51 AM",
-      "summary": "The final life-update episode is uploaded and scheduled on YouTube and Libsyn; the matching website publication task is active.",
-      "next": "Verify video, audio, website and feed after the 10:51 AM Vancouver release.",
-      "blocker": "Publication is not due yet. The website step needs the computer and app running; public delivery remains unverified.",
+      "stage": "Life Update published",
+      "summary": "The one-off launch episode is live on YouTube, the website and the podcast feed.",
+      "next": "Review reach and any trackable Steam traffic at the first-week review.",
+      "blocker": "Audience impact is unmeasured.",
       "repo": null,
-      "url": null,
+      "url": "https://economicsdetective.com/2026/11/life-update/",
       "activity": null
     }
   ],
@@ -158,25 +158,16 @@
     {
       "id": "launch-package",
       "projectId": "marque-and-reprisal",
-      "title": "Publish launch messages",
+      "title": "Launch announcement and press outreach sent",
       "owner": "You + marketing agent",
       "priority": "now",
-      "source": "Marketing handoff + launch-readiness review",
-      "note": "Once the purchase button is live, confirm displayed price/discount and distribute the approved launch release, store link and prepared clips through the agreed channels. The human-authored press-release wording is ready; sends/posts are not yet confirmed. Podcast scheduling is complete for 10:51 AM Vancouver. Reuse approved material and keep original public wording Garrett’s.",
-      "status": "open",
+      "source": "Public launch materials + sent mail",
+      "note": "The Steam storefront and launch materials are live. Launch press outreach was sent November 18. Track responses and actual coverage in the creator pipeline.",
+      "status": "done",
       "due": "2026-11-18",
-      "checkedAt": "2026-11-18T16:13:20.659Z",
-      "completedOn": null,
-      "completionKind": null,
-      "lane": "active",
-      "importance": 4,
-      "effortMinutes": {
-        "min": 15,
-        "max": 30
-      },
-      "tone": "gold",
-      "signal": "Approved material is ready; publish after purchase goes live.",
-      "outcome": "Approved launch messages and working purchase links are live on the intended channels."
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "completedOn": "2026-11-18",
+      "completionKind": null
     },
     {
       "id": "prototype-comparison",
@@ -262,25 +253,16 @@
     {
       "id": "supporter-scope",
       "projectId": "marque-supporter-pack",
-      "title": "Supporter Pack store review",
+      "title": "Supporter Pack store review approved",
       "owner": "Release agent + Garrett",
       "priority": "next",
-      "source": "Steamworks DLC landing page",
-      "note": "Steamworks still shows the store review queued from November 12, with both checklists complete. No review response or approval is newly confirmed. Final delivery/ownership QA is separate; the base-game launch proceeds independently.",
-      "status": "open",
+      "source": "Steamworks DLC landing page and platform settings",
+      "note": "Store and content checklists show approval. Windows, macOS and Linux are selected. Final native delivery and ownership QA are tracked separately.",
+      "status": "done",
       "due": null,
-      "checkedAt": "2026-11-18T16:13:20.659Z",
-      "importance": 3,
-      "effortMinutes": {
-        "min": 5,
-        "max": 15
-      },
-      "tone": "blue",
-      "signal": "Store review pending; base-game launch stays fixed.",
-      "outcome": "Review decision recorded and remaining launch details confirmed.",
+      "checkedAt": "2026-11-19T16:08:12.837Z",
       "completedOn": null,
-      "completionKind": null,
-      "lane": "waiting"
+      "completionKind": null
     },
     {
       "id": "jinshu-opening",
@@ -613,10 +595,10 @@
       "owner": "Release agent on signing machine",
       "priority": "later",
       "source": "Current supporter branch + release handoff",
-      "note": "Optional after the base game is steady: confirm the final globe appearance, refreshed signed packages, native-platform/ownership checks and combined six-depot delivery. Latest source work does not establish a refreshed release package. Store review remains a separate wait.",
+      "note": "After the base game is steady, confirm final globe appearance, refreshed signed packages, native launch and ownership on all three platforms, and combined six-depot delivery.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-18T16:13:20.659Z",
+      "checkedAt": "2026-11-19T16:08:12.837Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "backburner",
@@ -626,8 +608,8 @@
         "max": 30
       },
       "tone": "sage",
-      "signal": "Configuration complete; package QA still pending.",
-      "outcome": "All three release packages and entitlement paths verified, with store approval recorded separately."
+      "signal": "Store approved. Final delivery QA remains.",
+      "outcome": "All three release packages and entitlement paths verified."
     },
     {
       "id": "creator-batch-2026-11-13",
@@ -933,63 +915,44 @@
     {
       "id": "launch-day-release",
       "projectId": "marque-and-reprisal",
-      "title": "Release at 10 AM",
+      "title": "Marque & Reprisal launched",
       "owner": "Garrett · manual release",
       "priority": "now",
-      "source": "Locked launch plan + current Steam branches",
-      "note": "Resume the existing launch-control chat and confirm full 26754115/demo 26754128, game source d42caf54 with packaging-only 261bf659 metadata. Recorded gates include 9,816 tests and three fresh-profile packaged launches per edition. Garrett performs the 10 AM Vancouver (17:00 UTC) release, then confirms the public purchase/install/launch path. The store still showed Planned Release at this prelaunch review. Keep the promoted candidate separate from later source fixes; the desk does not press release controls.",
-      "status": "open",
+      "source": "Public Steam store + Steamworks sales",
+      "note": "Released November 18 with a live purchase button and a 15% launch discount. Steam reports 721 purchases on its November 18 reporting day.",
+      "status": "done",
       "due": "2026-11-18",
-      "checkedAt": "2026-11-18T16:13:20.659Z",
-      "completedOn": null,
-      "completionKind": null,
-      "lane": "active",
-      "importance": 5,
-      "effortMinutes": {
-        "min": 15,
-        "max": 30
-      },
-      "tone": "blue",
-      "signal": "10 AM Vancouver · confirm the purchase path.",
-      "outcome": "Manual release confirmed, selected build IDs recorded and the public purchase/install path checked."
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "completedOn": "2026-11-18",
+      "completionKind": null
     },
     {
       "id": "launch-day-support",
       "projectId": "marque-and-reprisal",
-      "title": "Watch the first players",
+      "title": "First launch hotfix shipped",
       "owner": "You + release agent when resumed",
       "priority": "now",
-      "source": "Launch support plan + current telemetry review",
-      "note": "Make one focused first-hour pass over buying, install/startup, saves, controls and progression. Garrett owns customer replies and rollback decisions; use the existing release chat for technical triage. Current-source audio and bank-turn fixes are not in the promoted d42caf54 package yet: reproduce current reports and qualify any narrow hotfix before deployment. Keep saves and incident evidence. After 10:51, also verify the scheduled podcast video/audio/website/feed. Support coverage remains 9 AM–2 PM Vancouver; no unattended release agent is assumed.",
-      "status": "open",
+      "source": "Steam release record + support handoff",
+      "note": "The launch-day inn softlock was fixed and the full/demo recovery builds were promoted. Later builds also shipped save and mission recovery improvements.",
+      "status": "done",
       "due": "2026-11-18",
-      "checkedAt": "2026-11-18T16:13:20.659Z",
-      "completedOn": null,
-      "completionKind": null,
-      "lane": "active",
-      "importance": 4,
-      "effortMinutes": {
-        "min": 20,
-        "max": 45
-      },
-      "tone": "coral",
-      "signal": "Purchase, launch, save and control failures first.",
-      "outcome": "First support pass recorded, urgent current-build issues assigned, and scheduled podcast delivery checked."
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "completedOn": "2026-11-18",
+      "completionKind": null
     },
     {
       "id": "podcast-publication-check",
       "projectId": "economics-detective",
-      "title": "Podcast publication · 10:51 AM",
+      "title": "Life Update published and verified",
       "owner": "Scheduled hosts + website task",
       "priority": "next",
-      "source": "YouTube/Libsyn UI + active website schedule",
-      "note": "YouTube and Libsyn are scheduled for 17:51 UTC: 10:51 AM Vancouver, 9:51 AM Los Angeles. The matching one-off website task is active. Keep its computer/app available and verify all public destinations after the scheduled time. No early publication or new recurring task is needed.",
-      "status": "open",
+      "source": "YouTube + public episode page + Libsyn RSS",
+      "note": "The 33:39 episode is public. The website embeds the video and working audio, and the podcast feed shows publication November 18 at 10:51 AM Vancouver (17:51 UTC).",
+      "status": "done",
       "due": "2026-11-18",
-      "checkedAt": "2026-11-18T16:13:20.659Z",
-      "completedOn": null,
-      "completionKind": null,
-      "lane": "waiting"
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "completedOn": "2026-11-18",
+      "completionKind": null
     },
     {
       "id": "pressengine-invitation",
@@ -998,10 +961,10 @@
       "owner": "External · marketing chat",
       "priority": "next",
       "source": "Confirmed invite-request handoff",
-      "note": "The free-account preference reply is sent. Await the invitation before counting the service as usable or distributing any keys. Optional setup does not block the game launch.",
+      "note": "Free-account preference sent. The reviewed thread has no invitation yet.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-18T16:13:20.659Z",
+      "checkedAt": "2026-11-19T16:08:12.837Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "waiting"
@@ -1075,6 +1038,89 @@
       "checkedAt": "2026-11-18T16:13:20.659Z",
       "completedOn": "2026-11-17",
       "completionKind": "source"
+    },
+    {
+      "id": "clearer-choices-release-2026-11-19",
+      "projectId": "marque-and-reprisal",
+      "title": "Controller and mission fixes shipped",
+      "owner": "Release agent + Garrett",
+      "priority": "now",
+      "source": "Steamworks default branches + published patch notes",
+      "note": "Full 26784140 and demo 26784145 are live. The release record covers controller Confirm, mission escort restoration, merchant warnings and chart guidance. The recorded release gates passed.",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "completedOn": "2026-11-19",
+      "completionKind": null
+    },
+    {
+      "id": "launch-week-live-support",
+      "projectId": "marque-and-reprisal",
+      "priority": "now",
+      "status": "open",
+      "due": "2026-11-19",
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active",
+      "title": "Verify the live hotfixes",
+      "owner": "Release agent + Garrett",
+      "source": "Steam defaults + remote feedback review",
+      "note": "Check fresh and resumed voyages on full 26784140 and demo 26784145, focusing on inn exit, held Confirm and mission recovery. Ask for the build, input and location on unresolved reports, then reproduce the port-exit and severe sailing stalls. Qualify a narrow patch if a blocker persists.",
+      "importance": 5,
+      "effortMinutes": {
+        "min": 15,
+        "max": 35
+      },
+      "tone": "blue",
+      "signal": "Confirm players can leave port and resume missions.",
+      "outcome": "Live recovery paths checked and any reproducible blocker assigned to the release owner."
+    },
+    {
+      "id": "creator-outreach-2026-11-19",
+      "projectId": "marque-and-reprisal",
+      "priority": "now",
+      "status": "open",
+      "due": "2026-11-19",
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active",
+      "title": "Follow up with one qualified creator",
+      "owner": "Garrett + marketing agent",
+      "source": "Reviewed creator replies + marketing handoff",
+      "note": "Follow up with the verified Pirates!-focused creator who already has access. Share the approved live store link and latest gameplay trailer using Garrett’s wording. Record the reply and any eventual coverage.",
+      "importance": 4,
+      "effortMinutes": {
+        "min": 5,
+        "max": 15
+      },
+      "tone": "gold",
+      "signal": "A genre-fit creator replied and already has access.",
+      "outcome": "One human-approved follow-up is sent or explicitly deferred."
+    },
+    {
+      "id": "launch-returns-review",
+      "projectId": "marque-and-reprisal",
+      "priority": "now",
+      "status": "open",
+      "due": "2026-11-19",
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active",
+      "title": "Find where first voyages stall",
+      "owner": "Release and marketing agents + Garrett",
+      "source": "Steam sales + feedback and opt-in telemetry",
+      "note": "Compare return and review themes with the newest build and one fresh voyage from the first inn to paid work. Separate older launch-day defects from current progression friction. Capture the baseline for November 25 and pick the most actionable issue.",
+      "importance": 3,
+      "effortMinutes": {
+        "min": 15,
+        "max": 25
+      },
+      "tone": "coral",
+      "signal": "136 early returns. Check for a recurring, fixable cause.",
+      "outcome": "Early support evidence summarized and the strongest current issue selected."
     }
   ],
   "metrics": [
@@ -1082,18 +1128,27 @@
       "id": "wishlists",
       "projectId": "marque-and-reprisal",
       "label": "Outstanding wishlists",
-      "value": 23185,
-      "note": "Steam lifetime snapshot",
-      "observedAt": "2026-11-18T16:09:27.000Z",
+      "value": 27317,
+      "note": "Steam lifetime outstanding",
+      "observedAt": "2026-11-19T16:06:40.000Z",
       "total": null
     },
     {
       "id": "wishlist-week",
       "projectId": "marque-and-reprisal",
       "label": "Net wishlists / week",
-      "value": 10443,
-      "note": "Nov 11–17 · +157% vs. prior week",
-      "observedAt": "2026-11-18T16:09:27.000Z",
+      "value": 11721,
+      "note": "Nov 12–18 · +176% vs. prior week",
+      "observedAt": "2026-11-19T16:06:40.000Z",
+      "total": null
+    },
+    {
+      "id": "steam-units",
+      "projectId": "marque-and-reprisal",
+      "label": "Steam purchases",
+      "value": 1048,
+      "note": "721 on Nov 18 · 136 total returns",
+      "observedAt": "2026-11-19T16:06:40.000Z",
       "total": null
     },
     {
@@ -1111,11 +1166,11 @@
       "id": "marque-launch",
       "projectId": "marque-and-reprisal",
       "date": "2026-11-18",
-      "title": "Marque & Reprisal launches",
+      "title": "Marque & Reprisal launched",
       "kind": "confirmed",
-      "note": "Today: Garrett manually releases at 10 AM America/Vancouver (17:00 UTC), with 9 AM–2 PM support coverage and ownership of replies/rollback. Prelaunch store status is still Planned Release. Current full 26754115/demo 26754128 at game d42caf54 is promoted. Confirm the purchase path after release; optional DLC is independent.",
+      "note": "Released November 18. The store purchase path and 15% introductory discount are live. First-week priority is support for buying, startup, saves, controls and progression.",
       "sourceUrl": "https://store.steampowered.com/app/4516500/Marque__Reprisal/",
-      "verifiedAt": "2026-11-18T16:13:20.659Z"
+      "verifiedAt": "2026-11-19T16:08:12.837Z"
     },
     {
       "id": "launch-week-review",
@@ -1123,9 +1178,9 @@
       "date": "2026-11-25",
       "title": "First-week review",
       "kind": "planned",
-      "note": "Suggested review: sales, wishlist conversion, player feedback and recurring issues. Then revisit next-game priorities. Target day in Vancouver.",
+      "note": "Compare the full first week of sales, returns, wishlist conversion, traffic, creator and episode reach, and live-build support. Use the results to choose the next investment.",
       "sourceUrl": null,
-      "verifiedAt": "2026-11-12T17:38:00.000Z"
+      "verifiedAt": "2026-11-19T16:08:12.837Z"
     },
     {
       "id": "creative-bc-decision-check",
@@ -1141,11 +1196,21 @@
       "id": "economics-detective-episode-release",
       "projectId": "economics-detective",
       "date": "2026-11-18",
-      "title": "Life Update · 10:51 AM",
+      "title": "Life Update published",
       "kind": "confirmed",
-      "note": "Scheduled November 18 at 17:51 UTC: 10:51 AM Vancouver / 9:51 AM Los Angeles. YouTube and Libsyn scheduling are verified; the matching one-off website task is active. Public publication remains pending. Keep the task’s computer/app available and check the video, audio, site and feed afterward.",
-      "sourceUrl": null,
-      "verifiedAt": "2026-11-18T16:13:20.659Z"
+      "note": "Podcast RSS records 10:51 AM Vancouver (17:51 UTC). YouTube, the episode page and the audio file are public.",
+      "sourceUrl": "https://economicsdetective.com/2026/11/life-update/",
+      "verifiedAt": "2026-11-19T16:08:12.837Z"
+    },
+    {
+      "id": "marque-launch-discount-end",
+      "projectId": "marque-and-reprisal",
+      "date": "2026-11-25",
+      "title": "M&R launch discount ends",
+      "kind": "confirmed",
+      "note": "Steam’s 15% introductory offer ends November 25.",
+      "sourceUrl": "https://store.steampowered.com/app/4516500/",
+      "verifiedAt": "2026-11-19T16:08:12.837Z"
     }
   ],
   "archive": [
@@ -1203,38 +1268,38 @@
     {
       "id": "github",
       "label": "GitHub",
-      "checkedAt": "2026-11-18T15:57:25.045Z",
+      "checkedAt": "2026-11-19T16:02:17.960Z",
       "note": "Default-branch activity, open work and CI. Activity does not measure product progress."
     },
     {
       "id": "email",
       "label": "Project email",
-      "checkedAt": "2026-11-18T16:13:20.659Z",
-      "note": "Gmail connector still requires reauthentication; signed-in browser review succeeded. Read new PR/creator service pitches, checked the project draft state and found no recent funder mail. No new coverage commitment is established by the pitches. The free-account preference reply is confirmed sent by its owning marketing chat. No private correspondence, contacts or account details are copied."
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "note": "Signed-in Gmail review verified launch sends and checked current creator replies, draft state and grant mail. One organic follow-up has been identified. The free-platform invitation remains pending. No funder update found."
     },
     {
       "id": "steam",
       "label": "Steamworks",
-      "checkedAt": "2026-11-18T16:09:27.000Z",
-      "note": "Prelaunch Steamworks lifetime: 23,185 outstanding wishes from 24,368 additions less 1,183 deletions, +2,186 since yesterday. Nov 11–17: 10,925 additions, 482 deletions, net +10,443; prior week +4,052 (+157%). These are dated prelaunch wishlist observations, not launch sales or revenue."
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "note": "Steamworks: 27,317 outstanding (29,600 adds, 1,610 deletions, 671 purchases/activations and two gifts). Nov 12–18: +11,721 balance after conversions, prior week +4,237. Sales snapshot: 1,048 purchases, 136 returns and US$9,801 net store sales before Valve’s share."
     },
     {
       "id": "glossary",
       "label": "Published glossary data",
-      "checkedAt": "2026-11-18T15:57:25.045Z",
+      "checkedAt": "2026-11-19T16:02:17.960Z",
       "note": "Published output retains its source date. Separately, 2,050 extracted chapters are intermediate work (source: 2026-11-18 Pacific), not published completion."
     },
     {
       "id": "marketing",
       "label": "M&R Marketing",
-      "checkedAt": "2026-11-12T18:38:02.290Z",
-      "note": "Current strategy and delivery handoff, checked against the project chat and public pages. Wishlist attribution remains unverified."
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "note": "Launch materials and the revised gameplay trailer are available. The marketing handoff identifies a qualified creator follow-up and a separate press request awaiting identity verification. Public episode delivery is verified."
     },
     {
       "id": "histories-coordinator",
       "label": "24 Histories coordinator handoff",
-      "checkedAt": "2026-11-18T16:13:20.659Z",
-      "note": "Public status independently confirms 665 people and five nonempty chapters, now including Jinshu 120. Latest coordinator reports chapter-129 release work retained and paused in its owning project; no live acceptance is newly established for 129. Other approvals and holds remain preserved. No jobs or writer state were changed by the desk."
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "note": "Public status still shows 665 people across five nonempty Jinshu chapters. The chapter-129 owner reports a pause before publication. Next-game prototype work continues in its owning projects."
     },
     {
       "id": "prototype-strategy",
@@ -1245,14 +1310,14 @@
     {
       "id": "marque-ci",
       "label": "M&R CI rerun",
-      "checkedAt": "2026-11-18T16:13:20.659Z",
-      "note": "Game action/runtime CI 44163490231 passed both the test and Windows jobs on 0493d3b9; the desktop host did not change between that source and game artifact d42caf54. The later website workflow also passed but is not a game qualification run. Current release record reports 9,816 tests, 36 frozen-save boundaries and three packaged launches per edition. Exact Windows package execution is not separately claimed; do not reopen the cleared old assault oracle failure."
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "note": "Game action/runtime CI 44380320301 passed both test and Windows jobs at 1d86a6c3. The later website workflow passed separately. Current artifact bb78c6e7 has its own recorded 10,585 game tests, 110 native checks, 36 save restores and six packaged launches."
     },
     {
       "id": "kdp-publishing",
       "label": "KDP publishing",
-      "checkedAt": "2026-11-18T16:09:27.000Z",
-      "note": "Royalties Estimator, all four books/authors/marketplaces/formats/distributions, CAD: CA$505.36 for Jun 1–Nov 18, including CA$19.19 for Nov 1–18. Amazon FX estimate, not finalized receipts. Detailed export charts still end November 12."
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "note": "Royalties Estimator across all four books and marketplaces: CA$505.40 for Jun 1–Nov 19, including CA$19.23 for Nov 1–19. The detailed export ends Nov 12."
     },
     {
       "id": "kdp-introductions",
@@ -1287,20 +1352,20 @@
     {
       "id": "marque-telemetry",
       "label": "M&R live telemetry · 24h",
-      "checkedAt": "2026-11-18T15:57:25.045Z",
-      "note": "24h opt-in snapshot at 2026-11-18T15:57:44.107Z: 269 installations, 459 sessions, 0 crash reports and 8 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
+      "checkedAt": "2026-11-19T16:02:17.960Z",
+      "note": "24h opt-in snapshot at 2026-11-19T16:02:38.898Z: 918 installations, 2262 sessions, 1 crash reports and 48 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
     },
     {
       "id": "marque-feedback",
       "label": "M&R remote feedback review",
-      "checkedAt": "2026-11-18T16:13:20.659Z",
-      "note": "Fetched the remote feedback tracker at 1d86a6c3 and reviewed the November 18 telemetry/release records. Golden-map release d42caf54 is promoted. Later c6885cda fixes current-build hauling-audio loading and a captured xebec corner turn in source; 1d86a6c3 adds layout/river-visibility fixes. Those later changes are not in the verified storefront pair. Old route, Options and frame-stall investigations remain open; no cursor advanced."
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "note": "Remote tracker reviewed at 62eca92b. Steam defaults full 26784140/demo 26784145 at bb78c6e7 ship controller and mission fixes. Port-access and later dialogue/menu changes are in source. Retest the reported port-exit and sailing stalls against the live build."
     },
     {
       "id": "supporter-pack",
       "label": "Supporter Pack project handoff",
-      "checkedAt": "2026-11-18T16:13:20.659Z",
-      "note": "November 18 Steamworks still shows store review queued from November 12, with both checklists complete. Latest visual/source progress does not establish final refreshed native/ownership delivery qualification. Keep the optional pack off the main launch path and preserve its cleared platform configuration."
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "note": "Steamworks shows both checklists approved and all three platforms selected. The latest base-game defaults each carry three platform depots. Refreshed six-depot and ownership QA remains optional work."
     },
     {
       "id": "marque-reliability-release",
@@ -1317,14 +1382,14 @@
     {
       "id": "economics-detective-episode",
       "label": "Economics Detective launch episode",
-      "checkedAt": "2026-11-13T04:14:46.276Z",
-      "note": "Owner requested a one-off life-update episode introducing Marque & Reprisal, to release November 18. Recording/scheduling are pending; no publication time or continuing podcast cadence was specified."
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "note": "Life Update is public on YouTube and the episode page. The Libsyn feed lists November 18 at 17:51 UTC and the v5 audio serves successfully. Audience response will be reviewed as a one-episode test."
     },
     {
       "id": "creator-outreach-handoff",
       "label": "Creator outreach handoff",
-      "checkedAt": "2026-11-13T04:51:39.061Z",
-      "note": "Owner confirmed all eight prepared emails were sent and requested creator outreach as a recurring daily task. Preserve this completed batch, then choose a new dated action on each new day. Replies, coverage and further batches remain separate states."
+      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "note": "The current handoff prioritizes one verified creator who has access. A separate press request awaits verification and the free creator-platform invitation is pending."
     },
     {
       "id": "kdp-introduction-scope",
@@ -1414,14 +1479,14 @@
       "id": "kdp",
       "label": "KDP ebooks",
       "projectId": "histories-kdp",
-      "note": "Nov 1–18: CA$19.19 included.",
+      "note": "Nov 1–19: CA$19.23 included.",
       "report": {
-        "amountCents": 50536,
+        "amountCents": 50540,
         "currency": "CAD",
         "periodStart": "2026-06-01",
-        "periodEnd": "2026-11-18",
+        "periodEnd": "2026-11-19",
         "basis": "estimated",
-        "observedAt": "2026-11-18T16:09:27.000Z",
+        "observedAt": "2026-11-19T16:06:40.000Z",
         "source": "KDP Royalties Estimator · all books & marketplaces"
       }
     },
@@ -1429,7 +1494,7 @@
       "id": "steam",
       "label": "Steam · Marque & Reprisal",
       "projectId": "marque-and-reprisal",
-      "note": "Launch today · sales reporting will follow.",
+      "note": "US$9,801 net store sales through Nov 19 before Valve’s share. Publisher earnings pending.",
       "report": null
     },
     {
@@ -1455,16 +1520,16 @@
       "returnKind": "steam-scenario",
       "returnNote": "Week 1 · scenario",
       "demand": {
-        "level": 2,
-        "label": "Wishlists"
+        "level": 3,
+        "label": "Steam purchases"
       },
       "delivery": {
-        "level": 2,
-        "label": "Release build ready"
+        "level": 3,
+        "label": "Game and hotfixes live"
       },
-      "effort": "8–16 h",
-      "effortNote": "Launch + week-one support",
-      "gate": "Release today, verify the purchase path and monitor first buyers.",
+      "effort": "4–8 h",
+      "effortNote": "Remaining week-one support",
+      "gate": "Verify live fixes and record a full week of sales, returns and player friction.",
       "milestones": [
         {
           "label": "Prototype",
@@ -1476,15 +1541,15 @@
         },
         {
           "label": "Launch",
-          "state": "next"
+          "state": "done"
         },
         {
           "label": "Support",
-          "state": "later"
+          "state": "next"
         }
       ],
-      "timing": "Today · 10 AM Vancouver",
-      "effortAssumptions": "AI handles fixes and tests. Your time covers release checks, approvals and support."
+      "timing": "First-week review · Nov 25",
+      "effortAssumptions": "AI handles reproduction, fixes and tests. Your time covers decisions, smoke checks and replies."
     },
     {
       "id": "kdp-next-book",
@@ -1648,22 +1713,22 @@
     }
   ],
   "dailyPlan": {
-    "date": "2026-11-18",
-    "checkedAt": "2026-11-18T16:13:20.659Z",
+    "date": "2026-11-19",
+    "checkedAt": "2026-11-19T16:08:12.837Z",
     "taskIds": [
-      "launch-day-release",
-      "launch-package",
-      "launch-day-support"
+      "launch-week-live-support",
+      "creator-outreach-2026-11-19",
+      "launch-returns-review"
     ],
-    "focus": "Release at 10 AM, then get the approved messages live and watch the first buyers. The podcast is already scheduled for 10:51; keep optional DLC and new features off the release path.",
-    "basis": "23,185 wishlists; +10,443 net Nov 11–17. Full 26754115/demo 26754128 are promoted after 9,816 passing tests. YouTube and Libsyn are scheduled; the website task is active for 10:51. DLC store review is still pending. New current-build fixes are source-only."
+    "focus": "Keep new buyers playing. Check the live hotfixes and find where first voyages end early, then follow up with the strongest organic creator lead.",
+    "basis": "Steam reports 1,048 purchases before returns and 27,317 outstanding wishlists. The latest builds ship inn, save, controller and mission fixes. Early returns are 136 (13.0%). Confirm what still affects the live build before qualifying another update."
   },
   "telemetry": {
-    "observedAt": "2026-11-18T15:57:44.107Z",
+    "observedAt": "2026-11-19T16:02:38.898Z",
     "windowDays": 1,
-    "installations": 269,
-    "sessions": 459,
-    "crashReports": 0,
-    "chartWarnings": 8
+    "installations": 918,
+    "sessions": 2262,
+    "crashReports": 1,
+    "chartWarnings": 48
   }
 }
