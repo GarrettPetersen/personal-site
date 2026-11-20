@@ -1,28 +1,28 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-11-19T16:08:12.837Z",
-  "brief": "Launch week · Marque & Reprisal live on Steam",
+  "reviewedAt": "2026-11-20T16:03:55.946Z",
+  "brief": "Launch week · first-voyage update live on Steam",
   "projects": [
     {
       "id": "marque-and-reprisal",
       "name": "Marque & Reprisal",
       "group": "focus",
       "health": "moving",
-      "stage": "Live on Steam · first support week",
+      "stage": "Live · coastal starts and clearer controls",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
-      "next": "Verify recovery on the latest Steam builds and review first-voyage friction.",
-      "blocker": "A port-exit report and sailing stalls need current-build reproduction. New docking and menu fixes are in source.",
+      "next": "Check one fresh coastal voyage and verify Windows startup before the next patch.",
+      "blocker": "Early refunds merit follow-up. Exact current Windows startup and fullscreen coverage need confirmation.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
-        "checkedAt": "2026-11-19T16:02:17.960Z",
-        "lastCommitAt": "2026-11-19T14:37:30Z",
+        "checkedAt": "2026-11-20T16:00:07.927Z",
+        "lastCommitAt": "2026-11-20T08:42:04Z",
         "openPullRequests": 0,
         "openIssues": 0,
         "ci": {
           "status": "completed",
           "conclusion": "success",
-          "createdAt": "2026-11-19T14:29:26Z"
+          "createdAt": "2026-11-20T06:40:47Z"
         }
       }
     },
@@ -31,14 +31,14 @@
       "name": "Subject & Sovereign",
       "group": "prototype",
       "health": "exploring",
-      "stage": "Rebuilt mechanical slice · demand untested",
-      "summary": "Three-character simulation prototype rebuilt around actions, persistent concerns and frontier news/letters. Steam demand remains unmeasured.",
+      "stage": "1637 prototype baseline · demand untested",
+      "summary": "The project reports a reproducible 70-actor draft with local first-week and save checks.",
       "next": "Polish the woodcut trailer slice and prepare its Steam page for a wishlist test.",
-      "blocker": "Page/trailer readiness and wishlist momentum are unverified.",
+      "blocker": "The complete simulation baseline and Steam wishlist demand remain unverified.",
       "repo": "GarrettPetersen/subject-and-sovereign",
       "url": "https://subject-and-sovereign.garrett-m-petersen.workers.dev/",
       "activity": {
-        "checkedAt": "2026-11-19T16:02:17.960Z",
+        "checkedAt": "2026-11-20T16:00:07.927Z",
         "lastCommitAt": "2026-11-18T02:39:40Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -51,13 +51,13 @@
       "group": "prototype",
       "health": "exploring",
       "stage": "Steam page + trailer test",
-      "summary": "Playable Hong Kong chase, traversal and combat studies.",
+      "summary": "Playable Hong Kong chase and combat studies. The latest local flurry demo shows seven distinct strikes and guarded reactions.",
       "next": "Finish a compelling chase/combat trailer slice and prepare its Steam page for a wishlist test.",
-      "blocker": "Wishlist momentum is unmeasured. The latest prototype deployment stopped at tests.",
+      "blocker": "Steam demand is unmeasured. The last hosted prototype run failed its test gate.",
       "repo": "GarrettPetersen/anime-games",
       "url": null,
       "activity": {
-        "checkedAt": "2026-11-19T16:02:17.960Z",
+        "checkedAt": "2026-11-20T16:00:07.927Z",
         "lastCommitAt": "2026-11-01T12:45:37Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -80,7 +80,7 @@
       "repo": "GarrettPetersen/records-of-the-grand-historian",
       "url": "https://24histories.com/progress",
       "activity": {
-        "checkedAt": "2026-11-19T16:02:17.960Z",
+        "checkedAt": "2026-11-20T16:00:07.927Z",
         "lastCommitAt": "2026-11-18T20:29:11Z",
         "openPullRequests": 100,
         "openIssues": 0,
@@ -957,17 +957,16 @@
     {
       "id": "pressengine-invitation",
       "projectId": "marque-and-reprisal",
-      "title": "Free creator-platform invitation",
+      "title": "Free creator-platform invite received",
       "owner": "External · marketing chat",
       "priority": "next",
-      "source": "Confirmed invite-request handoff",
-      "note": "Free-account preference sent. The reviewed thread has no invitation yet.",
-      "status": "open",
+      "source": "Provider confirmation and received invitation",
+      "note": "The provider confirmed the free account and the invitation arrived Nov 19. It covers code requests and shared events. Activation remains optional.",
+      "status": "done",
       "due": null,
-      "checkedAt": "2026-11-19T16:08:12.837Z",
-      "completedOn": null,
-      "completionKind": null,
-      "lane": "waiting"
+      "checkedAt": "2026-11-20T16:03:55.946Z",
+      "completedOn": "2026-11-19",
+      "completionKind": null
     },
     {
       "id": "golden-map-release-2026-11-18",
@@ -1058,45 +1057,45 @@
       "projectId": "marque-and-reprisal",
       "priority": "now",
       "status": "open",
-      "due": "2026-11-19",
-      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "due": "2026-11-20",
+      "checkedAt": "2026-11-20T16:03:55.946Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
-      "title": "Verify the live hotfixes",
+      "title": "Verify Windows startup before the next patch",
       "owner": "Release agent + Garrett",
-      "source": "Steam defaults + remote feedback review",
-      "note": "Check fresh and resumed voyages on full 26784140 and demo 26784145, focusing on inn exit, held Confirm and mission recovery. Ask for the build, input and location on unresolved reports, then reproduce the port-exit and severe sailing stalls. Qualify a narrow patch if a blocker persists.",
-      "importance": 5,
+      "source": "Hosted Windows runtime check + live release certification",
+      "note": "The Nov 19 hosted job timed out in its fullscreen startup query on an earlier source revision. The newest full and demo packages passed recorded fresh-profile launches. Confirm the exact live Windows package starts, enters fullscreen and begins a voyage. Preserve the failure evidence for the next qualified patch.",
+      "importance": 4,
       "effortMinutes": {
-        "min": 15,
-        "max": 35
+        "min": 10,
+        "max": 25
       },
       "tone": "blue",
-      "signal": "Confirm players can leave port and resume missions.",
-      "outcome": "Live recovery paths checked and any reproducible blocker assigned to the release owner."
+      "signal": "A hosted Windows gate timed out. Confirm the live package on Windows.",
+      "outcome": "Exact live Windows path verified, or a reproducible failure recorded for the release owner."
     },
     {
       "id": "creator-outreach-2026-11-19",
       "projectId": "marque-and-reprisal",
-      "priority": "now",
+      "priority": "next",
       "status": "open",
-      "due": "2026-11-19",
-      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "due": null,
+      "checkedAt": "2026-11-20T16:03:55.946Z",
       "completedOn": null,
       "completionKind": null,
-      "lane": "active",
+      "lane": "waiting",
       "title": "Follow up with one qualified creator",
       "owner": "Garrett + marketing agent",
       "source": "Reviewed creator replies + marketing handoff",
-      "note": "Follow up with the verified Pirates!-focused creator who already has access. Share the approved live store link and latest gameplay trailer using Garrett’s wording. Record the reply and any eventual coverage.",
+      "note": "The previously identified follow-up still awaits send confirmation. The daily outreach queue carries the next action.",
       "importance": 4,
       "effortMinutes": {
         "min": 5,
         "max": 15
       },
       "tone": "gold",
-      "signal": "A genre-fit creator replied and already has access.",
+      "signal": "Send confirmation pending.",
       "outcome": "One human-approved follow-up is sent or explicitly deferred."
     },
     {
@@ -1104,23 +1103,74 @@
       "projectId": "marque-and-reprisal",
       "priority": "now",
       "status": "open",
-      "due": "2026-11-19",
-      "checkedAt": "2026-11-19T16:08:12.837Z",
+      "due": "2026-11-20",
+      "checkedAt": "2026-11-20T16:03:55.946Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
-      "title": "Find where first voyages stall",
-      "owner": "Release and marketing agents + Garrett",
-      "source": "Steam sales + feedback and opt-in telemetry",
-      "note": "Compare return and review themes with the newest build and one fresh voyage from the first inn to paid work. Separate older launch-day defects from current progression friction. Capture the baseline for November 25 and pick the most actionable issue.",
-      "importance": 3,
+      "title": "Play a fresh coastal voyage",
+      "owner": "Release agent + Garrett",
+      "source": "Steam refund categories + public reviews + live coastal release",
+      "note": "Start a new profile on the current Steam build and play through leaving the first port to a clear goal or first paid action. Check dialogue, keyboard/controller cues and the first turn out of port. Compare only fresh reports against this build at the Nov 25 review.",
+      "importance": 5,
       "effortMinutes": {
-        "min": 15,
-        "max": 25
+        "min": 20,
+        "max": 35
       },
       "tone": "coral",
-      "signal": "136 early returns. Check for a recurring, fixable cause.",
-      "outcome": "Early support evidence summarized and the strongest current issue selected."
+      "signal": "Coastal starts shipped. Check whether the first voyage is easier to follow.",
+      "outcome": "First port to first goal checked on the live build, with any blocker assigned."
+    },
+    {
+      "id": "creator-outreach-2026-11-20",
+      "projectId": "marque-and-reprisal",
+      "title": "Verify one press request",
+      "owner": "Garrett + marketing agent",
+      "source": "Project mail and marketing handoff",
+      "note": "Review the strongest genre-fit inbound request and verify the sender through the outlet’s own contact channel. Check for an existing reply or key handoff before any owner decision.",
+      "priority": "now",
+      "status": "open",
+      "due": "2026-11-20",
+      "checkedAt": "2026-11-20T16:03:55.946Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active",
+      "importance": 3,
+      "effortMinutes": {
+        "min": 10,
+        "max": 15
+      },
+      "tone": "gold",
+      "signal": "New review requests arrived. Confirm one sender before committing time.",
+      "outcome": "One inbound request has a verified identity and a reply decision, or is deferred."
+    },
+    {
+      "id": "coastal-starts-release-2026-11-20",
+      "projectId": "marque-and-reprisal",
+      "title": "Coastal starts and clearer controls shipped",
+      "owner": "Release and marketing teams",
+      "source": "Steamworks defaults + published release record",
+      "note": "Steam defaults full 26806516 and demo 26806529 ship coastal starts for the first three voyages, shared directional bindings and bank-turn fixes. The recorded qualification covered 10,648 Node tests and 36 frozen saves.",
+      "priority": "now",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-20T16:03:55.946Z",
+      "completedOn": "2026-11-20",
+      "completionKind": null
+    },
+    {
+      "id": "localized-gallery-refresh-2026-11-19",
+      "projectId": "marque-and-reprisal",
+      "title": "Localized Steam galleries refreshed",
+      "owner": "Release and marketing teams",
+      "source": "Storefront and project delivery handoff",
+      "note": "Marketing verified the full-game gallery update and Garrett confirmed publication of the revised demo screenshots. The press kit also has updated localized images.",
+      "priority": "now",
+      "status": "done",
+      "due": null,
+      "checkedAt": "2026-11-20T16:03:55.946Z",
+      "completedOn": "2026-11-19",
+      "completionKind": null
     }
   ],
   "metrics": [
@@ -1128,27 +1178,27 @@
       "id": "wishlists",
       "projectId": "marque-and-reprisal",
       "label": "Outstanding wishlists",
-      "value": 27317,
+      "value": 30513,
       "note": "Steam lifetime outstanding",
-      "observedAt": "2026-11-19T16:06:40.000Z",
+      "observedAt": "2026-11-20T16:02:58.635Z",
       "total": null
     },
     {
       "id": "wishlist-week",
       "projectId": "marque-and-reprisal",
       "label": "Net wishlists / week",
-      "value": 11721,
-      "note": "Nov 12–18 · +176% vs. prior week",
-      "observedAt": "2026-11-19T16:06:40.000Z",
+      "value": 16509,
+      "note": "Nov 13–19 · +266% vs. prior week",
+      "observedAt": "2026-11-20T16:02:58.635Z",
       "total": null
     },
     {
       "id": "steam-units",
       "projectId": "marque-and-reprisal",
       "label": "Steam purchases",
-      "value": 1048,
-      "note": "721 on Nov 18 · 136 total returns",
-      "observedAt": "2026-11-19T16:06:40.000Z",
+      "value": 1605,
+      "note": "794 on Nov 19 · 15.4% user refunds in the package report",
+      "observedAt": "2026-11-20T16:02:58.635Z",
       "total": null
     },
     {
@@ -1268,32 +1318,32 @@
     {
       "id": "github",
       "label": "GitHub",
-      "checkedAt": "2026-11-19T16:02:17.960Z",
+      "checkedAt": "2026-11-20T16:00:07.927Z",
       "note": "Default-branch activity, open work and CI. Activity does not measure product progress."
     },
     {
       "id": "email",
       "label": "Project email",
-      "checkedAt": "2026-11-19T16:08:12.837Z",
-      "note": "Signed-in Gmail review verified launch sends and checked current creator replies, draft state and grant mail. One organic follow-up has been identified. The free-platform invitation remains pending. No funder update found."
+      "checkedAt": "2026-11-20T16:03:55.946Z",
+      "note": "Signed-in Gmail review found new inbound review requests, the free creator-platform invitation and no matching project drafts or recent funder mail. Sender verification remains open on the press requests."
     },
     {
       "id": "steam",
       "label": "Steamworks",
-      "checkedAt": "2026-11-19T16:08:12.837Z",
-      "note": "Steamworks: 27,317 outstanding (29,600 adds, 1,610 deletions, 671 purchases/activations and two gifts). Nov 12–18: +11,721 balance after conversions, prior week +4,237. Sales snapshot: 1,048 purchases, 136 returns and US$9,801 net store sales before Valve’s share."
+      "checkedAt": "2026-11-20T16:03:55.946Z",
+      "note": "Steamworks: 30,513 outstanding (33,425 adds, 1,946 deletes, 964 purchases/activations and two gifts). Nov 13–19 balance +16,509, prior +4,508. Sales overview: 1,605 purchases and US$14,646 net before Valve’s share. Separate package report: 250 user refunds (15.4%)."
     },
     {
       "id": "glossary",
       "label": "Published glossary data",
-      "checkedAt": "2026-11-19T16:02:17.960Z",
+      "checkedAt": "2026-11-20T16:00:07.927Z",
       "note": "Published output retains its source date. Separately, 2,050 extracted chapters are intermediate work (source: 2026-11-18 Pacific), not published completion."
     },
     {
       "id": "marketing",
       "label": "M&R Marketing",
-      "checkedAt": "2026-11-19T16:08:12.837Z",
-      "note": "Launch materials and the revised gameplay trailer are available. The marketing handoff identifies a qualified creator follow-up and a separate press request awaiting identity verification. Public episode delivery is verified."
+      "checkedAt": "2026-11-20T16:03:55.946Z",
+      "note": "The owning project verified refreshed full-game gallery and press kit assets. Garrett confirmed the replacement demo screenshots went live. Early reviews report difficult inland starts. The largest refund category provides limited detail about the cause."
     },
     {
       "id": "histories-coordinator",
@@ -1310,14 +1360,14 @@
     {
       "id": "marque-ci",
       "label": "M&R CI rerun",
-      "checkedAt": "2026-11-19T16:08:12.837Z",
-      "note": "Game action/runtime CI 44380320301 passed both test and Windows jobs at 1d86a6c3. The later website workflow passed separately. Current artifact bb78c6e7 has its own recorded 10,585 game tests, 110 native checks, 36 save restores and six packaged launches."
+      "checkedAt": "2026-11-20T16:03:55.946Z",
+      "note": "Hosted game/runtime run 44599006379 on d917a29b passed the test job and timed out in Windows fullscreen startup. New build 44f018a0 passed the recorded release checks. Exact live Windows fullscreen coverage remains unverified."
     },
     {
       "id": "kdp-publishing",
       "label": "KDP publishing",
-      "checkedAt": "2026-11-19T16:08:12.837Z",
-      "note": "Royalties Estimator across all four books and marketplaces: CA$505.40 for Jun 1–Nov 19, including CA$19.23 for Nov 1–19. The detailed export ends Nov 12."
+      "checkedAt": "2026-11-20T16:03:55.946Z",
+      "note": "Royalties Estimator across all four books and marketplaces: CA$505.42 for Jun 1–Nov 20, including CA$19.25 for Nov 1–20. The detailed export ends Nov 12."
     },
     {
       "id": "kdp-introductions",
@@ -1352,20 +1402,20 @@
     {
       "id": "marque-telemetry",
       "label": "M&R live telemetry · 24h",
-      "checkedAt": "2026-11-19T16:02:17.960Z",
-      "note": "24h opt-in snapshot at 2026-11-19T16:02:38.898Z: 918 installations, 2262 sessions, 1 crash reports and 48 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
+      "checkedAt": "2026-11-20T16:00:07.927Z",
+      "note": "24h opt-in snapshot at 2026-11-20T16:00:26.872Z: 948 installations, 1936 sessions, 1 crash reports and 51 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
     },
     {
       "id": "marque-feedback",
       "label": "M&R remote feedback review",
-      "checkedAt": "2026-11-19T16:08:12.837Z",
-      "note": "Remote tracker reviewed at 62eca92b. Steam defaults full 26784140/demo 26784145 at bb78c6e7 ship controller and mission fixes. Port-access and later dialogue/menu changes are in source. Retest the reported port-exit and sailing stalls against the live build."
+      "checkedAt": "2026-11-20T16:03:55.946Z",
+      "note": "Current remote tracker and release evidence at b1178df5. Steam defaults 26806516/26806529 at 44f018a0 include coastal starts, clearer controls and reported bank-turn fixes. Older render pauses and NPC route reports still need build-specific evidence."
     },
     {
       "id": "supporter-pack",
       "label": "Supporter Pack project handoff",
-      "checkedAt": "2026-11-19T16:08:12.837Z",
-      "note": "Steamworks shows both checklists approved and all three platforms selected. The latest base-game defaults each carry three platform depots. Refreshed six-depot and ownership QA remains optional work."
+      "checkedAt": "2026-11-20T16:03:55.946Z",
+      "note": "Steamworks still shows both checklists approved. The supporter branch remains at 19dc6783 and both current base-game defaults carry three platform depots. The refreshed combined delivery and ownership checks remain on the backburner."
     },
     {
       "id": "marque-reliability-release",
@@ -1388,8 +1438,8 @@
     {
       "id": "creator-outreach-handoff",
       "label": "Creator outreach handoff",
-      "checkedAt": "2026-11-19T16:08:12.837Z",
-      "note": "The current handoff prioritizes one verified creator who has access. A separate press request awaits verification and the free creator-platform invitation is pending."
+      "checkedAt": "2026-11-20T16:03:55.946Z",
+      "note": "The free platform invitation arrived. New press requests are in the inbox. The current action is to verify one sender and check its reply history before a review-key decision."
     },
     {
       "id": "kdp-introduction-scope",
@@ -1479,14 +1529,14 @@
       "id": "kdp",
       "label": "KDP ebooks",
       "projectId": "histories-kdp",
-      "note": "Nov 1–19: CA$19.23 included.",
+      "note": "Nov 1–20: CA$19.25 included.",
       "report": {
-        "amountCents": 50540,
+        "amountCents": 50542,
         "currency": "CAD",
         "periodStart": "2026-06-01",
-        "periodEnd": "2026-11-19",
+        "periodEnd": "2026-11-20",
         "basis": "estimated",
-        "observedAt": "2026-11-19T16:06:40.000Z",
+        "observedAt": "2026-11-20T16:02:58.635Z",
         "source": "KDP Royalties Estimator · all books & marketplaces"
       }
     },
@@ -1494,7 +1544,7 @@
       "id": "steam",
       "label": "Steam · Marque & Reprisal",
       "projectId": "marque-and-reprisal",
-      "note": "US$9,801 net store sales through Nov 19 before Valve’s share. Publisher earnings pending.",
+      "note": "US$14,646 net store sales through Nov 20 before Valve’s share. Publisher earnings pending.",
       "report": null
     },
     {
@@ -1529,7 +1579,7 @@
       },
       "effort": "4–8 h",
       "effortNote": "Remaining week-one support",
-      "gate": "Verify live fixes and record a full week of sales, returns and player friction.",
+      "gate": "Check coastal onboarding and the Windows startup path, then compare a full week of sales and returns.",
       "milestones": [
         {
           "label": "Prototype",
@@ -1713,22 +1763,22 @@
     }
   ],
   "dailyPlan": {
-    "date": "2026-11-19",
-    "checkedAt": "2026-11-19T16:08:12.837Z",
+    "date": "2026-11-20",
+    "checkedAt": "2026-11-20T16:03:55.946Z",
     "taskIds": [
+      "launch-returns-review",
       "launch-week-live-support",
-      "creator-outreach-2026-11-19",
-      "launch-returns-review"
+      "creator-outreach-2026-11-20"
     ],
-    "focus": "Keep new buyers playing. Check the live hotfixes and find where first voyages end early, then follow up with the strongest organic creator lead.",
-    "basis": "Steam reports 1,048 purchases before returns and 27,317 outstanding wishlists. The latest builds ship inn, save, controller and mission fixes. Early returns are 136 (13.0%). Confirm what still affects the live build before qualifying another update."
+    "focus": "Check whether a new player can find a goal and get sailing on the coastal build. Verify Windows startup before the next patch and follow up on one qualified press request.",
+    "basis": "1,605 Steam purchases, 30,513 outstanding wishlists and 15.4% player refunds in the package report. Coastal starts and clearer controls are live. Inland starts were reported as friction. The latest hosted Windows fullscreen check timed out on an earlier revision."
   },
   "telemetry": {
-    "observedAt": "2026-11-19T16:02:38.898Z",
+    "observedAt": "2026-11-20T16:00:26.872Z",
     "windowDays": 1,
-    "installations": 918,
-    "sessions": 2262,
+    "installations": 948,
+    "sessions": 1936,
     "crashReports": 1,
-    "chartWarnings": 48
+    "chartWarnings": 51
   }
 }
