@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "reviewedAt": "2026-11-20T16:03:55.946Z",
-  "brief": "Launch week · first-voyage update live on Steam",
+  "brief": "Launch week · investment review Nov 25.",
   "projects": [
     {
       "id": "marque-and-reprisal",
@@ -10,8 +10,8 @@
       "health": "moving",
       "stage": "Live · coastal starts and clearer controls",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
-      "next": "Check one fresh coastal voyage and verify Windows startup before the next patch.",
-      "blocker": "Early refunds merit follow-up. Exact current Windows startup and fullscreen coverage need confirmation.",
+      "next": "Protect sales and continued play through launch week, then choose one follow-up investment.",
+      "blocker": "The first week is incomplete. Refund reasons and repeatable traffic need more evidence.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
@@ -1057,15 +1057,15 @@
       "projectId": "marque-and-reprisal",
       "priority": "now",
       "status": "open",
-      "due": "2026-11-20",
+      "due": null,
       "checkedAt": "2026-11-20T16:03:55.946Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
       "title": "Verify Windows startup before the next patch",
-      "owner": "Release agent + Garrett",
+      "owner": "Release team",
       "source": "Hosted Windows runtime check + live release certification",
-      "note": "The Nov 19 hosted job timed out in its fullscreen startup query on an earlier source revision. The newest full and demo packages passed recorded fresh-profile launches. Confirm the exact live Windows package starts, enters fullscreen and begins a voyage. Preserve the failure evidence for the next qualified patch.",
+      "note": "Confirm startup, fullscreen and voyage entry on the exact live Windows package before another patch. The earlier hosted test timed out. Escalate a reproducible issue that blocks players.",
       "importance": 4,
       "effortMinutes": {
         "min": 10,
@@ -1103,15 +1103,15 @@
       "projectId": "marque-and-reprisal",
       "priority": "now",
       "status": "open",
-      "due": "2026-11-20",
+      "due": null,
       "checkedAt": "2026-11-20T16:03:55.946Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
       "title": "Play a fresh coastal voyage",
-      "owner": "Release agent + Garrett",
+      "owner": "Release team",
       "source": "Steam refund categories + public reviews + live coastal release",
-      "note": "Start a new profile on the current Steam build and play through leaving the first port to a clear goal or first paid action. Check dialogue, keyboard/controller cues and the first turn out of port. Compare only fresh reports against this build at the Nov 25 review.",
+      "note": "Run a fresh coastal voyage through the first clear goal. Record current-build friction and route confirmed blockers to the release owner. Summarize themes for the first-week review.",
       "importance": 5,
       "effortMinutes": {
         "min": 20,
@@ -1171,6 +1171,52 @@
       "checkedAt": "2026-11-20T16:03:55.946Z",
       "completedOn": "2026-11-19",
       "completionKind": null
+    },
+    {
+      "id": "steam-launch-week-allocation",
+      "owner": "Garrett",
+      "priority": "now",
+      "status": "open",
+      "checkedAt": "2026-11-21T15:05:50.476Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active",
+      "projectId": "marque-and-reprisal",
+      "title": "Protect the Steam launch",
+      "source": "Nov 20 Steam reports + launch-week plan",
+      "note": "Give Steam your discretionary time through November 25. Reserve it for decisions that protect purchases and continued play, plus the strongest earned distribution opportunity. Have the release team handle reproduction, platform QA and routine support. Escalate confirmed blockers or a clear commercial tradeoff.",
+      "due": "2026-11-25",
+      "importance": 5,
+      "effortMinutes": {
+        "min": 10,
+        "max": 20
+      },
+      "tone": "blue",
+      "signal": "Prioritize keeping buyers playing and reaching the right new players.",
+      "outcome": "Launch-week scope is clear and the team knows which issues need your decision."
+    },
+    {
+      "id": "november-portfolio-allocation",
+      "owner": "Garrett",
+      "priority": "now",
+      "status": "open",
+      "checkedAt": "2026-11-21T15:05:50.476Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active",
+      "projectId": null,
+      "title": "Choose the next investment",
+      "source": "First-week review + portfolio outlook",
+      "note": "On November 25 compare kept Steam sales, true player refunds, current-build friction and evidence of repeatable traffic. Prefer one focused Steam follow-up if it can plausibly improve kept sales. Otherwise keep Steam in maintenance and compare one bounded Steam page and trailer test with the next researched ebook. Choose one based on expected payoff, confidence and your time. Keep new production and ports behind their evidence gates.",
+      "due": "2026-11-25",
+      "importance": 4,
+      "effortMinutes": {
+        "min": 30,
+        "max": 45
+      },
+      "tone": "sage",
+      "signal": "Use the full first week to choose one follow-up bet.",
+      "outcome": "One next commitment has a cap on your time and a signal that justifies further work."
     }
   ],
   "metrics": [
@@ -1197,7 +1243,7 @@
       "projectId": "marque-and-reprisal",
       "label": "Steam purchases",
       "value": 1605,
-      "note": "794 on Nov 19 · 15.4% user refunds in the package report",
+      "note": "Nov 20 package report: 15.4% player refunds, 15.5% total returns.",
       "observedAt": "2026-11-20T16:02:58.635Z",
       "total": null
     },
@@ -1226,11 +1272,11 @@
       "id": "launch-week-review",
       "projectId": "marque-and-reprisal",
       "date": "2026-11-25",
-      "title": "First-week review",
+      "title": "First-week investment decision",
       "kind": "planned",
-      "note": "Compare the full first week of sales, returns, wishlist conversion, traffic, creator and episode reach, and live-build support. Use the results to choose the next investment.",
+      "note": "Use kept sales, player refunds, traffic and current-build support to choose one next investment. Compare a focused Steam follow-up with one bounded demand test or researched ebook.",
       "sourceUrl": null,
-      "verifiedAt": "2026-11-19T16:08:12.837Z"
+      "verifiedAt": "2026-11-21T15:05:50.476Z"
     },
     {
       "id": "creative-bc-decision-check",
@@ -1331,7 +1377,7 @@
       "id": "steam",
       "label": "Steamworks",
       "checkedAt": "2026-11-20T16:03:55.946Z",
-      "note": "Steamworks: 30,513 outstanding (33,425 adds, 1,946 deletes, 964 purchases/activations and two gifts). Nov 13–19 balance +16,509, prior +4,508. Sales overview: 1,605 purchases and US$14,646 net before Valve’s share. Separate package report: 250 user refunds (15.4%)."
+      "note": "Nov 20 sales overview: 1,605 purchases and US$14,646 net store sales before Valve’s share. The separate package report shows 250 player refunds (15.4%) and 252 total returns (15.5%). Total returns also include chargebacks, fraud and payment issues. Nov 21 reporting requires sign-in."
     },
     {
       "id": "glossary",
@@ -1579,7 +1625,7 @@
       },
       "effort": "4–8 h",
       "effortNote": "Remaining week-one support",
-      "gate": "Check coastal onboarding and the Windows startup path, then compare a full week of sales and returns.",
+      "gate": "Use first-week kept sales and repeatable demand to decide whether another focused Steam push earns the time.",
       "milestones": [
         {
           "label": "Prototype",
@@ -1599,7 +1645,7 @@
         }
       ],
       "timing": "First-week review · Nov 25",
-      "effortAssumptions": "AI handles reproduction, fixes and tests. Your time covers decisions, smoke checks and replies."
+      "effortAssumptions": "The release team handles fixes, tests and routine support. Your time covers commercial decisions and escalations."
     },
     {
       "id": "kdp-next-book",
@@ -1763,15 +1809,14 @@
     }
   ],
   "dailyPlan": {
-    "date": "2026-11-20",
-    "checkedAt": "2026-11-20T16:03:55.946Z",
+    "date": "2026-11-21",
+    "checkedAt": "2026-11-21T15:05:50.476Z",
     "taskIds": [
-      "launch-returns-review",
-      "launch-week-live-support",
-      "creator-outreach-2026-11-20"
+      "steam-launch-week-allocation",
+      "november-portfolio-allocation"
     ],
-    "focus": "Check whether a new player can find a goal and get sailing on the coastal build. Verify Windows startup before the next patch and follow up on one qualified press request.",
-    "basis": "1,605 Steam purchases, 30,513 outstanding wishlists and 15.4% player refunds in the package report. Coastal starts and clearer controls are live. Inland starts were reported as friction. The latest hosted Windows fullscreen check timed out on an earlier revision."
+    "focus": "Give Marque & Reprisal the rest of launch week. Defer DLC, ports and new production. Use the November 25 review to choose one next investment.",
+    "basis": "Nov 20 Steam snapshot: 1,605 purchases and 30,513 outstanding wishlists. The package report shows 250 player refunds (15.4%) and 252 total returns (15.5%). Paid demand favors Steam now. A full week of sales and support evidence will guide the next commitment."
   },
   "telemetry": {
     "observedAt": "2026-11-20T16:00:26.872Z",

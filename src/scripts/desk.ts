@@ -59,7 +59,7 @@ reset.addEventListener("click", () => { selectedDate = undefined; renderAgenda()
 
 function refreshDates() {
   const dailyBoard = requiredElement("[data-daily-date]", HTMLElement);
-  requiredElement("[data-daily-title]", HTMLElement).textContent = dailyBoard.dataset.dailyDate === localDate() ? "Next priorities" : "Last picks";
+  requiredElement("[data-daily-title]", HTMLElement).textContent = dailyBoard.dataset.dailyDate === localDate() ? "Owner priorities" : "Last reviewed priorities";
   const freshness = requiredElement("[data-reviewed-at]", HTMLElement);
   const reviewedAt = freshness.dataset.reviewedAt;
   if (!reviewedAt) throw new Error("Missing review timestamp");

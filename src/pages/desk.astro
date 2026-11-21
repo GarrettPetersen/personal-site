@@ -52,9 +52,9 @@ const healthLabels:Record<string,string>={attention:'Needs attention',moving:'In
       <div class="desk-main-column">
         <KdpReport />
         <details class="desk-tool"><summary><span>Launch calculator</span></summary><RevenueScenario /></details>
-        <section class="desk-actions" aria-labelledby="actions-title"><div class="desk-section-heading"><h2 id="actions-title">Next in line</h2><span>{lanes.active.length} open</span></div>
+        <details class="desk-task-shelf" id="team-queue"><summary><span>Team queue</span><small>{lanes.active.length} open</small></summary>
           <TaskList tasks={lanes.active} />
-        </section>
+        </details>
         <details class="desk-task-shelf" id="waiting"><summary><span>Waiting on others</span><small>{lanes.waiting.length}</small></summary><TaskList tasks={lanes.waiting} /></details>
         <details class="desk-task-shelf" id="backburner"><summary><span>Backburner</span><small>{lanes.backburner.length} · when you choose a break</small></summary><p>Optional work. Reconsider after launch week; no catch-up obligation.</p><TaskList tasks={lanes.backburner} /></details>
         <section class="desk-context" aria-labelledby="context-title"><div class="desk-section-heading"><h2 id="context-title">Project context</h2></div>
