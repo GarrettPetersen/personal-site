@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-11-21T16:06:57.087Z",
+  "reviewedAt": "2026-11-22T16:00:26.593Z",
   "brief": "Launch week · investment review Nov 25.",
   "projects": [
     {
@@ -8,21 +8,21 @@
       "name": "Marque & Reprisal",
       "group": "focus",
       "health": "moving",
-      "stage": "Live · tutorial and city update",
+      "stage": "Live · accessibility and mod support updates",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
-      "next": "Protect first-run conversion and use the finished press kit for qualified outreach.",
-      "blocker": "Steam reporting requires sign-in. Intermittent demo startup reports need reproduction.",
+      "next": "Find the biggest remaining reason buyers leave, then focus the next Steam update or campaign.",
+      "blocker": "Player refunds reached 18.0%. The causes and durability of Steam discovery need more evidence.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
-        "checkedAt": "2026-11-21T16:04:50.771Z",
-        "lastCommitAt": "2026-11-21T14:56:01Z",
+        "checkedAt": "2026-11-22T15:56:47.558Z",
+        "lastCommitAt": "2026-11-22T03:53:23Z",
         "openPullRequests": 0,
         "openIssues": 0,
         "ci": {
           "status": "completed",
           "conclusion": "success",
-          "createdAt": "2026-11-21T15:17:37Z"
+          "createdAt": "2026-11-21T22:30:57Z"
         }
       }
     },
@@ -31,14 +31,14 @@
       "name": "Subject & Sovereign",
       "group": "prototype",
       "health": "exploring",
-      "stage": "1637 prototype baseline · demand untested",
-      "summary": "The project reports a reproducible 77-actor opening and first week with local save verification.",
-      "next": "Polish the woodcut trailer slice and prepare its Steam page for a wishlist test.",
-      "blocker": "The complete simulation baseline and Steam wishlist demand remain unverified.",
+      "stage": "Trailer cut complete · demand untested",
+      "summary": "A finished woodcut trailer is available. Prototype work continues on the 1637 world baseline.",
+      "next": "Reuse the trailer for a bounded Steam page test when selected.",
+      "blocker": "Steam page and wishlist results are still pending. The full simulation baseline is still in development.",
       "repo": "GarrettPetersen/subject-and-sovereign",
       "url": "https://subject-and-sovereign.garrett-m-petersen.workers.dev/",
       "activity": {
-        "checkedAt": "2026-11-21T16:04:50.771Z",
+        "checkedAt": "2026-11-22T15:56:47.558Z",
         "lastCommitAt": "2026-11-18T02:39:40Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -57,7 +57,7 @@
       "repo": "GarrettPetersen/anime-games",
       "url": null,
       "activity": {
-        "checkedAt": "2026-11-21T16:04:50.771Z",
+        "checkedAt": "2026-11-22T15:56:47.558Z",
         "lastCommitAt": "2026-11-01T12:45:37Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -80,7 +80,7 @@
       "repo": "GarrettPetersen/records-of-the-grand-historian",
       "url": "https://24histories.com/progress",
       "activity": {
-        "checkedAt": "2026-11-21T16:04:50.771Z",
+        "checkedAt": "2026-11-22T15:56:47.558Z",
         "lastCommitAt": "2026-11-18T20:29:11Z",
         "openPullRequests": 100,
         "openIssues": 0,
@@ -175,11 +175,11 @@
       "title": "Prepare Subject & Sovereign’s page test",
       "owner": "Garrett + Codex",
       "priority": "later",
-      "source": "Owner strategy",
-      "note": "After the M&R launch: polish the trailer slice and Steam page, then measure wishlist momentum before committing to production. Set a test window and wishlist goal first.",
+      "source": "Owner-confirmed trailer + portfolio handoff",
+      "note": "The trailer cut exists. If this is the chosen investment, check page readiness and define the audience, test window and wishlist signal before publication.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-12T18:49:29.958Z",
+      "checkedAt": "2026-11-22T16:00:26.593Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "backburner"
@@ -1058,14 +1058,14 @@
       "priority": "now",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-21T16:06:57.087Z",
+      "checkedAt": "2026-11-22T16:00:26.593Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
       "title": "Verify live demo startup before wider promotion",
       "owner": "Release team",
       "source": "Release certification, hosted CI and current feedback",
-      "note": "Replay the reported intermittent startup failure on the matching packaged demo. Check fresh startup and fullscreen on Windows and record the exact build. Escalate a repeatable blocker affecting new players.",
+      "note": "The current Steam demo default 26841162 passed recorded startup and fresh-profile launches. Check earlier reported failures on that exact package. Separate first-run blockers from isolated system reports and record current build evidence.",
       "importance": 4,
       "effortMinutes": {
         "min": 10,
@@ -1104,14 +1104,14 @@
       "priority": "now",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-21T16:06:57.087Z",
+      "checkedAt": "2026-11-22T16:00:26.593Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
-      "title": "Play a fresh coastal voyage",
+      "title": "Find recurring first-voyage friction",
       "owner": "Release team",
       "source": "Steam refund categories + public reviews + live coastal release",
-      "note": "Evaluate the updated fishing tutorial and first goal in a fresh voyage. Capture recurring first-run friction for the first-week review, including any interaction issue that still blocks progress on the current package.",
+      "note": "Review refund themes and reported first-voyage friction against the current builds. Reproduce sailing, early progress and controls on a fresh profile. Record the best-supported issue and distinguish launch-day reports from the live package.",
       "importance": 5,
       "effortMinutes": {
         "min": 20,
@@ -1177,14 +1177,14 @@
       "owner": "Garrett",
       "priority": "now",
       "status": "open",
-      "checkedAt": "2026-11-21T16:06:57.087Z",
+      "checkedAt": "2026-11-22T16:00:26.593Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
       "projectId": "marque-and-reprisal",
-      "title": "Protect the Steam launch",
-      "source": "Nov 20 Steam reports + launch-week plan",
-      "note": "Give Steam your discretionary time through November 25. Use the finished press kit and trailers for the strongest organic opportunity. Let the release team check first-run failures and escalate only a confirmed issue that threatens purchases or continued play.",
+      "title": "Keep more Steam buyers",
+      "source": "November 22 Steam sales, refund and traffic reports",
+      "note": "The last two complete days brought over 400 purchases each. With the package player-refund rate now 18.0%, give your time to decisions that improve the first voyage and continued play. Use the existing kit for qualified outreach. Expand promotion when the current setup works reliably and there is a channel worth testing.",
       "due": "2026-11-25",
       "importance": 5,
       "effortMinutes": {
@@ -1192,22 +1192,22 @@
         "max": 20
       },
       "tone": "blue",
-      "signal": "Prioritize keeping buyers playing and reaching the right new players.",
-      "outcome": "Launch-week scope is clear and the team knows which issues need your decision."
+      "signal": "Demand remains active. Identify where buyers leave before expanding the push.",
+      "outcome": "The team has one priority for reducing first-run friction, backed by current-build evidence."
     },
     {
       "id": "november-portfolio-allocation",
       "owner": "Garrett",
       "priority": "now",
       "status": "open",
-      "checkedAt": "2026-11-21T15:05:50.476Z",
+      "checkedAt": "2026-11-22T16:00:26.593Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
       "projectId": null,
       "title": "Choose the next investment",
       "source": "First-week review + portfolio outlook",
-      "note": "On November 25 compare kept Steam sales, true player refunds, current-build friction and evidence of repeatable traffic. Prefer one focused Steam follow-up if it can plausibly improve kept sales. Otherwise keep Steam in maintenance and compare one bounded Steam page and trailer test with the next researched ebook. Choose one based on expected payoff, confidence and your time. Keep new production and ports behind their evidence gates.",
+      "note": "Compare kept sales, user refunds and repeatable traffic at the November 25 review. Favor one focused Steam follow-up if a reproducible first-run issue or reliable channel could improve kept sales. Otherwise compare Subject & Sovereign’s existing trailer and a bounded wishlist test with the next researched ebook. Set an owner-hour cap and a success signal for one commitment.",
       "due": "2026-11-25",
       "importance": 4,
       "effortMinutes": {
@@ -1224,14 +1224,14 @@
       "title": "Reconcile one press lead against the new kit",
       "owner": "Marketing team",
       "source": "Project inbox + marketing handoff + live press kit",
-      "note": "Check the best existing genre-fit lead for a verified sender and any prior reply or coverage. Route the live kit for Garrett’s decision only if the lead is qualified. Keep new requests without a verifiable outlet in review.",
+      "note": "No matching sent reply or coverage in the latest reconciliation. Await verification or handoff.",
       "priority": "next",
       "status": "open",
-      "due": "2026-11-21",
-      "checkedAt": "2026-11-21T16:06:57.087Z",
+      "due": null,
+      "checkedAt": "2026-11-22T16:00:26.593Z",
       "completedOn": null,
       "completionKind": null,
-      "lane": "active"
+      "lane": "waiting"
     },
     {
       "id": "steam-deck-review",
@@ -1275,6 +1275,49 @@
       "checkedAt": "2026-11-21T16:06:57.087Z",
       "completedOn": "2026-11-21",
       "completionKind": null
+    },
+    {
+      "id": "creator-outreach-2026-11-22",
+      "projectId": "marque-and-reprisal",
+      "checkedAt": "2026-11-22T16:00:26.593Z",
+      "completionKind": null,
+      "title": "Verify one new editorial lead",
+      "owner": "Marketing team",
+      "source": "Project inbox + public publication check",
+      "note": "One new editorial request has a discoverable publication. Confirm the sender against an official contact and review relevant coverage before proposing a reply. Record the outcome in the existing handoff.",
+      "priority": "next",
+      "status": "open",
+      "due": "2026-11-22",
+      "completedOn": null,
+      "lane": "active"
+    },
+    {
+      "id": "clearer-waters-release-2026-11-21",
+      "projectId": "marque-and-reprisal",
+      "checkedAt": "2026-11-22T16:00:26.593Z",
+      "completionKind": null,
+      "title": "Clearer sailing HUD and water visuals shipped",
+      "owner": "Release team",
+      "source": "Release record + Steam default branches",
+      "note": "The updated HUD, palette and navigation visuals shipped for full and demo. The demo remains on 26841162. The release record confirms the production smoke and fresh-profile launches.",
+      "priority": "next",
+      "status": "done",
+      "due": null,
+      "completedOn": "2026-11-21"
+    },
+    {
+      "id": "workshop-full-conversions-release-2026-11-21",
+      "projectId": "marque-and-reprisal",
+      "checkedAt": "2026-11-22T16:00:26.593Z",
+      "completionKind": null,
+      "title": "Full-game conversion launcher shipped",
+      "owner": "Release team",
+      "source": "Release record + Steam default branch",
+      "note": "Full build 26843359 launches conversions from the Mods menu. The public Workshop hub still redirects to the general Workshop page. Check public access and one subscription-to-play example before making a separate promotion.",
+      "priority": "next",
+      "status": "done",
+      "due": null,
+      "completedOn": "2026-11-21"
     }
   ],
   "metrics": [
@@ -1282,27 +1325,27 @@
       "id": "wishlists",
       "projectId": "marque-and-reprisal",
       "label": "Outstanding wishlists",
-      "value": 30513,
+      "value": 33265,
       "note": "Steam lifetime outstanding",
-      "observedAt": "2026-11-20T16:02:58.635Z",
+      "observedAt": "2026-11-22T15:57:45.763Z",
       "total": null
     },
     {
       "id": "wishlist-week",
       "projectId": "marque-and-reprisal",
       "label": "Net wishlists / week",
-      "value": 16509,
-      "note": "Nov 13–19 · +266% vs. prior week",
-      "observedAt": "2026-11-20T16:02:58.635Z",
+      "value": 18333,
+      "note": "Nov 15–21 · +257% vs. prior week",
+      "observedAt": "2026-11-22T15:57:45.763Z",
       "total": null
     },
     {
       "id": "steam-units",
       "projectId": "marque-and-reprisal",
       "label": "Steam purchases",
-      "value": 1605,
-      "note": "Nov 20 package report: 15.4% player refunds, 15.5% total returns.",
-      "observedAt": "2026-11-20T16:02:58.635Z",
+      "value": 2459,
+      "note": "445 on Nov 21 · separate package report: 18.0% player refunds, 18.1% total returns.",
+      "observedAt": "2026-11-22T15:57:45.763Z",
       "total": null
     },
     {
@@ -1422,32 +1465,32 @@
     {
       "id": "github",
       "label": "GitHub",
-      "checkedAt": "2026-11-21T16:04:50.771Z",
+      "checkedAt": "2026-11-22T15:56:47.558Z",
       "note": "Default-branch activity, open work and CI. Activity does not measure product progress."
     },
     {
       "id": "email",
       "label": "Project email",
-      "checkedAt": "2026-11-21T16:06:57.087Z",
-      "note": "Signed-in Gmail review confirms the Steam Deck compatibility queue, unverified inbound review requests and no matching project drafts or recent grant mail."
+      "checkedAt": "2026-11-22T16:00:26.593Z",
+      "note": "Project inbox shows new review inquiries, no matching outreach drafts and no new Creative BC message. Steam Deck compatibility review remains queued."
     },
     {
       "id": "steam",
       "label": "Steamworks",
-      "checkedAt": "2026-11-20T16:02:58.635Z",
-      "note": "Nov 20 remains the last verified reporting snapshot: 1,605 purchases, 30,513 outstanding wishes and US$14,646 net store sales before Valve’s share. The package report shows 250 player refunds (15.4%) and 252 total returns (15.5%). Nov 21 sales, wishlist, refund and branch pages require sign-in."
+      "checkedAt": "2026-11-22T16:00:26.593Z",
+      "note": "Nov 22 overview: 2,459 purchases, 33,265 outstanding wishes and US$21,664 net store sales before Valve’s share. Nov 15–21 wishlist balance: +18,333 versus +5,125. Separate package report: 443 player refunds (18.0%) and 446 total returns (18.1%) from 2,463 gross units, leaving 2,017 after all returns."
     },
     {
       "id": "glossary",
       "label": "Published glossary data",
-      "checkedAt": "2026-11-21T16:04:50.771Z",
+      "checkedAt": "2026-11-22T15:56:47.558Z",
       "note": "Published output retains its source date. Separately, 2,050 extracted chapters are intermediate work (source: 2026-11-18 Pacific), not published completion."
     },
     {
       "id": "marketing",
       "label": "M&R Marketing",
-      "checkedAt": "2026-11-21T16:06:57.087Z",
-      "note": "Public press kit now includes both launch trailers, the short trailer’s vertical cut and the refreshed gallery. Marketing confirmed the gallery was published. Public Workshop access and item delivery remain unverified."
+      "checkedAt": "2026-11-22T16:00:26.593Z",
+      "note": "November 15–21 GMT traffic: 63.86% of observed visits from Steam Home and 13.01% from Discovery Queue. External websites contributed 1.67%. The press kit is ready for one qualified outreach test. Public Workshop access and item delivery remain gates for a later campaign."
     },
     {
       "id": "histories-coordinator",
@@ -1458,20 +1501,20 @@
     {
       "id": "prototype-strategy",
       "label": "Next-game strategy",
-      "checkedAt": "2026-11-12T19:05:52.137Z",
-      "note": "Owner direction: paid Steam releases are the commercial focus. Wishlist momentum gates production; free web usage alone is not revenue evidence. No target or test window has been set."
+      "checkedAt": "2026-11-22T16:00:26.593Z",
+      "note": "The owner confirms Subject & Sovereign’s trailer exists. Treat a Steam page and bounded wishlist test as the next commercial gate. Keep production commitments and unresolved prototype work separate."
     },
     {
       "id": "marque-ci",
       "label": "M&R CI rerun",
-      "checkedAt": "2026-11-21T16:06:57.087Z",
-      "note": "Hosted game/runtime run 44799265608 on b1178df5 failed on an older worker test timeout and Windows demo build gate. The later site workflow passed. The current release record reports fresh-profile launches per edition and a serial pass of the timed-out worker test."
+      "checkedAt": "2026-11-22T16:00:26.593Z",
+      "note": "Hosted game/runtime run 44933269148 failed on older 6ac79d15. The integrated clearer-waters release at ec9e9c66 passed 10,837 Node tests and its recorded startup and package checks. The live full conversion build at a86c5233 has its own passing qualification record."
     },
     {
       "id": "kdp-publishing",
       "label": "KDP publishing",
-      "checkedAt": "2026-11-21T16:06:57.087Z",
-      "note": "Royalties Estimator across all four books and marketplaces: CA$505.42 for Jun 1–Nov 21, including CA$19.25 for Nov 1–21. The detailed export ends Nov 12."
+      "checkedAt": "2026-11-22T16:00:26.593Z",
+      "note": "Royalties Estimator across all four books and marketplaces: CA$505.42 for Jun 1–Nov 22, including CA$19.25 for Nov 1–22. The detailed export ends Nov 12."
     },
     {
       "id": "kdp-introductions",
@@ -1506,20 +1549,20 @@
     {
       "id": "marque-telemetry",
       "label": "M&R live telemetry · 24h",
-      "checkedAt": "2026-11-21T16:04:50.771Z",
-      "note": "24h opt-in snapshot at 2026-11-21T16:05:08.181Z: 957 installations, 1782 sessions, 1 crash reports and 44 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
+      "checkedAt": "2026-11-22T15:56:47.558Z",
+      "note": "24h opt-in snapshot at 2026-11-22T15:57:04.046Z: 684 installations, 1350 sessions, 2 crash reports and 70 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
     },
     {
       "id": "marque-feedback",
       "label": "M&R remote feedback review",
-      "checkedAt": "2026-11-21T16:06:57.087Z",
-      "note": "Remote tracker reviewed at 6ac79d15. The latest release record verifies promoted full 26828279 and demo 26828282 at 4611fa6b. Later gameplay changes in source need storefront delivery evidence. Current intermittent demo startup reports need matching-package reproduction."
+      "checkedAt": "2026-11-22T16:00:26.593Z",
+      "note": "Remote tracker reviewed at dea07e2e. Steamworks confirmed full 26843359 and demo 26841162. Refund themes include slow early sailing and unclear control response. Older reports need matching-build checks before attributing the current refund rate."
     },
     {
       "id": "supporter-pack",
       "label": "Supporter Pack project handoff",
-      "checkedAt": "2026-11-20T16:03:55.946Z",
-      "note": "Steamworks still shows both checklists approved. The supporter branch remains at 19dc6783 and both current base-game defaults carry three platform depots. The refreshed combined delivery and ownership checks remain on the backburner."
+      "checkedAt": "2026-11-22T16:00:26.593Z",
+      "note": "Steamworks still shows both checklists approved. Live base-game defaults have three platform depots each. The supporter branch remains at 19dc6783. Combined delivery and ownership QA remain on the backburner."
     },
     {
       "id": "marque-reliability-release",
@@ -1542,8 +1585,8 @@
     {
       "id": "creator-outreach-handoff",
       "label": "Creator outreach handoff",
-      "checkedAt": "2026-11-21T16:06:57.087Z",
-      "note": "The refreshed press kit is public. New inbound requests still need sender and outlet verification. No matching launch draft or reply to the previously identified press request was found."
+      "checkedAt": "2026-11-22T16:00:26.593Z",
+      "note": "New review inquiries are queued for publication and sender verification. No new matching draft or independently confirmed coverage was found."
     },
     {
       "id": "kdp-introduction-scope",
@@ -1633,14 +1676,14 @@
       "id": "kdp",
       "label": "KDP ebooks",
       "projectId": "histories-kdp",
-      "note": "Nov 1–21: CA$19.25 included.",
+      "note": "Nov 1–22: CA$19.25 included.",
       "report": {
         "amountCents": 50542,
         "currency": "CAD",
         "periodStart": "2026-06-01",
-        "periodEnd": "2026-11-21",
+        "periodEnd": "2026-11-22",
         "basis": "estimated",
-        "observedAt": "2026-11-21T16:06:08.307Z",
+        "observedAt": "2026-11-22T15:58:55.916Z",
         "source": "KDP Royalties Estimator · all books & marketplaces"
       }
     },
@@ -1648,7 +1691,7 @@
       "id": "steam",
       "label": "Steam · Marque & Reprisal",
       "projectId": "marque-and-reprisal",
-      "note": "US$14,646 net store sales through Nov 20 before Valve’s share. Publisher earnings pending.",
+      "note": "US$21,664 net store sales through Nov 22 before Valve’s share. Publisher earnings pending.",
       "report": null
     },
     {
@@ -1683,7 +1726,7 @@
       },
       "effort": "4–8 h",
       "effortNote": "Remaining week-one support",
-      "gate": "Use first-week kept sales and repeatable demand to decide whether another focused Steam push earns the time.",
+      "gate": "Use kept sales, current-build retention and repeatable traffic to choose one focused Steam follow-up.",
       "milestones": [
         {
           "label": "Prototype",
@@ -1798,19 +1841,19 @@
         "label": "Untested"
       },
       "delivery": {
-        "level": 1,
-        "label": "Prototype"
+        "level": 2,
+        "label": "Trailer cut available"
       },
-      "effort": "6–12 h",
-      "effortNote": "Page + trailer",
-      "gate": "Launch page/trailer; test wishlist momentum.",
+      "effort": "3–6 h",
+      "effortNote": "Page + test setup",
+      "gate": "Reuse the existing trailer for a Steam page and measure wishlists in a bounded test.",
       "milestones": [
         {
-          "label": "Prototype",
+          "label": "Trailer cut",
           "state": "done"
         },
         {
-          "label": "Page/trailer",
+          "label": "Steam page",
           "state": "next"
         },
         {
@@ -1822,8 +1865,8 @@
           "state": "later"
         }
       ],
-      "timing": "After M&R launch",
-      "effortAssumptions": "AI implements, captures and edits. You supply the pitch, art direction and review. Allow roughly 1–2 weeks elapsed plus store review."
+      "timing": "Reconsider November 25",
+      "effortAssumptions": "Rough owner time for page decisions, human wording and review using the existing cut. Steam review is separate."
     },
     {
       "id": "shaolin-demand-test",
@@ -1867,21 +1910,21 @@
     }
   ],
   "dailyPlan": {
-    "date": "2026-11-21",
-    "checkedAt": "2026-11-21T16:06:57.087Z",
+    "date": "2026-11-22",
+    "checkedAt": "2026-11-22T16:00:26.593Z",
     "taskIds": [
       "steam-launch-week-allocation",
       "november-portfolio-allocation"
     ],
-    "focus": "Give Marque & Reprisal the rest of launch week. Reuse the finished press kit for qualified outreach and reserve broader promotion for a reliable first run. Choose one next investment on November 25.",
-    "basis": "The tutorial update and both launch trailers are public. Steam reporting still needs sign-in. Nov 20 remains the last verified sales snapshot: 1,605 purchases and 250 player refunds (15.4% in the separate package report)."
+    "focus": "Make keeping Steam buyers the first priority through November 25. Use existing trailers for targeted outreach while the team checks where first voyages break down. Defer a wider campaign and choose one follow-up investment at the review.",
+    "basis": "Two complete days brought 424 and 445 purchases. Player refunds reached 18.0%, up from 15.4% on Nov 20. Steam home and Discovery Queue drove 76.9% of Nov 15–21 visits. Subject & Sovereign already has a trailer for a bounded page test."
   },
   "telemetry": {
-    "observedAt": "2026-11-21T16:05:08.181Z",
+    "observedAt": "2026-11-22T15:57:04.046Z",
     "windowDays": 1,
-    "installations": 957,
-    "sessions": 1782,
-    "crashReports": 1,
-    "chartWarnings": 44
+    "installations": 684,
+    "sessions": 1350,
+    "crashReports": 2,
+    "chartWarnings": 70
   }
 }
