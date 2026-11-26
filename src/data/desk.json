@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-11-25T16:08:22.506Z",
+  "reviewedAt": "2026-11-26T16:05:30.348Z",
   "brief": "First-week review · next investment is a demand test.",
   "projects": [
     {
@@ -8,21 +8,21 @@
       "name": "Marque & Reprisal",
       "group": "focus",
       "health": "moving",
-      "stage": "Live · first-week review complete",
+      "stage": "Live · full price",
       "summary": "Build for history and sailing enthusiasts; prioritize long-term play and word of mouth.",
-      "next": "Resolve verified live blockers. Review full-price sales and Workshop readiness on Nov 30.",
-      "blocker": "The discount ends Nov 25. Full-price demand and clean Workshop playback still need evidence.",
+      "next": "Resolve verified live blockers. Compare full-price sales and review Workshop readiness on Nov 30.",
+      "blocker": "Several complete full-price days and clean Workshop playback are still pending.",
       "repo": "GarrettPetersen/polyglobe",
       "url": "https://marque-and-reprisal.com/",
       "activity": {
-        "checkedAt": "2026-11-25T16:03:33.321Z",
-        "lastCommitAt": "2026-11-25T10:42:18Z",
+        "checkedAt": "2026-11-26T16:03:09.098Z",
+        "lastCommitAt": "2026-11-26T14:42:47Z",
         "openPullRequests": 0,
         "openIssues": 0,
         "ci": {
           "status": "completed",
           "conclusion": "success",
-          "createdAt": "2026-11-25T05:34:46Z"
+          "createdAt": "2026-11-26T14:40:31Z"
         }
       }
     },
@@ -38,7 +38,7 @@
       "repo": "GarrettPetersen/subject-and-sovereign",
       "url": "https://subject-and-sovereign.garrett-m-petersen.workers.dev/",
       "activity": {
-        "checkedAt": "2026-11-25T16:03:33.321Z",
+        "checkedAt": "2026-11-26T16:03:09.098Z",
         "lastCommitAt": "2026-11-25T01:05:38Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -57,7 +57,7 @@
       "repo": "GarrettPetersen/anime-games",
       "url": null,
       "activity": {
-        "checkedAt": "2026-11-25T16:03:33.321Z",
+        "checkedAt": "2026-11-26T16:03:09.098Z",
         "lastCommitAt": "2026-11-01T12:45:37Z",
         "openPullRequests": 0,
         "openIssues": 0,
@@ -80,7 +80,7 @@
       "repo": "GarrettPetersen/records-of-the-grand-historian",
       "url": "https://24histories.com/progress",
       "activity": {
-        "checkedAt": "2026-11-25T16:03:33.321Z",
+        "checkedAt": "2026-11-26T16:03:09.098Z",
         "lastCommitAt": "2026-11-24T19:31:13Z",
         "openPullRequests": 298,
         "openIssues": 0,
@@ -176,10 +176,10 @@
       "owner": "Garrett",
       "priority": "now",
       "source": "First-week allocation and owner-confirmed trailer",
-      "note": "Use the existing trailer and opening to scope the Steam page. Agree the target audience, one tracked channel, and what wishlist result would earn another investment. Proposed test: seven days from page launch, with roughly 3–6 total owner hours. Define the threshold from reachable traffic before publishing.",
+      "note": "Start with historical strategy players. Pick one channel with enough reachable players and set a minimum number of tracked visits and a wishlist target before publishing. Use the existing trailer, seven days from page launch, and an estimated 3–6 total owner hours. Assess whether to invest more once the window closes.",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-25T16:08:22.506Z",
+      "checkedAt": "2026-11-26T16:05:30.348Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
@@ -190,7 +190,7 @@
         "max": 45
       },
       "signal": "The finished trailer can test demand before a larger production commitment.",
-      "outcome": "A capped page-and-trailer test with a fixed measurement window and a decision threshold."
+      "outcome": "One audience, one tracked channel, a minimum reach and a wishlist target for a seven-day test."
     },
     {
       "id": "grant-submitted",
@@ -1066,14 +1066,14 @@
       "priority": "now",
       "status": "open",
       "due": null,
-      "checkedAt": "2026-11-25T16:08:22.506Z",
+      "checkedAt": "2026-11-26T16:05:30.348Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "active",
       "title": "Verify current Steam blockers and Workshop playback",
       "owner": "Release team",
       "source": "Steam defaults, release record and feedback",
-      "note": "Test repeatable startup, save or progression issues on full 26913754 or demo 26913775. Record the exact edition and revision. Verify the public Workshop sample on a clean full-game install before a promotion.",
+      "note": "Investigate a new no-window startup report once the platform and build are known. Check reproducible issues on full 26913754 or demo 26913775 and verify the Workshop sample independently. Escalate repeatable buying, launch or save failures.",
       "importance": 4,
       "effortMinutes": {
         "min": 10,
@@ -1185,14 +1185,14 @@
       "owner": "Garrett",
       "priority": "next",
       "status": "open",
-      "checkedAt": "2026-11-25T16:08:22.506Z",
+      "checkedAt": "2026-11-26T16:05:30.348Z",
       "completedOn": null,
       "completionKind": null,
       "lane": "waiting",
       "projectId": "marque-and-reprisal",
       "title": "Review M&R’s full-price sales",
       "source": "Launch-week package and traffic reports",
-      "note": "Compare the first complete full-price days with the discounted run rate. Revisit one Workshop promotion once a clean install can play the public sample and a tagged channel can measure visits and purchases. Escalate only repeatable issues that block paying players.",
+      "note": "Start the full-price comparison on Nov 26. The discount ended Nov 25, when Steam recorded 121 purchases across the transition day. Revisit one promotion if the public Workshop sample plays on a clean install and the channel is measurable.",
       "due": "2026-11-30",
       "importance": 5,
       "effortMinutes": {
@@ -1411,13 +1411,13 @@
       "owner": "Marketing team",
       "priority": "next",
       "source": "Creator coverage notification",
-      "note": "Verify the public replay and check existing outreach history and any attributable Steam visits. Capture a source link if available.",
+      "note": "Livestream notification is recorded. Public replay and referral evidence are still pending.",
       "status": "open",
-      "due": "2026-11-25",
-      "checkedAt": "2026-11-25T16:08:22.506Z",
+      "due": null,
+      "checkedAt": "2026-11-26T16:05:30.348Z",
       "completedOn": null,
       "completionKind": null,
-      "lane": "active"
+      "lane": "waiting"
     },
     {
       "id": "wreckage-raking-release-2026-11-25",
@@ -1474,6 +1474,21 @@
       "checkedAt": "2026-11-25T16:08:22.506Z",
       "completedOn": null,
       "completionKind": null
+    },
+    {
+      "id": "creator-outreach-2026-11-26",
+      "projectId": "marque-and-reprisal",
+      "title": "Match the fishing clip to one creator",
+      "owner": "Marketing team",
+      "priority": "next",
+      "source": "Verified clip asset and project inbox",
+      "note": "Find one creator with recent historical or simulation coverage who could use the fishing clip. Check contact history and note the best way to measure referrals.",
+      "status": "open",
+      "due": "2026-11-26",
+      "checkedAt": "2026-11-26T16:05:30.348Z",
+      "completedOn": null,
+      "completionKind": null,
+      "lane": "active"
     }
   ],
   "metrics": [
@@ -1481,27 +1496,27 @@
       "id": "wishlists",
       "projectId": "marque-and-reprisal",
       "label": "Outstanding wishlists",
-      "value": 34304,
+      "value": 34468,
       "note": "Steam lifetime outstanding",
-      "observedAt": "2026-11-25T16:05:01.931Z",
+      "observedAt": "2026-11-26T16:03:35.706Z",
       "total": null
     },
     {
       "id": "wishlist-week",
       "projectId": "marque-and-reprisal",
       "label": "Net wishlists / week",
-      "value": 12320,
-      "note": "Nov 18–24 · +17% vs. prior week",
-      "observedAt": "2026-11-25T16:05:33.245Z",
+      "value": 10572,
+      "note": "Nov 19–25 · −10% vs. prior week",
+      "observedAt": "2026-11-26T16:04:34.802Z",
       "total": null
     },
     {
       "id": "steam-units",
       "projectId": "marque-and-reprisal",
       "label": "Steam purchases",
-      "value": 3023,
-      "note": "2,965 Nov 18–24 · 2,430 kept in the separate package report.",
-      "observedAt": "2026-11-25T16:05:01.931Z",
+      "value": 3098,
+      "note": "121 on Nov 25, the discount-ending day · 2,430 kept from Nov 18–24 package.",
+      "observedAt": "2026-11-26T16:03:35.706Z",
       "total": null
     },
     {
@@ -1541,9 +1556,9 @@
       "date": "2027-01-18",
       "title": "Creative BC decision check",
       "kind": "planned",
-      "note": "Tentative check around the expected response: the receipt email gives 11 weeks from the November 2, 2026 program close. This points to January 18, 2027; no exact decision date or award is confirmed. Up to CA$50,000 in potential funding.",
+      "note": "Application under review and closed to amendments. January 18 is a tentative check based on the 11-week estimate from the November 2 close. Up to CA$50,000 in potential funding. Decision pending.",
       "sourceUrl": "https://creativebc.com/wp-content/uploads/2026/08/Video-Games-Early-Stage-Growth_Guidelines-2627.pdf",
-      "verifiedAt": "2026-11-12T21:44:11.000Z"
+      "verifiedAt": "2026-11-26T16:05:30.348Z"
     },
     {
       "id": "economics-detective-episode-release",
@@ -1561,9 +1576,9 @@
       "date": "2026-11-25",
       "title": "M&R launch discount ends",
       "kind": "confirmed",
-      "note": "Steam’s 15% introductory offer ends November 25.",
+      "note": "The 15% introductory offer ended November 25. Use November 26 onward for the full-price baseline.",
       "sourceUrl": "https://store.steampowered.com/app/4516500/",
-      "verifiedAt": "2026-11-19T16:08:12.837Z"
+      "verifiedAt": "2026-11-26T16:05:30.348Z"
     },
     {
       "id": "marque-full-price-review",
@@ -1631,32 +1646,32 @@
     {
       "id": "github",
       "label": "GitHub",
-      "checkedAt": "2026-11-25T16:03:33.321Z",
+      "checkedAt": "2026-11-26T16:03:09.098Z",
       "note": "Default-branch activity, open work and CI. Activity does not measure product progress."
     },
     {
       "id": "email",
       "label": "Project email",
-      "checkedAt": "2026-11-25T16:08:22.506Z",
-      "note": "Reviewed press and creator coverage evidence and recent drafts. The owner sent Creative BC a launch update. No funding decision or new Deck rating was found."
+      "checkedAt": "2026-11-26T16:05:30.348Z",
+      "note": "Reviewed new project mail and drafts. The Creative BC application is in review. The next step is the decision check, and no new Steam Deck rating was found."
     },
     {
       "id": "steam",
       "label": "Steamworks",
-      "checkedAt": "2026-11-25T16:05:01.931Z",
-      "note": "Nov 25 app overview: 3,023 purchases, 34,304 outstanding wishlists, US$26,725 net store sales before Valve’s share and 40 minutes median playtime."
+      "checkedAt": "2026-11-26T16:03:35.706Z",
+      "note": "Nov 26 app overview: 3,098 purchases, 34,468 outstanding wishlists, US$27,393 net store sales before Valve’s share and 40 minutes median playtime."
     },
     {
       "id": "glossary",
       "label": "Published glossary data",
-      "checkedAt": "2026-11-25T16:03:33.321Z",
+      "checkedAt": "2026-11-26T16:03:09.098Z",
       "note": "Published output retains its source date. Separately, 2,050 extracted chapters are intermediate work (source: 2026-11-24 Pacific), not published completion."
     },
     {
       "id": "marketing",
       "label": "M&R Marketing",
-      "checkedAt": "2026-11-25T16:05:33.245Z",
-      "note": "Nov 18–24 GMT: 55.39% of visits came from Steam Home and 16.54% from Discovery Queue. The public Workshop sample is listed. Clean subscribe-to-play verification is pending."
+      "checkedAt": "2026-11-26T16:04:06.496Z",
+      "note": "Nov 19–25 GMT: Steam Home supplied 53.84% of visits and Discovery Queue 18.68%. The fishing clip is ready. Clean Workshop subscription and playback still need verification."
     },
     {
       "id": "histories-coordinator",
@@ -1667,20 +1682,20 @@
     {
       "id": "prototype-strategy",
       "label": "Next-game strategy",
-      "checkedAt": "2026-11-25T16:08:22.506Z",
-      "note": "The first-week review favors a bounded Subject & Sovereign Steam page and trailer test. The trailer is ready and project reports continue to show playable-opening progress. Demand is unmeasured."
+      "checkedAt": "2026-11-26T16:05:30.348Z",
+      "note": "Subject & Sovereign’s owning project reports further playable-opening progress. The bounded Steam demand test still needs owner scope and approval."
     },
     {
       "id": "marque-ci",
       "label": "M&R CI rerun",
-      "checkedAt": "2026-11-25T16:08:22.506Z",
-      "note": "An older game/runtime run failed on 7e31e0b2. The shipped 9c070e78 revision has separate evidence covering the full Node suite, 40 frozen saves and fresh Steam launches. The website deploy check is separate."
+      "checkedAt": "2026-11-26T16:05:30.348Z",
+      "note": "The game/runtime check failed on 80d8be9b, a later source revision than the current Steam packages. The website deploy on 6ecf8b43 passed."
     },
     {
       "id": "kdp-publishing",
       "label": "KDP publishing",
-      "checkedAt": "2026-11-25T16:06:08.239Z",
-      "note": "Royalties Estimator across all books, marketplaces and formats: CA$278.12 for Jun 1–Aug 29 plus CA$236.80 for Aug 30–Nov 25. Nov 1–25 contributed CA$28.74. The detailed export ends Nov 12."
+      "checkedAt": "2026-11-26T16:04:48.661Z",
+      "note": "Royalties Estimator across all books, marketplaces and formats: CA$278.12 for Jun 1–Aug 29 plus CA$236.68 for Aug 30–Nov 26. Nov 1–26 contributed CA$28.62. The detailed export ends Nov 12."
     },
     {
       "id": "kdp-introductions",
@@ -1691,8 +1706,8 @@
     {
       "id": "creative-bc",
       "label": "Creative BC grant timeline",
-      "checkedAt": "2026-11-25T16:08:22.506Z",
-      "note": "The owner sent Creative BC a launch update Nov 24. The 11-week estimate still points to mid-January. A decision is pending."
+      "checkedAt": "2026-11-26T16:05:30.348Z",
+      "note": "Application in active review. Amendments are closed during review. A decision is pending, with a tentative January 18 check."
     },
     {
       "id": "platform-expansion",
@@ -1715,14 +1730,14 @@
     {
       "id": "marque-telemetry",
       "label": "M&R live telemetry · 24h",
-      "checkedAt": "2026-11-25T16:03:33.321Z",
-      "note": "24h opt-in snapshot at 2026-11-25T16:03:51.383Z: 383 installations, 734 sessions, 0 crash reports and 11 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
+      "checkedAt": "2026-11-26T16:03:09.098Z",
+      "note": "24h opt-in snapshot at 2026-11-26T16:03:27.182Z: 337 installations, 813 sessions, 0 crash reports and 6 chart warnings. Reports are not distinct bugs. No diagnostic cursor changed."
     },
     {
       "id": "marque-feedback",
       "label": "M&R remote feedback review",
-      "checkedAt": "2026-11-25T16:08:22.506Z",
-      "note": "Remote feedback checked at 80d8be9b. Current reports still need exact-build reproduction. Steam defaults 26913754 and 26913775 include the wreckage, raking fire and dialogue update."
+      "checkedAt": "2026-11-26T16:05:30.348Z",
+      "note": "Remote feedback reviewed at 1bbfb704. Steam defaults are full 26913754 and demo 26913775. One startup report needs platform and exact-build evidence."
     },
     {
       "id": "supporter-pack",
@@ -1835,8 +1850,8 @@
     {
       "id": "steam-package-returns",
       "label": "Steam package returns",
-      "checkedAt": "2026-11-25T16:06:47.432Z",
-      "note": "Nov 18–24: 2,965 gross units, 514 player refunds, 535 total returns and 2,430 kept. Lifetime snapshot: 3,030 gross units, 546 player refunds (18.0%), 549 total returns (18.1%) and 2,481 kept. Total returns include chargebacks, fraud and payment issues."
+      "checkedAt": "2026-11-26T16:03:35.706Z",
+      "note": "Launch week Nov 18–24: 2,965 gross units, 514 player refunds, 535 total returns and 2,430 kept. Nov 26 lifetime package snapshot: 3,100 gross units, 570 player refunds, 571 total returns and 2,529 kept. Total returns include chargebacks, fraud and payment issues."
     }
   ],
   "prototypeStrategy": {
@@ -1848,14 +1863,14 @@
       "id": "kdp",
       "label": "KDP ebooks",
       "projectId": "histories-kdp",
-      "note": "Nov 1–25: CA$28.74 included.",
+      "note": "Nov 1–26: CA$28.62 included.",
       "report": {
-        "amountCents": 51492,
+        "amountCents": 51480,
         "currency": "CAD",
         "periodStart": "2026-06-01",
-        "periodEnd": "2026-11-25",
+        "periodEnd": "2026-11-26",
         "basis": "estimated",
-        "observedAt": "2026-11-25T16:06:08.239Z",
+        "observedAt": "2026-11-26T16:04:48.661Z",
         "source": "KDP Royalties Estimator · all books & marketplaces"
       }
     },
@@ -1863,7 +1878,7 @@
       "id": "steam",
       "label": "Steam · Marque & Reprisal",
       "projectId": "marque-and-reprisal",
-      "note": "US$26,725 net store sales as of Nov 25 before Valve’s share. Publisher earnings pending.",
+      "note": "US$27,393 net store sales as of Nov 26 before Valve’s share. Publisher earnings pending.",
       "report": null
     },
     {
@@ -2082,20 +2097,20 @@
     }
   ],
   "dailyPlan": {
-    "date": "2026-11-25",
-    "checkedAt": "2026-11-25T16:08:22.506Z",
+    "date": "2026-11-26",
+    "checkedAt": "2026-11-26T16:05:30.348Z",
     "taskIds": [
       "prototype-comparison"
     ],
-    "focus": "Put your next block into the Subject & Sovereign Steam page and trailer test. Keep M&R on routine support, and revisit Workshop promotion after clean playback and a full-price sales baseline.",
-    "basis": "M&R sold 2,430 kept copies Nov 18–24, and the last complete day was down to 168 gross sales. Workshop playback is unverified. Subject & Sovereign already has the trailer, and a wishlist test can guide the bigger production decision."
+    "focus": "Use the next owner block to set the audience and wishlist target for Subject & Sovereign’s seven-day test. Keep M&R on live support and reassess promotion once several full-price days and a clean Workshop play check are in.",
+    "basis": "M&R sold 121 copies on the day the discount ended, down from 168. That day mixes prices. The existing Subject & Sovereign trailer lets us test demand while M&R’s full-price baseline develops."
   },
   "telemetry": {
-    "observedAt": "2026-11-25T16:03:51.383Z",
+    "observedAt": "2026-11-26T16:03:27.182Z",
     "windowDays": 1,
-    "installations": 383,
-    "sessions": 734,
+    "installations": 337,
+    "sessions": 813,
     "crashReports": 0,
-    "chartWarnings": 11
+    "chartWarnings": 6
   }
 }
